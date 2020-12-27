@@ -8,7 +8,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
     logo: fontawesome/regular/save
-    favicon: fontawesome/regular/save
+    #favicon: fontawesome/regular/save
   palette:
     primary: indigo
     accent: teal
