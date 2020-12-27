@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  wiki:
+    build: .
+    image: ironicbadger/pms-wiki
+    volumes:
+      - .:/docs
+    ports:
+      - 8000:8000

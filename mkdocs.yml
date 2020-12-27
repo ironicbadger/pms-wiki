@@ -1,0 +1,59 @@
+site_name: perfectmediaserver.com
+repo_url: https://github.com/IronicBadger/pms-wiki
+repo_name: ironicbadger/pms-wiki
+
+theme:
+  name: material
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+    logo: fontawesome/regular/save
+    favicon: fontawesome/regular/save
+  palette:
+    primary: indigo
+    accent: teal
+    scheme: slate
+  font:
+    code: Jet Brains Mono
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.expand
+  # insiders only
+  #   - search.suggest
+
+plugins:
+  - git-revision-date
+  - search
+  - minify:
+      minify_html: true
+markdown_extensions:
+  - abbr
+  - admonition # enables coloured blocks mid article
+  - pymdownx.details # enables collapsible admonitions
+  - footnotes
+  - meta # adds support for front matter
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.highlight: # code highlighting
+      linenums: true
+  - pymdownx.tabbed # enables tabs for embedded blocks
+  - pymdownx.snippets
+  - pymdownx.superfences # allows for the nesting of code blocks inside other blocks
+  - pymdownx.keys
+
+copyright: 2020 - 2021 &copy; Alex Kretzschmar - Licensed under GPLv3
+extra:
+  social:
+    - icon: 'fontawesome/brands/github'
+      link: 'https://github.com/ironicbadger'
+      name: IronicBadger on GitHub
+    - icon: 'fontawesome/brands/twitter'
+      link: 'https://twitter.com/ironicbadger'
+      name: IronicBadger on Twitter
+    - icon: 'fontawesome/brands/linkedin'
+      link: 'https://www.linkedin.com/in/alex-kretzschmar/'      
+    - icon: 'fontawesome/solid/microphone'
+      link: 'https://selfhosted.show/'
+      name: IronicBadger's Podcast - selfhosted.show
