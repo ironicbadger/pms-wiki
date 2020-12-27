@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,7 +27,7 @@ jobs:
             USERNAME: ${{ secrets.VPS_DEPLOY_USER }}
             PORT: ${{ secrets.VPS_SSH_PORT }}
             KEY: ${{ secrets.VPS_SSHKEY }}
-            script: cd ${{ secrets.VPS_PROJECT_PATH }} && docker-compose run VPS build
+            script: cd ${{ secrets.VPS_PROJECT_PATH }} && docker-compose run pms-wiki build
 
       # Deploy
       - name: Deploy new image and cleanup
