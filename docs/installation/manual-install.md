@@ -1,10 +1,13 @@
 # Bare Metal Manual Install
 
-This section covers manual installation of a Perfect Media Server. 
+This section covers manual installation of a Perfect Media Server.
 
 ## Base OS installation
 
 Installation of Ubuntu 20.04 LTS itself is documented by [Canonical](https://canonical.com/) (the company behind Ubuntu) on their [website](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview).
+
+!!! danger
+    To prevent accidentally installing Ubuntu on the wrong drive and overwriting data it is recommended to disconnect data drives during installation.
 
 Creating a bootable USB stick to install Linux from used to be a tricky thing. There is a [guide](https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#1-overview) on the Ubuntu website for the official method but recently the [Ventoy](https://www.ventoy.net/en/index.html) project has made this process even easier. It's not perfect and some users have reported issues but it should work for 95+% of you.
 
@@ -57,7 +60,7 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id username` as
 
 You can check the owner of a specific file or directory with `ls -la`.
 
-## MergerFS installation
+## MergerFS
 
 [MergerFS](https://github.com/trapexit/mergerfs) is the (not so) secret sauce that makes Perfect Media Server possible.
 
