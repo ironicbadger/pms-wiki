@@ -3,7 +3,7 @@ name: Deploy to VPS
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   test:
@@ -12,14 +12,14 @@ jobs:
       - uses: actions/checkout@v2
            
       # Build
-      - name: Pull latest changes on Linode node
+      - name: Pull latest changes on VPS
         uses: appleboy/ssh-action@master
         with:
             host: ${{ secrets.VPS_HOST }}
             USERNAME: ${{ secrets.VPS_DEPLOY_USER }}
             PORT: ${{ secrets.VPS_SSH_PORT }}
             KEY: ${{ secrets.VPS_SSHKEY }}
-            script: cd ${{ secrets.VPS_PROJECT_PATH }} && git fetch && git checkout master && git pull
+            script: cd ${{ secrets.VPS_PROJECT_PATH }} && git fetch && git checkout main && git pull
       - name: Build
         uses: appleboy/ssh-action@master
         with:
