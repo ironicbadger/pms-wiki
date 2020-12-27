@@ -60,7 +60,7 @@ extra:
       name: IronicBadger's Podcast - selfhosted.show
 
 nav:
-  - Introduction: 'introduction.md'
+  - Introduction: 'index.md'
   - Concepts and Tech:
     - Infrastructure as Code: 'concepts/infraascode.md'
     - Hypervisors: 'concepts/hypervisors.md'
