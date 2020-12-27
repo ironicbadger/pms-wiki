@@ -37,17 +37,16 @@ Defining, starting, stopped and upgrading dozens of containers all at once is re
 !!! info
     `docker-compose` installation instructions for Linux can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
 
-### Container user creation
+### Container file permissions
 
 We need to find the user and group IDs for the user we plan to run our containers with. This is important because otherwise we will end up with file permissions errors.
 
 The [LinuxServer.io](https://www.linuxserver.io/) team are one of the most popular containerisation projects on the web. They provide a whole [fleet](https://fleet.linuxserver.io/) of containers that cater to pretty much every need the average Media Server enthusiast has. They pioneered a system of defining `PUID` and `PGID` in container environment variables to ensure permissions issues became a thing of the past.
 
-### Understanding PGID and PUID
+!!! success
+    Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
 
-With containers, when using volumes (`-v` flags) permissions issues can arise between the host OS and the container. Avoid this issue by running containers which support the user `PUID` and group `PGID` flags (like the ones from LinuxServer.io).
-
-Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
+With containers, when using volumes (`-v` flags) permissions issues can arise between the host OS and the container. Avoid this issue by running containers which support the user `PUID` and group `PGID` flags. Not all containers support this but all containers from LSIO do.
 
 In this instance `PUID=1000` and `PGID=1000`, to find yours use `id username` as below:
 
@@ -58,39 +57,47 @@ In this instance `PUID=1000` and `PGID=1000`, to find yours use `id username` as
 
 You can check the owner of a specific file or directory with `ls -la`.
 
-# MergerFS installation
+## MergerFS installation
 
 [MergerFS](https://github.com/trapexit/mergerfs) is the (not so) secret sauce that makes Perfect Media Server possible.
 
-Installation in Ubuntu can be performed using `apt` but the version in the Ubuntu repository is usually a little behind upstream. For example, at the time of writing Ubuntu provides `2.28.1` which was released in June 2019. The latest upstream release was August 2020 with version `2.30.0`. Therefore, it is **not** recommended to install mergerfs from the Ubuntu repos.
+Installation in Ubuntu can be performed using `apt` but the version in the Ubuntu repository is usually a little behind upstream. For example, at the time of writing Ubuntu provides `2.28.1` which was released in June 2019. The latest upstream release was Dec 23rd 2020 with version `2.32.2`.
+
+!!! Warning
+    It is not recommended to install mergerfs from the Ubuntu repos - use the GitHub repo as detailed below.
 
 Instead, navigate to the mergerfs github [releases](https://github.com/trapexit/mergerfs/releases) page and find the correct `.deb` file for Ubuntu 20.04. For example:
 
 ```
 ## Download and install - ensure to update version number!
-wget https://github.com/trapexit/mergerfs/releases/download/2.30.0/mergerfs_2.30.0.ubuntu-focal_amd64.deb
-sudo dpkg -i mergerfs_2.30.0.ubuntu-focal_amd64.deb
+wget https://github.com/trapexit/mergerfs/releases/download/2.32.2/mergerfs_2.32.2.ubuntu-focal_amd64.deb
+sudo dpkg -i mergerfs_2.32.2.ubuntu-focal_amd64.deb
 
 ## Verify installation
 alex@cartman:~$ apt list mergerfs
 Listing... Done
-mergerfs/now 2.30.0~ubuntu-focal amd64 [installed,local]
+mergerfs/now 2.32.2~ubuntu-focal amd64 [installed,local]
 ```
 
-# Mounting drives manually
+## Hard Drive setup
 
-> Due to some differences in the way in which Ubuntu server and desktop present drives to us under `/dev/disk/by-id` we recommend using the Ubuntu desktop variant.
+The following section details the steps to identify, mount and partition the hard drives in your system.
 
-TODO: Info
-You may now connect your data disks. 
+### Mounting drives manually
 
 In order to use these disks our OS needs to mount them. *Mounting* means that we are providing the OS with instructions on how to read or write data to a specific drive. The most common way of configuring drives for use with PMS is to create one large partition which spans the entire drive, format it to `ext4` or `xfs` and then mount it.
 
+!!! success
+    You may now connect your data disks.
+
 The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. XFS allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on choosing your filesystem [here](https://access.redhat.com/articles/3129891).
+
+!!! info
+    Due to some differences in the way in which Ubuntu server and desktop present drives to us under `/dev/disk/by-id` we recommend using the Ubuntu desktop variant.
 
 Remember with MergerFS you are able to safely mix and match filesystems and drive sizes.
 
-## Identifying drives
+### Identifying drives
 
 List all drives in a system with:
 
@@ -116,11 +123,14 @@ lrwxrwxrwx 1 root root 9 Sep  9 23:08 /dev/disk/by-id/ata-HGST_HDN728080ALE604_R
 
 Therefore, we can ascertain that `/dev/sdc` is mapped to this physical drive. Never use `/dev/sdX` as a long term solution for drive identification as these identifiers can and do change without warning due to other hardware changes, kernel upgrades, etc. The `/dev/disk/by-id` identifier is tied to that specific piece of hardware by drive model and serial number and will therefore never change.
 
-## Brand new drives
+### Brand new drives
+
+* todo - burn-in article
 
 Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under *Hardware Considerations* -> [New Drive Burn-In](../hardware/new_drive_burnin.md).
 
-> **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is *any* existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
+!!! warning 
+    **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is *any* existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
 
 The following steps will require root access, become the root user by typing `sudo su`. Using our example drive from the prior section we will use `gdisk` to create a new partition and filesystem. Run `gdisk /dev/sdX` (replacing `sdX` with your drive), for example:
 
@@ -135,23 +145,30 @@ The following steps will require root access, become the root user by typing `su
 
 Once `gdisk` is loaded we are presented with an interactive prompt `Command (? for help):`. To see all options simply type `?`. In the initial output from gdisk we can see there is no partition table present on this drive - it's a good sanity check you have the right drive before erasing the partition and file allocation tables.
 
-Use the following sequence to create one large partition spanning the entire drive - **note this is destructive**.
+!!! danger
+    The following sequence will erase everything on this disk. **USE CAUTION**
 
-* `o` - creates a new **EMPTY** GPT partition table (GPT is good for large drives over 3TB)
-    * `Proceed? (Y/N) - Y`
-* `n` - creates a new partition
-    * Partition number (1-128, default 1): `1`
-    * First sector (34-15628053134, default = 2048) or {+-}size{KMGTP}: `leave blank`
-    * Last sector (2048-15628053134, default = 15628053134) or {+-}size{KMGTP}: `leave blank`
-    * Hex code or GUID (L to show codes, Enter = 8300): `8300`
-* `p` - (optional) validate 1 large partition to be created
-    * `Model: HGST HDN728080AL`
-    * `Number  Start (sector)    End (sector)  Size       Code  Name`
-    * `1       2048              15628053134   7.3 TiB    8300  Linux filesystem`
-* `w` - writes the changes made thus far
-    * Until this point, gdisk has been non-destructive  
+Use the following sequence to create one large partition spanning the entire drive.
 
-### Filesystem creation
+=== "gdisk"
+
+    ```
+    * o - creates a new **EMPTY** GPT partition table (GPT is good for large drives over 3TB)
+        * Proceed? (Y/N) - Y
+    * n - creates a new partition
+        * Partition number (1-128, default 1): 1
+        * First sector (34-15628053134, default = 2048) or {+-}size{KMGTP}: leave blank
+        * Last sector (2048-15628053134, default = 15628053134) or {+-}size{KMGTP}: leave blank
+        * Hex code or GUID (L to show codes, Enter = 8300): 8300
+    * p - (optional) validate 1 large partition to be created
+        * Model: HGST HDN728080AL
+        * Number  Start (sector)    End (sector)  Size       Code  Name
+        * 1       2048              15628053134   7.3 TiB    8300  Linux filesystem
+    * w - writes the changes made thus far
+        * Until this point, gdisk has been non-destructive  
+    ```    
+
+#### Filesystem creation
 
 Create an `ext4` filesystem thus:
 
@@ -159,12 +176,12 @@ Create an `ext4` filesystem thus:
 
 Congratulations! Your new drive is now formatted and ready to store data. Move onto the next section 'Existing drive' to learn how to mount it (make it available to the OS for use).
 
-## Existing drives
+### Existing drives
 
 [Identify](#identifying-drives) the existing drive and take note of the partition you wish to mount. This is usually displayed as `-part1` using `/dev/disk/by-id`. Ensure you have the correct supporting libraries for your filesystem installed such as `xfsprogs` for XFS and then mount the drive manually like so:
 
     mkdir /mnt/manualdiskmounttest
-    mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part
+    mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1
 
 Verify that the drive mounted and displays the correct size as expected:
 
@@ -172,7 +189,7 @@ Verify that the drive mounted and displays the correct size as expected:
     Filesystem                        Size  Used Avail Use% Mounted on
     /dev/sdc1                         7.3T  2.8T  4.6T  38% /mnt/manualdiskmounttest
 
-## Mountpoints
+### Mountpoints
 
 Assuming the previous test went well, it's time to come up with a mountpoint naming scheme. We recommended `/mnt/diskN` because it makes the `fstab` entry for MergerFS simpler thanks to wildcard support (more on this shortly). For example:
 
@@ -182,13 +199,16 @@ Assuming the previous test went well, it's time to come up with a mountpoint nam
 
 We also just created `/mnt/storage` in addition to our data disk mountpoints of `/mnt/disk1`, `/mnt/disk2` and so on. `/mnt/storage` will be used by MergerFS to 'pool' or 'merge' our data disks.
 
-## fstab entries
+### fstab entries
 
 Next we need to create an entry in `/etc/fstab`. 
 
 This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/index.php/fstab).
 
-Here's what your `/etc/fstab` file might look like with 4 data disks and 1 parity drive for SnapRAID. Note that MergerFS does *not* mount the parity drive, it only mounts `/mnt/disk*`. MergerFS has *nothing to do* with parity, that is what we use SnapRAID for.
+!!! note 
+    Note that MergerFS does *not* mount the parity drive, it only mounts `/mnt/disk*`. MergerFS has *nothing to do* with parity, that is what we use SnapRAID for.
+
+Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapRAID parity drive. 
 
 ```
 ##/etc/fstab example
@@ -218,11 +238,11 @@ mergerfs                           34T   24T   10T  69% /mnt/storage
 
 If you had any existing files on your data disks they will be visible under `/mnt/storage`.
 
-# SnapRAID installation
+## SnapRAID
 
 [SnapRAID](https://www.snapraid.it/) is a backup program for disk arrays. It stores parity information of your data and it recovers from up to six disk failures. It is mainly targeted for a home media center, with a lot of big files that rarely change.
 
-## Compilation
+### Compile and Install
 
 SnapRAID doesn't provide packages so we have to compile it from source ourselves. In the old days, before containers, this meant installing a bunch of build dependencies on your system. But this is inefficient and, whilst unlikely, can lead to conflicts with other packages on your system.
 
@@ -252,7 +272,7 @@ You may now safely delete the `docker-snapraid` folder from `~/tmp` and repeat t
 
 If you see that there is a new release and I haven't updated this container, ping me on Twitter @IronicBadger and I'll take care of it.
 
-## Configuration
+### Configure
 
 You should familiarise yourself with the documentation provided by [SnapRAID](https://www.snapraid.it/manual) with regards to all the configuration options available.
 
@@ -286,7 +306,7 @@ exclude *.!sync
 
 A full list of typical excludes can be found in Github [here](https://github.com/IronicBadger/infra/blob/master/group_vars/cartman.yaml#L719).
 
-## Automating Parity Calculation
+### Automating Parity Calculation
 
 As SnapRAID is designed to work by taking snapshots we must configure these to be calculated at regular intervals. We could just create a very simple cronjob and execute `snapraid sync` as part of that process, but there are a few situations we want a little more smarts than that.
 
@@ -323,26 +343,26 @@ root@cartman: crontab -e
 
 With cron, it is a good idea to be as explicit as possible when it comes to file paths. Never rely on relative paths or the `PATH` variable. Perhaps you also noticed that there is a healthcheck configured at `hc-ping.com`.
 
-## Healthchecks
+#### Healthchecks.io
 
-[https://healthchecks.io/](https://healthchecks.io/) notifies you when your nightly backups, weekly reports, cron jobs and scheduled tasks don't run on time. It is self-hostable in a [container](https://hub.docker.com/r/linuxserver/healthchecks) but that depends on that local system being up - I like to use this free hosted service for this purpose. They provide up to 20 checks free for hobbyists.
+[https://healthchecks.io/](https://healthchecks.io/) notifies you when your nightly backups, weekly reports, cron jobs and scheduled tasks don't run on time. 
 
-<div class="d-flex justify-content-center">
-<img alt="healthchecks" src="../images/healthchecks.png">
-</div>
+It is self-hostable in a [container](https://hub.docker.com/r/linuxserver/healthchecks) but that depends on that local system being up - I like to use this free hosted service for this purpose. They provide up to 20 checks free for hobbyists.
+
+![healthchecks](../images/healthchecks.png)
 
 
-# Network File Sharing
+## Network File Sharing
 
 A NAS or file server is no good without being able to access the data remotely. We're not talking about remotely like over the internet remotely here though, instead we're talking about other computers on your LAN. Raspberry Pis, Media Players (Kodi, for example), etc. You can find more information on remote file access over the internet in the [remote access](../remoteaccess/overview.md) and [Top 10 Self-Hosted apps list](../postinstall/top10apps.md#nextcloud).
 
 There are two primary methods for sharing files over the network. Samba for Windows / Mac / Linux and NFS for Linux.
 
-## Samba
+### Samba
 
 There are two parts to samba. The [client](#samba-client) and the [server](#samba-server). Let's begin by configuring the server side of things.
 
-### Samba server
+#### Samba server
 
 As is often the case the [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Server) has a fantastically detailed entry on setting up and configuring a samba server. Despite the fact that PMS recommends Ubuntu, much of the configuration information provided by the Arch Wiki is valid for use by us.
 
@@ -407,7 +427,7 @@ systemctl restart smbd
     * Mac - Open finder, press Command+K and enter `smb://serverip/storage`
     * Windows - Open file explorer and enter into the address bar `\\serverip\share`
 
-### Samba client
+#### Samba client
 
 Here's the relevant [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Client) entry for configuring clients. This section assumes mounting is occuring on a Linux CLI based system (a Pi or something like that).
 
@@ -432,7 +452,7 @@ alex@cartman:~$ smbclient -L cartman -U%
 SMB1 disabled -- no workgroup available
 ```
 
-### Mounting Samba in /etc/fstab
+#### Mounting Samba via fstab
 
 On a remote system you might wish to mount your samba shares permanently using `/etc/fstab`. Ensure that client has its equivalent of `smbclient` installed (see above) and then put the following into the `/etc/fstab` file:
 
@@ -443,7 +463,7 @@ On a remote system you might wish to mount your samba shares permanently using `
 Ensure the mountpoint exists. If it doesn't, create it with `mkdir /mnt/mountpoint`. Also make sure to set `smbpasswd` as described above.
 
 
-## NFS
+### NFS
 
 Once again, the [Arch Wiki](https://wiki.archlinux.org/index.php/NFS#Installation) is the best place to dive _deep_ on NFS, and there really is a lot of great information in that article. There isn't much call for NFS these days for home use and we've found most users can get by with only samba quite happily. If you need NFS, you'll know it.
 
@@ -472,3 +492,4 @@ exportfs -v
 ```
 
 *[LTS]: Long Term Support release (5 years with Ubuntu)
+*[LSIO]: LinuxServer.io

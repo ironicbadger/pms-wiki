@@ -36,7 +36,7 @@ markdown_extensions:
   - meta # adds support for front matter
   - toc:
       permalink: true
-      toc_depth: 3
+      toc_depth: 4
   - pymdownx.highlight: # code highlighting
       linenums: true
   - pymdownx.tabbed # enables tabs for embedded blocks
