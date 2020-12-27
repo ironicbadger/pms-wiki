@@ -1,4 +1,4 @@
-site_name: perfectmediaserver.com
+site_name: Perfect Media Server
 repo_url: https://github.com/IronicBadger/pms-wiki
 repo_name: ironicbadger/pms-wiki
 
@@ -12,13 +12,13 @@ theme:
   palette:
     primary: indigo
     accent: teal
-    scheme: slate
+    scheme: default
   font:
     code: Jet Brains Mono
   features:
     - navigation.instant
-    - navigation.sections
-    - navigation.expand
+    #- navigation.sections # prevents collapsible sections
+    #- navigation.expand #expands sections by default
   # insiders only
   #   - search.suggest
 
@@ -30,6 +30,7 @@ plugins:
 markdown_extensions:
   - abbr
   - admonition # enables coloured blocks mid article
+  - attr_list # improves image handling
   - pymdownx.details # enables collapsible admonitions
   - footnotes
   - meta # adds support for front matter
@@ -57,3 +58,14 @@ extra:
     - icon: 'fontawesome/solid/microphone'
       link: 'https://selfhosted.show/'
       name: IronicBadger's Podcast - selfhosted.show
+
+nav:
+  - Introduction: 'introduction.md'
+  - Concepts and Tech:
+    - Infrastructure as Code: 'concepts/infraascode.md'
+    - Hypervisors: 'concepts/hypervisors.md'
+    - PCI Passthrough: 'concepts/pci-passthrough.md'
+  - Installation:
+    - Bare Metal Manual Install: 'installation/manual-install.md'
+  - Day Two (Post Install):
+    - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
