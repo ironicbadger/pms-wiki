@@ -57,7 +57,6 @@ Here's an example of what MergerFS enables us to do. Take data spread out across
 alex@cartman:/mnt$ tree -L 2
 .
 ├── disk1
-│   
 │   ├── music
 │   ├── photos
 │   ├── movies
