@@ -8,6 +8,9 @@ Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/
 
 A container is an application in a box. A few years ago, the Linux kernel added some features called namespaces and cgroups which enable isolating processes from each other. Therefore, in essence, a container a process isolated in memory by the kernel.
 
+!!! tip
+    [This](https://archive.fosdem.org/2016/schedule/event/namespaces_and_cgroups/) talk by James Bottomley at FOSDEM 2016 was pivotal in my understanding of containers. He explains what cgroups and namespaces are in a way that is easy to understand and I highly suggest watching the recording of his talk linked [here](https://archive.fosdem.org/2016/schedule/event/namespaces_and_cgroups/).
+
 What this means for users is that dependency and resource clashes are a thing of the past. Need two slightly different versions of Java for two applications? No problem!
 
 More than this, containers are more secure. They employ the principal of minimum viable permissions and unless you permit access into them, you are guaranteed by virtue of the kernel technology underneath that noone else can either. 
