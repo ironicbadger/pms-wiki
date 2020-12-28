@@ -55,7 +55,9 @@ Fedora recently adopted[^6] BTRFS as the default so it must be ready for primeti
 !!! quote
     The Btrfs community has users that have been using it for most of the past decade at scale. It's been the default on openSUSE (and SUSE Linux Enterprise) since 2014, and Facebook has been using it for all their OS and data volumes, in their data centers, for almost as long. Btrfs is a mature, well-understood, and battle-tested file system, used on both desktop/container and server/cloud use-cases. We do have developers of the Btrfs filesystem maintaining and supporting the code in Fedora, one is a Change owner, so issues that are pinned to Btrfs can be addressed quickly.
 
-Using BTRFS *would be easier* than ZFS simply because it is shipped as part of the Linux kernel. Perhaps one day PMS will switch out to BTRFS but that day is a ways off yet - ZFS is here to stay for now if for no other reason than I have replicated multiple TBs of data reliably for a year+ with no data loss whatsoever.
+Using BTRFS *would be easier* than ZFS simply because it is shipped as part of the Linux kernel. 
+
+Perhaps one day PMS will switch out to BTRFS but that day is a ways off yet - ZFS is here to stay for now if for no other reason than I have replicated multiple TBs of data reliably for a year+ with no data loss whatsoever. In otherwords, I'm locked in.
 
 ## Creating a storage pool
 
@@ -137,7 +139,7 @@ tank/fuse/audiobooks@20190502-0900   317M      -  83.6G  -
 $ zfs create -o mountpoint=/mnt/point tank/dataset/to/mount
 ```
 
-## Tuning
+## Tuning ashift
 
 Jim Salter's blog at jrs-s.net[^7] has a number of excellent posts about ZFS including some about tuning in addition to his Ars Technica article [^8]. 
 
