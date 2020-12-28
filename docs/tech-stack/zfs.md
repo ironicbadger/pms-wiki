@@ -16,7 +16,7 @@ Jim Salter wrote a [ZFS 101](https://arstechnica.com/information-technology/2020
 Simply put, ZFS is the gold standard for storing data. You must pay attention when creating a ZFS vdev due to the lack of flexibility on offer[^1]. This is [due to change](https://twitter.com/mahrens1/status/1338876011161690112?s=20) with the *eventual* inclusion of RAIDZ expansion but at the time of writing this feature is not available.
 
 <p align=center>
-<img src="images/zfs-raidz-tweet.png">
+<img src="../../images/zfs-raidz-tweet.png">
 </p>
 
 ## Why use ZFS for PMS?
