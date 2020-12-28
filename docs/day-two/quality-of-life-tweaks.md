@@ -6,6 +6,6 @@ This page documents lots of little things that don't really need their own page 
 
 Bash aliases enable complex commands to be shortned to a few characters. For example `docker-compose -f ~/docker-compose.yml up -d` can be shortned to `dcp up -d` with a the following alias:
 
-    ``` bash
-    alias dcp='docker-compose -f ~/docker-compose.yml '
-    ```
+```bash
+alias dcp='docker-compose -f ~/docker-compose.yml '
+```
