@@ -10,6 +10,8 @@ This amazing project is developed and maintained by Antonio SJ Musumeci (aka [@_
 
 MergerFS takes JBOD and turns them into what appears like a single drive. It's sort of like RAID in that sense but is actually nothing *at all* like RAID - there are some major differences - see ["is this RAID?"](#is-this-raid)
 
+## Why MergerFS?
+
 Here are the key features of MergerFS that make it perfect for PMS:
 
 * Pools multiple drives into one mountable volume
@@ -18,6 +20,14 @@ Here are the key features of MergerFS that make it perfect for PMS:
 * Each drive has an individually readable filesystem (ext4, xfs, zfs, etc)
     * Drives may contain data when mounted via Mergerfs
 * Simple configuration with one line in `/etc/fstab`
+
+For the home user the incremental addition of hard drives is a very important consideration. ZFS still lacks easy expanability and for most people, adding 4 or more drives at once is prohibitively expensive - see ["The hidden cost of ZFS"](http://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html).
+
+Drives of a useful capacity cost upwards of $150 (x4 = $600). $600 is a chunk of change to plop down in one go just because you filled up your last drive - why not have a system that grows as your needs do?
+
+This doesn't take into consideration the increased simultaneous failure risk of buying 4 drives from the same batch (when drives go bad they usually fail at a similar point if from the same batch)! With MergerFS the drive addition process is as simple as partitioning the drive, adding it to the mount command in `/etc/fstab` and you’re done. 
+
+I do however suggest considering your use case carefully. For example MergerFS is best suited to large, primarily write once read many datasets like media files. Last year I decided to start using a ZFS mirror for my most critical data and merging that using MergerFS as well - see [combining ZFS and MergerFS](../advanced/combine-zfs-and-others.md.
 
 ## Drive Pooling
 
