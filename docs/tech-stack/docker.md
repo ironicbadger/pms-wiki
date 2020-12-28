@@ -2,21 +2,23 @@
 
 Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/) PMS article Docker was a fairly new kid on the block. Fast forward 5 years and containerisation has cemented itself as a major force in the industry.
 
-![docker-log](../images/docker-logo-horizontal.png)
+For those looking to build a media server, containers offer a uniquely brilliant way to run applications. They divorce the running application from its data whilst making managing their persistent data and configuration simple.
 
-For those looking to build a media server, containers offer a uniquely brilliant way to run applications. They divorce the running application from its data and make managing data and configuration simple.
+![docker-log](../images/docker-logo-horizontal.png)
 
 ## Why should I use containers?
 
 We'll come onto what a container is shortly but first let's discuss why you might consider using them.
 
-My lightbulb moment with docker came after I'd reinstalled my OS after a few months. I'd got everything just the way I liked it, all the apps were working great but an update borked something and I had to reload. However, this time, I was using docker for my applications, stored their data in volumes[^1] and kept a text file with each command I'd use to create the containers (this was pre docker-compose).
+My lightbulb moment with docker came a few years ago after I'd reinstalled my server OS. I'd got everything just the way I liked it, all the apps were working great but an update borked something and I had to reload. However, this time, I was using docker for my applications, stored their data in volumes[^1] and kept a text file with each command I'd use to create the containers (this was pre docker-compose).
 
-What normally followed reinstallation was a lengthy, often multi-day, process of getting things back to where they were. This time though, things were different. I copied each `docker run` command one by one for the dozen or so containers I was running and within 10 *minutes*, I was done. That was it, the game changed that day.
+What normally followed reinstallation was a lengthy, often multi-day, process of getting things back to where they were. This time though, things were different. I copied each `docker run` command and I was back up and running within 10 *minutes*, I was done. That was it, the game changed that day.
+
+This was because the configuration data for the applications was stored in a separate location via a volume[^1] bind mount. Backing up configuration was nothing new but that this happened by design meant I'd taken a leap forward in deployment reliability and repeatability.
+
+Traditionally when an application is installed onto a system is has access to the entire thing. Permissions help to some degree but a container has zero access to the system around it unless explicitly granted. This level of granular control is very useful when running multiple versions of the same application or if you don't quite trust it will do what it said on the tin.
 
 Beyond the fact that separating the application runtime from its configuration makes the above scenario possible containers also provide a number of other benefits. These range from portability to standardisation to security to employability.
-
-[^1]: https://docs.docker.com/storage/volumes/
 
 ## What is a container?
 
@@ -85,9 +87,10 @@ Next, I'll take a look at Docker Hub. If there are multiple images doing the sam
 
 After those two resources are exhausted I might try and have a go at writing a Dockerfile myself. If the app is uncooperative or poorly written I'll probably give up and try to find a different app instead - there's always another.
 
-Check out [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) for an incredible list of inspiration.
+For an incredible list of inspiration, check out [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) on GitHub.
 
 *[OS]: Operating System
 *[PMS]: Perfect Media Server
 *[LSIO]: LinuxServer.io
 
+[^1]: [Docker Volumes explained](https://docs.docker.com/storage/volumes/)
