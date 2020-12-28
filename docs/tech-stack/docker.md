@@ -1,8 +1,22 @@
 # Docker
 
-Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/) PMS article Docker was a fairly new kid on the block. Fast forward 5 years and containerisation has cemented itself as a major for
+Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/) PMS article Docker was a fairly new kid on the block. Fast forward 5 years and containerisation has cemented itself as a major force in the industry.
 
 ![docker-log](../images/docker-logo-horizontal.png)
+
+For those looking to build a media server, containers offer a uniquely brilliant way to run applications. They divorce the running application from its data and make managing data and configuration simple.
+
+## Why should I use containers?
+
+We'll come onto what a container is shortly but first let's discuss why you might consider using them.
+
+My lightbulb moment with docker came after I'd reinstalled my OS after a few months. I'd got everything just the way I liked it, all the apps were working great but an update borked something and I had to reload. However, this time, I was using docker for my applications, stored their data in volumes[^1] and kept a text file with each command I'd use to create the containers (this was pre docker-compose).
+
+What normally followed reinstallation was a lengthy, often multi-day, process of getting things back to where they were. This time though, things were different. I copied each `docker run` command one by one for the dozen or so containers I was running and within 10 *minutes*, I was done. That was it, the game changed that day.
+
+Beyond the fact that separating the application runtime from its configuration makes the above scenario possible containers also provide a number of other benefits. These range from portability to standardisation to security to employability.
+
+[^1]: https://docs.docker.com/storage/volumes/
 
 ## What is a container?
 
@@ -73,6 +87,7 @@ After those two resources are exhausted I might try and have a go at writing a D
 
 Check out [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) for an incredible list of inspiration.
 
+*[OS]: Operating System
 *[PMS]: Perfect Media Server
 *[LSIO]: LinuxServer.io
 
