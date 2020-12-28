@@ -49,6 +49,40 @@ Second is that MergerFS does not stripe data. RAID achieves a level of redundanc
 
 The third way is related to the second. Because data is not striped each disk remains individually readable. That means that you can pull any combination of drives and put them into *any other* system capable of reading that filesystem and it will just work. This is not possible without all the members of a RAID array.
 
+## An example file layout
+
+Here's an example of what MergerFS enables us to do. Take data spread out across multiple locations and present it to us as one location transparently.
+
+```
+alex@cartman:/mnt$ tree -L 2
+.
+├── disk1
+│   
+│   ├── music
+│   ├── photos
+│   ├── movies
+│   └── tv
+├── disk2
+│   └── movies
+├── disk3
+│   ├── drone
+│   └── sports
+└── storage
+    ├── drone
+    ├── movies
+    ├── music
+    ├── photos
+    ├── software
+    ├── sports
+    └── tv
+```
+
+As you can see we now have data spread across multiple filesystems or physical disks that is merged transparently into `/mnt/storage` by MergerFS from drives with different filesystem. 
+
+Use of the correct create policy (the default of `epmfs` should suffice) in MergerFS is important to maintain this set up. When you create a new file MergerFS will look for an existing path with most free space (`epmfs`) and then create the file there.
+
+
+
 
 [^1]: More information about `/etc/fstab` is detailed in the [manual installation](../installation/manual-install.md) section.
 [^2]: [What is Parity?](https://en.wikipedia.org/wiki/Standard_RAID_levels#Simplified_parity_example)
