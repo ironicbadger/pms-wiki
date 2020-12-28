@@ -23,7 +23,7 @@ The potential scope of this project could be vast. There are many flavours of Li
 
 I doubt this site will ever be "finished" because technologies, budgets, time and priorities change - as they do, I will continue update this site.
 
-## Contributing to perfectmediaserver.com
+## Contribute
 
 This site is created using the open-source [mkdocs](https://www.mkdocs.org/). PRs will be gladly considered via Github (using the icon in the top right) if you'd like to correct something here or improve the site.
 

@@ -61,11 +61,18 @@ extra:
 
 nav:
   - Introduction: 'index.md'
-  - Concepts and Tech:
+  - Concepts:
     - Infrastructure as Code: 'concepts/infraascode.md'
     - Hypervisors: 'concepts/hypervisors.md'
     - PCI Passthrough: 'concepts/pci-passthrough.md'
+  - Tech Stack:
+    - Docker: 'tech-stack/docker.md'
+    - MergerFS: 'tech-stack/mergerfs.md'
+    - SnapRAID: 'tech-stack/snapraid.md'
+    - ZFS: 'tech-stack/zfs.md'
+    - Proxmox: 'tech-stack/proxmox.md'
   - Installation:
     - Bare Metal Manual Install: 'installation/manual-install.md'
   - Day Two (Post Install):
+    - Remote Access: 'day-two/remote-access.md'
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
