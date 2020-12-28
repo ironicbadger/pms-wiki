@@ -74,10 +74,12 @@ nav:
   - Installation:
     - Bare Metal Manual Install: 'installation/manual-install.md'
   - Day Two (Post Install):
-    - Remote Access: 'day-two/remote-access.md'
+    #- Remote Access: 'day-two/remote-access.md'
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
   - Hardware:
     - New Drive Burn-In Rituals: 'hardware/new_drive_burnin.md'
   - Advanced:
     - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
     - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'
+  - Related Projects:
+    - Virtualised OPNsense router: 'related-projects/virtualised-opnsense-proxmox.md'
