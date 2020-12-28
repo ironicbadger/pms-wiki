@@ -78,3 +78,6 @@ nav:
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
   - Hardware:
     - New Drive Burn-In Rituals: 'hardware/new_drive_burnin.md'
+  - Advanced:
+    - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
+    - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'
