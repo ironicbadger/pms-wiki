@@ -7,7 +7,7 @@ It is a fact of life that some mechanical hard drives are created more equal tha
 
 ## The Rules
 
-* Only ever purchase one drive per retailer per 3-6 months
+* Try to only purchase one drive per retailer per 3-6 months
 * Distribute makes, models and manufacturers where possible and rational
 * Never buy naked drives from Amazon - they come wrapped in tracing paper
 
