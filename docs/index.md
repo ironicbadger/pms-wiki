@@ -15,7 +15,7 @@ The primary technologies we recommend are [Linux](https://www.linux.org/), Conta
     - [Perfect Media Server (2017 Edition) - Extensive video guides](https://blog.linuxserver.io/2017/06/24/the-perfect-media-server-2017/)
     - [Perfect Media Server (2019 Edition) - Boring is reliable + adding ZFS](https://blog.linuxserver.io/2019/07/16/perfect-media-server-2019/)
 
-If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software wherever possible. 
+If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software wherever possible.
 
 ## The aim of this site
 
@@ -42,6 +42,8 @@ I also write technical posts over on my blog at [blog.ktz.me](https://blog.ktz.m
 If you like this kind of thing, check out the [Self-Hosted](https://selfhosted.show) podcast over at [Jupiter Broadcasting](https://jupiterbroadcasting.com) hosted by Alex and [Chris Fisher](https://twitter.com/ChrisLAS).
 
 <iframe src="https://player.fireside.fm/v2/dUlrHQih+aGtGAbih?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
+
+<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="alexktz" data-description="Support me on Buy me a coffee!" data-message="If you found the information on this site useful please consider buying me a coffee." data-color="#ff813f" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 
 *[PMS]: Perfect Media Server
