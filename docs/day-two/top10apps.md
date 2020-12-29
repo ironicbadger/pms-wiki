@@ -2,6 +2,8 @@
 
 Storing and serving files is all well and good but with a little effort, we can replace dozens of hosted services that don't respect your privacy. Here are some of my favourite self-hosted app picks.
 
+I would be remiss not to mention the [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) GitHub page before we get started. It is a list of [Free](https://en.wikipedia.org/wiki/Free_software) Software network services and web applications which can be hosted locally. There is also a [Non-Free](https://github.com/awesome-selfhosted/awesome-selfhosted/blob/master/non-free.md) page.
+
 !!! info
     If you like this kind of thing, check out the [Self-Hosted](https://selfhosted.show) podcast over at [Jupiter Broadcasting](https://jupiterbroadcasting.com).
 
