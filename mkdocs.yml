@@ -73,6 +73,7 @@ nav:
     - ZFS: 'tech-stack/zfs.md'
     - Proxmox: 'tech-stack/proxmox.md'
   - Hardware:
+    - Cases: 'hardware/cases.md'
     - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
     - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
   - Installation:
