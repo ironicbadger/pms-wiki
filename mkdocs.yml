@@ -22,6 +22,8 @@ theme:
   # insiders only
   #   - search.suggest
 
+google_analytics: ['G-DF6SGTVVBC', 'soon.perfectmediaserver.com']
+
 plugins:
   - git-revision-date
   - search
@@ -74,7 +76,8 @@ nav:
   - Installation:
     - Bare Metal Manual Install: 'installation/manual-install.md'
   - Day Two (Post Install):
-    #- Remote Access: 'day-two/remote-access.md'
+    #
+    - Remote Access: 'day-two/remote-access.md'
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
   - Hardware:
     - New Drive Burn-In Rituals: 'hardware/new_drive_burnin.md'
