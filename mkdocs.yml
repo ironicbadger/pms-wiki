@@ -62,11 +62,10 @@ extra:
       name: IronicBadger's Podcast - selfhosted.show
 
 nav:
-  - Introduction: 'index.md'
-  - Concepts:
-    - Infrastructure as Code: 'concepts/infraascode.md'
-    - Hypervisors: 'concepts/hypervisors.md'
-    - PCI Passthrough: 'concepts/pci-passthrough.md'
+  - Introduction: 
+    - Welcome: 'index.md'
+    - PMS Overview: 'overview/overview.md'
+    - FAQ: 'overview/faq.md'
   - Tech Stack:
     - Docker: 'tech-stack/docker.md'
     - MergerFS: 'tech-stack/mergerfs.md'
@@ -81,6 +80,10 @@ nav:
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
   - Hardware:
     - New Drive Burn-In Rituals: 'hardware/new_drive_burnin.md'
+  - Advanced Concepts:
+    - Infrastructure as Code: 'concepts/infraascode.md'
+    - Hypervisors: 'concepts/hypervisors.md'
+    - PCI Passthrough: 'concepts/pci-passthrough.md'
   - Advanced:
     - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
     - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'

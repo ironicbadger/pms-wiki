@@ -22,7 +22,7 @@ Recovering from a disaster is easier with a text file too. A backup can be as si
 
 We can extend this philosophy well beyond just the `docker-compose.yaml` file. What about file sharing configuration via Samba? Users? Packages installed? Bash aliases? Monitoring configurations? The list goes on.
 
-Because I extensively use Ansible, 100% of the answers to these questions are stored in my [IronicBadger/infra](https://github.com/ironicbadger/infra) git repo. Using two or three commands it is trivial to take a vanilla Ubuntu installation to fully functional media server in only a few minutes - see [Automated Install](../installation/automated_install.md) for a demo.
+Because I extensively use Ansible, 100% of the answers to these questions are stored in my [IronicBadger/infra](https://github.com/ironicbadger/infra) git repo. Using two or three commands it is trivial to take a vanilla Ubuntu installation to fully functional media server in only a few minutes - see [Automated Install](../installation/automated-install.md) for a demo.
 
 ### Special Snowflakes
 
