@@ -64,8 +64,8 @@ extra:
 nav:
   - Introduction: 
     - Welcome: 'index.md'
-    - PMS Overview: 'overview/overview.md'
-    - FAQ: 'overview/faq.md'
+    - Overview & FAQ: 'overview/overview.md'
+    - NAS Software Comparison: 'overview/nas-software-comparison.md'
   - Tech Stack:
     - Docker: 'tech-stack/docker.md'
     - MergerFS: 'tech-stack/mergerfs.md'
@@ -73,12 +73,15 @@ nav:
     - ZFS: 'tech-stack/zfs.md'
     - Proxmox: 'tech-stack/proxmox.md'
   - Hardware:
-    - New Drive Burn-In Rituals: 'hardware/new_drive_burnin.md'
+    - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
+    - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
   - Installation:
     - Bare Metal Manual Install: 'installation/manual-install.md'
     - Manual Install on Video: 'installation/manual-install-on-video.md'
     - Automated Install: 'installation/automated-install.md'
   - Day Two (Post Install):
+    - Top 10 Self-Hosted Apps: 'day-two/top10apps.md'
+    - Backups: 'day-two/backups.md'
     - Remote Access: 'day-two/remote-access.md'
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
   - Advanced Concepts:
