@@ -43,7 +43,7 @@ If you like this kind of thing, check out the [Self-Hosted](https://selfhosted.s
 
 <iframe src="https://player.fireside.fm/v2/dUlrHQih+aGtGAbih?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 
-<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="alexktz" data-description="Support me on Buy me a coffee!" data-message="If you found the information on this site useful please consider buying me a coffee." data-color="#ff813f" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
+<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="alexktz" data-description="Support me on Buy me a coffee!" data-message="If you found this site useful please consider buying me a coffee." data-color="#ff813f" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
 
 
 *[PMS]: Perfect Media Server
