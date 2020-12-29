@@ -1,3 +1,43 @@
 # Overview of Perfect Media Server
 
 The aim of this site is to share knowledge and information about building a media server. To find what you're looking for use the search function - it can be invoked by pressing `/` and typing your query.
+
+## What is Perfect Media Server?
+
+PMS is a 100% open-source collection of technologies enabling you to build your own media server from scratch and runs on Linux. 
+
+This project was born out of a period in my life between 2011 and 2016 where I discovered network attached storage and lost some important data to a cursed 1.5tb Seagate hard drive. I took a fairly typical journey down the rabbit hole starting out with a Drobo, then a Synology, then unRAID before finally deciding to go it alone and piece together my own solution on top of Linux.
+
+During this period I discovered Linux, the world of open-source and everything that enabled. Open-source has fundamentally changed my life for the better and I now work for Red Hat helping to further that mission. PMS is my own personal project to give back to the community what so many helped me learn - life changing skills and knowledge about building and managing my own servers and infrastructure. Thank you if you were one of those who helped me along the way - this site is for you.
+
+## Where do I start?
+
+You've already found your way to this site so you're in a good spot. Organising so much information has been a labour of love for several months but a good place to start would be familiarising yourself with the primary tech stack components before moving onto the installation section.
+
+We cover some hardware topics here as well but you might want to go and check out my friends over at [serverbuilds.net](https://serverbuilds.net) for some interesting, low cost ideas in that department.
+##
+- - -
+
+## FAQ
+
+Here are some of the most commonly asked questions about building a media server.
+
+### What about unRAID, OpenMediaVault or FreeNAS?
+
+I plan on writing a full comparison between these 3 but the primary difference is that when running PMS you built it. You know what went into each area, you have full control and it is running 100% free and open-source software.
+
+### Can I migrate existing data from another NAS software?
+
+Yes. As long as you're not using a proprietary RAID solution then [MergerFS](../tech-stack/mergerfs.md) makes this really easy as it will mount drives that already contain data and supports pretty much any reasonable filesystem you can think of.
+
+### What performance can I expect?
+
+In my household gigabit is the target. I am easily able to saturate a gigabit link because of the way each drive is treated as an individual unit the limit of performance is the limit of the drive itself. With a modern mechanical drive this is typically anywhere from 130MBs - 220MBs read/write speeds.
+
+Some NAS software works around poor write performance with the use of cache drives but I have never found the need to do this with PMS. With careful consideration about moving busier workloads like databases and download extraction to a dedicated SSD the read/write performance of the NAS itself is gigabit speed+.
+
+### What type of Hard Drive should I buy?
+
+There is no one right answer to this question. Ask 10 folks on [r/datahoarder](https://www.reddit.com/r/DataHoarder/) and you will recieve 37 different answers! That said, there are some principals to follow when purchasing a drive and I cover my methodology in the 2019 PMS edition but have added a dedicated article on this under *Hardware -> [HDD Purchase Methodology](../hardware/hdd-purchase-methodology.md)*.
+
+*[PMS]: Perfect Media Server
