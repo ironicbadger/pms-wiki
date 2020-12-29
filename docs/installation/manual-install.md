@@ -128,7 +128,7 @@ Therefore, we can ascertain that `/dev/sdc` is mapped to this physical drive. Ne
 
 ### Brand new drives
 
-Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under *Hardware* -> [New Drive Burn-In Rituals](../hardware/new_drive_burnin.md).
+Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under *Hardware* -> [New Drive Burn-In Rituals](../hardware/new-drive-burnin.md).
 
 !!! warning 
     **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is *any* existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
