@@ -72,19 +72,20 @@ nav:
     - SnapRAID: 'tech-stack/snapraid.md'
     - ZFS: 'tech-stack/zfs.md'
     - Proxmox: 'tech-stack/proxmox.md'
-  - Installation:
-    - Bare Metal Manual Install: 'installation/manual-install.md'
-  - Day Two (Post Install):
-    #
-    - Remote Access: 'day-two/remote-access.md'
-    - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
   - Hardware:
     - New Drive Burn-In Rituals: 'hardware/new_drive_burnin.md'
+  - Installation:
+    - Bare Metal Manual Install: 'installation/manual-install.md'
+    - Manual Install on Video: 'installation/manual-install-on-video.md'
+    - Automated Install: 'installation/automated-install.md'
+  - Day Two (Post Install):
+    - Remote Access: 'day-two/remote-access.md'
+    - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
   - Advanced Concepts:
     - Infrastructure as Code: 'concepts/infraascode.md'
     - Hypervisors: 'concepts/hypervisors.md'
     - PCI Passthrough: 'concepts/pci-passthrough.md'
-  - Advanced:
+  - Advanced Configuration:
     - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
     - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'
   - Related Projects:
