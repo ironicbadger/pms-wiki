@@ -67,6 +67,7 @@ nav:
     - Overview & FAQ: 'overview/overview.md'
     - NAS Software Comparison: 'overview/nas-software-comparison.md'
   - Tech Stack:
+    - Linux: 'tech-stack/linux.md'
     - Docker: 'tech-stack/docker.md'
     - MergerFS: 'tech-stack/mergerfs.md'
     - SnapRAID: 'tech-stack/snapraid.md'
