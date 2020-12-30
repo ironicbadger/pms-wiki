@@ -84,8 +84,10 @@ nav:
   - Day Two (Post Install):
     - Top 10 Self-Hosted Apps: 'day-two/top10apps.md'
     - Backups: 'day-two/backups.md'
-    - Remote Access: 'day-two/remote-access.md'
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
+    - Remote Access: 
+      - Overview: 'day-two/remote-access.md'
+      - WireGuard: 'day-two/wireguard.md'
   - Advanced Concepts:
     - Infrastructure as Code: 'concepts/infraascode.md'
     - Hypervisors: 'concepts/hypervisors.md'
