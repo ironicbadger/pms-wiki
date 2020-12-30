@@ -9,3 +9,22 @@ Bash aliases enable complex commands to be shortned to a few characters. For exa
 ```bash
 alias dcp='docker-compose -f ~/docker-compose.yml '
 ```
+
+!!! info
+    If you have a useful alias you think would benefit PMS users please submit a PR via GitHub for inclusion in this site following the format below. One alias or a group of related aliases showing example output.
+
+### Alias - Get container IPs
+
+* Credit: @quietsy - [Self-Hosted Discord](https://discord.gg/efhGsp75dx) server
+
+This alias prints the IP, network and listening ports for each container.
+
+```
+alias dcips=$'docker inspect -f \'{{.Name}}-{{range  $k, $v := .NetworkSettings.Networks}}{{$k}}-{{.IPAddress}} {{end}}-{{range $k, $v := .NetworkSettings.Ports}}{{ if not $v }}{{$k}} {{end}}{{end}} -{{range $k, $v := .NetworkSettings.Ports}}{{ if $v }}{{$k}} => {{range . }}{{ .HostIp}}:{{.HostPort}}{{end}}{{end}} {{end}}\' $(docker ps -aq) | column -t -s-'
+
+$ alex@cartman:~$ dcips
+/tautulli      backend  172.18.0.3    8181/tcp
+/lychee        backend  172.18.0.16   80/tcp
+/tr            internet  172.18.0.4                      443/tcp => 0.0.0.0:443 80/tcp => 0.0.0.0:80 8080/tcp => 0.0.0.0:8080
+/chowdown      backend  172.18.0.24                     4000/tcp => 0.0.0.0:4000
+```
