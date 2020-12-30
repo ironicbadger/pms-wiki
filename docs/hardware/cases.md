@@ -23,7 +23,7 @@ This case was popular in the [unRAID compulsive design](https://www.google.com/s
 
 The above picture is my own personal build from when I lived in a tiny apartment in London and space was at a premium. The diminuitive size of this case made it perfect for apartment living. Sporting only 2 fans (1 120mm and 120/140mm) it was quiet and had a small, but sufficient, amount of airflow meaning that temps were never an issue. 
 
-The build pictured made use of an AsROCK C2750D4I board which sadly fell victim to the [C2000 Intel bug](http://forum.asrock.com/forum_posts.asp?TID=4376&title=intels-atom-c2000-chips-are-bricking-products) (of death). A shame really because that motherboard was a fantastic level of price to performance for a media server in those days (2016-2018).
+The build pictured made use of an [ASrock Rack C2750D4I](https://www.asrockrack.com/general/productdetail.asp?Model=C2750D4I#Specifications) board which sadly fell victim to the [C2000 Intel bug](http://forum.asrock.com/forum_posts.asp?TID=4376&title=intels-atom-c2000-chips-are-bricking-products) (of death). A shame really because that motherboard was a fantastic level of price to performance for a media server in those days (2016-2018).
 
 ## Rosewill LSV4500
 
