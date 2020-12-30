@@ -69,5 +69,9 @@ Here is more stuff. ++ctrl+alt+delete++ then press ++v+alt+shift++.
 
 ![alex](images/alex.jpg){: align=right width=200 }
 
+<p align="center">
+<img alt="alex" src="../../images/alex.jpg">
+</p>
+
 *[HTML]: Hyper Text Markup Language
 *[W3C]: World Wide Web Consortium
