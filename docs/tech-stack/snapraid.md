@@ -36,7 +36,7 @@ Maybe. It depends on your use case.
 
 As we've said, SnapRAID was designed with large, mostly static datasets in mind like media collections. A common use case is a media or home file server. Let’s say you have a 2TB collection of movies and a 2TB of TV shows, how often does that content change? Not very, is probably the answer. Does it therefore make sense to require real-time parity calculation or just run that computation once daily at a quiet time?
 
-Here’s an example to help you wrap your noodle around this. You download a file and save it to disk called ‘WorstMovieEver.mkv’. This file sits on disk and is immediately available as usual but until you run the parity calculation (or parity snapshot) the file is unprotected. This means if in between your download and a parity sync and you were to experience a drive failure, that file would be unrecoverable. It is simple to run a manual parity sync if required using `snapraid sync`.
+Here’s an example, you acquire a file and save it to disk called ‘BestMovieEver.mkv’. This file sits on disk and is immediately available as usual but until you run the parity sync the file is unprotected. This means if in between your download and a parity sync and you were to experience a drive failure, that file would be unrecoverable. It is simple to run a manual parity sync if required using `snapraid sync`.
 
 Please review your use case before using SnapRAID. It is incredibly badly suited to high turnover applications such as databases or other similar applications. If this is your use case, look at a real-time parity based solution. If you can cope with this ‘risk window’ and have a largely static file collection, SnapRAID is for you.
 
