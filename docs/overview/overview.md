@@ -46,7 +46,7 @@ PMS is my own personal project to give back to the community knowledge that so m
 
 ## FAQ
 
-Here are some of the most commonly asked questions about building a media server.
+Here are some of the most commonly asked questions about building a media server. If you feel one is missing, please open a GitHub issue and/or tweet me [@IronicBadger](https://twitter.com/ironicbadger).
 
 ### What about unRAID, OpenMediaVault or FreeNAS?
 
