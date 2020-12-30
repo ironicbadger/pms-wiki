@@ -1,6 +1,10 @@
 # Linux
 
-Ah, Linux. The foundation upon which everything we are about to do is built.
+![linux](../images/linux.jpg){: align=left width=180 }
+
+Ah, [Linux](https://linux.org). This game changing, pioneering, free and open source is the foundation upon which everything that PMS is, is built.
+
+The project was founded in 1991 as a personal project by Linus Torvalds (hence the name Linux). Linux powers many of the worlds computers, is the basis of the Android kernel and is perhaps the ultimate unsung hero of modern computing times. Here is a full [history of Linux](https://en.wikipedia.org/wiki/History_of_Linux) if you're curious.
 
 !!! info
     When we refer to "Linux", we are technically referring to the Linux kernel. 
