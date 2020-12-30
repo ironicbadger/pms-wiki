@@ -28,7 +28,7 @@ SnapRAID helps us meet each of these criteria and when combined with MergerFS en
 
 It will also work on already populated data drives, a big win over traditional RAID. Again, it allows only the drives in use to be spun up unlike RAID which requires all drives spinning to access a file on one drive.
 
-The first recorded instance of this saying was found in a cave in France and dates back thousands of years - RAID is not backup. Do not think that because you have a local parity setup that your data is backed up. What happens if a pipe burst or a burgler stole the whole thing or zombies came to dinner? We cover more details on proper backups in *Day Two -> [Backups](../day-two.backups.md).
+The first recorded instance of this saying was found in a cave in France and dates back thousands of years - RAID is not backup. Do not think that because you have a local parity setup that your data is backed up. What happens if a pipe burst or a burgler stole the whole thing or zombies came to dinner? We cover more details on proper backups in *Day Two -> [Backups](../day-two.backups.md)*.
 
 ## Is SnapRAID right for me?
 
