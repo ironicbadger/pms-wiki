@@ -1,7 +1,7 @@
 # NAS Software Comparison
 
 !!! info
-    This page is currently a placeholder.
+    This page is currently a work in progress.
 
 ## unRAID
 
