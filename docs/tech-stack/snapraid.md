@@ -40,6 +40,8 @@ Here’s an example, you acquire a file and save it to disk called ‘BestMovieE
 
 Please review your use case before using SnapRAID. It is incredibly badly suited to high turnover applications such as databases or other similar applications. If this is your use case, look at a real-time parity based solution. If you can cope with this ‘risk window’ and have a largely static file collection, SnapRAID is for you.
 
+## Using SnapRAID with MergerFS and ZFS
+
 If, like me, you have a large collection of media files *and* some more high churn datasets then consider the more advanced implementation detailed in *Advanced Configuration -> [Using ZFS with MergerFS](../advanced/combine-zfs-and-others.md)*. This combines a SnapRAID protected array of data disks and a ZFS mirror to have the cake and eat it too.
 
 [^1]: [snapraid.it](https://www.snapraid.it/)
