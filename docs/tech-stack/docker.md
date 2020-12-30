@@ -53,6 +53,10 @@ Suppose we wanted to run two webservers like so:
 
 Notice that the second container uses port 81. This is because the command `-p 81:80` is actually mapping port 80 from inside the container to port 81 on the host. Ports mapped to the host must be unique but nginx can run on port 80 inside each container because each one is its own isolated environment.
 
+## docker-compose
+
+* todo
+
 ## Where do I get containers from?
 
 Docker were first to market and hijacked the root namespace when you execute a `docker run` command. As such, [Docker Hub](https://hub.docker.com/) is the primary source for containers but Docker Inc. has been struggling to monetize the technology from the very beginning and the [cracks](https://www.docker.com/blog/what-you-need-to-know-about-upcoming-docker-hub-rate-limiting/) are starting to show.
