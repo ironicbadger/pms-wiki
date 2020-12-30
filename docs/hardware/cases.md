@@ -1,8 +1,13 @@
 # Cases
 
-Let me tell you now, the perfect case doesn't exist. But here are some options that might do the trick (there are affiliate links to some of them) in your next server build.
+The perfect case doesn't exist. But here are some options that might do the trick (there are affiliate links to some of them) in your next server build.
 
-## Lian Li PC-Q25B
+!!! success
+    Help us make this page into the best case review page for media server enthusiasts around. 
+    
+    Submit a PR with your mini case review (250 word max), even link to your own personal blog if you like for the full review. Include at least one picture of the case and follow the format defined in the [Lian-Li PC-Q25B](#lian-li-pc-q25b) section.
+
+## Lian-Li PC-Q25B
 
 The Lian-Li PC-Q25B was released several years ago (not totally sure but it looks like 2013) and is unfortunately no longer in production so far as I can tell. You can find the odd used model popping up on eBay. It supports 5 hot swap 3.5" drives and has space for 2 more non hot swap 3.5" drives in the bottom.
 
