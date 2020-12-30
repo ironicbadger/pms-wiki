@@ -95,5 +95,5 @@ nav:
   - Advanced Configuration:
     - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
     - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'
-  - Related Projects:
-    - Virtualised OPNsense router: 'related-projects/virtualised-opnsense-proxmox.md'
+  #- Related Projects:
+    #- Virtualised OPNsense router: 'related-projects/virtualised-opnsense-proxmox.md'
