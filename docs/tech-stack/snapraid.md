@@ -12,7 +12,9 @@ SnapRAID[^1] is a free and open-source project licensed under GPLv3 which calcua
 
 It supports mismatched disk sizes although the parity drive must as large or larger than the largest data disk (see diagram above). Uniquely, it runs across a plethora of OS’s such as Linux, OS X, Windows, BSD, Solaris and OpenIndiana – pretty impressive.
 
-The name SnapRAID comes from the fact that it isn't really RAID at all, it's "snapshot RAID". No striping occurs and parity information is devoted to entire dedicated parity disks. This implementation is a major difference from unRAID or traditional RAID (mdadm, ZFS, etc) all of which calculate parity in ‘real-time’ (unRAIDs cache drive system is an exception). 
+The name SnapRAID comes from the fact that it isn't really RAID at all, it's "snapshot RAID". No striping occurs and parity information is devoted to entire dedicated parity disks. This implementation is a major difference from unRAID or traditional RAID (mdadm, ZFS, etc) all of which calculate parity in ‘real-time’ (unRAIDs cache drive system is an exception).
+
+The project provides a handy comparison chart of how SnapRAID stacks up against the other options in this space[^2].
 
 ## Why SnapRAID?
 
@@ -40,8 +42,13 @@ Here’s an example, you acquire a file and save it to disk called ‘BestMovieE
 
 Please review your use case before using SnapRAID. It is incredibly badly suited to high turnover applications such as databases or other similar applications. If this is your use case, look at a real-time parity based solution. If you can cope with this ‘risk window’ and have a largely static file collection, SnapRAID is for you.
 
+## What about SnapRAIDs drive pooling?
+
+SnapRAID offers a drive pooling feature that on the face of it looks like it makes MergerFS superfluous to requirements. However, the pooling feature by SnapRAID creates a read only virtual view of the files in your array using symbolic links and is therefore unsuitable for real usage.
+
 ## Using SnapRAID with MergerFS and ZFS
 
 If, like me, you have a large collection of media files *and* some more high churn datasets then consider the more advanced implementation detailed in *Advanced Configuration -> [Using ZFS with MergerFS](../advanced/combine-zfs-and-others.md)*. This combines a SnapRAID protected array of data disks and a ZFS mirror to have the cake and eat it too.
 
 [^1]: [snapraid.it](https://www.snapraid.it/)
+[^2]: [SnapRAID compared](https://www.snapraid.it/compare)
