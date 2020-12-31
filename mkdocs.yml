@@ -83,7 +83,7 @@ nav:
     - Bare Metal Manual Install: 'installation/manual-install.md'
     - Manual Install on Video: 'installation/manual-install-on-video.md'
     - Automated Install: 'installation/automated-install.md'
-    - Post Install Checklist: 'installation/post-install-checklist.md'
+    #- Post Install Checklist: 'installation/post-install-checklist.md'
   - Day Two (Post Install):
     - Top 10 Self-Hosted Apps: 'day-two/top10apps.md'
     - Backups: 'day-two/backups.md'

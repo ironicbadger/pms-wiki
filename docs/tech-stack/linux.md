@@ -1,6 +1,6 @@
 # Linux
 
-![linux](../images/linux.jpg){: align=left width=180 }
+![linux](../images/linux.jpg){: align=left width=160 }
 
 Ah, [Linux](https://linux.org). This game changing, pioneering, free and open source is the foundation upon which everything that PMS is, is built.
 
