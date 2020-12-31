@@ -1,4 +1,4 @@
-# Top 10 Self-Hosted apps
+# My Top 10 Self-Hosted apps
 
 Storing and serving files is all well and good but with a little effort, we can replace dozens of hosted services that don't respect your privacy. Here are some of my favourite self-hosted app picks.
 
@@ -86,7 +86,16 @@ It isn't a terribly glamourous application but it does enable you to see histori
 
 I have a demo instance running at [gallery.selfhosted.show](https://gallery.selfhosted.show) if you'd like to take it for a quick test drive yourself. Lychee isn't necessarily the best in this space but it's a pretty good all-round option with no frills (no face scanning or machine learning type features).
 
-There are a *lot* of options in this space, some honourable mentions are:
+<figure>
+    <iframe src="https://player.fireside.fm/v2/dUlrHQih+OssEQUFF?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
+    <figcaption><i>Lychee discussion begins at 7 mins</i></figcaption>
+</figure>
+
+There are a *lot* of options in this space - just take a look at [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted#photo-and-video-galleries), but some honourable mentions are:
+
+* [Photoprism](https://github.com/photoprism/photoprism)
+* [Librephotos](https://github.com/LibrePhotos/librephotos)
+* [Piwigo](http://piwigo.org/)
 
 ## 7. Librespeed
 
@@ -102,12 +111,40 @@ By running this container on your LAN you're able to remove the internet from th
 
 ## 8. Gitea
 
-* todo
+A self-hosted, lightweight git service, [Gitea](https://gitea.io) is much more powerful than it might seem at first. Sure, it has all the obivous trappings you'd expect from a code hosting solution such as multi-user support, organisations and a similar merge/fork model to a certain well-known online hub for Git activity.
+
+![gitea](../images/top10/gitea.png)
+
+One of my favourite features of Gitea is that it will automatically mirror remote git repositories locally when a commit is pushed. This makes it really easy to back up your code, and other people's code to your server - just in case. Because it's git the entire repo history is maintained and if for some reason a popular project became the target of a BS [DMCA claim](https://github.blog/2020-11-16-standing-up-for-developers-youtube-dl-is-back/), you're not up the creek without a paddle - so to speak.
+
+Gitea doesn't have any of the fancy CI features of the largest self-hosted, open source player in this space, Gitlab. But what is lacks in features it makes up for in small footprint and simplicity. 
+
+Here are some honourable mentions for self-hosted code hosting:
+
+* [Gitlab](https://about.gitlab.com/)
+* [Gogs](https://gogs.io/)
 
 ## 9. Tiddlywiki
 
-* todo
+A personal wiki is a personal choice. My personal favourite is Tiddlywiki - we covered it in episode 12 of Self-Hosted. [Tiddlywiki v5](https://github.com/Jermolene/TiddlyWiki5) is the latest version but it has a long heritage with the first release dating back to September 2004!
 
-## 10. Vabene1111/recipes
+<iframe src="https://player.fireside.fm/v2/dUlrHQih+E9_oEK6o?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 
-* todo
+The workflow of using the wiki takes a little getting used to but there are a few key features which have meant that it has stood the test during 2020 in my household.
+
+My absolute favourite thing about Tiddlywiki is just how fast it is to find what you're looking for. The search is fuzzy style (meaning that as you type, the results are instantly filtered) and it searches the entire text of an article - not just the titles or tags. It's written entirely in Javascript and requires very little in the way of server-side processing. No database, no encrypted files, just plain old text files (markdown is supported - yay!).
+
+The largest quirk comes when trying to add images, it's just not well suited to this. But you can make it work with a little learning curve. If I had a feature request for v6, it would be to improve the image handling.
+
+I run Tiddlywiki out of a container authored by [mazzolino](https://hub.docker.com/r/mazzolino/tiddlywiki) which works well with Traefik.
+
+Here are some honourable mentions:
+
+* [Bookstack](https://www.bookstackapp.com/)
+* [Mediawiki](https://www.mediawiki.org/wiki/MediaWiki)
+* [wiki.js](https://wiki.js)
+* [Zim](https://zim-wiki.org/)
+
+## 10. ???
+
+What are your favourites? Let me know @IronicBadger on Twitter.
