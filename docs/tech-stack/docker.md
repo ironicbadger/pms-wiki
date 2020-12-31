@@ -93,6 +93,18 @@ After those two resources are exhausted I might try and have a go at writing a D
 
 For an incredible list of inspiration, check out [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) on GitHub.
 
+## What about podman?
+
+[Podman](https://podman.io) is a daemonless container engine for your Linux system. The project claims that `alias docker=podman` is the hardest part of switching but in my testing podman still has a way to go to match docker in a few areas.
+
+The first is full on compose support. That is defining your stack of containers in a yaml file declaritively and repeatably. The [podman-compose](https://github.com/containers/podman-compose) is working on improving compatibility here but I've not found it to be a reliable, production ready replacement for docker-compose quite yet.
+
+Second are builds. At work the other day I built a container from a Dockerfile with both podman on Fedora and docker on Arch - each of those container images came out at vastly different finished sizes. The podman image was 1.4gb whilst the docker image was less than 350mb.
+
+Third is the community effect. Everyone in the media server space is using docker. It's the kleenex of containers and I don't see that changing anytime soon. Yes both projects tout OCI compatibility but there are some differences under the hood in how the two projects are wired which leads to inconsistencies. There's also a general lack of knowledge amongst those who freely donate their time to help others so it's a bit of a chicken and egg problem this one.
+
+Podman is aimed at a different primary usecase, Kubernetes. This project is definitely one to keep an eye on though so who knows, maybe the 2021 post will proclaim that podman is ready for primetime.
+
 *[OS]: Operating System
 *[PMS]: Perfect Media Server
 *[LSIO]: LinuxServer.io
