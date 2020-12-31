@@ -70,7 +70,9 @@ nav:
     - NAS Software Comparison: 'overview/nas-software-comparison.md'
   - Tech Stack:
     - Linux: 'tech-stack/linux.md'
-    - Docker: 'tech-stack/docker.md'
+    - Containers:
+      - Docker: 'tech-stack/docker.md'
+      - docker-compose: 'tech-stack/docker-compose.md'
     - MergerFS: 'tech-stack/mergerfs.md'
     - SnapRAID: 'tech-stack/snapraid.md'
     - ZFS: 'tech-stack/zfs.md'
