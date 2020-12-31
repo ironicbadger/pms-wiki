@@ -19,7 +19,7 @@ We can use VPNs for more than this though. By using a VPN to secure the traffic 
 
 WireGuard was first merged to the Linux kernel v5.6 in March 2020 [^1]. A relative newcomer to the VPN scene the project took a completely fresh approach to VPNs and aims to be "faster[^2], simpler[^3], leaner" than other VPN technologies. The OpenVPN codebase is approximiately 70,000 lines long[^4] compared just 4,000 with WireGuard.
 
-WireGuard is so crucial to the future of operating a system in this space these days that I've split out the WireGuard setup into its own section [here](../day-two/wireguard.md) 
+WireGuard is so crucial to the future of operating a system in this space these days that I've split out the WireGuard setup into its own section [here](wireguard.md) 
 
 !!! info
     Editors note on Dec 30 2020: The WireGuard guide will be a WIP but finished soon.
