@@ -55,7 +55,7 @@ Notice that the second container uses port 81. This is because the command `-p 8
 
 ## docker-compose
 
-* todo
+See [docker-compose](docker-compose.md).
 
 ## Where do I get containers from?
 
