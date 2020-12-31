@@ -18,7 +18,7 @@ The yaml snippet is not only easier for you to share, but also easier for others
 
 ### Disaster Recovery
 
-Recovering from a disaster is easier with a text file too. A backup can be as simple as copying and pasting a configuration file to a Github repository. How do you backup a GUI? Maybe it's possible, maybe not. 
+Recovering from a disaster is easier with a text file too. A backup can be as simple as copying and pasting a configuration file to a GitHub repository. How do you backup a GUI? Maybe it's possible, maybe not. 
 
 We can extend this philosophy well beyond just the `docker-compose.yaml` file. What about file sharing configuration via Samba? Users? Packages installed? Bash aliases? Monitoring configurations? The list goes on.
 
