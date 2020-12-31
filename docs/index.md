@@ -1,4 +1,4 @@
-![logo](images/site/logo.png)
+![logo](images/assets/logo.png)
 
 Perfect Media Server began life as a series of blog posts over at [blog.linuxserver.io](https://blog.linuxserver.io/tag/perfectmediaserver/). Those posts continue to be very popular but a blog post (or three) can only get you so far... 
 

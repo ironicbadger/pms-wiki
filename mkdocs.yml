@@ -7,7 +7,7 @@ theme:
   name: material
   language: en
   #logo: images/site/logo.png
-  favicon: images/site/favicon.png
+  favicon: images/assets/favicon.png
   icon:
     repo: fontawesome/brands/github
     logo: fontawesome/regular/folder-open
