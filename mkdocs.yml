@@ -7,10 +7,10 @@ theme:
   name: material
   language: en
   #logo: images/site/logo.png
+  favicon: images/site/favicon.png
   icon:
     repo: fontawesome/brands/github
     logo: fontawesome/regular/folder-open
-    favicon: fontawesome/regular/save
   palette:
     primary: indigo
     accent: teal
