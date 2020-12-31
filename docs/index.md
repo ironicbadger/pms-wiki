@@ -1,6 +1,4 @@
----
-title: Introduction
----
+![logo](../../images/site/logo.png)
 
 Perfect Media Server began life as a series of blog posts over at [blog.linuxserver.io](https://blog.linuxserver.io/tag/perfectmediaserver/). Those posts continue to be very popular but a blog post can only get you so far, I therefore introduce perfectmediaserver.com - a wiki format information repository detailing all you need to know to build a free, open and modular media server that will last for many, many years.
 

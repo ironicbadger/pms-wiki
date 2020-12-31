@@ -1,13 +1,15 @@
 site_name: Perfect Media Server
 repo_url: https://github.com/IronicBadger/pms-wiki
 repo_name: ironicbadger/pms-wiki
+edit_uri: edit/main/docs/
 
 theme:
   name: material
   language: en
+  #logo: images/site/logo.png
   icon:
     repo: fontawesome/brands/github
-    logo: fontawesome/regular/save
+    logo: fontawesome/regular/folder-open
     favicon: fontawesome/regular/save
   palette:
     primary: indigo
@@ -22,7 +24,7 @@ theme:
   # insiders only
   #   - search.suggest
 
-google_analytics: ['G-DF6SGTVVBC', 'soon.perfectmediaserver.com']
+google_analytics: ['G-DF6SGTVVBC', 'perfectmediaserver.com']
 
 plugins:
   - git-revision-date
