@@ -1,8 +1,5 @@
 # NAS Software Comparison
 
-!!! info
-    This page is currently a work in progress.
-
 ## unRAID
 
 !!! quote
@@ -34,7 +31,5 @@ That said, for a GUI to be worth learning it has to be meaningfully better than 
 This pervasive frustration was also the case as a new user. Something that could be configured in a few lines of a config file required navigating a UI and doing a whole lot of clicking. As a more experienced administrator these days I have embraced automation via [Ansible](../concepts/infraascode.md#ansible) and can rebuild a server in 15 minutes from scratch. Managing a server entirely via the CLI might seem intimidating at first but it's really the way to go. Yes, even via mobile using JuiceSSH on Android or blink on iOS - see [remote access](../day-two/remote-access.md).
 
 OpenMediaVault is just Linux underneath though which is a good thing. This means it runs docker, supports ZFS (via DKMS), SnapRAID and MergerFS too. 
-
-## TrueNAS (formerly FreeNAS)
 
 *[PMS]: Perfect Media Server
