@@ -64,8 +64,8 @@ extra:
       name: IronicBadger's Podcast - selfhosted.show
 
 nav:
-  - Introduction: 
-    - Welcome: 'index.md'
+  - Welcome: 'index.md'
+  - Overview:
     - Overview & FAQ: 'overview/overview.md'
     - NAS Software Comparison: 'overview/nas-software-comparison.md'
   - Tech Stack:
