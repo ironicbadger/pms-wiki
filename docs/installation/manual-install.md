@@ -88,17 +88,19 @@ The following section details the steps to identify, mount and partition the har
 
 ### Mounting drives manually
 
-In order to use these disks our OS needs to mount them. *Mounting* means that we are providing the OS with instructions on how to read or write data to a specific drive. The most common way of configuring drives for use with PMS is to create one large partition which spans the entire drive, format it to `ext4` or `xfs` and then mount it.
+In order to use these disks our OS needs to mount them. *Mounting* means that we are providing the OS with instructions on how to read or write data to a specific drive. The most common way of configuring drives for use with PMS is to create one large partition and format it with a single filesystem which spans the entire drive, often `ext4` or `xfs`, and then mounting it.
 
 !!! success
     You may now connect your data disks.
 
-The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. XFS allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on choosing your filesystem [here](https://access.redhat.com/articles/3129891).
+The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. `xfs` allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on choosing your filesystem [here](https://access.redhat.com/articles/3129891).
 
 !!! info
-    Due to some differences in the way in which Ubuntu server and desktop present drives to us under `/dev/disk/by-id` we recommend using the Ubuntu desktop variant.
+    There are two version of Ubuntu mainline available - the [desktop](https://ubuntu.com/download/desktop) and [server](https://ubuntu.com/download/server) variants. 
+    
+    Due to some quirkiness in how Ubuntu server and desktop present drives under `/dev/disk/by-id` we recommend using the Ubuntu desktop variant. You can [disable the desktop services](https://linuxconfig.org/how-to-disable-enable-gui-on-boot-in-ubuntu-20-04-focal-fossa-linux-desktop) if system resources are at a premium.
 
-Remember with MergerFS you are able to safely mix and match filesystems and drive sizes.
+Remember with MergerFS you are able to safely mix and match filesystems and drive sizes which is part of it's real magic. This means you don't have to stress too much about picking exactly the right filesystem up front because you aren't locked in.
 
 ### Identifying drives
 
@@ -147,39 +149,50 @@ The following steps will require root access, become the root user by typing `su
 Once `gdisk` is loaded we are presented with an interactive prompt `Command (? for help):`. To see all options simply type `?`. In the initial output from gdisk we can see there is no partition table present on this drive - it's a good sanity check you have the right drive before erasing the partition and file allocation tables.
 
 !!! danger
-    The following sequence will erase everything on this disk. **USE CAUTION**
+    The following sequence will erase everything on this disk. **MAKE SURE YOU HAVE A BACKUP AND USE CAUTION**
 
-Use the following sequence to create one large partition spanning the entire drive.
+Use the following sequence to create one large partition spanning the entire drive. Note that the keys you need to press are at the start of each heading and the answers to the subsequent questions at the ends of the next few lines.
 
-=== "gdisk"
+* **`o`** - creates a new **EMPTY** GPT partition table (GPT is good for large drives over 3TB)
+    * Proceed? (Y/N) - **`Y`**
+* **`n`** - creates a new partition
+    * Partition number (1-128, default 1): **`1`**
+    * First sector (34-15628053134, default = 2048) or {+-}size{KMGTP}: **`leave blank`**
+    * Last sector (2048-15628053134, default = 15628053134) or {+-}size{KMGTP}: **`leave blank`**
+    * Hex code or GUID (L to show codes, Enter = 8300): **`8300`**
+* **`p`** - (optional) validate 1 large partition to be created
+    * Model: HGST HDN728080AL
+    * Number  Start (sector)    End (sector)  Size       Code  Name
+    * 1       2048              15628053134   7.3 TiB    8300  Linux filesystem
+* **`w`** - writes the changes made thus far
+    * Until this point, gdisk has been non-destructive
+    * Confirm that making these changes is OK and the changes queued so far will be executed
 
-    ```
-    * o - creates a new **EMPTY** GPT partition table (GPT is good for large drives over 3TB)
-        * Proceed? (Y/N) - Y
-    * n - creates a new partition
-        * Partition number (1-128, default 1): 1
-        * First sector (34-15628053134, default = 2048) or {+-}size{KMGTP}: leave blank
-        * Last sector (2048-15628053134, default = 15628053134) or {+-}size{KMGTP}: leave blank
-        * Hex code or GUID (L to show codes, Enter = 8300): 8300
-    * p - (optional) validate 1 large partition to be created
-        * Model: HGST HDN728080AL
-        * Number  Start (sector)    End (sector)  Size       Code  Name
-        * 1       2048              15628053134   7.3 TiB    8300  Linux filesystem
-    * w - writes the changes made thus far
-        * Until this point, gdisk has been non-destructive  
-    ```    
+Next up, we'll create a filesystem on that newly created partition.
+
+!!! info
+    Rinse and repeat this step for each new drive as required.
 
 #### Filesystem creation
 
-Create an `ext4` filesystem thus:
+Create an `ext4` filesystem thus (replace `X` with your drive letter):
 
     mkfs.ext4 /dev/sdX1
 
-Congratulations! Your new drive is now formatted and ready to store data. Move onto the next section 'Existing drive' to learn how to mount it (make it available to the OS for use).
+Congratulations! Your new drive is now formatted and ready to store data. 
+
+Move onto the next section 'Existing drive' to learn how to mount it (make it available to the OS for use).
 
 ### Existing drives
 
-[Identify](#identifying-drives) the existing drive and take note of the partition you wish to mount. This is usually displayed as `-part1` using `/dev/disk/by-id`. Ensure you have the correct supporting libraries for your filesystem installed such as `xfsprogs` for XFS and then mount the drive manually like so:
+[Identify](#identifying-drives) the existing drive and take note of the partition you wish to mount. This is usually displayed as `-part1` using `/dev/disk/by-id`.
+
+!!! info
+    Ensure you have the correct supporting libraries for your filesystem installed such as `xfsprogs` for XFS.
+
+    With Ubuntu this is achieved via `sudo apt install xfsprogs`.
+    
+You should now be able to mount the drive manually like so:
 
     mkdir /mnt/manualdiskmounttest
     mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1
@@ -192,13 +205,15 @@ Verify that the drive mounted and displays the correct size as expected:
 
 ### Mountpoints
 
+Mountpoints are where the OS mounts a specific disk partition. For example, you could have multiple partitions on the same disk mounted to different places for redundancy or performance reasons. For our purposes here we'll keep things simple by mounting each data disk partition one by one.
+
 Assuming the previous test went well, it's time to come up with a mountpoint naming scheme. We recommended `/mnt/diskN` because it makes the `fstab` entry for MergerFS simpler thanks to wildcard support (more on this shortly). For example:
 
     mkdir /mnt/disk{1,2,3,4}
     mkdir /mnt/parity1 # adjust this command based on your parity setup
     mkdir /mnt/storage # this will be the main mergerfs mountpoint
 
-We also just created `/mnt/storage` in addition to our data disk mountpoints of `/mnt/disk1`, `/mnt/disk2` and so on. `/mnt/storage` will be used by MergerFS to 'pool' or 'merge' our data disks.
+We also just created `/mnt/storage` in addition to our data disk mountpoints of `/mnt/disk1`, `/mnt/disk2` and so on. `/mnt/storage` will be used by [MergerFS](../tech-stack/mergerfs.md) to 'pool' or 'merge' our data disks.
 
 ### fstab entries
 

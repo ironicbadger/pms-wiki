@@ -82,7 +82,7 @@ nav:
     - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
     - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
   - Installation:
-    - Bare Metal Manual Install: 'installation/manual-install.md'
+    - Manual Install on Bare Metal: 'installation/manual-install.md'
     - Manual Install on Video: 'installation/manual-install-on-video.md'
     - Automated Install: 'installation/automated-install.md'
     #- Post Install Checklist: 'installation/post-install-checklist.md'
