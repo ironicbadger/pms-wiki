@@ -91,7 +91,9 @@ I have a demo instance running at [gallery.selfhosted.show](https://gallery.self
     <figcaption><i>Lychee discussion begins at 7 mins</i></figcaption>
 </figure>
 
-There are a *lot* of options in this space - just take a look at [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted#photo-and-video-galleries), but some honourable mentions are:
+There are a *lot* of options in this space - just take a look at [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted#photo-and-video-galleries).
+
+**Similar or related projects:**
 
 * [Photoprism](https://github.com/photoprism/photoprism)
 * [Librephotos](https://github.com/LibrePhotos/librephotos)
@@ -119,7 +121,7 @@ One of my favourite features of Gitea is that it will automatically mirror remot
 
 Gitea doesn't have any of the fancy CI features of the largest self-hosted, open source player in this space, Gitlab. But what is lacks in features it makes up for in small footprint and simplicity. 
 
-Here are some honourable mentions for self-hosted code hosting:
+**Similar or related projects:**
 
 * [Gitlab](https://about.gitlab.com/)
 * [Gogs](https://gogs.io/)
@@ -132,19 +134,21 @@ A personal wiki is a personal choice. My personal favourite is Tiddlywiki - we c
 
 The workflow of using the wiki takes a little getting used to but there are a few key features which have meant that it has stood the test during 2020 in my household.
 
-My absolute favourite thing about Tiddlywiki is just how fast it is to find what you're looking for. The search is fuzzy style (meaning that as you type, the results are instantly filtered) and it searches the entire text of an article - not just the titles or tags. It's written entirely in Javascript and requires very little in the way of server-side processing. No database, no encrypted files, just plain old text files (markdown is supported - yay!).
+My absolute favourite thing about Tiddlywiki is just how fast it is to find what you're looking for. The search is fuzzy style (meaning that as you type, the results are instantly filtered) and it searches the entire text of an article - not just the titles or tags. It's written entirely in Javascript and requires very little in the way of server-side processing. No database, no encrypted files, just plain old text files (markdown is supported - yay!). I also love that information can belong to multiple categories at the same time via a simple tag - Tiddlywiki works the way my brain does and I *love* it.
+
+![tiddlywiki-ui](../images/top10/tiddlywiki-ui.png)
 
 The largest quirk comes when trying to add images, it's just not well suited to this. But you can make it work with a little learning curve. If I had a feature request for v6, it would be to improve the image handling.
 
 I run Tiddlywiki out of a container authored by [mazzolino](https://hub.docker.com/r/mazzolino/tiddlywiki) which works well with Traefik.
 
-Here are some honourable mentions:
+**Similar or related projects:**
 
 * [Bookstack](https://www.bookstackapp.com/)
 * [Mediawiki](https://www.mediawiki.org/wiki/MediaWiki)
 * [wiki.js](https://wiki.js)
 * [Zim](https://zim-wiki.org/)
 
-## 10. ???
+## 10. Surprise me
 
 What are your favourites? Let me know @IronicBadger on Twitter.
