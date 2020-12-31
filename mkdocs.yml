@@ -12,7 +12,7 @@ theme:
     repo: fontawesome/brands/github
     logo: fontawesome/regular/folder-open
   palette:
-    primary: indigo
+    primary: blue
     accent: teal
     scheme: default
   font:
