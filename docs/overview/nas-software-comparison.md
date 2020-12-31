@@ -1,5 +1,7 @@
 # NAS Software Comparison
 
+This page serves as an opinionated comparison between the main players in the Home NAS space.
+
 ## unRAID
 
 !!! quote
