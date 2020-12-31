@@ -62,17 +62,31 @@ A fantastic resource to learn more about the project is YouTube. [Dr Zzzs](https
 
 Home Assistant can be run as a standalone container, on a Raspberry Pi, as a VM and countless [other ways](https://www.home-assistant.io/getting-started/). The learning curve is real but this project really is worth your time to investigate.
 
-## 4. Smokeping
+## 4. Grafana
 
-* todo
+[Grafana](https://grafana.com/) itself is graphing tool to display data stored elsewhere. It excels at displaying time-series data like the kind gathered by monitoring tools like [Telegraf](https://blog.linuxserver.io/2017/11/25/how-to-monitor-your-server-using-grafana-influxdb-and-telegraf/) and [Prometheus](https://prometheus.io/). It takes a bit of work to get a dashboard configured just the way you like it but is well worth the effort - after all, who doesn't like a pretty graph?
 
-## 5. Grafana
+![grafana](../images/top10/grafana.png)
 
-* todo
+I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server stup.
+
+## 5. Smokeping
+
+[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. It pings things - both remote and local - and records how much latency there is between you and the target.
+
+![smokeping-ui](../images/top10/smokeping-ui.png)
+
+It isn't a terribly glamourous application but it does enable you to see historical trends of network performance at a glance extremely easily for up to a year at a time.
 
 ## 6. Lychee
 
-* todo
+[Lychee](https://lychee.electerious.com/) proclaims to be "self-hosted photo-management done right". It does certainly do a very good job at presenting images with a clean interface and makes dividing them up into albums relatively straightforward.
+
+![lychee](../images/top10/lychee.png)
+
+I have a demo instance running at [gallery.selfhosted.show](https://gallery.selfhosted.show) if you'd like to take it for a quick test drive yourself. Lychee isn't necessarily the best in this space but it's a pretty good all-round option with no frills (no face scanning or machine learning type features).
+
+There are a *lot* of options in this space, some honourable mentions are:
 
 ## 7. Librespeed
 
