@@ -2,6 +2,9 @@
 
 SSH has to be one of the great unsung heros of the average sysadmins toolkit.
 
+!!! info
+    Much of this information was originally published at [blog.ktz.me - SSH Tips and why ProxyJump is awesome](https://blog.ktz.me/ssh-tips-and-tricks/).
+
 ## What is SSH?
 
 The SSH protocol (also referred to as Secure Shell) is a method for secure remote login from one computer to another. It provides several alternative options for strong authentication, and it protects the communications security and integrity with strong encryption. It is a secure alternative to the non-protected login protocols (such as telnet, rlogin) and insecure file transfer methods (such as FTP) [^1].
