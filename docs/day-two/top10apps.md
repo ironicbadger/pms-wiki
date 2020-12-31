@@ -60,6 +60,8 @@ A [demo](https://demo.home-assistant.io/#/lovelace/0) is available if you're cur
 
 A fantastic resource to learn more about the project is YouTube. [Dr Zzzs](https://www.youtube.com/c/DrZzs), [The Hook Up](https://www.youtube.com/c/TheHookUp), [Intermit.tech](https://www.youtube.com/c/IntermitTech), [Paul Hibbert](https://www.youtube.com/c/PaulHibbert) and [DigiblurDIY](https://www.youtube.com/c/digiblurDIY) are some of the most well-known channels. This isn’t an exhaustive list but should give you plenty of material to work with if you’re in need of inspiration or buying advice.
 
+Home Assistant can be run as a standalone container, on a Raspberry Pi, as a VM and countless [other ways](https://www.home-assistant.io/getting-started/). The learning curve is real but this project really is worth your time to investigate.
+
 ## 4. Smokeping
 
 * todo
