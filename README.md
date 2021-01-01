@@ -1,6 +1,6 @@
 # ironicbadger/pms-wiki
 
-You can find the full site at [soon.perfectmediaserver.com](https://soon.perfectmediaserver.com).
+You can find the full site at [perfectmediaserver.com](https://perfectmediaserver.com).
 
 ## Abstract
 
