@@ -80,7 +80,7 @@ zpool create tank mirror -m /mnt/tank -o ashift=12 /dev/disk/by-id/ata-ST10000DM
 ```
 
 !!! warning
-    Never use `/dev/sdX` for these commands, always use a unique identifier that will transpose between systems or reboots without changing such as `/dev/disk/by-id/`
+    Never use `/dev/sdX` for these commands, always use a unique identifier that will transpose between systems or reboots without changing such as `/dev/disk/by-id/`. See the [OpenZFS docs](https://openzfs.github.io/openzfs-docs/Project%20and%20Community/FAQ.html#selecting-dev-names-when-creating-a-pool-linux) for more information.
 
 * Once created verify the new pool with `zpool status`
 
