@@ -22,7 +22,7 @@ Beyond the fact that separating the application runtime from its configuration m
 
 ## What is a container?
 
-A container is an application in a box. A few years ago, the Linux kernel added some features called namespaces and cgroups which enable isolating processes from each other. Therefore, in essence, a container a process isolated in memory by the kernel.
+A container is an application in a box. A few years ago, the Linux kernel added some features called namespaces and cgroups which enable isolating processes from each other. Therefore, in essence, a container is a process isolated in memory by the kernel.
 
 !!! tip
     [This](https://archive.fosdem.org/2016/schedule/event/namespaces_and_cgroups/) talk by James Bottomley at FOSDEM 2016 was pivotal in my understanding of containers. He explains what cgroups and namespaces are in a way that is easy to understand and I highly suggest watching the recording of his talk linked [here](https://archive.fosdem.org/2016/schedule/event/namespaces_and_cgroups/).
