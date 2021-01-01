@@ -80,7 +80,7 @@ zpool create tank mirror -m /mnt/tank -o ashift=12 /dev/disk/by-id/ata-ST10000DM
 ```
 
 !!! warning
-    Never use `/dev/sdX` for these commands, always use a unique identifier than will transpose between systems or reboots without changing such as `/dev/disk/by-id/`
+    Never use `/dev/sdX` for these commands, always use a unique identifier that will transpose between systems or reboots without changing such as `/dev/disk/by-id/`
 
 * Once created verify the new pool with `zpool status`
 
@@ -176,7 +176,7 @@ errors: No known data errors
 One of the most compelling reasons to use ZFS is replication. We get more into the weeds of backups in **Day Two -> [Backups](../day-two/backups.md)** but this section will focus on the ZFS specific `zfs send/receive` functionality using [Sanoid](https://github.com/jimsalterjrs/sanoid) and Syncoid.
 
 !!! hint
-    Replication requires a remote system also running ZFS. I built a small system at a parents house under the stairs to perform this function. 
+    Replication requires a remote system also running ZFS. I built a small system at a parent's house under the stairs to perform this function.
     
     [rsync.net](https://rsync.net) is expensive but provides this functionality 'in the cloud'.
 

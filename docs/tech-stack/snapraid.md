@@ -1,6 +1,6 @@
 # SnapRAID
 
-SnapRAID provides us some basic protection against drive failures and is the perfect pairing with [MergerFS](mergerfs.md). This diagram illustrates the relationship between MergerFS and SnapRAID - each is responsible a different area and the two operate independently of each other.
+SnapRAID provides us some basic protection against drive failures and is the perfect pairing with [MergerFS](mergerfs.md). This diagram illustrates the relationship between MergerFS and SnapRAID - each is responsible for a different area and the two operate independently of each other.
 
 <p align="center">
 <img alt="mergerfs-snapraid-diagram" src="../../images/diagram-mergerfs-snapraid.png" width="525">
@@ -8,9 +8,9 @@ SnapRAID provides us some basic protection against drive failures and is the per
 
 ## What is SnapRAID?
 
-SnapRAID[^1] is a free and open-source project licensed under GPLv3 which calcuates parity information for disk arrays and will protect against up to 6 disk failures at once. It essentially takes JBOD and provides a cohesive glue for them protecting against drive failure and bitrot. It is primarily targeted at media center users with lots of big files that rarely change. 
+SnapRAID[^1] is a free and open-source project licensed under GPLv3 which calculates parity information for disk arrays and will protect against up to 6 disk failures at once. It essentially takes JBOD and provides a cohesive glue for them protecting against drive failure and bitrot. It is primarily targeted at media center users with lots of big files that rarely change. 
 
-It supports mismatched disk sizes although the parity drive must as large or larger than the largest data disk (see diagram above). Uniquely, it runs across a plethora of OS’s such as Linux, OS X, Windows, BSD, Solaris and OpenIndiana – pretty impressive.
+It supports mismatched disk sizes although the parity drive must be as large or larger than the largest data disk (see diagram above). Uniquely, it runs across a plethora of OS’s such as Linux, OS X, Windows, BSD, Solaris and OpenIndiana – pretty impressive.
 
 The name SnapRAID comes from the fact that it isn't really RAID at all, it's "snapshot RAID". No striping occurs and parity information is devoted to entire dedicated parity disks. This implementation is a major difference from unRAID or traditional RAID (mdadm, ZFS, etc) all of which calculate parity in ‘real-time’ (unRAIDs cache drive system is an exception).
 
@@ -26,7 +26,7 @@ In the PMS [overview](../overview/overview.md#what-is-perfect-media-server) we l
 * Enable incremental upgrading of hard drives in batches as small as one
 * Each drive should have a separately readable filesystem with no striping of data
 
-SnapRAID helps us meet each of these criteria and when combined with MergerFS enables each drive to remain individually formatted (no striping) whilst still having some kind of fault tolerance. Data integrity is checked for bitrot using 128bit checksummingwhich enables the silent fixing of these errors. Furthermore, any files changed since the last sync can be restored on a file by file basis allowing for quite a sophisticated backup solution at the file level.
+SnapRAID helps us meet each of these criteria and when combined with MergerFS enables each drive to remain individually formatted (no striping) whilst still having some kind of fault tolerance. Data integrity is checked for bitrot using 128bit checksumming which enables the silent fixing of these errors. Furthermore, any files changed since the last sync can be restored on a file by file basis allowing for quite a sophisticated backup solution at the file level.
 
 It will also work on already populated data drives, a big win over traditional RAID. Again, it allows only the drives in use to be spun up unlike RAID which requires all drives spinning to access a file on one drive.
 
