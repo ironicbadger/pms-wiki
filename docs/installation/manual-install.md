@@ -69,7 +69,7 @@ Installation in Ubuntu can be performed using `apt` but the version in the Ubunt
 !!! Warning
     It is not recommended to install mergerfs from the Ubuntu repos - use the GitHub repo as detailed below.
 
-Instead, navigate to the mergerfs github [releases](https://github.com/trapexit/mergerfs/releases) page and find the correct `.deb` file for Ubuntu 20.04. For example:
+Instead, navigate to the mergerfs GitHub [releases](https://github.com/trapexit/mergerfs/releases) page and find the correct `.deb` file for Ubuntu 20.04. For example:
 
 ```
 ## Download and install - ensure to update version number!
@@ -320,7 +320,7 @@ exclude appdata/
 exclude *.!sync
 ```
 
-A full list of typical excludes can be found in Github [here](https://github.com/IronicBadger/infra/blob/master/group_vars/cartman.yaml#L719).
+A full list of typical excludes can be found in GitHub [here](https://github.com/IronicBadger/infra/blob/master/group_vars/cartman.yaml#L719).
 
 ### Automating Parity Calculation
 
