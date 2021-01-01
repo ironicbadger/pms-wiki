@@ -21,7 +21,7 @@ I would be remiss not to mention the [awesome-selfhosted](https://github.com/awe
 
 [Plex](https://plex.tv) is the reason you're even reading this page. It's what got me interested in Linux in the first place and is somewhat of a gateway drug for self-hosting and can be run as a [container](https://hub.docker.com/r/plexinc/pms-docker/). However, it is not open source and there are doubts about the future of Plex as they continue to add features and streaming services that [no-one asked for](https://www.reddit.com/r/PleX/comments/e62nbt/how_do_you_disable_the_new_plex_movies_feature/). Luckily, there are other options available.
 
-Jellyfin and Emby are two notable players in this space (playback on any device) but we should also mention Kodi. Kodi is great is your use case is local only as automated media transcoding for the target device isn't something that this software does. But, for me, Plex is still the best overall in this category. It has the slickest UI and the most features. Despite this, the progress being made by Emby and Jellyfin recently is very impressive and these are both projects to watch closely.
+Jellyfin and Emby are two notable players in this space (playback on any device) but we should also mention Kodi. Kodi is great if your use case is local only as automated media transcoding for the target device isn't something that this software does. But, for me, Plex is still the best overall in this category. It has the slickest UI and the most features. Despite this, the progress being made by Emby and Jellyfin recently is very impressive and these are both projects to watch closely.
 
 **Similar or related projects:**
 
@@ -68,7 +68,7 @@ Home Assistant can be run as a standalone container, on a Raspberry Pi, as a VM 
 
 ![grafana](../images/top10/grafana.png)
 
-I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server stup.
+I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server setup.
 
 ## 5. Smokeping
 

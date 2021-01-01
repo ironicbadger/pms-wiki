@@ -30,7 +30,7 @@ You've already found your way to this site so you're in a good spot. Organising 
 
 We cover some hardware topics here as well but you might want to go and check out my friends over at [serverbuilds.net](https://serverbuilds.net) for some interesting, low cost ideas in that department.
 
-Beyond that go ahead and make extension use of the search feature which can be invoked with `/`, just like in Vim. 
+Beyond that go ahead and make extensive use of the search feature which can be invoked with `/`, just like in Vim.
 
 You can find me on the [Self-Hosted podcast Discord server](https://discord.gg/efhGsp75dx) or [Twitter](https://twitter.com/ironicbadger) where I'm @IronicBadger if you have questions, concerns or feedback about the site. Please also consider contributing [via PR](https://github.com/IronicBadger/pms-wiki/) if you find something that needs fixing.
 
