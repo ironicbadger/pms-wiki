@@ -24,7 +24,7 @@ theme:
   # insiders only
   #   - search.suggest
 
-google_analytics: ['G-DF6SGTVVBC', 'perfectmediaserver.com']
+google_analytics: ['UA-257201512', 'perfectmediaserver.com']
 
 plugins:
   - git-revision-date
