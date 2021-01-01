@@ -4,7 +4,7 @@
 
 A few years ago, I read a book. That book was [Infrastructure as Code](https://amzn.to/2WjBb5c) by Kief Moris. In this book, Kief lays out a framework for defining every part of your infrastructure in text files - or as we sometimes call it, code.
 
-This simple philosophy of managing configuration in the same way as we do with source code revolutionized the way I approach building systems. Tools like Ansible and Terraform may seem overkill for your average media server administrator but I firmly believe they have their place. An afteinfraascrnoon or two learning Ansible, and that is all it takes, will save you dozens of future afternoons scratching your head wondering how you accomplished something 3 weeks, 3 months or 3 years ago.
+This simple philosophy of managing configuration in the same way as we do with source code revolutionized the way I approach building systems. Tools like Ansible and Terraform may seem overkill for your average media server administrator but I firmly believe they have their place. An afternoon or two learning Ansible, and that is all it takes, will save you dozens of future afternoons scratching your head wondering how you accomplished something 3 weeks, 3 months or 3 years ago.
 
 ## GUIs are not easier
 
