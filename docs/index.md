@@ -25,7 +25,7 @@ I doubt this site will ever be "finished" because technologies, budgets, time an
 
 ## Contribute
 
-This site is created using the open-source [mkdocs](https://www.mkdocs.org/). PRs will be gladly considered via Github (using the icon in the top right) if you'd like to correct something here or improve the site.
+This site is created using the open-source [mkdocs](https://www.mkdocs.org/). PRs will be gladly considered via GitHub (using the icon in the top right) if you'd like to correct something here or improve the site.
 
 ## About the Author
 

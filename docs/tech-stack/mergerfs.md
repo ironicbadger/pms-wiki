@@ -21,13 +21,13 @@ Here are the key features of MergerFS that make it perfect for PMS:
     * Drives may contain data when mounted via Mergerfs
 * Simple configuration with one line in `/etc/fstab`
 
-For the home user the incremental addition of hard drives is a very important consideration. ZFS still lacks easy expanability and for most people, adding 4 or more drives at once is prohibitively expensive - see ["The hidden cost of ZFS"](http://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html).
+For the home user the incremental addition of hard drives is a very important consideration. ZFS still lacks easy expandability and for most people, adding 4 or more drives at once is prohibitively expensive - see ["The hidden cost of ZFS"](http://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html).
 
 Drives of a useful capacity cost upwards of $150 (x4 = $600). $600 is a chunk of change to plop down in one go just because you filled up your last drive - why not have a system that grows as your needs do?
 
 This doesn't take into consideration the increased simultaneous failure risk of buying 4 drives from the same batch (when drives go bad they usually fail at a similar point if from the same batch)! With MergerFS the drive addition process is as simple as partitioning the drive, adding it to the mount command in `/etc/fstab` and you’re done. 
 
-I do however suggest considering your use case carefully. For example MergerFS is best suited to large, primarily write once read many datasets like media files. Last year I decided to start using a ZFS mirror for my most critical data and merging that using MergerFS as well - see [combining ZFS and MergerFS](../advanced/combine-zfs-and-others.md.
+I do however suggest considering your use case carefully. For example MergerFS is best suited to large, primarily write once read many datasets like media files. Last year I decided to start using a ZFS mirror for my most critical data and merging that using MergerFS as well - see [combining ZFS and MergerFS](../advanced/combine-zfs-and-others.md).
 
 ## Drive Pooling
 
@@ -66,7 +66,7 @@ If you do want path preservation you'll need to perform the manual act of creati
 
 No, MergerFS differs from RAID in a few key ways.
 
-The first is that MergerFS has *nothing whatsoever* to do with parity[^2]. MergerFS **zero** fault tolerance - if the drive that data is stored on fails, that data is gone. With RAID if the fault tolerance of the array is exceed all data is lost but with MergerFS only the failed drive is affected.
+The first is that MergerFS has *nothing whatsoever* to do with parity[^2]. MergerFS has **zero** fault tolerance - if the drive that data is stored on fails, that data is gone. With RAID if the fault tolerance of the array is exceeded all data is lost but with MergerFS only the failed drive is affected.
 
 To add a parity like feature, MergerFS is often paired with [SnapRAID](snapraid.md). SnapRAID takes a snapshot of the data disks at a set interval providing some local redundancy. Whilst these two projects are complimentary to each other their relationship is coincidental.
 

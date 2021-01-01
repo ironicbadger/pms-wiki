@@ -34,7 +34,7 @@ You can view the generate keys in `~/.ssh/` as `id_ed25519` for the private key 
 <p align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YEBfamv-_do" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
-It's also worth understanding `AgentForwarding` too. Github have some nice documentation on this topic. It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server. In their documentation pay attention to the ssh-agent section, it's important for all this to work.
+It's also worth understanding `AgentForwarding` too. GitHub have some nice documentation on this topic. It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server. In their documentation pay attention to the ssh-agent section, it's important for all this to work.
 
 ## SSH Key Management
 

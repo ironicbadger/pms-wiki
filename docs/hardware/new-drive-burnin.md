@@ -37,11 +37,11 @@ The basic invocation of badblocks is very simple. USE `-w` WITH EXTREME CAUTION 
 With this command, badblocks will perform 4 complete write and read cycles across the entire drive, the last of which zeroes the drive.
 
 !!! hint
-    The scripts used can be found on Github [here](https://github.com/Spearfoot/disk-burnin-and-testing).
+    The scripts used can be found on GitHub [here](https://github.com/Spearfoot/disk-burnin-and-testing).
 
 ## Burn-in script
 
-I use a script to wrap the execution from github user [spearfoot](https://github.com/Spearfoot/disk-burnin-and-testing). Make sure to read the readme before execution otherwise nothing will happen.
+I use a script to wrap the execution from GitHub user [spearfoot](https://github.com/Spearfoot/disk-burnin-and-testing). Make sure to read the readme before execution otherwise nothing will happen.
 
 When you are ready to do a destructive burn in (recommended for new drives) you will need to modify the script as per his instructions to a non zero value to commence writes.
 
