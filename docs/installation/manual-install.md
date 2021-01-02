@@ -328,7 +328,7 @@ As SnapRAID is designed to work by taking snapshots we must configure these to b
 
 [snapraid-runner](https://github.com/Chronial/snapraid-runner) is a reliable way to add some logic gates to execution of SnapRAID. 
 
-To install, beging by cloning the git repo:
+To install, begin by cloning the git repo:
 
 ```
 git clone https://github.com/Chronial/snapraid-runner.git /opt/snapraid-runner
