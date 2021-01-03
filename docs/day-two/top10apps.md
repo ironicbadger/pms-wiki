@@ -119,7 +119,7 @@ A self-hosted, lightweight git service, [Gitea](https://gitea.io) is much more p
 
 One of my favourite features of Gitea is that it will automatically mirror remote git repositories locally when a commit is pushed. This makes it really easy to back up your code, and other people's code to your server - just in case. Because it's git the entire repo history is maintained and if for some reason a popular project became the target of a BS [DMCA claim](https://github.blog/2020-11-16-standing-up-for-developers-youtube-dl-is-back/), you're not up the creek without a paddle - so to speak.
 
-Gitea doesn't have any kind of built-in CI features of the largest self-hosted, open source player in this space, Gitlab. But what it lacks in features it makes up for in small footprint and simplicity. These can instead be handled by external applications such as [drone](https://www.drone.io/).
+Gitea doesn't have the kind of built-in CI features like the largest self-hosted and open source player in this space Gitlab. But what it lacks in features it makes up for in small footprint and simplicity. These can instead be handled by external applications such as [drone](https://www.drone.io/).
 
 **Similar or related projects:**
 
