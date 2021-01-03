@@ -79,17 +79,19 @@ There is no one right answer to this question. Ask 10 folks on [r/datahoarder](h
 !!! info
     Original credit: Thomas-Krenn Wiki [^1]
 
-When creating an Ext4 file system, the existing regions of the inode tables must be cleaned (overwritten with nulls, or "zeroed"). The "lazyinit" feature should significantly accelerate the creation of a file system, because it does not immediately initialize all inode tables, initializing them gradually instead during the initial mounting process in background (from Kernel version 2.6.37).[18][19] Regarding this see the extracts from the mkfs.ext4 man pages:[20]
+When creating an Ext4 file system, the existing regions of the inode tables must be cleaned (overwritten with nulls, or "zeroed"). The "lazyinit" feature should significantly accelerate the creation of a file system, because it does not immediately initialize all inode tables, initializing them gradually instead during the initial mounting process in background (from Kernel version 2.6.37). Regarding this see the extracts from the mkfs.ext4 man pages:[^2]
 
 > If enabled and the uninit_bg feature is enabled, the inode table will not be fully initialized by mke2fs. This speeds up file system initialization noticeably, but it requires the kernel to finish initializing the file system in the background when the file system is first mounted. If the option value is omitted, it defaults to 1 to enable lazy inode table zeroing.
 
-One should be careful when testing the performance of a freshly created file system. The "lazy initialization" feature may write a lot of information to the hard disk after the initial mounting and thereby invalidate the test results. At first, the "ext4lazyinit" kernel process writes at up to 16,000kB/s to the device and thereby uses a great deal of the hard disk’s bandwidth (see also I/O Statistics by Process). In order to prevent lazy initialization, advanced options are offered by the mkfs.ext4 command:[20]
+One should be careful when testing the performance of a freshly created file system. The "lazy initialization" feature may write a lot of information to the hard disk after the initial mounting and thereby invalidate the test results. At first, the "ext4lazyinit" kernel process writes at up to 16,000kB/s to the device and thereby uses a great deal of the hard disk’s bandwidth (see also I/O Statistics by Process[^3]()). In order to prevent lazy initialization, advanced options are offered by the mkfs.ext4 command:[^2]
 
     mkfs.ext4 -E lazy_itable_init=0,lazy_journal_init=0 /dev/mapper/fc-root
 
 By specifying these options, the inodes and the journal will be initialized immediately during creation.
 
-[^1]: [https://www.thomas-krenn.com/en/wiki/Ext4_Filesystem](Thomas Krenn Wiki - Ext4 Filesystem)
+[^1]: [Thomas Krenn Wiki - Ext4 Filesystem](https://www.thomas-krenn.com/en/wiki/Ext4_Filesystem)
+[^2]: [ext4 manpage](https://linux.die.net/man/8/mkfs.ext4)
+[^3]: [Thomas Krenn Wiki - I/O Statistics by Process](https://www.thomas-krenn.com/en/wikiEN/index.php?title=I/O_Statistics_by_Process&action=edit&redlink=1)
 
 *[PMS]: Perfect Media Server
 *[PR]: Pull Request
