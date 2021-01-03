@@ -56,6 +56,14 @@ I plan on writing a full comparison between these 3 but the primary difference i
 
 Yes. As long as you're not using a proprietary RAID solution then [MergerFS](../tech-stack/mergerfs.md) makes this really easy as it will mount drives that already contain data and supports pretty much any reasonable filesystem you can think of.
 
+### Why Ubuntu Desktop instead of Ubuntu Server?
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">OK - this is fun. Ubuntu 18.04 presented hard disks as `/dev/disk/by-id/ata-blah` but 20.04 seems to go for `/dev/disk/by-id/scsi-SATA_blah`. Same hardware with HBA passed through in ESXI, why does this happen anyone?</p>&mdash; Alex Kretzschmar (@IronicBadger) <a href="https://twitter.com/IronicBadger/status/1284339126473564162?ref_src=twsrc%5Etfw">July 18, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+The original PMS installation was on top of Debian and drives are presented using `/dev/disk/by-id/ata-*`, this holds true on the desktop variant of Ubuntu as well. But for some reason that I have not been able to determine Ubuntu Server presents the exact same drives, connected to the exact same HBA card - the only difference Desktop vs Server - as `/dev/disk/by-id/scsi-SATA_*`.
+
+You are welcome to use Ubuntu Server and deal with this minor inconvience if you wish but I chose to remain with the Desktop varaint for simplicities sake until I can get a straight answer on *why* this difference occurs - not just coping with the fact that it does.
+
 ### What performance can I expect?
 
 In my household gigabit is the target. I am easily able to saturate a gigabit link because of the way each drive is treated as an individual unit the limit of performance is the limit of the drive itself. With a modern mechanical drive this is typically anywhere from 130MBs - 220MBs read/write speeds.
