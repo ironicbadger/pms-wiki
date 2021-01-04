@@ -24,6 +24,13 @@ The potential scope of this project could be vast. There are many flavours of Li
 
 I doubt this site will ever be "finished" because technologies, budgets, time and priorities change - as they do, I will continue update this site.
 
+## How to get help
+
+If you need any assistance with the content on this site then please head over to the Self-Hosted podcast [Discord server](https://discord.gg/Z5NfMB5jU8) where you can find me @IronicBadger and there is a dedicated #perfectmediaserver channel.
+
+!!! info
+    Discord server invite URL - [https://discord.gg/Z5NfMB5jU8](https://discord.gg/Z5NfMB5jU8)
+
 ## Contribute
 
 This site is created using the open-source [mkdocs](https://www.mkdocs.org/). PRs will be gladly considered via GitHub (using the icon in the top right) if you'd like to correct something here or improve the site.
