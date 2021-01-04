@@ -376,7 +376,12 @@ There are two primary methods for sharing files over the network. Samba for Wind
 
 ### Samba
 
-There are two parts to samba. The [client](#samba-client) and the [server](#samba-server). Let's begin by configuring the server side of things.
+There are two parts to samba. The [client](#samba-client) and the [server](#samba-server).
+
+!!! info
+    This [guide](https://tldp.org/HOWTO/SMB-HOWTO-8.html) is an excellent, and more detailed, one on setting up samba.
+
+Let's begin by configuring the server side of things.
 
 #### Samba server
 
