@@ -13,6 +13,13 @@ alias dcp='docker-compose -f ~/docker-compose.yml '
 !!! info
     If you have a useful alias you think would benefit PMS users please submit a PR via GitHub for inclusion in this site following the format below. One alias or a group of related aliases showing example output.
 
+### Aliases in fish shell
+If fish shell is being used, aliases created using the `alias` command will not persist from one session to the next. In order to save an alias the `-s` or `--save` option must be used, refer to fish shell documentation: [alias - create a function](https://fishshell.com/docs/current/cmds/alias.html). Using the same example as above creating a persistent an alias in Fish looks like this:
+
+```fish
+alias -s dcp='docker-compose -f ~/docker-compose.yml '
+```
+
 ### Alias - Get container IPs
 
 * Credit: @quietsy - [Self-Hosted Discord](https://discord.gg/efhGsp75dx) server
