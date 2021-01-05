@@ -127,14 +127,11 @@ The interface setup is the same as what we did on the server. Except we now need
 | PresharedKey | False |  | This is the value in the file: client_1_cloud_preshared_key.psk |
 | AllowedIPs | True | This is a comma separated list of IPs that are allowed to go through the wireguard VPN, for each peer you setup. If you would like to have multiple ranges you can add more like this: 192.168.1.2/32,10.0.0.0/16 | 192.168.1.2/32 |
 | Endpoint | True | This is the URL to that the wireguard program will reach out to. If it is behind a NAT then it will not be able to reach the endpoint unless you open the firewall to allow the connection through to your computer. This can be an IP or a FQDN. | wg.example.com:51902 |
+| PersistentKeepAlive | False | This is what allows us to use this VPN without any firewall openings. This sends data to the server
 
-Now lets look at the Peer config for the connection to the cloud. The difference between the Server configuration and
-the client configuration is minor. The first is the endpoint is required, if you use a url instead of an IP address you
-need to be aware that if the IP changes you need to restart the wireguard connection, on the client. This is because the
-URL is converted to an IP when it is initiated. The final difference is the addition of the configuration
-PersistentKeepAlive. This is what allows us to use this VPN without any firewall openings. This sends data to the server
 to keep the connection alive. Without this wireguard is naturally a quiet connection, and only sends traffic when you do
-it intentionally.
+it intentionally. This is the amount of time between keepalive requests. | 25 |
+
 
 ### Setup the Client to share its network
 ```
