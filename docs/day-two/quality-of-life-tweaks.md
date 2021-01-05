@@ -34,7 +34,7 @@ $ alex@cartman:~$ dcips
 this alias function, will give you a top style view of your containers
 ```
 dctop() {
-  docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}  {{.MemPerc}}\t{{.NetIO}}\t{{.BlockIO}}"
+  docker stats --format "table {{.Container}}\t{{.Name}}\t{{.CPUPerc}}\t{{.MemPerc}}\t{{.NetIO}}\t{{.BlockIO}}"
 }
 
 $ ctrl+alt@w dctop
