@@ -9,16 +9,20 @@ Bash aliases enable complex commands to be shortned to a few characters. For exa
 ```bash
 alias dcp='docker-compose -f ~/docker-compose.yml '
 ```
+### Making aliases persistent
 
+Aliases created by using `alias` command in the terminal will only be available for the current session. To make an alias persist across sessions it must be added the shell's initialization file. Here are some examples for popular shells:
+
+ - Bash: `~/.bashrc`, this is typically the default shell.
+ - ZSH: `~/.zshrc`
+ - Fish: `~/.config/fish/config.fish`
+
+For both Bash and ZSH simply add the desired aliases to the end of the file and reload the file using `. ~/.bashrc` or `. ~/.zshrc`.
+
+Fish is a bit different, the simplest way to save an alias in fish it to add the `-s` or `--save` option to the alias command in the terminal, this will add the alias in the correct format to the `config.fish` file. For example: `alias dcp='docker-compose -f ~/docker-compose.yml '`
+ 
 !!! info
     If you have a useful alias you think would benefit PMS users please submit a PR via GitHub for inclusion in this site following the format below. One alias or a group of related aliases showing example output.
-
-### Aliases in fish shell
-If fish shell is being used, aliases created using the `alias` command will not persist from one session to the next. In order to save an alias the `-s` or `--save` option must be used, refer to fish shell documentation: [alias - create a function](https://fishshell.com/docs/current/cmds/alias.html). Using the same example as above creating a persistent an alias in Fish looks like this:
-
-```fish
-alias -s dcp='docker-compose -f ~/docker-compose.yml '
-```
 
 ### Alias - Get container IPs
 
