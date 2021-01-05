@@ -61,22 +61,82 @@ Endpoint = << Client 2 DDNS >>:51902
 
 ```
 
-Lets talk about the information provided above. First look at the Interface configuration. The first item we have a comment to provide a name for the host we are configuring. This makes it a little easier to identify the configuration. The next line is the IP address for the wireguard network. When choosing the subnet you should keep this separate from you LAN subnet. When we setup the service we need to tell it what port to bind to, in the configuration above we use 51902. Finally the last item is the PrivateKey that the server will use, which we created above. 
+Lets talk about the information provided above. First we will talk about the Interface Section:
 
-The last two items in the Interface definition are the commands that will be run after the interface is stood up or taken down. The commands included in the provided configuration allows anything put over the wireguard network to this interface to be forwarded to the network it is on.
+#### Interface Configuration Definitions
+| Config Name | Required | Description | example |  
+| ----------- | -------- | ----------- | ------- |
+| Comment | False | A human readable name for the host this will be run on.  | # cloud |
+| Address | True | This is the IP and the subnet for the Wireguard VPN. When choosing a subnet make sure this subnet is different then the LAN of the compueter you are running this on. | 192.168.1.1/24 |
+| Listen Port | True| The Port to have teh wireguard service listen on.  | 51902 |
+| Private Key | True | This is the value in the file: client_1_cloud_preshared_key.psk |
+| PostUp | False | This is a list of commands to run after the wireguard VPN is stood up. The commands here are if you want to expose the LAN of the server to the Wireguard VPN. | iptables -A FORWARD -i %i -j ACCEPT ; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+|
+| PostDown | False | This is a list of commands to run after the wireguard VPN is taken down. The commands here reverses the commands ran in the postUP command. | 192.168.1.1/24 |
 
-Now lets talk about the Peer configuration. The peer is the interfaces that will talk directly to this server. The first Item we see under this conversation is a comment to give this peer a name. Then we see the two keys required to talk to this peer. The first key is the public key of the client, the second is the preshared key for this host. The last required item for this configuration is the AllowedIPs, to start we will have the IP for the Interface that we will define on the remote client. This is a comma separated list of IPs/subnets. The final item is the endpoint, since this client is behind a NAT it is not required because the VPS will not be able to contact the peer as the IP is unreachable. 
+Now lets talk about the Peer configuration. The peer is the interfaces that will talk directly to this server. 
+
+#### Peer Configuration Definitions
+| Config Name | Required | Description | example |  
+| ----------- | -------- | ----------- | ------- |
+| Comment | False | A human readable name for the host this will be run on.  | # cloud |
+| PublicKey | True |  | This is the value in the file: client_1_key.pub |
+| PresharedKey | False |  | This is the value in the file: client_1_cloud_preshared_key.psk |
+| AllowedIPs | True | This is a comma separated list of IPs that are allowed to go through the wireguard VPN, for each peer you setup. If you would like to have multiple ranges you can add more like this: 192.168.1.2/32,10.0.0.0/16 | 192.168.1.2/32 |
+| Endpoint | False | This is the URL to that the wireguard program will reach out to. If it is behind a NAT then it will not be able to reach the endpoint unless you open the firewall to allow the connection through to your computer. This can be an IP or a FQDN. | wg.example.com:51902 |
+
 
 In the file above I have included the configuration for a second peer as an example on how to add multiple peers. 
+The next thing to do is to enable IP forwarding, to do this you need to run the following command:
 
-The final step is to start the server, and set it up to start automatically.
+```shell
+sysctl -w net.ipv4.ip_forward=1
+```
+
+The final step is to start the server, and set it up to start automatically. 
 
 ```shell
 wg-quick up wg0
 sudo systemctl enable wg-quick@wg0
 ```
 
-### Setup the Client
+### Setup the Client to access the VPN
+```
+[Interface]
+# Client 1
+PrivateKey = << Private Key - client_1_key.priv >>
+ListenPort = 51902
+Address = 192.168.1.2/24
+
+[Peer]
+# Cloud
+PublicKey = << Public Key - cloud_key.pub >>
+PreSharedKey = << Preshared Key - client_1_cloud_preshared_key.psk >>
+Endpoint = wireguard.example.com:51902
+AllowedIPs = 192.168.1.0/24
+PersistentKeepalive = 25
+```
+
+The interface setup is the same as what we did on the server. Except we now need to use the client's private key.
+
+#### Peer Configuration Definitions
+| Config Name | Required | Description | example |  
+| ----------- | -------- | ----------- | ------- |
+| Comment | False | A human readable name for the host this will be run on.  | # cloud |
+| PublicKey | True |  | This is the value in the file: client_1_key.pub |
+| PresharedKey | False |  | This is the value in the file: client_1_cloud_preshared_key.psk |
+| AllowedIPs | True | This is a comma separated list of IPs that are allowed to go through the wireguard VPN, for each peer you setup. If you would like to have multiple ranges you can add more like this: 192.168.1.2/32,10.0.0.0/16 | 192.168.1.2/32 |
+| Endpoint | True | This is the URL to that the wireguard program will reach out to. If it is behind a NAT then it will not be able to reach the endpoint unless you open the firewall to allow the connection through to your computer. This can be an IP or a FQDN. | wg.example.com:51902 |
+
+Now lets look at the Peer config for the connection to the cloud. The difference between the Server configuration and
+the client configuration is minor. The first is the endpoint is required, if you use a url instead of an IP address you
+need to be aware that if the IP changes you need to restart the wireguard connection, on the client. This is because the
+URL is converted to an IP when it is initiated. The final difference is the addition of the configuration
+PersistentKeepAlive. This is what allows us to use this VPN without any firewall openings. This sends data to the server
+to keep the connection alive. Without this wireguard is naturally a quiet connection, and only sends traffic when you do
+it intentionally.
+
+### Setup the Client to share its network
 ```
 [Interface]
 # Client 1
@@ -96,20 +156,28 @@ Endpoint = wireguard.example.com:51902
 AllowedIPs = 192.168.1.0/24
 PersistentKeepalive = 25
 ```
+The file looks very similar to the configuration file in the section "Setup the Client to access the VPN". There are two main differences, the first is we need to add the configuration PostUp and PostDown. This configuration as defined below shares the netowrk on the endpoint it is ran on. The second change is we need to add the IP ranges for the other networks. 
 
-The interface setup is the same as what we did on the server. Except we now need to use the client private key. 
+#### Interface Configuration Definitions
+| Config Name | Required | Description | example |  
+| ----------- | -------- | ----------- | ------- |
+| PostUp | False | This is a list of commands to run after the wireguard VPN is stood up. The commands here are if you want to expose the LAN of the server to the Wireguard VPN. | iptables -A FORWARD -i %i -j ACCEPT ; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+|
+| PostDown | False | This is a list of commands to run after the wireguard VPN is taken down. The commands here reverses the commands ran in the postUP command. | 192.168.1.1/24 |
 
-Now lets look at the Peer config for the connection to the cloud. The difference between the Server configuration and the client configuration is minor. The first is the endpoint is required, if you use a url instead of an IP address you need to be aware that if the IP changes you need to restart the wireguard connection, on the client. This is because the URL is converted to an IP when it is initiated. The final difference is the addition of the configuration PersistentKeepAlive. This is what allows us to use this VPN without any firewall openings. This sends data to the server to keep the connection alive. Without this wireguard is naturally a quiet connection, and only sends traffic when you do it intentionally. 
+#### Peer Configuration Definitions
+| Config Name | Required | Description | example |  
+| ----------- | -------- | ----------- | ------- |
+| AllowedIPs | True | This is a comma separated list of IPs that are allowed to go through the wireguard VPN, for each peer you setup. | 192.168.1.2/32,10.0.0.0/16 |
 
-# Test the connection. 
-
+# Test the connection.
 To test the connection you first can test the connection within the wireguard configuration, from host client 1 send a ping like the following. 
 
 ```shell
 ping 192.168.1.1
 ```
 
-If all is working this should look like this:
+If all is working the response should look like this:
 ```
 PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.
 64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=26.8 ms
