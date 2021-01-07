@@ -69,6 +69,8 @@ Use of the correct [create policy](https://github.com/trapexit/mergerfs#policy-d
 !!! info
     Take a moment to read [this](https://github.com/trapexit/mergerfs/issues/634) issue on the mergerfs GitHub if you're a looking for more context on create policies - they can be a bit confusing to begin with.
 
+    You might find the best all round option to use in your `/etc/fstab` entry for mergerfs is `category.create=mfs`. This will fill all disks at roughly the same rate but not colocate entire "blobs". In otherwords, episodes from the same TV show might end up all over all your disks - in practice this doesn't matter but it might matter to you if you're a neat freak.
+
 It's best to try and keep the directories you'd like on ZFS uniquely named from those you don't so that MergerFS knows where to put them.
 
 ## Summary

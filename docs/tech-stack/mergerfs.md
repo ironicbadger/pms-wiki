@@ -63,6 +63,8 @@ This catches a lot of new users off guard but changing the default would break t
 !!! info
     Take a moment to read [this](https://github.com/trapexit/mergerfs/issues/634) issue on the mergerfs GitHub if you're a looking for more context on create policies - they can be a bit confusing to begin with.
 
+    You might find the best all round option to use in your `/etc/fstab` entry for mergerfs is `category.create=mfs`. This will fill all disks at roughly the same rate but not colocate entire "blobs". In otherwords, episodes from the same TV show might end up all over all your disks - in practice this doesn't matter but it might matter to you if you're a neat freak.
+
 If you do want path preservation you'll need to perform the manual act of creating paths on the drives you want the data to land on before transferring your data[^3].
 
 ## Is this RAID?
