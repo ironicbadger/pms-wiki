@@ -336,7 +336,6 @@ git clone https://github.com/Chronial/snapraid-runner.git /opt/snapraid-runner
 
 Next, you will need to ensure you have set up your configuration file for SnapRAID as detailed above.
 
-
 Edit the configuration file for snapraid-runner, a default is provided at `/opt/snapraid-runner/snapraid-runner.conf.example`. The following parameters are of the most interest when configuring this file:
 
 * `config = /etc/snapraid.conf` - Ensure this points to where your `snapraid.conf` file is stored
@@ -356,6 +355,9 @@ root@cartman: crontab -e
 
 00 01 * * * python3 /opt/snapraid-runner/snapraid-runner.py -c /opt/snapraid-runner/snapraid-runner.conf && curl -fsS --retry 3 https://hc-ping.com/123-1103-xyz-abc-123 > /dev/null
 ```
+
+!!! info
+    During a sync SnapRAID will write a `.content` file to `/var/` and will therefore require write access to the this directory. Running via `sudo` or as `root` is a simple, reliable solution here.
 
 With cron, it is a good idea to be as explicit as possible when it comes to file paths. Never rely on relative paths or the `PATH` variable. Perhaps you also noticed that there is a healthcheck configured at `hc-ping.com`.
 
