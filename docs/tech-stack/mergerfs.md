@@ -60,6 +60,9 @@ The default create policy is `epmfs`. That is a path preserving algorithm. With 
 
 This catches a lot of new users off guard but changing the default would break the setup for many existing users. If you do not care about path preservation and wish your files to be spread across all your drives change to `mfs`. 
 
+!!! info
+    Take a moment to read [this](https://github.com/trapexit/mergerfs/issues/634) issue on the mergerfs GitHub if you're a looking for more context on create policies - they can be a bit confusing to begin with.
+
 If you do want path preservation you'll need to perform the manual act of creating paths on the drives you want the data to land on before transferring your data[^3].
 
 ## Is this RAID?

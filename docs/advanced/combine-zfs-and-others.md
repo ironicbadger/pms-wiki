@@ -64,7 +64,10 @@ As you can see we now have data spread across multiple filesystems or physical d
 
 ## MergerFS policies
 
-Use of the correct [create policy](https://github.com/trapexit/mergerfs#policy-descriptions) (the default of epmfs should suffice) in MergerFS is important to maintain this set up. When you create a new file MergerFS will look for an existing path with most free space (`epmfs`) and then create the file there. In this way we can maintain the logical separation we've created keeping some data on ZFS and other data on our JBOD 'array'. 
+Use of the correct [create policy](https://github.com/trapexit/mergerfs#policy-descriptions) (the default of epmfs should suffice) in MergerFS is important to maintain this set up. When you create a new file MergerFS will look for an existing path with most free space (`epmfs`) and then create the file there. In this way we can maintain the logical separation we've created keeping some data on ZFS and other data on our JBOD 'array'.
+
+!!! info
+    Take a moment to read [this](https://github.com/trapexit/mergerfs/issues/634) issue on the mergerfs GitHub if you're a looking for more context on create policies - they can be a bit confusing to begin with.
 
 It's best to try and keep the directories you'd like on ZFS uniquely named from those you don't so that MergerFS knows where to put them.
 
