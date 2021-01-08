@@ -39,7 +39,7 @@ This site is created using the open-source [mkdocs](https://www.mkdocs.org/). PR
 
 ![alex](images/alex.jpg){: align=right width=200 }
 
-[perfectmediaserver.com](https://perfectmediaserver.com) is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some totally awesome [contributors](https://github.com/IronicBadger/infra/graphs/contributors). Alex is a Red Hatter by day and a nerd by night.
+[perfectmediaserver.com](https://perfectmediaserver.com) is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some totally awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors). Alex is a Red Hatter by day and a nerd by night.
 
 I also write technical posts over on my blog at [blog.ktz.me](https://blog.ktz.me) covering topics from Openshift to Terraform to electronics to Home Automation.
 
