@@ -195,7 +195,7 @@ Move onto the next section 'Existing drive' to learn how to mount it (make it av
 You should now be able to mount the drive manually like so:
 
     mkdir /mnt/manualdiskmounttest
-    mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1
+    mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/manualdiskmounttest
 
 Verify that the drive mounted and displays the correct size as expected:
 
