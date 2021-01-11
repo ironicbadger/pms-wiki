@@ -35,3 +35,10 @@ This pervasive frustration was also the case as a new user. Something that could
 OpenMediaVault is just Linux underneath though which is a good thing. This means it runs docker, supports ZFS (via DKMS), SnapRAID and MergerFS too. 
 
 *[PMS]: Perfect Media Server
+
+# Proxmox
+
+!!! quote
+  Proxmox VE is a complete open-source platform for enterprise virtualization. With the built-in web interface you can easily manage VMs and containers, software-defined storage and networking, high-availability clustering, and multiple out-of-the-box tools on a single solution.
+  
+[Proxmox](https://proxmox.com) is a well-known alternative to operating systems like UnRAID and ESXi. It is a free and open-source product with a fairly large community. The UI is well designed and has all the features you are likely to need. It won't have as many features as paid alternatives, but overall it will have most features you will need. Especially since proxmox has a great cli interface where you can script and get access to advanced features. Proxmox is built on top of Qemu and KVM and in my experience has been very reliable in keeping my VM's up and running. They also have a commercial plan that they will push you towards for more support, etc but for home use the community repos are just fine. It even has ZFS support and is based on Debian. Overall Proxmox is a pretty great solution if you are looking to run VM's for your media server and run other software as well.
