@@ -36,7 +36,7 @@ OpenMediaVault is just Linux underneath though which is a good thing. This means
 
 *[PMS]: Perfect Media Server
 
-# Proxmox
+## Proxmox
 
 !!! quote
   Proxmox VE is a complete open-source platform for enterprise virtualization. With the built-in web interface you can easily manage VMs and containers, software-defined storage and networking, high-availability clustering, and multiple out-of-the-box tools on a single solution.
