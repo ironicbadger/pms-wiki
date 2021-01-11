@@ -9,7 +9,14 @@ Bash aliases enable complex commands to be shortned to a few characters. For exa
 ```bash
 alias dcp='docker-compose -f ~/docker-compose.yml '
 ```
+### Making aliases persistent
 
+Aliases created using the `alias` command in the terminal will only be available for the current session. To make an alias persist across sessions it must be added the shell's initialization file. Here are some examples for popular shells:
+
+ - Bash: `~/.bashrc`, this is typically the default shell.
+ - ZSH: `~/.zshrc`
+ - Fish: `~/.config/fish/config.fish`
+ 
 !!! info
     If you have a useful alias you think would benefit PMS users please submit a PR via GitHub for inclusion in this site following the format below. One alias or a group of related aliases showing example output.
 
