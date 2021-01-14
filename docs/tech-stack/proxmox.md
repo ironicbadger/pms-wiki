@@ -32,7 +32,7 @@ You might be the right fit for virtualising via Proxmox if you want to run more 
 
 ![proxmox-ui](../images/igpu-passthrough/image-5.png)
 
-I know this because since discovering just how powerful Intel's Quick Sync was, I rebuilt my PMS around this technology and wrote about it on [blog.ktz.me](https://blog.ktz.me/passthrough-intel-igpu-with-gvt-g-to-a-vm-and-use-it-with-plex/) and under *Advanced Configuration -> [Quick Sync and Proxmox passthrough](passthrough-igpu-gvtg) using Intel's GVT-g virtual GPU technology to pass more than a integrated graphics unit to more than one VM.
+I know this because since discovering just how powerful Intel's Quick Sync was, I rebuilt my PMS around this technology and wrote about it on [blog.ktz.me](https://blog.ktz.me/passthrough-intel-igpu-with-gvt-g-to-a-vm-and-use-it-with-plex/) and under *Advanced Configuration -> [Quick Sync and Proxmox passthrough](https://perfectmediaserver.com/advanced/passthrough-igpu-gvtg/) using Intel's GVT-g virtual GPU technology to pass more than a integrated graphics unit to more than one VM.
 
 ## What about ESXI?
 
