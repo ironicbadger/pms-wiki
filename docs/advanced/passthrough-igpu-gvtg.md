@@ -5,11 +5,10 @@ PCIe passthrough is a technology that permits Virtual Machines direct access to 
 !!! info
     This post was originally published at [blog.ktz.me](https://blog.ktz.me/passthrough-intel-igpu-with-gvt-g-to-a-vm-and-use-it-with-plex/).
 
+What if you want to run Plex in a VM and take advantage of hardware accelerated decoding? Specifically to use the Intel [Quick Sync](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Video) functionality built-in to most modern Intel CPU graphics units. It's actually very easy with Proxmox, here's how to do it.
+
 !!! warning
     Since publication I have abandoned this method. See my reasoning in [this blog post](https://blog.ktz.me/why-i-stopped-using-intel-gvt-g-on-proxmox/).
-</div>
-
-What if you want to run Plex in a VM and take advantage of hardware accelerated decoding? Specifically to use the Intel [Quick Sync](https://en.wikipedia.org/wiki/Intel_Quick_Sync_Video) functionality built-in to most modern Intel CPU graphics units. It's actually very easy with Proxmox, here's how to do it.
 
 ![proxmox-passthrough](../images/igpu-passthrough/image-5.png)
 
