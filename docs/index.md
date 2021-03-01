@@ -26,7 +26,7 @@ I doubt this site will ever be "finished" because technologies, budgets, time an
 
 ## How to get help
 
-If you need any assistance with the content on this site then please head over to the Self-Hosted podcast [Discord server](https://discord.gg/Z5NfMB5jU8) where you can find me @IronicBadger and there is a dedicated #perfectmediaserver channel.
+If you need any assistance with the content on this site then please head over to the Self-Hosted podcast [Discord server](https://discord.gg/Z5NfMB5jU8) where you can find me @alexktz and there is a dedicated #perfectmediaserver channel.
 
 !!! info
     Discord server invite URL - [https://discord.gg/Z5NfMB5jU8](https://discord.gg/Z5NfMB5jU8)
