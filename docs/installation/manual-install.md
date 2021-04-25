@@ -237,7 +237,7 @@ Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapR
 /mnt/disk* /mnt/storage fuse.mergerfs defaults,nonempty,allow_other,use_ino,cache.files=off,moveonenospc=true,dropcacheonclose=true,minfreespace=200G,fsname=mergerfs 0 0
 ```
 
-Before you reboot, it's a good idea to check that everything mounted as you hoped. We can use `df -h` to verify this.
+In order to reload the new fstab entries you've created and check them before rebooting, use `mount -a`. Then verify the mount points with `df -h`.
 
 ```
 root@cartman:~# df -h
