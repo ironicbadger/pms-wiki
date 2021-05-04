@@ -320,7 +320,7 @@ exclude appdata/
 exclude *.!sync
 ```
 
-A full list of typical excludes can be found in GitHub [here](https://github.com/IronicBadger/infra/blob/master/group_vars/cartman.yaml#L719).
+A full list of typical excludes can be found in GitHub [here](https://github.com/IronicBadger/infra/blob/master/group_vars/morpheus.yaml#L747).
 
 ### Automating Parity Calculation
 
