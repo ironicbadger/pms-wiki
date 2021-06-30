@@ -25,6 +25,18 @@ If writing and wanting to run a local copy of the wiki, run:
 $ docker-compose up --build
 ```
 
+or
+
+```bash
+pip3 -U -r requirements.txt
+
+mkdocs serve
+```
+
+In both cases the site will be available at `localhost:8000`. In the docker version though some niceities like auto refresh on save go away.
+
+## Deployment
+
 To deploy the site, push to `main`, and a GitHub action will do the rest.
 
 ## Contributing
