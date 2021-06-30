@@ -57,7 +57,7 @@ The first component of this architecture is [Traefik], a reverse proxy. The job 
 ![reverse-proxy-digram](../images/traefik101/reverseproxy.png)
 
 !!! info
-    Traefik supports numerous [providers](https://doc.traefik.io/traefik/https/acme/#providers) for DNS challenge verification, but we will only be discussing Cloudflare in the scope of this article. Using Cloudflare for DNS is free. You are free to use others, but will need to adjust these steps according to Traefik's provider documentation.
+    Traefik supports numerous [providers](https://doc.traefik.io/traefik/https/acme/#providers) for DNS challenge verification, but we will only be discussing Cloudflare in the scope of this article. Using Cloudflare for DNS [is free](https://www.cloudflare.com/plans/). You are free to use others, but will need to adjust these steps according to Traefik's provider documentation.
 
 
 
