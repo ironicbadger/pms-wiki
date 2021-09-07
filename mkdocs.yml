@@ -92,6 +92,7 @@ nav:
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
   - Remote Access: 
     - Overview: 'remote-access/remote-access-overview.md'
+    - Reverse Proxies 101 (Traefik): 'remote-access/traefik101.md'
     - SSH (Secure Shell): 'remote-access/ssh.md'
     - WireGuard: 'remote-access/wireguard.md'
   - Advanced Concepts:
