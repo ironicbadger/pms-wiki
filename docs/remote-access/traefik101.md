@@ -170,3 +170,7 @@ Apps like Ubiquiti's Unifi software can be run as a container and do so over TLS
 Traefik relies on apps to have the correct ports exposed in its Dockerfile. We can override this or expose multiple ports using this label applied to the container itself:
 
   `- traefik.http.services.myservice.loadbalancer.server.port=8080`
+
+## A more complete example
+
+You can find a more complex docker-compose example in my infra repo [here](https://github.com/IronicBadger/infra/blob/master/dev/traefik/docker-compose.yaml).
