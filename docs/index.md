@@ -4,7 +4,7 @@ Perfect Media Server began life as a series of blog posts over at [blog.linuxser
 
 I therefore introduce perfectmediaserver.com - a wiki format information repository detailing all you need to know to build a free, open and modular media server that will last for many, many years.
 
-The primary technologies we recommend are [Linux](https://www.linux.org/), Containers (via [docker](https://www.docker.com/) and managed using [docker-compose](https://docs.docker.com/compose/)), [Proxmox](https://www.proxmox.com/en/), [MergerFS](https://github.com/trapexit/mergerfs/), [SnapRAID](http://www.snapraid.it/) and [ZFS](https://zfsonlinux.org/).
+The primary technologies we recommend are [Linux](/tech-stack/linux.md), Containers (via [docker](/tech-stack/docker.md) and managed using [docker-compose](/tech-stack/docker-compose.md)), [Proxmox](/tech-stack/proxmox.md), [MergerFS](/tech-stack/mergerfs.md), [SnapRAID](/tech-stack/snapraid.md) and [ZFS](/tect-stack/zfs.md/).
 
 !!! abstract
     You can find the original blog series of PMS here:
