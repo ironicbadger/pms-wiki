@@ -145,7 +145,7 @@ perfectmediaserver.com.	41321	IN	NS	kia.ns.cloudflare.com.
 ;; MSG SIZE  rcvd: 102
 ```
 
-!!! warning This can take up to 24h so be patient and be sure not to spam Let's Encrypt with requests from Traefik in the meantime else you may get locked out for up to a week by [rate limiting](https://letsencrypt.org/docs/rate-limits/).
+!!!warning This can take up to 24h so be patient and be sure not to spam Let's Encrypt with requests from Traefik in the meantime else you may get locked out for up to a week by [rate limiting](https://letsencrypt.org/docs/rate-limits/).
 
 ## Let's Encrypt Staging API
 
