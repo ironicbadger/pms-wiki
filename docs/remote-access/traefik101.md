@@ -163,10 +163,10 @@ Full documentation on the provider can be found [here](https://doc.traefik.io/tr
 
 Apps like Ubiquiti's Unifi software can be run as a container and do so over TLS locally almost always using a self-signed TLS certificate. This breaks the default model used by Traefik which expects plain http traffic. We can set `insecureSkipVerify=true` as a `command` parameter to tell Traefik to ignore the self-signed certs. The full configuration line looks like this:
 
-  - --serversTransport.insecureSkipVerify=true
-  - 
+  - `--serversTransport.insecureSkipVerify=true`
+  
 ## Traefik and declaring ports
 
 Traefik relies on apps to have the correct ports exposed in its Dockerfile. We can override this or expose multiple ports using this label applied to the container itself:
 
-  - "traefik.http.services.myservice.loadbalancer.server.port=8080"
+  - `traefik.http.services.myservice.loadbalancer.server.port=8080`
