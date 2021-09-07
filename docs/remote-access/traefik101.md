@@ -147,3 +147,26 @@ perfectmediaserver.com.	41321	IN	NS	kia.ns.cloudflare.com.
 
 !!! warning This can take up to 24h so be patient and be sure not to spam Let's Encrypt with requests from Traefik in the meantime else you may get locked out for up to a week by [rate limiting](https://letsencrypt.org/docs/rate-limits/).
 
+## Let's Encrypt Staging API
+
+Whilst you are first trying all this stuff out it might be a good idea to use the Let's Encrypt staging API so that you don't fall victim of [rate limiting](https://letsencrypt.org/docs/rate-limits/) lock outs. With Traefik, add this line into the list of `command` options:
+
+  - "--certificatesresolvers.cloudflare.acme.caserver=https://acme-staging-v02.api.letsencrypt.org/directory"
+
+## Traefik and the Docker provider
+
+Traefik creates a corresponding service and router for each container. This is a long and potentially complex topic to *understand* but comprehension is not a pre-requisite for usage to begin with.
+
+Full documentation on the provider can be found [here](https://doc.traefik.io/traefik/routing/providers/docker/).
+
+## Traefik and TLS apps (like Unifi)
+
+Apps like Ubiquiti's Unifi software can be run as a container and do so over TLS locally almost always using a self-signed TLS certificate. This breaks the default model used by Traefik which expects plain http traffic. We can set `insecureSkipVerify=true` as a `command` parameter to tell Traefik to ignore the self-signed certs. The full configuration line looks like this:
+
+  - --serversTransport.insecureSkipVerify=true
+  - 
+## Traefik and declaring ports
+
+Traefik relies on apps to have the correct ports exposed in its Dockerfile. We can override this or expose multiple ports using this label applied to the container itself:
+
+  - "traefik.http.services.myservice.loadbalancer.server.port=8080"
