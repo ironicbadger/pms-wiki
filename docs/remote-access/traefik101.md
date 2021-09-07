@@ -97,17 +97,53 @@ services:
       - traefik.http.routers.nginx.tls.certresolver=cloudflare
 ```
 
-Using this configuration we'll end up with an nginx container running at `nginx.perfectmediaserver.com` with a valid TLS certificate.
+Using this configuration we'll end up with an nginx container running at `nginx.perfectmediaserver.com` with a valid TLS certificate, like this:
 
-![nginx](../images/traefik101/nginx.png)
+<img src="../images/traefik101/nginx.png" align="center">
 
+In this example I used Cloudflare but you can use any other DNS provider from this [list](https://doc.traefik.io/traefik/https/acme/#providers) provided by Traefik. If using another provider replace `CLOUDFLARE_*` environment variables with those suitable for your provider.
 
+## Domain Setup - Namecheap
 
+There are many options out there for domain registrars but I have used [namecheap](https://www.namecheap.com/) for over a decade now. It's considered good practice (though not required) to register your domain in a different place from where the DNS nameservers resides. To configure a namecheap domain to work with Cloudflare first we need to login to our namecheap dashboard and click `MANAGE`.
 
+<img src="../images/traefik101/namecheap-manage.png" align="center">
 
+Next under `NAMESERVERS` clear out all existing values and select `Custom DNS`. 
 
-Next let's examine the lifecycle of a container exposed via Traefik with a certificate issued by Let's Encrypt.
+<img src="../images/traefik101/namecheap-nameservers.png" align="center">
 
+The values you will need to enter into this section can be found over at your Cloudflare account as shown here.
 
-https://doc.traefik.io/traefik/providers/docker/#provider-configuration
-providers.docker.endpoint=unix:///var/run/docker.sock
+<img src="../images/traefik101/cloudflare-nameservers.png" align="center">
+
+These will most likely be different from the ones shown below, that is normal. Just input them into namecheap and wait for DNS propagation to work.
+
+To test the nameservers we can use `dig perfectmediaserver.com NS`:
+
+```
+$ dig perfectmediaserver.com NS
+
+; <<>> DiG 9.16.1-Ubuntu <<>> perfectmediaserver.com NS
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 22411
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;perfectmediaserver.com.		IN	NS
+
+;; ANSWER SECTION:
+perfectmediaserver.com.	41321	IN	NS	gabe.ns.cloudflare.com.
+perfectmediaserver.com.	41321	IN	NS	kia.ns.cloudflare.com.
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53)
+;; WHEN: Tue Sep 07 00:58:46 UTC 2021
+;; MSG SIZE  rcvd: 102
+```
+
+!!! warning This can take up to 24h so be patient and be sure not to spam Let's Encrypt with requests from Traefik in the meantime else you may get locked out for up to a week by [rate limiting](https://letsencrypt.org/docs/rate-limits/).
+
