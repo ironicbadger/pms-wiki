@@ -12,9 +12,16 @@ theme:
     repo: fontawesome/brands/github
     logo: fontawesome/regular/folder-open
   palette:
-    primary: blue
-    accent: teal
-    scheme: default
+    - scheme: default
+      primary: blue
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   font:
     code: Jet Brains Mono
   features:
