@@ -4,7 +4,7 @@ Perfect Media Server began life as a series of blog posts over at [blog.linuxser
 
 I therefore introduce perfectmediaserver.com - a wiki format information repository detailing all you need to know to build a free, open and modular media server that will last for many, many years.
 
-The primary technologies we recommend are [Linux](https://www.linux.org/), Containers (via [docker](https://www.docker.com/) and managed using [docker-compose](https://docs.docker.com/compose/)), [Proxmox](https://www.proxmox.com/en/), [MergerFS](https://github.com/trapexit/mergerfs/), [SnapRAID](http://www.snapraid.it/) and [ZFS](https://zfsonlinux.org/).
+The primary technologies we recommend are [Linux](tech-stack/linux.md), Containers (via [docker](tech-stack/docker.md) and managed using [docker-compose](tech-stack/docker-compose.md)), [Proxmox](tech-stack/proxmox.md), [MergerFS](tech-stack/mergerfs.md), [SnapRAID](tech-stack/snapraid.md) and [ZFS](tech-stack/zfs.md/).
 
 !!! abstract
     You can find the original blog series of PMS here:
@@ -24,6 +24,13 @@ The potential scope of this project could be vast. There are many flavours of Li
 
 I doubt this site will ever be "finished" because technologies, budgets, time and priorities change - as they do, I will continue update this site.
 
+## How to get help
+
+If you need any assistance with the content on this site then please head over to the Self-Hosted podcast [Discord server](https://discord.gg/Z5NfMB5jU8) where you can find me @alexktz and there is a dedicated #perfectmediaserver channel.
+
+!!! info
+    Discord server invite URL - [https://discord.gg/Z5NfMB5jU8](https://discord.gg/Z5NfMB5jU8)
+
 ## Contribute
 
 This site is created using the open-source [mkdocs](https://www.mkdocs.org/). PRs will be gladly considered via GitHub (using the icon in the top right) if you'd like to correct something here or improve the site.
@@ -32,7 +39,7 @@ This site is created using the open-source [mkdocs](https://www.mkdocs.org/). PR
 
 ![alex](images/alex.jpg){: align=right width=200 }
 
-[perfectmediaserver.com](https://perfectmediaserver.com) is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some totally awesome [contributors](https://github.com/IronicBadger/infra/graphs/contributors). Alex is a Red Hatter by day and a nerd by night.
+[perfectmediaserver.com](https://perfectmediaserver.com) is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some totally awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors). Alex is a Red Hatter by day and a nerd by night.
 
 I also write technical posts over on my blog at [blog.ktz.me](https://blog.ktz.me) covering topics from Openshift to Terraform to electronics to Home Automation.
 

@@ -16,7 +16,7 @@ What normally followed reinstallation was a lengthy, often multi-day, process of
 
 This was because the configuration data for the applications was stored in a separate location via a volume[^1] bind mount. Backing up configuration was nothing new but that this happened by design meant I'd taken a leap forward in deployment reliability and repeatability.
 
-Traditionally when an application is installed onto a system is has access to the entire thing. Permissions help to some degree but a container has zero access to the system around it unless explicitly granted. This level of granular control is very useful when running multiple versions of the same application or if you don't quite trust it will do what it said on the tin.
+Traditionally when an application is installed onto a system it has access to the entire thing. Permissions help to some degree but a container has zero access to the system around it unless explicitly granted. This level of granular control is very useful when running multiple versions of the same application or if you don't quite trust it will do what it said on the tin.
 
 Beyond the fact that separating the application runtime from its configuration makes the above scenario possible containers also provide a number of other benefits. These range from portability to standardisation to security to employability.
 

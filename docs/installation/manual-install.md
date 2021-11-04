@@ -14,7 +14,7 @@ Creating a bootable USB stick to install Linux from used to be a tricky thing. T
 [Ventoy](https://www.ventoy.net/en/index.html) is magic. It turns a single USB drive into a 'universal' USB boot drive. Simply drop ISOs into the predetermined folder and you can boot them immediately. No messing with partition tables or `dd` or etcher, etc.
 
 !!! warning 
-    It is recommended to install Ubuntu Desktop, not Ubuntu Server, due to some weirdness in how drives are presented using `/dev/disk/by-id` in the server variant.
+    It is recommended to install Ubuntu Desktop, not Ubuntu Server, due to some weirdness in how drives are presented using `/dev/disk/by-id` in the server variant. For more information see the [FAQ - Why Ubuntu Desktop instead of Ubuntu Server?](../overview/overview.md#why-ubuntu-desktop-instead-of-ubuntu-server)
 
 There are a few options you have with regards to boot drive. The simplest option is buy a dedicated SSD for this purpose. Use this drive for the OS and temporary files (like in-progress file transfers) before moving them to your array. You might find putting your Plex metadata on an SSD such as this will help performance of library loading.
 
@@ -195,7 +195,7 @@ Move onto the next section 'Existing drive' to learn how to mount it (make it av
 You should now be able to mount the drive manually like so:
 
     mkdir /mnt/manualdiskmounttest
-    mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1
+    mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/manualdiskmounttest
 
 Verify that the drive mounted and displays the correct size as expected:
 
@@ -228,16 +228,16 @@ Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapR
 
 ```
 ##/etc/fstab example
-/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_16G0Z7RZ-part1 /mnt/parity1 xfs defaults 0 0
-/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_16G10VZZ-part1 /mnt/disk1   xfs defaults 0 0
-/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_2YHV69AD-part1 /mnt/disk2   xfs defaults 0 0
-/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_2YJ15VJD-part1 /mnt/disk3   xfs defaults 0 0
-/dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1  /mnt/disk4   xfs defaults 0 0
+/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_16G0Z7RZ-part1 /mnt/parity1 ext4 defaults 0 0
+/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_16G10VZZ-part1 /mnt/disk1   ext4 defaults 0 0
+/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_2YHV69AD-part1 /mnt/disk2   ext4 defaults 0 0
+/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_2YJ15VJD-part1 /mnt/disk3   ext4 defaults 0 0
+/dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1  /mnt/disk4   ext4 defaults 0 0
 
 /mnt/disk* /mnt/storage fuse.mergerfs defaults,nonempty,allow_other,use_ino,cache.files=off,moveonenospc=true,dropcacheonclose=true,minfreespace=200G,fsname=mergerfs 0 0
 ```
 
-Before you reboot, it's a good idea to check that everything mounted as you hoped. We can use `df -h` to verify this.
+In order to reload the new fstab entries you've created and check them before rebooting, use `mount -a`. Then verify the mount points with `df -h`.
 
 ```
 root@cartman:~# df -h
@@ -320,7 +320,7 @@ exclude appdata/
 exclude *.!sync
 ```
 
-A full list of typical excludes can be found in GitHub [here](https://github.com/IronicBadger/infra/blob/master/group_vars/cartman.yaml#L719).
+A full list of typical excludes can be found in GitHub [here](https://github.com/IronicBadger/infra/blob/master/group_vars/morpheus.yaml#L747).
 
 ### Automating Parity Calculation
 
@@ -335,7 +335,6 @@ git clone https://github.com/Chronial/snapraid-runner.git /opt/snapraid-runner
 ```
 
 Next, you will need to ensure you have set up your configuration file for SnapRAID as detailed above.
-
 
 Edit the configuration file for snapraid-runner, a default is provided at `/opt/snapraid-runner/snapraid-runner.conf.example`. The following parameters are of the most interest when configuring this file:
 
@@ -357,6 +356,9 @@ root@cartman: crontab -e
 00 01 * * * python3 /opt/snapraid-runner/snapraid-runner.py -c /opt/snapraid-runner/snapraid-runner.conf && curl -fsS --retry 3 https://hc-ping.com/123-1103-xyz-abc-123 > /dev/null
 ```
 
+!!! info
+    During a sync SnapRAID will write a `.content` file to `/var/` and will therefore require write access to the this directory. Running via `sudo` or as `root` is a simple, reliable solution here.
+
 With cron, it is a good idea to be as explicit as possible when it comes to file paths. Never rely on relative paths or the `PATH` variable. Perhaps you also noticed that there is a healthcheck configured at `hc-ping.com`.
 
 #### Healthchecks.io
@@ -376,7 +378,12 @@ There are two primary methods for sharing files over the network. Samba for Wind
 
 ### Samba
 
-There are two parts to samba. The [client](#samba-client) and the [server](#samba-server). Let's begin by configuring the server side of things.
+There are two parts to samba. The [client](#samba-client) and the [server](#samba-server).
+
+!!! info
+    This [guide](https://tldp.org/HOWTO/SMB-HOWTO-8.html) is an excellent, and more detailed, one on setting up samba.
+
+Let's begin by configuring the server side of things.
 
 #### Samba server
 

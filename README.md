@@ -4,7 +4,7 @@ You can find the full site at [perfectmediaserver.com](https://perfectmediaserve
 
 ## Abstract
 
-Perfect Media Server began life as a series of blog posts over at [blog.linuxserver.io](https://blog.linuxserver.io/tag/perfectmediaserver/). Those posts continue to be very popular but a blog post can only get you so far, I therefore introduce perfectmediaserver.com - a wiki format information repository detailing all you need to know to build a free, open and modular media server that will last for many, many years.
+Perfect Media Server began life as a series of blog posts over at [blog.linuxserver.io](https://blog.linuxserver.io/tag/perfectmediaserver/). Those posts continue to be very popular, but a blog post can only get you so far. Therefore, I introduce perfectmediaserver.com - a wiki format information repository detailing all you need to know to build a free, open, and modular media server that will last for years to come.
 
 The primary technologies we recommend are [Linux](https://www.linux.org/), Containers (via [docker](https://www.docker.com/) and managed using [docker-compose](https://docs.docker.com/compose/)), [Proxmox](https://www.proxmox.com/en/), [MergerFS](https://github.com/trapexit/mergerfs/), [SnapRAID](http://www.snapraid.it/) and [ZFS](https://zfsonlinux.org/).
 
@@ -17,12 +17,28 @@ You can find the original blog series of PMS here:
 
 If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software wherever possible. 
 
-## Using this repo
+## Usage
 
-If writing and wanting to run a local copy of the wiki then run:
+If writing and wanting to run a local copy of the wiki, run:
 
-    docker-compose up --build
+```bash
+$ docker-compose up --build
+```
 
-To deploy the site, push to `main` and a GitHub action will do the rest.
+or
 
-To contribute, open a PR. Gratefully received!
+```bash
+pip3 -U -r requirements.txt
+
+mkdocs serve
+```
+
+In both cases the site will be available at `localhost:8000`. In the docker version though some niceities like auto refresh on save go away.
+
+## Deployment
+
+To deploy the site, push to `main`, and a GitHub action will do the rest.
+
+## Contributing
+
+To contribute, open a PR, and I will review it. Gratefully received!
