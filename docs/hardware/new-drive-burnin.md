@@ -47,7 +47,7 @@ When you are ready to do a destructive burn in (recommended for new drives) you 
 
 ![tmux-drive-burnin](../images/tmux-drive-burnin.png)
 <figure>
-    <figcaption><i>Using tmux to run 4 burn-ins at once</i></figcaption>
+    <figcaption><i>Using tmux to run 3 burn-ins at once</i></figcaption>
 </figure>
 
 I highly recommend using tmux for long term processes such as this. Launch a new tmux session with tmux. Default is that Ctrl-B is your 'modifier', similar to VIM. Once you press 'Ctrl-B' and then let go you can then perform commands to split your window into multiple panes or exit the session (leaving it running the background). Reattach with tmux a. A tmux cheatsheet is linked [here](https://gist.github.com/MohamedAlaa/2961058).
