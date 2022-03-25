@@ -33,7 +33,7 @@ Jellyfin and Emby are two notable players in this space (playback on any device)
 
 [Nextcloud](https://nextcloud.com/) - The self-hosted productivity platform that keeps you in control.
 
-Surely this pick needs no introduction. Think of Nextcloud somewhat like your own personal Dropbox replacement. Although, that is doing it a disservice because Nextcloud supports *many* more features than Dropbox. Nextcloud provide a [demo](https://nextcloud.com/try) if you'd like to try before you "buy" (Nextcloud is free).
+Surely this pick needs no introduction. Think of Nextcloud somewhat like your own personal Dropbox replacement. Although, that is doing it a disservice because Nextcloud supports *many* more features than Dropbox. Nextcloud provide a [demo](https://try.nextcloud.com) if you'd like to try before you "buy" (Nextcloud is free).
 
 <p align="center">
 <img alt="nextcloud-banner" src="../../images/top10/nextcloud-banner.png">
