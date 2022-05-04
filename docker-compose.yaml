@@ -3,7 +3,7 @@ version: "3.3"
 services:
   pms-wiki:
     build: .
-    image: ironicbadger/pms-wiki
+    image: pms-wiki
     volumes:
       - .:/docs
     ports:

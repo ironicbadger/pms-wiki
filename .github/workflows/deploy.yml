@@ -20,6 +20,7 @@ jobs:
             PORT: ${{ secrets.VPS_SSH_PORT }}
             KEY: ${{ secrets.VPS_SSHKEY }}
             script: cd ${{ secrets.VPS_PROJECT_PATH }} && git fetch && git checkout main && git pull
+            
       - name: Build
         uses: appleboy/ssh-action@master
         with:
