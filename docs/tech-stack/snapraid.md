@@ -18,7 +18,7 @@ The project provides a handy comparison chart of how SnapRAID stacks up against 
 
 ## Why SnapRAID?
 
-In the PMS [overview](../overview/overview.md#what-is-perfect-media-server) we laid out a number of requirements, let's take a look and see which of those SnapRAID will fulfil.
+In the PMS [overview](../01-overview/overview.md#what-is-perfect-media-server) we laid out a number of requirements, let's take a look and see which of those SnapRAID will fulfil.
 
 * Provide fault tolerance to protect against (inevitable) hard drive failure
 * Checksum files to guard against bitrot

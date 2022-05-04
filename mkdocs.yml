@@ -27,12 +27,11 @@ theme:
     code: Jet Brains Mono
   features:
     - navigation.instant
-    #- navigation.sections # prevents collapsible sections
-    #- navigation.expand #expands sections by default
+    - navigation.sections # prevents collapsible sections
+    - navigation.indexes # section index pages
+    - navigation.expand #expands sections by default
   # insiders only
   #   - search.suggest
-
-google_analytics: ['UA-17919826-9', 'auto']
 
 plugins:
   - git-revision-date
@@ -56,7 +55,7 @@ markdown_extensions:
   - pymdownx.superfences # allows for the nesting of code blocks inside other blocks
   - pymdownx.keys
 
-copyright: 2020 - 2021 &copy; Alex Kretzschmar - Licensed under GPLv3
+copyright: 2020 - 2022 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -75,11 +74,13 @@ extra:
     property: pmswiki
 
 nav:
-  - Welcome: 'index.md'
-  - Overview:
-    - Overview & FAQ: 'overview/overview.md'
-    - NAS Software Comparison: 'overview/nas-software-comparison.md'
-  - Tech Stack:
+  #- Welcome: 'index.md'
+  - 1. Overview:
+    - index.md
+    - Introduction: '01-overview/overview.md'
+    - FAQ: '01-overview/faq.md'
+    - NAS Software Comparison: '01-overview/nas-software-comparison.md'
+  - 2. Tech Stack Explained:
     - Linux: 'tech-stack/linux.md'
     - Containers:
       - Docker: 'tech-stack/docker.md'
@@ -88,30 +89,32 @@ nav:
     - SnapRAID: 'tech-stack/snapraid.md'
     - ZFS: 'tech-stack/zfs.md'
     - Proxmox: 'tech-stack/proxmox.md'
-  - Hardware:
-    - Cases: 'hardware/cases.md'
-    - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
-    - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
-  - Installation:
+  - 3. Installation:
     - Manual Install on Bare Metal: 'installation/manual-install.md'
     - Manual Install on Video: 'installation/manual-install-on-video.md'
     - Automated Install: 'installation/automated-install.md'
+  - 4. Remote Access: 
+    - remote-access/index.md
+    - VPNs: 'remote-access/vpns.md'
+    - Traefik 101 Guide: 'remote-access/traefik101.md'
+    - SSH (Secure Shell): 'remote-access/ssh.md'
+    #- WireGuard: 'remote-access/wireguard.md'
+  - 5. Hardware:
+    - Cases: 'hardware/cases.md'
+    - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
+    - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
     #- Post Install Checklist: 'installation/post-install-checklist.md'
-  - Day Two (Post Install):
+  - 6. Day Two (Post Install):
     - Top 10 Self-Hosted Apps: 'day-two/top10apps.md'
     - Backups: 'day-two/backups.md'
     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
-  - Remote Access: 
-    - Overview: 'remote-access/remote-access-overview.md'
-    - Reverse Proxies 101 (Traefik): 'remote-access/traefik101.md'
-    - SSH (Secure Shell): 'remote-access/ssh.md'
-    - WireGuard: 'remote-access/wireguard.md'
-  - Advanced Concepts:
-    - Infrastructure as Code: 'concepts/infraascode.md'
-    - Hypervisors: 'concepts/hypervisors.md'
-    - PCI Passthrough: 'concepts/pci-passthrough.md'
-  - Advanced Configuration:
-    - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
-    - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'
+  - 7. Advanced:
+    - Concepts:
+      - Infrastructure as Code: 'concepts/infraascode.md'
+      - Hypervisors: 'concepts/hypervisors.md'
+      - PCI Passthrough: 'concepts/pci-passthrough.md'
+    - Configuration:
+      - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
+      - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'
   #- Related Projects:
     #- Virtualised OPNsense router: 'related-projects/virtualised-opnsense-proxmox.md'

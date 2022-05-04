@@ -14,7 +14,7 @@ Creating a bootable USB stick to install Linux from used to be a tricky thing. T
 [Ventoy](https://www.ventoy.net/en/index.html) is magic. It turns a single USB drive into a 'universal' USB boot drive. Simply drop ISOs into the predetermined folder and you can boot them immediately. No messing with partition tables or `dd` or etcher, etc.
 
 !!! warning 
-    It is recommended to install Ubuntu Desktop, not Ubuntu Server, due to some weirdness in how drives are presented using `/dev/disk/by-id` in the server variant. For more information see the [FAQ - Why Ubuntu Desktop instead of Ubuntu Server?](../overview/overview.md#why-ubuntu-desktop-instead-of-ubuntu-server)
+    It is recommended to install Ubuntu Desktop, not Ubuntu Server, due to some weirdness in how drives are presented using `/dev/disk/by-id` in the server variant. For more information see the [FAQ - Why Ubuntu Desktop instead of Ubuntu Server?](../01-overview/overview.md#why-ubuntu-desktop-instead-of-ubuntu-server)
 
 There are a few options you have with regards to boot drive. The simplest option is buy a dedicated SSD for this purpose. Use this drive for the OS and temporary files (like in-progress file transfers) before moving them to your array. You might find putting your Plex metadata on an SSD such as this will help performance of library loading.
 
@@ -372,7 +372,7 @@ It is self-hostable in a [container](https://hub.docker.com/r/linuxserver/health
 
 ## Network File Sharing
 
-A NAS or file server is no good without being able to access the data remotely. We're not talking about remotely like over the internet remotely here though, instead we're talking about other computers on your LAN. Raspberry Pis, Media Players (Kodi, for example), etc. You can find more information on remote file access over the internet in the [remote access](../remote-access/remote-access-overview.md) and [Top 10 Self-Hosted apps list](../day-two/top10apps.md#nextcloud).
+A NAS or file server is no good without being able to access the data remotely. We're not talking about remotely like over the internet remotely here though, instead we're talking about other computers on your LAN. Raspberry Pis, Media Players (Kodi, for example), etc. You can find more information on remote file access over the internet in the [remote access](../remote-access/index.md) and [Top 10 Self-Hosted apps list](../day-two/top10apps.md#nextcloud).
 
 There are two primary methods for sharing files over the network. Samba for Windows / Mac / Linux and NFS for Linux.
 
