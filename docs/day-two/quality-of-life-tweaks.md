@@ -9,6 +9,24 @@ Bash aliases enable complex commands to be shortned to a few characters. For exa
 ```bash
 alias dcp='docker-compose -f ~/docker-compose.yml '
 ```
+
+Here are some more docker / docker-compose related ones.
+
+```bash
+# /etc/bash_aliases
+# Aliases in this file are available to all users
+# To install for one user place in ~/.bash_aliases
+
+# Tail last 50 lines of docker logs
+alias dtail='docker logs -tf --tail='50' '
+
+# Remove unused images (useful after an upgrade)
+alias dprune='docker image prune'
+
+# Remove unused images, unused networks *and data* (use with care)
+alias dprunesys='docker system prune --all'
+```
+
 ### Making aliases persistent
 
 Aliases created using the `alias` command in the terminal will only be available for the current session. To make an alias persist across sessions it must be added the shell's initialization file. Here are some examples for popular shells:
