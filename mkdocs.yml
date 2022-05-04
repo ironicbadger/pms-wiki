@@ -5,6 +5,7 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
+  custom_dir: overrides
   language: en
   #logo: images/site/logo.png
   favicon: images/assets/favicon.png
@@ -69,6 +70,9 @@ extra:
     - icon: 'fontawesome/solid/microphone'
       link: 'https://selfhosted.show/'
       name: IronicBadger's Podcast - selfhosted.show
+  analytics:
+    provider: plausible
+    property: pmswiki
 
 nav:
   - Welcome: 'index.md'
