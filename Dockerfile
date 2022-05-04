@@ -1,4 +1,4 @@
-FROM squidfunk/mkdocs-material:7.1.9
+FROM squidfunk/mkdocs-material:8.2.13
 
 COPY requirements.txt /docs/requirements.txt
 RUN pip install -U -r /docs/requirements.txt
