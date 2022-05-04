@@ -2,6 +2,13 @@
 
 This page serves as an opinionated comparison between the main players in the Home NAS space.
 
+## Proxmox
+
+!!! quote
+    Proxmox VE is a complete open-source platform for enterprise virtualization. With the built-in web interface you can easily manage VMs and containers, software-defined storage and networking, high-availability clustering, and multiple out-of-the-box tools on a single solution.
+  
+While not technically a NAS software, Proxmox has become my go to home server OS of choice due to its flexibility and that it ships ZFS natively. For more details, see [Proxmox](../tech-stack/proxmox.md).
+
 ## unRAID
 
 !!! quote
@@ -31,13 +38,6 @@ That said, for a GUI to be worth learning it has to be meaningfully better than 
 This pervasive frustration was also the case as a new user. Something that could be configured in a few lines of a config file required navigating a UI and doing a whole lot of clicking. As a more experienced administrator these days I have embraced automation via [Ansible](../concepts/infraascode.md#ansible) and can rebuild a server in 15 minutes from scratch. Managing a server entirely via the CLI might seem intimidating at first but it's really the way to go. Yes, even via mobile using JuiceSSH on Android or blink on iOS - see [remote access](../remote-access/index.md).
 
 OpenMediaVault is just Linux underneath though which is a good thing. This means it runs docker, supports ZFS (via DKMS), SnapRAID and MergerFS too. 
-
-## Proxmox
-
-!!! quote
-    Proxmox VE is a complete open-source platform for enterprise virtualization. With the built-in web interface you can easily manage VMs and containers, software-defined storage and networking, high-availability clustering, and multiple out-of-the-box tools on a single solution.
-  
-[Proxmox](https://proxmox.com) is a well-known alternative to operating systems like UnRAID and ESXi. It is a free and open-source product with a fairly large community. The UI is well designed and has all the features you are likely to need. It won't have as many features as paid alternatives, but overall it will have most features you will need. Especially since proxmox has a great cli interface where you can script and get access to advanced features. Proxmox is built on top of Qemu and KVM and in my experience has been very reliable in keeping my VM's up and running. They also have a commercial plan that they will push you towards for more support, etc but for home use the community repos are just fine. It even has ZFS support and is based on Debian. Overall Proxmox is a pretty great solution if you are looking to run VM's for your media server and run other software as well.
 
 *[PMS]: Perfect Media Server
 *[webUI]: Web User Interface (GUI)

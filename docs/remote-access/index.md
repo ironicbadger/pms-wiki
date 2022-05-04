@@ -1,15 +1,14 @@
 # Remote Access
 
-!!! info
-    This page is a work in progress.
+When you're not at home how do you access your stuff?
 
-This page will detail the numerous ways in which it is possible to securely remotely access a PMS system (or any Linux system for that matter).
+## VPNs
+
+See [VPNs](vpns.md).
 
 ## Port Forwarding
 
 The oldest, easiest and most well-known way of enabling remote access to your PMS. It's also the least secure. Opening a port in your firewall should be a last resort and honestly, avoided unless absolutely neccessary.
-
-
 
 ## Mobile
 
