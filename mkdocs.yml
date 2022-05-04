@@ -90,8 +90,9 @@ nav:
     - ZFS: 'tech-stack/zfs.md'
     - Proxmox: 'tech-stack/proxmox.md'
   - 3. Installation:
-    - Manual Install on Bare Metal: 'installation/manual-install.md'
-    - Manual Install on Video: 'installation/manual-install-on-video.md'
+    - Manual Install on Ubuntu: 'installation/manual-install-ubuntu.md'
+    #- Manual Install on Proxmox: 'installation/manual-install-proxmox.md'
+    - Manual Install (Video): 'installation/manual-install-on-video.md'
     - Automated Install: 'installation/automated-install.md'
   - 4. Remote Access: 
     - remote-access/index.md

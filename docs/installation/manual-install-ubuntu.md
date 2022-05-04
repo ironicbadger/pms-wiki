@@ -2,6 +2,8 @@
 
 This section covers manual installation of a Perfect Media Server.
 
+![dualxeon](../images/dualxeon.jpg)
+
 ## Base OS installation
 
 Installation of Ubuntu 20.04 LTS itself is documented by [Canonical](https://canonical.com/) (the company behind Ubuntu) on their [website](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview).

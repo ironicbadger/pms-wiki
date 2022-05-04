@@ -111,7 +111,7 @@ As you can see we now have data spread across multiple filesystems or physical d
 As discussed in [create policies](#create-policies), use of the correct create policy (the default of `epmfs` should suffice) in MergerFS is important to maintain this set up. The important part being `existing path` as without this option MergerFS will spread files out across multiple drives based on which has most free space.
 
 
-[^1]: More information about `/etc/fstab` is detailed in the [manual installation](../installation/manual-install.md) section.
+[^1]: More information about `/etc/fstab` is detailed in the [manual installation](../installation/manual-install-ubuntu.md) section.
 [^2]: [What is Parity?](https://en.wikipedia.org/wiki/Standard_RAID_levels#Simplified_parity_example)
 [^3]: https://github.com/trapexit/mergerfs#why-are-all-my-files-ending-up-on-1-drive
 
