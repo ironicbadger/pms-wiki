@@ -25,8 +25,8 @@ Jellyfin and Emby are two notable players in this space (playback on any device)
 
 **Similar or related projects:**
 
-* [Emby](https://emby.media/)
 * [Jellyfin](https://jellyfin.org/)
+* [Emby](https://emby.media/)
 * [Kodi](https://kodi.tv/)
 
 ## 2. Nextcloud

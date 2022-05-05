@@ -56,6 +56,8 @@ markdown_extensions:
   - pymdownx.keys
 
 copyright: 2020 - 2022 &copy; Alex Kretzschmar - Licensed under GPLv3
+extra_css:
+  - extra.css
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -78,8 +80,8 @@ nav:
   - 1. Overview:
     - index.md
     - Introduction: '01-overview/overview.md'
-    - FAQ: '01-overview/faq.md'
-    - NAS Software Comparison: '01-overview/nas-software-comparison.md'
+    - Frequently Asked Questions: '01-overview/faq.md'
+    - Badgers Stack - May 2022: '01-overview/high-level.md'
   - 2. Tech Stack Explained:
     - Linux: 'tech-stack/linux.md'
     - Containers:
@@ -89,6 +91,7 @@ nav:
     - SnapRAID: 'tech-stack/snapraid.md'
     - ZFS: 'tech-stack/zfs.md'
     - Proxmox: 'tech-stack/proxmox.md'
+    - NAS Software Comparison: 'tech-stack/nas-software-comparison.md'
   - 3. Installation:
     - Manual Install on Ubuntu: 'installation/manual-install-ubuntu.md'
     #- Manual Install on Proxmox: 'installation/manual-install-proxmox.md'
@@ -101,6 +104,7 @@ nav:
     - SSH (Secure Shell): 'remote-access/ssh.md'
     #- WireGuard: 'remote-access/wireguard.md'
   - 5. Hardware:
+    - Intel QuickSync: 'hardware/intel-quicksync.md'
     - Cases: 'hardware/cases.md'
     - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
     - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
