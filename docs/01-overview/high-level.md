@@ -5,7 +5,7 @@ A new page for May 2022, here's a high level overview snapshot of PMS as it stan
 !!! info
     Access the living and breathing repository I use to configure all my infrastructure on GitHub at [ironicbadger/infra](https://github.com/ironicbadger/infra).
 
-# Hardware
+## Hardware
 
 ![motherboard](../images/asrockmobo.jpg)
 
@@ -20,7 +20,7 @@ A new page for May 2022, here's a high level overview snapshot of PMS as it stan
 | Hard Drives  | A mix of drives from 8-14tb                            | See [HDD purchasing methodology](../hardware/hdd-purchase-methodology.md) for more details                                 |
 
 
-# Software
+## Software
 
 | Type              | Product / Version                                          | Reason                                               |
 | ----------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
@@ -29,9 +29,8 @@ A new page for May 2022, here's a high level overview snapshot of PMS as it stan
 | Drive pooling     | [mergerfs](../tech-stack/mergerfs.md)                      | Present many disks under one mountpoint              |
 | Container runtime | [docker](../tech-stack/docker.md)                          | Do I need a reason?                                  |
 | VM                | [Home Assistant](../day-two/top10apps.md#3-home-assistant) |                                                      |
-|                   |                                                            |                                                      |
 
-# Containers
+## Containers
 
 | Container                                        | Purpose                                    | Relevant content link                                            |
 | ------------------------------------------------ | ------------------------------------------ | ---------------------------------------------------------------- |
