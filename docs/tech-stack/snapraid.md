@@ -3,7 +3,7 @@
 SnapRAID provides us some basic protection against drive failures and is the perfect pairing with [MergerFS](mergerfs.md). This diagram illustrates the relationship between MergerFS and SnapRAID - each is responsible for a different area and the two operate independently of each other.
 
 <p align="center">
-<img alt="mergerfs-snapraid-diagram" src="../images/diagram-mergerfs-snapraid.png" width="525">
+<img alt="mergerfs-snapraid-diagram" src="../../images/diagram-mergerfs-snapraid.png" width="525">
 </p>
 
 ## What is SnapRAID?
