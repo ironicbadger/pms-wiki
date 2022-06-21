@@ -399,34 +399,34 @@ If you just want the most brain dead simple way to get going with samba, here it
 apt install samba
 ```
 
-* Next, create a file at `/etc/samba/smb.conf` with the following contents (adapt this for your needs):
+* Next, create a file at `/etc/samba/smb.conf` with the following contents (adapt this for your needs, change home directory to your own):
 
 ```
 [global]
-  workgroup = KTZ
-  server string = cartman
-  security = user
-  guest ok = yes
-  map to guest = Bad Password
-  log file = /var/log/samba/%m.log
-  max log size = 50
-  printcap name = /dev/null
-  load printers = no
+    workgroup = KTZ
+    server string = cartman
+    security = user
+    guest ok = yes
+    map to guest = Bad Password
+    log file = /var/log/samba/%m.log
+    max log size = 50
+    printcap name = /dev/null
+    load printers = no
 
 # Samba Shares
 [home]
-  comment = alex home folder
-  path = /home/alex
-  browseable = yes
-  read only = no
-  guest ok = no
+    comment = alex home folder
+    path = /home/alex
+    browseable = yes
+    read only = no
+    guest ok = no
 
 [storage]
-  comment = Primary Storage
-  path = /mnt/storage
-  browseable = yes
-  read only = no
-  guest ok = yes
+    comment = Primary Storage
+    path = /mnt/storage
+    browseable = yes
+    read only = no
+    guest ok = yes
 ```
 
 * Samba requires setting a password separately from that used for login. You may use an existing user or create a new one for this purpose.
