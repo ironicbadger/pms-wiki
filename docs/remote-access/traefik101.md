@@ -14,8 +14,8 @@ Traefik is the brains of the operation here acting as a middle man between multi
 There are quite a few moving parts to this operation but in essence, it's a simple transaction - albeit one with quite a few steps.
 
 <figure>
-  <img src="../images/traefik101/tls-cert-issuing-sequence.png"/>
-  <figcaption><a href="../images/traefik101/tls-cert-issuing-sequence.png" target="_blank">Click here for full resolution</a> - This diagram shows the sequence of issuing a TLS certificate automatically.</figcaption>
+  <img src="/images/traefik101/tls-cert-issuing-sequence.png"/>
+  <figcaption><a href="/images/traefik101/tls-cert-issuing-sequence.png" target="_blank">Click here for full resolution</a> - This diagram shows the sequence of issuing a TLS certificate automatically.</figcaption>
 </figure>
 
 I know the diagram above is a little small so please use the full resolution link if you need it. 
@@ -99,7 +99,7 @@ services:
 
 Using this configuration we'll end up with an nginx container running at `nginx.perfectmediaserver.com` with a valid TLS certificate, like this:
 
-<img src="../images/traefik101/nginx.png" align="center">
+<img src="/images/traefik101/nginx.png" align="center">
 
 In this example I used Cloudflare but you can use any other DNS provider from this [list](https://doc.traefik.io/traefik/https/acme/#providers) provided by Traefik. If using another provider replace `CLOUDFLARE_*` environment variables with those suitable for your provider.
 
@@ -107,15 +107,15 @@ In this example I used Cloudflare but you can use any other DNS provider from th
 
 There are many options out there for domain registrars but I have used [namecheap](https://www.namecheap.com/) for over a decade now. It's considered good practice (though not required) to register your domain in a different place from where the DNS nameservers resides. To configure a namecheap domain to work with Cloudflare first we need to login to our namecheap dashboard and click `MANAGE`.
 
-<img src="../images/traefik101/namecheap-manage.png" align="center">
+<img src="/images/traefik101/namecheap-manage.png" align="center">
 
 Next under `NAMESERVERS` clear out all existing values and select `Custom DNS`. 
 
-<img src="../images/traefik101/namecheap-nameservers.png" align="center">
+<img src="/images/traefik101/namecheap-nameservers.png" align="center">
 
 The values you will need to enter into this section can be found over at your Cloudflare account as shown here.
 
-<img src="../images/traefik101/cloudflare-nameservers.png" align="center">
+<img src="/images/traefik101/cloudflare-nameservers.png" align="center">
 
 These will most likely be different from the ones shown below, that is normal. Just input them into namecheap and wait for DNS propagation to work.
 
