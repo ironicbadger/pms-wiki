@@ -14,8 +14,8 @@ Traefik is the brains of the operation here acting as a middle man between multi
 There are quite a few moving parts to this operation but in essence, it's a simple transaction - albeit one with quite a few steps.
 
 <figure>
-  <img src="../images/traefik101/tls-cert-issuing-sequence.png"/>
-  <figcaption><a href="../images/traefik101/tls-cert-issuing-sequence.png" target="_blank">Click here for full resolution</a> - This diagram shows the sequence of issuing a TLS certificate automatically.</figcaption>
+  <img src="/images/traefik101/tls-cert-issuing-sequence.png"/>
+  <figcaption><a href="/images/traefik101/tls-cert-issuing-sequence.png" target="_blank">Click here for full resolution</a> - This diagram shows the sequence of issuing a TLS certificate automatically.</figcaption>
 </figure>
 
 I know the diagram above is a little small so please use the full resolution link if you need it. 
