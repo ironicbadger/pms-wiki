@@ -33,7 +33,7 @@ The build pictured made use of an [ASrock Rack C2750D4I](https://www.asrockrack.
 
 ## Fractal Node Series
 
-The Fractal Design Node 804 was released in 2014 and is a solid contender for a Perfect Media Server. A major distinction and benefit is how this case is split down the middle into two chambers. Beneath an acrylic window holds a shallow, yet adequate space for a micro-ATX based computer. Cooler clearance should not be an issue for flat-face style heatsinks like the Noctua L9 series. Beneath the other side panel is a spacious area with two "rails" that hold cages that hold an impressive 4 3.5" drives each. Two more 3.5 in. drives can be mounted in the floorboard for a total of 10 with two 2.5" slots remaining. Vibration is mitigated with large rubber dampers on each included screw. Access is easy with large knurled thumbscrews holding all the exterior together. 
+The Fractal Design Node 804 was released in 2014 and is a solid contender for a Perfect Media Server. A major distinction and benefit is how this case is split down the middle into two chambers. Beneath an acrylic window lies a shallow, yet adequate space for a micro-ATX based computer. Cooler clearance should not be an issue for flat-face style heatsinks like the Noctua L9 series. Beneath the other side panel is a spacious area with two "rails" that hold cages that hold 4x 3.5" drives each. Two more 3.5 in. drives can be mounted in the floor of the case, for a total of 10 with two 2.5" slots remaining. Vibration is mostly mitigated with rubber dampers on each included screw. Access is easy with large knurled thumbscrews holding the exterior together. 
 
 ![fractal-node-804](../images/node804.jpg)
 _Lots of space for drives, even with my poor cable management._
@@ -44,5 +44,7 @@ _Lots of space for drives, even with my poor cable management._
 * Dimensions - 15.3 x 13.5 x 11.8 " /  388 x 342 x 300  mm (LWH
 * Pricing - I purchased mine on promotion for about $80 years back, but they seem to have nearly doubled in price and sit at around $140 new.
 
-While this chassis is larger than other offerings, I chose it for its generous number of 3.5" bays, included quality fans and support for ATX power supplies. Front I/O is adequate, and the blue power LED can simply be unplugged should it cause a disturbance. Included are two fans that are controlled by a built-in 3 position switch. I've always kept it at its lowest and temperature has never been a concern. 
+While this chassis is larger than other offerings, I chose it for its generous number of 3.5" bays, included quality fans and support for ATX power supplies. Front I/O is adequate, and the blue power LED can simply be unplugged should it cause a disturbance. Included are two fans that are controlled by a built-in 3 position switch. I've always kept it at its lowest and temperature has never been a concern.
+
+> Review contributed by [Hogcycle](https://github.com/hogcycle)
 
