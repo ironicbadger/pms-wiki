@@ -25,4 +25,10 @@ Another popular option is rsync/rclone, a command-line utility that copies data 
 
 # Testing
 
-Backups are no good if you can't restore from them. Make sure you test your backups regularly, especially after any changes to your strategy. Ensure that in event of an emergency, you can restore from any and all of your copies. There's nothing worse than losing something, going to your backup, and finding that it was corrupt or otherwise improperly stored. 
+Backups are no good if you can't restore from them. Make sure you test your backups regularly, especially after any changes to your strategy. Ensure that in event of an emergency, you can restore from any and all of your copies. There's nothing worse than losing something, going to your backup, and finding that it was corrupt or otherwise improperly stored.
+
+For more information, check out Episode 20 of the Self-Hosted podcast, where Chris and Alex discuss these tools in more depth.
+
+<iframe src="https://player.fireside.fm/v2/dUlrHQih+pywvrsnF?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe> 
+
+
