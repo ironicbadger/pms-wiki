@@ -11,21 +11,24 @@ I would be remiss not to mention the [awesome-selfhosted](https://github.com/awe
 <iframe src="https://fireside.fm/player/v2/dUlrHQih+c60wLQ-X?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 </p>
 
-## 1. Plex
+## 1. Jellyfin
 
-[Plex](https://plex.tv) brings together all the media that matters to you. Your personal collection will look beautiful alongside stellar streaming content. Enjoy Live TV & DVR, a growing catalog of great web shows, news, and podcasts. It's finally possible to enjoy all the media you love in a single app, on any device, no matter where you are.
+[Jellyfin](https://jellyfin.org/) is the volunteer-built media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
 
 <p align="center">
-<img alt="plex-banner" src="../../images/top10/plex.png">
+<img alt="jellyfin-banner" src="../../images/top10/jellyfin.png">
 </p>
 
-[Plex](https://plex.tv) is the reason you're even reading this page. It's what got me interested in Linux in the first place and is somewhat of a gateway drug for self-hosting and can be run as a [container](https://hub.docker.com/r/plexinc/pms-docker/). However, it is not open source and there are doubts about the future of Plex as they continue to add features and streaming services that [no-one asked for](https://www.reddit.com/r/PleX/comments/e62nbt/how_do_you_disable_the_new_plex_movies_feature/). Luckily, there are other options available.
+Jellyfin has come a really long way in the last 12 months (list edited Jan 2023). No cloud connectivity required for authentication, no random streaming services and hugely snappy performance are all great reasons to try Jellyfin. It really is worth a look if you haven't tried it in a while. Client updates are coming thick and fast and the server side of things has improved hugely as well. Jellyfin is the future of media servers, no doubt.
 
-Jellyfin and Emby are two notable players in this space (playback on any device) but we should also mention Kodi. Kodi is great if your use case is local only as automated media transcoding for the target device isn't something that this software does. But, for me, Plex is still the best overall in this category. It has the slickest UI and the most features. Despite this, the progress being made by Emby and Jellyfin recently is very impressive and these are both projects to watch closely.
+<iframe src="https://player.fireside.fm/v2/dUlrHQih+B62wpyjN?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
+
+[Plex](https://plex.tv) is the reason you're even reading this page. It's what got me interested in Linux in the first place and is somewhat of a gateway drug for self-hosting and can be run as a [container](https://hub.docker.com/r/plexinc/pms-docker/). However, it is not open source and the general posture of Plex as a company gives me pause. They continue to add features and streaming services that [no-one asked for](https://www.reddit.com/r/PleX/comments/e62nbt/how_do_you_disable_the_new_plex_movies_feature/).
 
 **Similar or related projects:**
 
 * [Jellyfin](https://jellyfin.org/)
+* [Plex](https://plex.tv))
 * [Emby](https://emby.media/)
 * [Kodi](https://kodi.tv/)
 
