@@ -8,6 +8,10 @@ Quick Sync has been a game changing technology. It is a hardware media encoder b
 
 Performance per watt is class leading too. In our testing it draws 10w or less under full load and 0w at idle. Compare this to a discrete GPU which often requires 20w+ just to sit at idle, never mind under load! Then there's the upfront cost of hardware to support a discrete GPU. You need a motherboard with enough PCIe slots, PSU plugs, a big enough case, and so on. Having the media encoder built-in to the CPU is just so convienent!
 
+<p align="center">
+<img alt="igputop" src="../../images/igputop.png">
+</p>
+
 ## Playback
 
 Modern applications for media playback like [Jellyfin](https://jellyfin.org/) and [Plex](https://jellyfin.org/) support QSV for hardware transcoding. Unfortunately Plex lock it behind a paid Plex Pass option but it is well supported.
