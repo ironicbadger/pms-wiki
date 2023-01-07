@@ -29,8 +29,7 @@ It really is worth a look if you haven't tried it in a while. Client updates are
 
 **Similar or related projects:**
 
-* [Jellyfin](https://jellyfin.org/)
-* [Plex](https://plex.tv))
+* [Plex](https://plex.tv)
 * [Emby](https://emby.media/)
 * [Kodi](https://kodi.tv/)
 
