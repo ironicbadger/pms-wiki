@@ -1,31 +1,42 @@
 # Backups
 
-When it comes to data, it is often said that one is none, and two is one. However, according to the [3-2-1 strategy](https://www.seagate.com/blog/what-is-a-3-2-1-backup-strategy/), three is one. The 3-2-1 backup strategy breaks down to these requirements.
+When it comes to data, it is often said that one is none, and two is one. However, according to the [3-2-1 strategy](https://www.seagate.com/blog/what-is-a-3-2-1-backup-strategy/), three is one. 
 
+## Implementation
+
+The 3-2-1 backup strategy breaks down to these requirements:
 
 - 3 copies of data 
 - 2 different mediums
 - 1 offsite copy
 
-3 copies may seem excessive, but it provides the best redundancy against any sort of adverse situation you could find yourself in. Let's take a look at an example of an effective implementation of this strategy, which is how I backup my data.
+3 copies may seem excessive, but it provides excellent redundancy against adverse situations. Let's take a look at an example of an effective implementation of this strategy.
 
-I have three copies of my data in total. I have a ZFS mirror that copies the data across both drives, similar to RAID 0. This keeps a copy of my data on two different mediums, in the same case. However, this alone is not enough.
+The first copy is stored on a ZFS mirror, similar in concept to RAID 0. This keeps complete copies of the data on both drives in a mirrored fashion. While data is redundantly copied between to the two drives protecting from one single drive failure, if both drives were to fail at the same time the data is irrevocably lost. Therefore, it is necessary to have additional copies of the data to protect against other potential risks such as electrical damage, natural disasters, fires, and floods.
 
-!!! NOTE: RAID is not a full backup!
+!!! warning
+    RAID of any form is NOT a backup! Only multiple physical copies following the 3-2-1 rule are a true backup. RAID is often incorrectly conflated with being a backup however it is designed to increase uptime not prevent data loss in and of itself.
 
-While our data may be redundant, it's only protected from one angle. Mirroring data across two disks only preserves data if asingle drive fails. If both of those copies are lost, that data is lost. Electrical damage, natural disasters, fires, floods, all pose a risk to these mirrored pools. To mitigate this, one must keep their backups, or at the very least the most critical portions, offsite.
+To mitigate these risks, it is considered good practice to store your most critical data offsite. Many options exist in this space such as [zfs.rent](https://zfs.rent), [backblaze](https://backblaze.com), [AWS Glacier](https://aws.amazon.com/s3/storage-classes/glacier/), and so on - do your research and pick which has a good privacy policy, encrypts your data and is affordable (watch out for those retrieval fees!).
 
-While many people use "cloud storage" solutions like Google Drive or DropBox, these plans are often on an expensive subscription based model. My logic is that since these are cold backups, and ideally should never need to be recovered from, cost should come as priority over things like egress speed. I've found [backblaze.com](backblaze.com) to be a good choice. Right now, I have about 250GB stored in their B2 buckets. At $0.005 GB/month, this comes out to about $1.25 a month. There are also egress costs, so if the worst were to happen and my disks were destroyed, it would cost me about 2.50 to recover all my most crucial files. I feel that's a fair price to pay for peace of mind.
+While many people use subscription-based services such as Google Drive or DropBox, the author has chosen to use backblaze.com due to its low cost. The author currently has approximately 250GB of data stored in Backblaze's B2 buckets at a cost of $0.005 GB/month, or approximately $1.25 per month. In the event that the worst were to happen and the author's disks were destroyed, it would cost approximately $2.50 to recover all of their most crucial files.
 
-# Tools
+The third copy can be a little tricky. Copy 1 is local. Copy 2 is cloud. Copy 3? Another cloud? That's up to you. Consider asking a family member to host a small low power system that you can replicate to via something like [tailscale](https://tailscale.com) and [restic](https://restic.net/) (configured via [autorestic])https://autorestic.vercel.app)).
 
-There are a multitude of tools that can be used to help keep and maintain redundant copies of data. For my primary mirrored copy, I use ZFS. These copies are maintained with monthly ``zfs scrub`` to prevent against bit rot. For offsite storage, I personally use (autorestic)[https://autorestic.vercel.app/], which provides an intuitive wrapper around restic. The pools are encrypted and then sent up to BackBlaze every hour.
+## Tools
 
-Another popular option is rsync/rclone, a command-line utility that copies data between local and remote sources. It supports encryption and many different cloud providers.  
+It's a good idea to use a different technology for each layer. For example use ZFS replication for both copy 2 and copy 3 leaves you susceptible to issues with that specific tooling causing all backups to fail. Therefore a sane approach is to use ZFS replication for copy 2 and something like restic for copy 3. That means you have a block level copy (ZFS send) and a file level copy (restic). Two completely different, unrelated technologies.
 
-# Testing
+If using ZFS as the primary data store see tools like [Sanoid](https://github.com/jimsalterjrs/sanoid) are invaluable for replicating data automatically.
 
-Backups are no good if you can't restore from them. Make sure you test your backups regularly, especially after any changes to your strategy. Ensure that in event of an emergency, you can restore from any and all of your copies. There's nothing worse than losing something, going to your backup, and finding that it was corrupt or otherwise improperly stored.
+Restic supports replicating to S3. Hosting your own Minio S3 API compatible object storage server is very straightforward and cost effective on a remote system.
+
+## Testing
+
+Backups are no good if you can't restore from them. Make sure you test your backups regularly, especially after any changes to your strategy. This ensures that in event of an emergency, you can restore from any and all of your copies. There's nothing worse than losing something, going to your backup, and finding that it was corrupt or otherwise improperly stored.
+
+!!! warning
+    It's a good idea to have a reminder every few months to test these backups. Pick a random file or two and attempt to restore it. Did it work?
 
 For more information, check out Episode 20 of the Self-Hosted podcast, where Chris and Alex discuss these tools in more depth.
 
