@@ -39,7 +39,8 @@ By specifying these options, the inodes and the journal will be initialized imme
 
 ### Why Ubuntu Desktop instead of Ubuntu Server?
 
-!!! warning This FAQ / recommendation was retired in January 2023. As of Ubuntu 22.04 the issue below is no longer present and drives are presented correctly once again.
+!!! warning 
+    This FAQ / recommendation was retired in January 2023. As of Ubuntu 22.04 the issue below is no longer present and drives are presented correctly once again.
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">OK - this is fun. Ubuntu 18.04 presented hard disks as `/dev/disk/by-id/ata-blah` but 20.04 seems to go for `/dev/disk/by-id/scsi-SATA_blah`. Same hardware with HBA passed through in ESXI, why does this happen anyone?</p>&mdash; Alex Kretzschmar (@IronicBadger) <a href="https://twitter.com/IronicBadger/status/1284339126473564162?ref_src=twsrc%5Etfw">July 18, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
