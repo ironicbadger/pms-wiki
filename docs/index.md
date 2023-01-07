@@ -2,7 +2,7 @@
 
 If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software wherever possible.
 
-The primary technologies we recommend are [Linux](tech-stack/linux.md), Containers (via [docker](tech-stack/docker.md) and managed using [docker-compose](tech-stack/docker-compose.md)), [Proxmox](tech-stack/proxmox.md), [MergerFS](tech-stack/mergerfs.md), [SnapRAID](tech-stack/snapraid.md) and [ZFS](tech-stack/zfs.md/).
+The primary technologies we recommend are [Linux](tech-stack/linux.md), Containers (via [docker](tech-stack/docker.md) and managed using [docker-compose](tech-stack/docker-compose.md)), [Proxmox](tech-stack/proxmox.md), [MergerFS](tech-stack/mergerfs.md), [SnapRAID](tech-stack/snapraid.md) and [ZFS](tech-stack/zfs.md).
 
 If you're unsure where to start, head to the [overview](01-overview/overview.md) page. Otherwise use the search function - it can be invoked by pressing `/` and typing your query.
 
