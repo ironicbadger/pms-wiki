@@ -16,7 +16,7 @@ Creating a bootable USB stick to install Linux from used to be a tricky thing. T
 [Ventoy](https://www.ventoy.net/en/index.html) is magic. It turns a single USB drive into a 'universal' USB boot drive. Simply drop ISOs into the predetermined folder and you can boot them immediately. No messing with partition tables or `dd` or etcher, etc.
 
 !!! warning 
-    It is recommended to install Ubuntu Desktop, not Ubuntu Server, due to some weirdness in how drives are presented using `/dev/disk/by-id` in the server variant. For more information see the [FAQ - Why Ubuntu Desktop instead of Ubuntu Server?](../01-overview/faq.md#why-ubuntu-desktop-instead-of-ubuntu-server)
+    As of Ubuntu Server 22.04 or later, drives are presented correctly once more under `/dev/disk/by-id`. For a long time Ubuntu Server was not recommended (see [FAQ - Why not Ubuntu Server?](../01-overview/faq.md#why-ubuntu-desktop-instead-of-ubuntu-server)) however Ubuntu Server is now the recommended choice for a simple PMS deployment.
 
 There are a few options you have with regards to boot drive. The simplest option is buy a dedicated SSD for this purpose. Use this drive for the OS and temporary files (like in-progress file transfers) before moving them to your array. You might find putting your Plex metadata on an SSD such as this will help performance of library loading.
 
