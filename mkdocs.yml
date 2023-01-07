@@ -104,6 +104,7 @@ nav:
     - SSH (Secure Shell): 'remote-access/ssh.md'
     #- WireGuard: 'remote-access/wireguard.md'
   - 5. Hardware:
+    - An example build: 'hardware/example-build.md'
     - Intel QuickSync: 'hardware/intel-quicksync.md'
     - Cases: 'hardware/cases.md'
     - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
