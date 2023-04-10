@@ -21,7 +21,7 @@ To mitigate these risks, it is considered good practice to store your most criti
 
 While many people use subscription-based services such as Google Drive or DropBox, the author has chosen to use backblaze.com due to its low cost. The author currently has approximately 250GB of data stored in Backblaze's B2 buckets at a cost of $0.005 GB/month, or approximately $1.25 per month. In the event that the worst were to happen and the author's disks were destroyed, it would cost approximately $2.50 to recover all of their most crucial files.
 
-The third copy can be a little tricky. Copy 1 is local. Copy 2 is cloud. Copy 3? Another cloud? That's up to you. Consider asking a family member to host a small low power system that you can replicate to via something like [tailscale](https://tailscale.com) and [restic](https://restic.net/) (configured via [autorestic])https://autorestic.vercel.app)).
+The third copy can be a little tricky. Copy 1 is local. Copy 2 is cloud. Copy 3? Another cloud? That's up to you. Consider asking a family member to host a small low power system that you can replicate to via something like [tailscale](https://tailscale.com) and [restic](https://restic.net/) (configured via [autorestic](https://autorestic.vercel.app)).
 
 ## Tools
 
