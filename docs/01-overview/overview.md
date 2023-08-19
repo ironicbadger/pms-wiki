@@ -38,7 +38,7 @@ You can find me on the [Self-Hosted podcast Discord server](https://discord.gg/e
 
 This project was born out of a period in my life between 2011 and 2016 where I discovered network attached storage and lost some important data to a cursed 1.5tb Seagate hard drive. I took a fairly typical journey down the rabbit hole starting out with a Drobo, then a Synology, then unRAID before finally deciding to go it alone and piece together my own solution on top of Linux.
 
-During this period I discovered Linux, the world of open-source and everything that enabled. Open-source has fundamentally changed my life for the better and I now work for Red Hat helping to further that mission. 
+During this period I discovered Linux, the world of open-source and everything that enabled. Open-source has fundamentally changed my life for the better and working for Red Hat was an honor in my journey of helping to further that mission. As of August 2023, I now work for [Tailscale](https://tailscale.com).
 
 PMS is my own personal project to give back to the community knowledge that so many others helped me learn - life changing skills and knowledge about building and managing my own servers and infrastructure. Thank you if you were one of those who helped me along the way - this site is for you.
 ##
