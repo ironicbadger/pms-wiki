@@ -1,48 +1,42 @@
 ![logo](images/assets/logo.png)
 
-If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software, wherever possible.
-
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Overview__
+-   :material-folder-open:{ .lg .middle } - __An Overview of PMS__
 
     ---
 
-    Install [`mkdocs-material`](#) with [`pip`](#) and get up
-    and running in minutes
+    Learn what "a PMS" is and see [Alex's example PMS build](01-overview/alexs-example-builds.md). Discover how you can dive-in and why you might want to build yourself a freedom respecting NAS.
 
     [:octicons-arrow-right-24: Getting started](01-overview/index.md)
 
--   :fontawesome-brands-markdown:{ .lg .middle } __It's just Markdown__
+-   :octicons-mortar-board-24:{ .lg .middle } - __Tech Stack Explained__
 
     ---
 
-    Focus on your content and generate a responsive and searchable static site
+    Explore the underlying open-source technologies and gain a deeper understanding of how the nuts and bolts fit together in this DIY NAS solution.
 
-    [:octicons-arrow-right-24: Reference](#)
+    [:octicons-arrow-right-24: Explore the tech](02-tech-stack/index.md)
 
--   :material-format-font:{ .lg .middle } __Made to measure__
-
-    ---
-
-    Change the colors, fonts, language, icons, logo and more with a few lines
-
-    [:octicons-arrow-right-24: Customization](#)
-
--   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
+-   :fontawesome-solid-server:{ .lg .middle } - __Hardware Considerations__
 
     ---
 
-    Material for MkDocs is licensed under MIT and available on [GitHub]
+    You won't get far without some hardware to run this software on. Read reviews on [cases](06-hardware/cases.md) or how to [burn-in](06-hardware/new-drive-burnin.md) a new hard drive.
 
-    [:octicons-arrow-right-24: License](#)
+    [:octicons-arrow-right-24: Learn more...]()
+
+-   :material-floppy:{ .lg .middle } - __Installation Guides__
+
+    ---
+
+    Guided installations for Ubuntu, Proxmox and NixOS. After install, deploy my [top 10](04-day-two/top10apps.md) self-hosted app picks.
+
+    [:octicons-arrow-right-24: Begin Installation](03-installation/index.md)
 
 </div>
 
-
-
-
- , , ,  and of course, .
+If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software, wherever possible.
 
 !!! info "Perfect Media Server - A History"
     Perfect Media Server began life as a series of blog posts over at [blog.linuxserver.io](https://www.linuxserver.io/blog/tag:perfectmediaserver#blog_list):

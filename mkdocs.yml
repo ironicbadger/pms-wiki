@@ -64,6 +64,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true 
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
@@ -83,7 +86,7 @@ extra:
       name: IronicBadger on Twitter
     - icon: 'fontawesome/solid/microphone'
       link: 'https://selfhosted.show/'
-      name: IronicBadger's Podcast - selfhosted.show
+      name: Alex's Podcast - selfhosted.show
   analytics:
     provider: plausible
     property: pmswiki
@@ -113,15 +116,18 @@ nav:
     # - Advanced:
     #   - hypervisors:
 
-#     - Proxmox: 'tech-stack/proxmox.md'
-#     - NAS Software Comparison: 'tech-stack/nas-software-comparison.md'
-#   - 3. Installation:
-#     - Manual Install on Ubuntu: 'installation/manual-install-ubuntu.md'
-#     #- Manual Install on Proxmox: 'installation/manual-install-proxmox.md'
+  - 3. Installation:
+    - Ubuntu:
+      - Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
+    - Proxmox:
+      - Manual Install on Proxmox: '03-installation/manual-install-proxmox.md'
+    - NixOS:
+      - Easy Mode: '03-installation/nixos-noflake.md'
+      - Hard Mode (using Flakes): '03-installation/nixos-withflake.md' 
 #     - Manual Install (Video): 'installation/manual-install-on-video.md'
 #     - Automated Install: 'installation/automated-install.md'
-#   - 4. Day Two (Post Install):
-#     - Top 10 Self-Hosted Apps: 'day-two/top10apps.md'
+  - 4. Day Two (Post Install):
+    - Top 10 Self-Hosted Apps: '04-day-two/top10apps.md'
 #     - Backups: 'day-two/backups.md'
 #     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
 #   - 5. Remote Access: 
@@ -133,8 +139,10 @@ nav:
   - 6. Hardware:
 #     - Intel QuickSync: 'hardware/intel-quicksync.md'
     - Cases: '06-hardware/cases.md'
+    - Storage:
+      - New Drive Burn-In Rituals: '06-hardware/new-drive-burnin.md'
 #     - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
-#     - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
+#     
 #     #- Post Install Checklist: 'installation/post-install-checklist.md'
 
 #   - 7. Advanced:
