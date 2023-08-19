@@ -1,6 +1,7 @@
-mkdocs==1.5.2
-mkdocs-material==8.2.13
-mkdocs-material-extensions==1.0.3
-mkdocs-minify-plugin==0.4.0
-mkdocs-git-revision-date-plugin==0.3.1
-pymdown-extensions==9.4
+# last updated august 2023
+mkdocs==1.5.0 #1.5.1 and 1.5.2 give an ospath error on build
+mkdocs-material==9.1.21
+mkdocs-material-extensions==1.1.1
+mkdocs-minify-plugin==0.7.1
+mkdocs-git-revision-date-plugin==0.3.2
+pymdown-extensions==10.1
