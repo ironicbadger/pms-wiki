@@ -1,10 +1,10 @@
 # Docker
 
-Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/) PMS article Docker was a fairly new kid on the block. Fast forward 5 years and containerisation has cemented itself as a major force in the industry.
+Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/) PMS article Docker was fairly new. Fast forward 5 years and containerisation has cemented itself as a major force in the industry.
 
 For those looking to build a media server, containers offer a uniquely brilliant way to run applications. They divorce the running application from its data whilst making managing their persistent data and configuration simple.
 
-![docker-log](../images/docker-logo-horizontal.png)
+![docker-logo](../images/logos/docker-logo-horizontal.png)
 
 ## Why should I use containers?
 
@@ -55,7 +55,10 @@ Notice that the second container uses port 81. This is because the command `-p 8
 
 ## docker-compose
 
-See [docker-compose](docker-compose.md).
+docker-compose[^2] is a tool for defining and running multi-container Docker applications. With docker-compose, a YAML file is used to configure your application’s services. It enables you to use a single command to create, start, stop and destroy the services in your configuration file.
+
+!!! info "For more details"
+    See the [docker-compose](docker-compose.md) 
 
 ## Where do I get containers from?
 
@@ -95,14 +98,14 @@ For an incredible list of inspiration, check out [awesome-selfhosted](https://gi
 
 ## What about podman?
 
-[Podman](https://podman.io) is a daemonless container engine for your Linux system. The project claims that `alias docker=podman` is the hardest part of switching but in my testing podman still has a way to go to match docker in a few areas.
+See [podman](podman.md).
 
-The first is full on compose support. That is defining your stack of containers in a yaml file declaritively and repeatably. The [podman-compose](https://github.com/containers/podman-compose) is working on improving compatibility here but I've not found it to be a reliable, production ready replacement for docker-compose quite yet.
+!!! quote "Stay a while, and listen."
+    In March 2023, we released a podcast episode on this exact topic. Check it out for a more in-depth discussion.
 
-Second are builds. At work the other day I built a container from a Dockerfile with both podman on Fedora and docker on Arch - each of those container images came out at vastly different finished sizes. The podman image was 1.4gb whilst the docker image was less than 350mb.
+    <iframe src="https://player.fireside.fm/v2/dUlrHQih+fp1aR6Lw?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 
-Third is the community effect. Everyone in the media server space is using docker. It's the kleenex of containers and I don't see that changing anytime soon. Yes both projects tout OCI compatibility but there are some differences under the hood in how the two projects are wired which leads to inconsistencies. There's also a general lack of knowledge amongst those who freely donate their time to help others so it's a bit of a chicken and egg problem this one.
 
-Podman is aimed at a different primary usecase, Kubernetes. This project is definitely one to keep an eye on though so who knows, maybe the 2021 post will proclaim that podman is ready for primetime.
 
-[^1]: [Docker Volumes explained](https://docs.docker.com/storage/volumes/)
+[^1]: [Docker Volumes explained - docs.docker.com/storage/volumes](https://docs.docker.com/storage/volumes/)
+[^2]: [docker-compose - docs.docker.com/compose](https://docs.docker.com/compose/)

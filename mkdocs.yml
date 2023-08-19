@@ -56,13 +56,14 @@ markdown_extensions:
 #       toc_depth: 4
 #   - pymdownx.highlight: # code highlighting
 #       linenums: true
-#   - pymdownx.tabbed # enables tabs for embedded blocks
   - abbr # enables glossary
   - pymdownx.snippets: # enables glossary
       auto_append:
         - extra/glossary.md
-#   - pymdownx.superfences # allows for the nesting of code blocks inside other blocks
   - pymdownx.keys # display keyboard commands nicely ++ctrl+alt+del++
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
 
 copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
@@ -93,13 +94,15 @@ nav:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
 #     - Frequently Asked Questions: '01-overview/faq.md'
+    - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
   - 2. Tech Stack Explained:
-    - Alex's Stack - May 2022: '02-tech-stack/alexs-stack-may22.md'
-#     - Linux: 'tech-stack/linux.md'
-#     - Containers:
-#       - Docker: 'tech-stack/docker.md'
-#       - docker-compose: 'tech-stack/docker-compose.md'
-#     - MergerFS: 'tech-stack/mergerfs.md'
+    - Linux: '02-tech-stack/linux.md'
+    - Containers:
+      - docker: '02-tech-stack/docker.md'
+      - docker-compose: '02-tech-stack/docker-compose.md'
+      - podman: '02-tech-stack/podman.md'
+    - Data and Storage:
+      - mergerfs: '02-tech-stack/mergerfs.md'
 #     - SnapRAID: 'tech-stack/snapraid.md'
 #     - ZFS: 'tech-stack/zfs.md'
 #     - Proxmox: 'tech-stack/proxmox.md'

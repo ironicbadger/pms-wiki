@@ -9,7 +9,7 @@ Around the time of the 2017 PMS guide I made the switch to `docker-compose` and 
 
 ## What is docker-compose?
 
-Compose[^1] is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
+docker-compose[^1] is a tool for defining and running multi-container Docker applications. With docker-compose, a YAML file is used to configure your application’s services. It enables you to use a single command to create, start, stop and destroy the services in your configuration file.
 
 ## How do I use docker-compose?
 
