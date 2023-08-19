@@ -51,11 +51,13 @@ markdown_extensions:
   - pymdownx.highlight: # code highlighting
       linenums: true
   - pymdownx.tabbed # enables tabs for embedded blocks
-  - pymdownx.snippets
+  - pymdownx.snippets: # enables glossary
+      auto_append:
+        - includes/glossary.md
   - pymdownx.superfences # allows for the nesting of code blocks inside other blocks
   - pymdownx.keys
 
-copyright: 2020 - 2022 &copy; Alex Kretzschmar - Licensed under GPLv3
+copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
   - extra.css
 extra:
@@ -63,11 +65,14 @@ extra:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/ironicbadger'
       name: IronicBadger on GitHub
+    - icon: 'fontawesome/brands/mastodon'
+      link: 'https://techhub.social/@ironicbadger'
+      name: IronicBadger on Mastodon
+    - icon: 'fontawesome/brands/linkedin'
+      link: 'https://www.linkedin.com/in/alex-kretzschmar/'
     - icon: 'fontawesome/brands/twitter'
       link: 'https://twitter.com/ironicbadger'
       name: IronicBadger on Twitter
-    - icon: 'fontawesome/brands/linkedin'
-      link: 'https://www.linkedin.com/in/alex-kretzschmar/'      
     - icon: 'fontawesome/solid/microphone'
       link: 'https://selfhosted.show/'
       name: IronicBadger's Podcast - selfhosted.show

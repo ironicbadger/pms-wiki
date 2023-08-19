@@ -22,6 +22,3 @@ The original incarnation of PMS used Debian. Ubuntu is derivative of Debian [^3]
 [^1]: [snapcraft.io](https://snapcraft.io/)
 [^2]: [Disabling Snaps in Ubuntu 20.04](https://news.ycombinator.com/item?id=22972661)
 [^3]: [Debian derivatives](https://www.debian.org/derivatives/)
-
-*[LTS]: Long Term Support
-*[PMS]: Perfect Media Server

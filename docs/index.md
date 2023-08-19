@@ -6,7 +6,7 @@ The primary technologies we recommend are [Linux](tech-stack/linux.md), Containe
 
 If you're unsure where to start, head to the [overview](01-overview/overview.md) page. Otherwise use the search function - it can be invoked by pressing `/` and typing your query.
 
-!!! abstract
+!!! The Back Catalog
     Perfect Media Server began life as a series of blog posts over at [blog.linuxserver.io](https://www.linuxserver.io/blog/tag:perfectmediaserver#blog_list):
 
     - [Perfect Media Server (2016 Edition) - The Original Article](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/)
@@ -18,7 +18,7 @@ If you're unsure where to start, head to the [overview](01-overview/overview.md)
 
 The aim is to share knowledge and information about building a media server.
 
-By sharing the knowledge and thought patterns used to drive our decisions, you will leave armed with the ability to build your own DIY NAS or as we like to call it, the Perfect Media Server.
+By sharing the knowledge and thought patterns used to drive our decisions, you will leave armed with the ability to build your own DIY NAS or as we like to call it, the Perfect Media Server (PMS).
 
 ## How to get help
 
@@ -45,9 +45,4 @@ If you like this kind of thing, check out the [Self-Hosted](https://selfhosted.s
 
 <iframe src="https://player.fireside.fm/v2/dUlrHQih+aGtGAbih?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 
-<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="alexktz" data-description="Support me on Buy me a coffee!" data-message="If you found this site useful please consider buying me a coffee." data-color="#ff813f" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-
-
-*[PMS]: Perfect Media Server
-*[LSIO]: LinuxServer.io
-*[PRs]: Pull Requests via GitHub
+<script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="alexktz" data-description="Support me on Buy me a coffee!" data-color="#ff813f" data-position="Right" data-x_margin="18" data-y_margin="18"></script>

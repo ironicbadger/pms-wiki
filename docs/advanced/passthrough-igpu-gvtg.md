@@ -159,4 +159,4 @@ The power of Quick Sync is very impressive for the amount of energy it consumes.
 
 <iframe width="700" height="400" src="https://www.youtube.com/embed/Yl1twPPmEgc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Couple this with other great projects like PiKVM and consumer grade gear is really ready to be your next home server.
+Couple this with other great projects like PiKVM and cheaper, more readily available consumer grade gear is able to be your next home server. See this [blog.ktz.me](https://blog.ktz.me/use-1-pikvm-instance-to-control-4-systems/) post for info on how to control up to 4 systems using 1 PiKVM box.

@@ -10,15 +10,20 @@ WireGuard was first merged to the Linux kernel v5.6 in March 2020 [^1]. A relati
 
 ## Tailscale
 
-[Tailscale](https://tailscale.com/selfhosted/) is a new kid on the VPN block and it uses Wireguard under the hood to provide "VPN as a service". It works like an [overlay network](https://tailscale.com/blog/how-tailscale-works/) between the computers of your networks - using [NAT traversal](https://tailscale.com/blog/how-nat-traversal-works/).
+[Tailscale](https://tailscale.com/selfhosted/) is a mesh VPN that uses Wireguard under the hood. It works like an [overlay network](https://tailscale.com/blog/how-tailscale-works/) between the computers of your networks - using [NAT traversal](https://tailscale.com/blog/how-nat-traversal-works/).
 
-Everything in Tailscale is Open Source, except the GUI clients for proprietary OS (Windows and macOS/iOS), and the control server.
-
-The control server works as an exchange point of Wireguard public keys for the nodes in the Tailscale network. It assigns the IP addresses of the clients, creates the boundaries between each user, enables sharing machines between users, and exposes the advertised routes of your nodes.
+Tailscale's control server works as an exchange point of Wireguard public keys for the nodes in the Tailscale network. It assigns the IP addresses of the clients, creates the boundaries between each user, enables sharing machines between users, and exposes the advertised routes of your nodes.
 
 A Tailscale network (tailnet) is private network which Tailscale assigns to a user in terms of private users or an organisations.
 
-To assuage those worried about the control server being a hosted service there is Headscale. [Headscale](https://github.com/juanfont/headscale) aims to implement a self-hosted, open source alternative to the Tailscale control server. Headscale has a narrower scope and an instance of Headscale implements a single Tailnet, which is typically what a single organisation, or home/personal setup would use.
+To assuage those worried about the control server being a hosted service which is not open source, there is Headscale. [Headscale](https://github.com/juanfont/headscale) aims to implement a self-hosted, open source alternative to the Tailscale control server. Headscale has a narrower scope and an instance of Headscale implements a single Tailnet, which is typically what a single organisation, or home/personal setup would use.
+
+!!! info "August 2023"
+In the interests of being as transparent as possible you should know that I liked Tailscale so much I got a job there! I'm now a Developer Advocate for Tailscale.
+
+Before I worked there, I made a video showing how I use Tailscale's MagicDNS feature to route traffic across multiple physical sites.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Uzcs97XcxiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## OpenVPN
 

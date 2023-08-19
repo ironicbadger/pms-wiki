@@ -181,11 +181,6 @@ One of the most compelling reasons to use ZFS is replication. We get more into t
     [rsync.net](https://rsync.net) is expensive but provides this functionality 'in the cloud'.
 
 
-
-
-
-
-
 [^1]: [The Hidden Cost of ZFS for a Home NAS](https://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html)
 [^2]: [Bonwick, Jeff (December 8, 2005) - "ZFS End-to-End Data Integrity"](https://en.wikipedia.org/wiki/ZFS#cite_note-endtoend-30)
 [^3]: [Checkums and Their Use in ZFS](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Checksums.html)
@@ -194,6 +189,3 @@ One of the most compelling reasons to use ZFS is replication. We get more into t
 [^6]: [Changes/BtrfsByDefault](https://fedoraproject.org/wiki/Changes/BtrfsByDefault)
 [^7]: [Jim Salter's Blog - ZFS category](https://jrs-s.net/category/open-source/zfs/)
 [^8]: [ZFS 101 - Ars Technica](https://arstechnica.com/information-technology/2020/05/zfs-101-understanding-zfs-storage-and-performance/)
-
-*[PMS]: Perfect Media Server
-*[DKMS]: Dynamic Kernel Module Support

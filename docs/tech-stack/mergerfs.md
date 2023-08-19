@@ -114,9 +114,3 @@ As discussed in [create policies](#create-policies), use of the correct create p
 [^1]: More information about `/etc/fstab` is detailed in the [manual installation](../installation/manual-install-ubuntu.md) section.
 [^2]: [What is Parity?](https://en.wikipedia.org/wiki/Standard_RAID_levels#Simplified_parity_example)
 [^3]: https://github.com/trapexit/mergerfs#why-are-all-my-files-ending-up-on-1-drive
-
-*[JBOD]: Just a Bunch Of Disks
-*[RAID]: Redundant Array of Inexpensive Disks
-*[PMS]: Perfect Media Server
-*[epmfs]: existing path most free space
-*[mfs]: most free space
