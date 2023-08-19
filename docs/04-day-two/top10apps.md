@@ -78,6 +78,8 @@ Traefik does what any good reverse proxy should in 2023, it integrates with cert
 
 The elegance of configuring the ingress rules for a service in the same place as you define the configuration for the service itself makes up for any of the shortcomings due to initial setup complexity in my opinion.
 
+**Similar or related projects:**
+
 * [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 * [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 * [PMS reverse proxy comparison](../04-day-two/remote-access/index.md)
