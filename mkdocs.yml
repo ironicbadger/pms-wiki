@@ -96,9 +96,10 @@ nav:
 #     - Frequently Asked Questions: '01-overview/faq.md'
     - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
   - 2. Tech Stack Explained:
+    - '02-tech-stack/index.md'
     - Operating Systems: 
       - Linux: 
-        - '02-tech-stack/index.md'
+        - '02-tech-stack/linux/index.md'
         - Proxmox: '02-tech-stack/proxmox.md'
         - NixOS: '02-tech-stack/nixos.md'
     - Data and Storage:

@@ -37,7 +37,7 @@ In the following diagram there are five separate disks. Each disk is a different
 
 Configuration is performed via a single line of configuration in `/etc/fstab`[^1]. MergerFS has a lot knobs and dials to turn should you wish, they are all detailed in the [README](https://github.com/trapexit/mergerfs/blob/master/README.md) on the projects GitHub page.
 
-!!! example
+!!! example "An example `/etc/fstab` entry for mergerfs"
     ```
     /mnt/disk* /mnt/storage fuse.mergerfs defaults,nonempty,allow_other,use_ino,cache.files=off,moveonenospc=true,category.create=mfs,dropcacheonclose=true,minfreespace=250G,fsname=mergerfs 0 0
     ```
@@ -113,4 +113,4 @@ As discussed in [create policies](#create-policies), use of the correct create p
 
 [^1]: More information about `/etc/fstab` is detailed in the [manual installation](../installation/manual-install-ubuntu.md) section.
 [^2]: [What is Parity?](https://en.wikipedia.org/wiki/Standard_RAID_levels#Simplified_parity_example)
-[^3]: https://github.com/trapexit/mergerfs#why-are-all-my-files-ending-up-on-1-drive
+[^3]: [trapexit/mergerfs docs](https://github.com/trapexit/mergerfs#why-are-all-my-files-ending-up-on-1-drive)

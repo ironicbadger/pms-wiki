@@ -3,7 +3,7 @@
 SnapRAID provides us some basic protection against drive failures and is the perfect pairing with [MergerFS](mergerfs.md). This diagram illustrates the relationship between MergerFS and SnapRAID - each is responsible for a different area and the two operate independently of each other.
 
 <p align="center">
-<img alt="mergerfs-snapraid-diagram" src="../../images/diagram-mergerfs-snapraid.png" width="525">
+<img alt="mergerfs-snapraid-diagram" src="../../images/tech-stack/diagram-mergerfs-snapraid.png" width="525">
 </p>
 
 ## What is SnapRAID?
@@ -18,7 +18,7 @@ The project provides a handy comparison chart of how SnapRAID stacks up against 
 
 ## Why SnapRAID?
 
-In the PMS [overview](../01-overview/overview.md#what-is-perfect-media-server) we laid out a number of requirements, let's take a look and see which of those SnapRAID will fulfil.
+In the PMS [overview](../../01-overview/#the-requirements) we laid out a number of requirements, let's take a look and see which of those SnapRAID will fulfil.
 
 * Provide fault tolerance to protect against (inevitable) hard drive failure
 * Checksum files to guard against bitrot

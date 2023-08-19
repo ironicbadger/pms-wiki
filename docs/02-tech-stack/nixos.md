@@ -1,8 +1,8 @@
 # NixOS
 
-Coming soon.
-
 ![nixos](../images/logos/nixos-logo.png)
+
+Coming soon.
 
 See [ironicbadger/nix-testing](https://github.com/ironicbadger/nix-testing) for now.
 
