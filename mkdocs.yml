@@ -32,7 +32,7 @@ theme:
     - navigation.instant
     - navigation.sections # prevents collapsible sections
     - navigation.indexes # section index pages
-    - navigation.expand #expands sections by default
+    #- navigation.expand #expands sections by default
     #- navigation.tabs # section tabs along the top
     - toc.follow
     - toc.integrate # moves toc to the left
@@ -48,12 +48,12 @@ plugins:
 markdown_extensions:
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
-#   - pymdownx.details # enables collapsible admonitions
+  - pymdownx.details # enables collapsible admonitions
   - footnotes
 #   - meta # adds support for front matter
-#   - toc:
-#       permalink: true
-#       toc_depth: 4
+  - toc:
+      permalink: true
+      toc_depth: 4
 #   - pymdownx.highlight: # code highlighting
 #       linenums: true
   - abbr # enables glossary
@@ -96,15 +96,22 @@ nav:
 #     - Frequently Asked Questions: '01-overview/faq.md'
     - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
   - 2. Tech Stack Explained:
-    - Linux: '02-tech-stack/linux.md'
+    - Operating Systems: 
+      - Linux: 
+        - '02-tech-stack/index.md'
+        - Proxmox: '02-tech-stack/proxmox.md'
+        - NixOS: '02-tech-stack/nixos.md'
+    - Data and Storage:
+      - mergerfs: '02-tech-stack/mergerfs.md'
+      - SnapRAID: '02-tech-stack/snapraid.md'
+      - ZFS: '02-tech-stack/zfs.md'
     - Containers:
       - docker: '02-tech-stack/docker.md'
       - docker-compose: '02-tech-stack/docker-compose.md'
       - podman: '02-tech-stack/podman.md'
-    - Data and Storage:
-      - mergerfs: '02-tech-stack/mergerfs.md'
-#     - SnapRAID: 'tech-stack/snapraid.md'
-#     - ZFS: 'tech-stack/zfs.md'
+    # - Advanced:
+    #   - hypervisors:
+
 #     - Proxmox: 'tech-stack/proxmox.md'
 #     - NAS Software Comparison: 'tech-stack/nas-software-comparison.md'
 #   - 3. Installation:

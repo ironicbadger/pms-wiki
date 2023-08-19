@@ -25,11 +25,11 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
 
     | Type              | Product / Version                                          | Reason                                               |
     | ----------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
-    | OS                | [Proxmox 7.2](../tech-stack/proxmox.md)                    | ZFS support and VM UI is nice to have.               |
-    | Parity            | [SnapRAID](../tech-stack/snapraid.md)                      | Increases uptime and fights bit-rot style corruption |
-    | Drive pooling     | [mergerfs](../tech-stack/mergerfs.md)                      | Present many disks under one mountpoint              |
-    | Container runtime | [docker](../tech-stack/docker.md)                          | Do I need a reason?                                  |
-    | VM                | [Home Assistant](../day-two/top10apps.md#3-home-assistant) |                                                      |
+    | OS                | [Proxmox 7.2](../02-tech-stack/proxmox.md)                    | ZFS support and VM UI is nice to have.               |
+    | Parity            | [SnapRAID](../02-tech-stack/snapraid.md)                      | Increases uptime and fights bit-rot style corruption |
+    | Drive pooling     | [mergerfs](../02-tech-stack/mergerfs.md)                      | Present many disks under one mountpoint              |
+    | Container runtime | [docker](../02-tech-stack/docker.md)                          | Is there another way to run software?               |
+    | VM                | [Home Assistant](../day-two/top10apps.md#3-home-assistant) | Because turning lights on and off at the switch is so 200-late       |
 
 === "Containers"
 

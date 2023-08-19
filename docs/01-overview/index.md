@@ -34,7 +34,7 @@ You can find me on the [Self-Hosted podcast Discord server](https://discord.gg/e
 
 ## Why did you write this?
 
-This project was born out of a period in my life between 2011 and 2016 where I discovered network attached storage and lost some important data to a cursed 1.5tb Seagate hard drive. I took a fairly typical journey down the rabbit hole starting out with a Drobo, then a Synology, then unRAID before finally deciding to go it alone and piece together my own solution on top of Linux.
+This project was born out of a period in my life between 2011 and 2016 where I discovered network attached storage and lost some important data to a cursed 1.5tb Seagate hard drive. I took a fairly typical journey down the rabbit hole starting out with a Drobo, then a Synology, then unRAID before finally deciding to go it alone and piece together my own solution on top of [Linux](../02-tech-stack/linux.md).
 
 During this period I discovered Linux, the world of open-source and everything that enabled. Open-source has fundamentally changed my life for the better. From 2018 - 2023 I had the honor of working for Red Hat along my journey of helping to further that FOSS mission. As of August 2023, I now work for [Tailscale](https://tailscale.com).
 
