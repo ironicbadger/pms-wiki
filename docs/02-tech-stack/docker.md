@@ -100,10 +100,6 @@ For an incredible list of inspiration, check out [awesome-selfhosted](https://gi
 
 See [podman](podman.md).
 
-!!! quote "Stay a while, and listen."
-    In March 2023, we released a podcast episode on this exact topic. Check it out for a more in-depth discussion.
-
-    <iframe src="https://player.fireside.fm/v2/dUlrHQih+fp1aR6Lw?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 
 
 
