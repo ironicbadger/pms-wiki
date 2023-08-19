@@ -1,5 +1,9 @@
 ![logo](images/assets/logo.png)
 
+If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software, wherever possible.
+
+<br />
+
 <div class="grid cards" markdown>
 
 -   :material-folder-open:{ .lg .middle } - __An Overview of PMS__
@@ -36,7 +40,7 @@
 
 </div>
 
-If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software, wherever possible.
+<br />
 
 !!! info "Perfect Media Server - A History"
     Perfect Media Server began life as a series of blog posts over at [blog.linuxserver.io](https://www.linuxserver.io/blog/tag:perfectmediaserver#blog_list):

@@ -1,17 +1,3 @@
-/* Dark mode nth-child bg color setting
-[data-md-color-scheme="#{$name}"] {
-    --md-table-nth-child-bg-color-light: hsl(0, 0%, 97%);
-    --md-table-nth-child-bg-color-dark:    hsla(var(--md-hue),15%,15%,1);
-
-    @if scheme("slate", $name) {
-        --md-table-nth-child-bg-color-computed: var(--md-table-nth-child-bg-color-dark);
-    } @else {
-      --md-table-nth-child-bg-color-computed: var(--md-table-nth-child-bg-color-light);
-    }
-} */
-
-
-
 /* Table formatting */
 th, td {
     border: 1px solid var(--md-typeset-table-color);

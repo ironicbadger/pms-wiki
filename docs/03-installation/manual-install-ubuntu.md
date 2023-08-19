@@ -2,7 +2,7 @@
 
 This section covers manual installation of a Perfect Media Server.
 
-![dualxeon](../images/dualxeon.jpg)
+![dual-cpu-motherboard](../images/hardware/dualxeon.jpg)
 
 ## Base OS installation
 

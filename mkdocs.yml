@@ -45,6 +45,9 @@ plugins:
   - search
   - minify:
       minify_html: true
+  - privacy:
+      links_attr_map:
+        target: _blank
 markdown_extensions:
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
@@ -117,13 +120,13 @@ nav:
     #   - hypervisors:
 
   - 3. Installation:
-    - Ubuntu:
-      - Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
-    - Proxmox:
-      - Manual Install on Proxmox: '03-installation/manual-install-proxmox.md'
+    - '03-installation/index.md'
     - NixOS:
-      - Easy Mode: '03-installation/nixos-noflake.md'
-      - Hard Mode (using Flakes): '03-installation/nixos-withflake.md' 
+      - Easy Mode (no Flakes): '03-installation/nixos-noflake.md'
+      - Hard Mode (using Flakes): '03-installation/nixos-flake.md' 
+    - Manual Installation Guides:
+      - Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
+      - Manual Install on Proxmox: '03-installation/manual-install-proxmox.md'
 #     - Manual Install (Video): 'installation/manual-install-on-video.md'
 #     - Automated Install: 'installation/automated-install.md'
   - 4. Day Two (Post Install):
