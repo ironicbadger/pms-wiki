@@ -21,6 +21,8 @@ theme:
         name: Switch to dark mode
     # Palette toggle for dark mode
     - scheme: slate
+      accent: teal
+      primary: deep orange
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -64,7 +66,7 @@ markdown_extensions:
 
 copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
-  - extra.css
+  - ../extra.css
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -91,8 +93,8 @@ nav:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
 #     - Frequently Asked Questions: '01-overview/faq.md'
-#     - Badgers Stack - May 2022: '01-overview/high-level.md'
-#   - 2. Tech Stack Explained:
+  - 2. Tech Stack Explained:
+    - Alex's Stack - May 2022: '02-tech-stack/alexs-stack-may22.md'
 #     - Linux: 'tech-stack/linux.md'
 #     - Containers:
 #       - Docker: 'tech-stack/docker.md'
@@ -107,22 +109,23 @@ nav:
 #     #- Manual Install on Proxmox: 'installation/manual-install-proxmox.md'
 #     - Manual Install (Video): 'installation/manual-install-on-video.md'
 #     - Automated Install: 'installation/automated-install.md'
-#   - 4. Remote Access: 
+#   - 4. Day Two (Post Install):
+#     - Top 10 Self-Hosted Apps: 'day-two/top10apps.md'
+#     - Backups: 'day-two/backups.md'
+#     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
+#   - 5. Remote Access: 
 #     - remote-access/index.md
 #     - VPNs: 'remote-access/vpns.md'
 #     - Traefik 101 Guide: 'remote-access/traefik101.md'
 #     - SSH (Secure Shell): 'remote-access/ssh.md'
 #     #- WireGuard: 'remote-access/wireguard.md'
-  - 5. Hardware:
+  - 6. Hardware:
 #     - Intel QuickSync: 'hardware/intel-quicksync.md'
-    - Cases: '05-hardware/cases.md'
+    - Cases: '06-hardware/cases.md'
 #     - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
 #     - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
 #     #- Post Install Checklist: 'installation/post-install-checklist.md'
-#   - 6. Day Two (Post Install):
-#     - Top 10 Self-Hosted Apps: 'day-two/top10apps.md'
-#     - Backups: 'day-two/backups.md'
-#     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
+
 #   - 7. Advanced:
 #     - Concepts:
 #       - Infrastructure as Code: 'concepts/infraascode.md'
