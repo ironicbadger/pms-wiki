@@ -64,5 +64,3 @@ alias dprunesys='docker system prune --all'
 
 [^1]: [Docker - docker-compose](https://docs.docker.com/compose/)
 [^2]: [YAML.org - Spec](https://yaml.org/spec/)
-
-*[PMS]: Perfect Media Server

@@ -19,5 +19,3 @@ Typically, this would require a whole extra system running 24/7 to achieve. Low 
 Using passthrough it's very straightforward. Buy a dedicated PCIe NIC card, such as this [Intel Quad Gigabit NIC](https://amzn.to/3nVAknX) card (eBay might be cheaper), and use PCI passthrough to give the OPNsense guest full access. You won't notice any performance degradation in real terms and your only cost for the project was the NIC card.
 
 In this specific use case, a Quad NIC gives more flexibility as the NICs are typically grouped in pairs. You will need two ports - 1 for WAN and 1 for LAN. This leaves you two spare ports for other projects.
-
-*[NIC]: Network Interface Card

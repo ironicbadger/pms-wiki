@@ -23,7 +23,7 @@ However if you are looking to use this system as more of a homelab then running 
 
 We've just established portability as a key benefit of running on a hypervisor but what about flexibility? Have you ever been in a situation where you're trying to diagnose why a system won't boot remotely? Unless you have [IPMI](https://www.zenlayer.com/blog/what-is-ipmi/) accessing the console of your system remotely can be really tough. 
 
-It's worth mentioning at this point that there are projects like [PiKVM](https://github.com/pikvm/pikvm) looking to change this. If running as a VM, console based triage is as simple as opening up another tab in your browser as shown below.
+It's worth mentioning at this point that there are projects like [PiKVM](https://github.com/pikvm/pikvm) looking to change this. If running as a VM, console based triage is as simple as opening up another tab in your browser as shown below. See this [blog.ktz.me](https://blog.ktz.me/use-1-pikvm-instance-to-control-4-systems/) post for info on how to control up to 4 systems using 1 PiKVM box.
 
 ![proxmox](../images/proxmox-ui-tab.png)
 
@@ -36,7 +36,3 @@ Then there's snapshots and automation. By running as a VM we can take snapshots 
 In our opinion, running as a VM has many, many upsides with only a couple of downsides. The first is that hardware requirements are usually a lot more onerous with virtualisation, especially VMware. Second, you will need to 'use up' a little of your hardware to run the hypervisor. Usually this is a minimal overhead - with something like Proxmox a couple of GBs of RAM and a dedicated CPU core to the hypervisor will suffice. With VMware you might want to consider running vSphere which needs 4-8gb of RAM but provides the API layer that Ansible and Terraform need to their thing.
 
 Before deciding whether to virtualise or not, take a look at what is possible using [PCI passthrough](pci-passthrough.md). Virtualised routers, gaming rigs and much more is possible.
-
-*[KVM]: Kernel Virtual Machine - linux-kvm.org
-*[PMS]: Perfect Media Server
-*[VM]: Virtual Machine

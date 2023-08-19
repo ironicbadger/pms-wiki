@@ -517,6 +517,3 @@ exportfs -arv
 ```
 exportfs -v
 ```
-
-*[LTS]: Long Term Support release (5 years with Ubuntu)
-*[LSIO]: LinuxServer.io

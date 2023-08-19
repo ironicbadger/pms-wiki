@@ -44,7 +44,3 @@ PMS is my own personal project to give back to the community knowledge that so m
 ##
 - - -
 
-
-
-*[PMS]: Perfect Media Server
-*[PR]: Pull Request

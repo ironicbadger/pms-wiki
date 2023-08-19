@@ -137,5 +137,3 @@ In the old days we had to use `netcat` and `ProxyCommand` with a bunch of crap t
 
 [^1]: [ssh.com protocol](https://www.ssh.com/ssh/protocol/)
 [^2]: [SSH Key: Ed25519 vs RSA - Stack Overflow](https://security.stackexchange.com/questions/90077/ssh-key-ed25519-vs-rsa)
-
-*[SSH]: Secure Shell

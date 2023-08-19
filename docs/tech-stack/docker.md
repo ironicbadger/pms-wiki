@@ -105,8 +105,4 @@ Third is the community effect. Everyone in the media server space is using docke
 
 Podman is aimed at a different primary usecase, Kubernetes. This project is definitely one to keep an eye on though so who knows, maybe the 2021 post will proclaim that podman is ready for primetime.
 
-*[OS]: Operating System
-*[PMS]: Perfect Media Server
-*[LSIO]: LinuxServer.io
-
 [^1]: [Docker Volumes explained](https://docs.docker.com/storage/volumes/)
