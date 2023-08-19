@@ -1,6 +1,6 @@
 # Proxmox
 
-Use of Proxmox as part of building PMS is *entirely optional*. See *[which distro should I pick?](linux.md#which-distro-should-i-pick)*.
+Is Proxmox right for you? See *[which distro should I pick?](linux/linux.md#which-distro-should-i-pick)*.
 
 ![proxmox](../images/logos/proxmox.svg)
 

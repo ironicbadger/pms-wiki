@@ -1,3 +1,7 @@
+---
+title:
+---
+#
 ![logo](images/assets/logo.png)
 
 If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software, wherever possible.

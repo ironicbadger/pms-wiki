@@ -70,6 +70,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
 
 copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
@@ -103,11 +106,10 @@ nav:
     - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
   - 2. Tech Stack Explained:
     - '02-tech-stack/index.md'
-    - Operating Systems: 
-      - Linux: 
-        - '02-tech-stack/linux/index.md'
-        - Proxmox: '02-tech-stack/proxmox.md'
-        - NixOS: '02-tech-stack/nixos.md'
+    - Operating Systems:  
+      - '02-tech-stack/os/index.md'
+      - Proxmox: '02-tech-stack/proxmox.md'
+      - NixOS: '02-tech-stack/nixos.md'
     - Data and Storage:
       - mergerfs: '02-tech-stack/mergerfs.md'
       - SnapRAID: '02-tech-stack/snapraid.md'
@@ -130,6 +132,11 @@ nav:
 #     - Manual Install (Video): 'installation/manual-install-on-video.md'
 #     - Automated Install: 'installation/automated-install.md'
   - 4. Day Two (Post Install):
+    - Remote Access:
+      - Reverse Proxies: 
+        - '04-day-two/remote-access/index.md'
+        - Traefik 101 Guide: '04-day-two/remote-access/traefik101.md'
+      - VPNs: '04-day-two/remote-access/vpns.md'
     - Top 10 Self-Hosted Apps: '04-day-two/top10apps.md'
 #     - Backups: 'day-two/backups.md'
 #     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'

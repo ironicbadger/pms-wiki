@@ -16,15 +16,23 @@ Tailscale's control server works as an exchange point of Wireguard public keys f
 
 A Tailscale network (tailnet) is private network which Tailscale assigns to a user in terms of private users or an organisations.
 
-To assuage those worried about the control server being a hosted service which is not open source, there is Headscale. [Headscale](https://github.com/juanfont/headscale) aims to implement a self-hosted, open source alternative to the Tailscale control server. Headscale has a narrower scope and an instance of Headscale implements a single Tailnet, which is typically what a single organisation, or home/personal setup would use.
+To assuage those worried about the control server being a closed source, hosted service, there is Headscale. [Headscale](https://github.com/juanfont/headscale) aims to implement a self-hosted, open source alternative to the Tailscale control server. Headscale has a narrower scope and an instance of Headscale implements a single Tailnet, which is typically what a single organisation, or home/personal setup would use.
 
-!!! info "August 2023"
-In the interests of being as transparent as possible you should know that I liked Tailscale so much I got a job there! I'm now a Developer Advocate for Tailscale.
+!!! info "Disclosure Statement"
+    In the interests of being as transparent as possible you should know that I liked Tailscale so much I got a job there in August 2023! 
+    
+    I'm now a Developer Advocate for Tailscale.
 
-Before I worked there, I made a video showing how I use Tailscale's MagicDNS feature to route traffic across multiple physical sites.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Uzcs97XcxiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p align="center">
+<figure markdown>
+<iframe width="740" height="415" src="https://www.youtube.com/embed/Uzcs97XcxiE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<figcaption>Here's how I use Tailscale's MagicDNS feature to route traffic across multiple physical sites.</figcaption>
+</figure>
+</p>
 
 ## OpenVPN
 
 OpenVPN is pretty much limited to legacy infrastructure at this point. There is very little reason to consider standing up a new instance of OpenVPN.
+
+
+[1]: https://arstechnica.com/gadgets/2020/01/linus-torvalds-pulled-wireguard-vpn-into-the-5-6-kernel-source-tree/
