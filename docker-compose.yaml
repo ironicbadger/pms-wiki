@@ -3,6 +3,7 @@ version: "3.3"
 services:
   pms-wiki:
     build: .
+    platform: linux/x86_64
     image: pms-wiki
     volumes:
       - .:/docs

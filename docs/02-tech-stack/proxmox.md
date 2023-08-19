@@ -10,7 +10,7 @@ Proxmox Virtual Environment is an open-source server virtualization management p
 
 It is provided as both a standalone distribution and as a package to be installed on top of an existing Debian installation. We write more about Proxmox under *Advanced Concepts -> [Hypervisors](../concepts/hypervisors.md)*.
 
-![proxmox-ui-ktz](../images/tech-stack/proxmox-ui-ktz.png)
+![proxmox-ui-ktz](../images/tech-stack/proxmox-ui-8.png)
 
 ## Why use Proxmox?
 

@@ -1,6 +1,19 @@
 # What is "Perfect Media Server"?
 
-PMS is a 100% open-source collection of technologies enabling you to build your own media server from scratch and runs on Linux.
+Perfect Media Server (PMS) is a 100% open-source collection of technologies enabling you to build your own media server from scratch and runs on Linux.
+
+Under the hood, it's built around the following technologies:
+
++ [Linux](02-tech-stack/linux/linux.md)
+    + [Proxmox](02-tech-stack/proxmox.md)
+    + [NixOS](02-tech-stack/nixos.md) - *new for 2023!*
++ Data and Storage
+    + [MergerFS](02-tech-stack/mergerfs.md)
+    + [SnapRAID](02-tech-stack/snapraid.md)
+    + [ZFS](02-tech-stack/zfs.md)
++ containers 
+    + [docker](02-tech-stack/docker.md) - container runtime
+    + [docker-compose](02-tech-stack/docker-compose.md)) - container management
 
 ## The requirements
 

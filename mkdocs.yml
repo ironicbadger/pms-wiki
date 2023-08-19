@@ -37,8 +37,8 @@ theme:
     - toc.follow
     - toc.integrate # moves toc to the left
   # insiders only
-    #- navigation.path # breadcrumbs at the top of each page
-  #   - search.suggest
+    - navigation.path # breadcrumbs at the top of each page
+    - search.suggest
 
 plugins:
   - git-revision-date
@@ -48,9 +48,9 @@ plugins:
 markdown_extensions:
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
+  - md_in_html # grids (insiders)
   - pymdownx.details # enables collapsible admonitions
   - footnotes
-#   - meta # adds support for front matter
   - toc:
       permalink: true
       toc_depth: 4
