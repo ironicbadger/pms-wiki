@@ -35,9 +35,11 @@ This site is created using the open-source [mkdocs](https://www.mkdocs.org/). PR
 
 ![alex](images/alex.jpg){: align=right width=200 }
 
-[perfectmediaserver.com](https://perfectmediaserver.com) is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some totally awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors). Alex is a Developer Advocate at Tailscale. You can find all his online stuff over at [alex.ktz.me](https://alex.ktz.me).
+[perfectmediaserver.com](https://perfectmediaserver.com) is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some totally awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors). 
 
-I also write technical posts over on my blog at [blog.ktz.me](https://blog.ktz.me) covering topics from Homelab to Infrastructure as Code to electronics to Home Automation.
+Alex is a Developer Advocate at Tailscale. You can find all his online stuff over at [alex.ktz.me](https://alex.ktz.me).
+
+He writes technical posts over at [blog.ktz.me](https://blog.ktz.me) covering topics from Homelab to Infrastructure as Code to electronics to Home Automation.
 
 ## Self-Hosted podcast
 
