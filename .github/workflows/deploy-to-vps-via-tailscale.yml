@@ -21,9 +21,9 @@ jobs:
           # Tailscale version to use.
           version: '1.46.1'
 
-      - name: Stop the server
+      - name: Do the deploy thing
         run: |
-          ssh ${{ secrets.VPS_DEPLOY_USER }}@ktz-cloud
+          ssh -o "StrictHostKeyChecking no" ${{ secrets.VPS_DEPLOY_USER }}@ktz-cloud
           cd ${{ secrets.VPS_PROJECT_PATH }} && git pull
           docker-compose run pms-wiki build
 
