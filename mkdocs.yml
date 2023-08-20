@@ -33,13 +33,11 @@ theme:
     - navigation.sections # prevents collapsible sections
     - navigation.indexes # section index pages
     #- navigation.expand #expands sections by default
-    #- navigation.tabs # section tabs along the top
     - toc.follow
     - toc.integrate # moves toc to the left
   # insiders only
     - navigation.path # breadcrumbs at the top of each page
     - search.suggest
-
 plugins:
   - git-revision-date
   - search
@@ -57,8 +55,6 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 4
-#   - pymdownx.highlight: # code highlighting
-#       linenums: true
   - abbr # enables glossary
   - pymdownx.snippets: # enables glossary
       auto_append:
@@ -73,7 +69,6 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
-
 copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
   - ../extra.css
@@ -96,9 +91,7 @@ extra:
   analytics:
     provider: plausible
     property: pmswiki
-
 nav:
-#   #- Welcome: 'index.md'
   - 1. Overview:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
@@ -118,9 +111,6 @@ nav:
       - docker: '02-tech-stack/docker.md'
       - docker-compose: '02-tech-stack/docker-compose.md'
       - podman: '02-tech-stack/podman.md'
-    # - Advanced:
-    #   - hypervisors:
-
   - 3. Installation:
     - '03-installation/index.md'
     #- Video Install on Proxmox: '03-installation/video-install-proxmox.md'
