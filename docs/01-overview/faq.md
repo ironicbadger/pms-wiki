@@ -8,7 +8,7 @@ Yes. As long as you're not using a proprietary RAID solution then [mergerfs](../
 
 ### What performance can I expect?
 
-In my household gigabit is the target. I am easily able to saturate a gigabit link because of the way each drive is treated as an individual unit the limit of performance is the limit of the drive itself. With a modern mechanical drive this is typically anywhere from 130MBs - 220MBs read/write speeds.
+I am easily able to saturate a gigabit link because of the way each drive is treated as an individual unit. The limit of performance is the limit of the drive itself. With a modern mechanical drive this is typically anywhere from 130MB/s - 220MB/s read/write speeds.
 
 Some NAS software works around poor write performance with the use of cache drives but I have never found the need to do this with PMS. With careful consideration about moving busier workloads like databases and download extraction to a dedicated SSD the read/write performance of the NAS itself is gigabit speed+.
 

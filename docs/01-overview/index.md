@@ -4,20 +4,20 @@ Perfect Media Server (PMS) is a 100% open-source collection of technologies enab
 
 Under the hood, it's built around the following technologies:
 
-+ [Linux](02-tech-stack/linux/linux.md)
-    + [Proxmox](02-tech-stack/proxmox.md)
-    + [NixOS](02-tech-stack/nixos.md) - *new for 2023!*
++ [Linux](../02-tech-stack/os/linux.md)
+    + [Proxmox](../02-tech-stack/proxmox.md)
+    + [NixOS](../02-tech-stack/nixos.md) - *new for 2023!*
 + Data and Storage
-    + [MergerFS](02-tech-stack/mergerfs.md)
-    + [SnapRAID](02-tech-stack/snapraid.md)
-    + [ZFS](02-tech-stack/zfs.md)
+    + [MergerFS](../02-tech-stack/mergerfs.md)
+    + [SnapRAID](../02-tech-stack/snapraid.md)
+    + [ZFS](../02-tech-stack/zfs.md)
 + containers 
-    + [docker](02-tech-stack/docker.md) - container runtime
-    + [docker-compose](02-tech-stack/docker-compose.md)) - container management
+    + [docker](../02-tech-stack/docker.md) - container runtime
+    + [docker-compose](../02-tech-stack/docker-compose.md)) - container management
 
 ## The requirements
 
-Media servers generally run 24/7, needs lots of hard drives and often run apps to compliment the experience such as Plex, Nextcloud and so on - see the [top 10 self-hosted app list](../day-two/top10apps.md) for inspiration there. PMS sets out to fulfil the following requirements:
+Media servers generally run 24/7, needs lots of hard drives and often run apps to compliment the experience such as Plex, Nextcloud and so on - see the [top 10 self-hosted app list](../04-day-two/top10apps.md) for inspiration there. PMS sets out to fulfil the following requirements:
 
 * Act as a NAS type device serving files across the network
 * Support the primary use-case of "write once - read many" for media files
@@ -47,7 +47,7 @@ You can find me on the [Self-Hosted podcast Discord server](https://discord.gg/e
 
 ## Why did you write this?
 
-This project was born out of a period in my life between 2011 and 2016 where I discovered network attached storage and lost some important data to a cursed 1.5tb Seagate hard drive. I took a fairly typical journey down the rabbit hole starting out with a Drobo, then a Synology, then unRAID before finally deciding to go it alone and piece together my own solution on top of [Linux](../02-tech-stack/linux.md).
+This project was born out of a period in my life between 2011 and 2016 where I discovered network attached storage and lost some important data to a cursed 1.5tb Seagate hard drive. I took a fairly typical journey down the rabbit hole starting out with a Drobo, then a Synology, then unRAID before finally deciding to go it alone and piece together my own solution on top of [Linux](../02-tech-stack/os/linux.md).
 
 During this period I discovered Linux, the world of open-source and everything that enabled. Open-source has fundamentally changed my life for the better. From 2018 - 2023 I had the honor of working for Red Hat along my journey of helping to further that FOSS mission. As of August 2023, I now work for [Tailscale](https://tailscale.com).
 
