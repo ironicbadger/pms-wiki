@@ -1,6 +1,6 @@
 # SnapRAID
 
-SnapRAID provides us some basic protection against drive failures and is the perfect pairing with [MergerFS](mergerfs.md). This diagram illustrates the relationship between MergerFS and SnapRAID - each is responsible for a different area and the two operate independently of each other.
+SnapRAID provides us some basic protection against drive failures and is the perfect pairing with [mergerfs](mergerfs.md). This diagram illustrates the relationship between mergerfs and SnapRAID - each is responsible for a different area and the two operate independently of each other.
 
 <p align="center">
 <img alt="mergerfs-snapraid-diagram" src="../../images/tech-stack/diagram-mergerfs-snapraid.png" width="525">
@@ -18,7 +18,7 @@ The project provides a handy comparison chart of how SnapRAID stacks up against 
 
 ## Why SnapRAID?
 
-In the PMS [overview](../../01-overview/#the-requirements) we laid out a number of requirements, let's take a look and see which of those SnapRAID will fulfil.
+In the PMS [overview](../01-overview/index.md#the-requirements) we laid out a number of requirements, let's take a look and see which of those SnapRAID will fulfil.
 
 * Provide fault tolerance to protect against (inevitable) hard drive failure
 * Checksum files to guard against bitrot
@@ -26,11 +26,11 @@ In the PMS [overview](../../01-overview/#the-requirements) we laid out a number 
 * Enable incremental upgrading of hard drives in batches as small as one
 * Each drive should have a separately readable filesystem with no striping of data
 
-SnapRAID helps us meet each of these criteria and when combined with MergerFS enables each drive to remain individually formatted (no striping) whilst still having some kind of fault tolerance. Data integrity is checked for bitrot using 128bit checksumming which enables the silent fixing of these errors. Furthermore, any files changed since the last sync can be restored on a file by file basis allowing for quite a sophisticated backup solution at the file level.
+SnapRAID helps us meet each of these criteria and when combined with mergerfs enables each drive to remain individually formatted (no striping) whilst still having some kind of fault tolerance. Data integrity is checked for bitrot using 128bit checksumming which enables the silent fixing of these errors. Furthermore, any files changed since the last sync can be restored on a file by file basis allowing for quite a sophisticated backup solution at the file level.
 
 It will also work on already populated data drives, a big win over traditional RAID. Again, it allows only the drives in use to be spun up unlike RAID which requires all drives spinning to access a file on one drive.
 
-The first recorded instance of this saying was found in a cave in France and dates back thousands of years - RAID is not backup. Do not think that because you have a local parity setup that your data is backed up. What happens if a pipe burst or a burgler stole the whole thing or zombies came to dinner? We cover more details on proper backups in *Day Two -> [Backups](../day-two/backups.md)*.
+The first recorded instance of this saying was found in a cave in France and dates back thousands of years - RAID is not backup. Do not think that because you have a local parity setup that your data is backed up. What happens if a pipe burst or a burgler stole the whole thing or zombies came to dinner? We cover more details on proper backups in *Day Two -> [Backups](../04-day-two/backups.md)*.
 
 ## Is SnapRAID right for me?
 
@@ -44,11 +44,11 @@ Please review your use case before using SnapRAID. It is incredibly badly suited
 
 ## What about SnapRAIDs drive pooling?
 
-SnapRAID offers a drive pooling feature that on the face of it looks like it makes MergerFS superfluous to requirements. However, the pooling feature by SnapRAID creates a read only virtual view of the files in your array using symbolic links and is therefore unsuitable for real usage.
+SnapRAID offers a drive pooling feature that on the face of it looks like it makes mergerfs superfluous to requirements. However, the pooling feature by SnapRAID creates a read only virtual view of the files in your array using symbolic links and is therefore unsuitable for real usage.
 
-## Using SnapRAID with MergerFS and ZFS
+## Using SnapRAID with mergerfs and ZFS
 
-If, like me, you have a large collection of media files *and* some more high churn datasets then consider the more advanced implementation detailed in *Advanced Configuration -> [Using ZFS with MergerFS](../advanced/combine-zfs-and-others.md)*. This combines a SnapRAID protected array of data disks and a ZFS mirror to have the cake and eat it too.
+If, like me, you have a large collection of media files *and* some more high churn datasets then consider the more advanced implementation detailed in *Advanced Configurations -> [Using ZFS with mergerfs](../05-advanced/combine-zfs-and-others.md)*. This combines a SnapRAID protected array of data disks and a ZFS mirror to have the cake and eat it too.
 
 [^1]: [snapraid.it](https://www.snapraid.it/)
 [^2]: [SnapRAID compared](https://www.snapraid.it/compare)
