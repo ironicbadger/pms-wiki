@@ -23,7 +23,7 @@ jobs:
 
       - name: Do the deploy thing
         run: |
-          ssh -o "StrictHostKeyChecking no" ${{ secrets.VPS_DEPLOY_USER }}@ktz-cloud
+          ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud
           cd ${{ secrets.VPS_PROJECT_PATH }} && git pull
           docker-compose run pms-wiki build
 
