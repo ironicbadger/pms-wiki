@@ -1,22 +1,26 @@
 # Bare Metal Manual Install
 
-This section covers manual installation of a Perfect Media Server.
+This section walks you through a totally manual installation of a Perfect Media Server. 
 
-![dual-cpu-motherboard](../images/hardware/dualxeon.jpg)
+By the time you've worked through this section, you should have installed your OS, configured your drives and network file sharing. It assumes very little prior knowledge. As is the norm with this site, if you find a mistake please let me know via a GitHub issue or PR.
 
 ## Base OS installation
 
-Installation of Ubuntu 20.04 LTS itself is documented by [Canonical](https://canonical.com/) (the company behind Ubuntu) on their [website](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview).
+![dual-cpu-motherboard](../images/hardware/dualxeon.jpg){: align=right width=430 }
+
+At the time of writing the most recent Long-Term Support (LTS) release of Ubuntu is 22.04. Installation of Ubuntu itself is documented by [Canonical](https://canonical.com/) (the company behind Ubuntu) on their [website](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview). 
+
+I linked to the desktop installation instructions but Canonical also provide a more minimial server release if you don't have any desire for the desktop related cruft to be installed on your server.
 
 !!! danger
     To prevent accidentally installing Ubuntu on the wrong drive and overwriting data it is recommended to disconnect data drives during installation.
 
 Creating a bootable USB stick to install Linux from used to be a tricky thing. There is a [guide](https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#1-overview) on the Ubuntu website for the official method but recently the [Ventoy](https://www.ventoy.net/en/index.html) project has made this process even easier. It's not perfect and some users have reported issues but it should work for 95+% of you.
 
-[Ventoy](https://www.ventoy.net/en/index.html) is magic. It turns a single USB drive into a 'universal' USB boot drive. Simply drop ISOs into the predetermined folder and you can boot them immediately. No messing with partition tables or `dd` or etcher, etc.
+When it works, [Ventoy](https://www.ventoy.net/en/index.html) is magic. It turns a single USB drive into a 'universal' USB boot drive. Simply drop ISOs into the predetermined folder and you can boot them immediately. No messing with partition tables or `dd` or etcher, etc.
 
 !!! info 
-    As of Ubuntu Server 22.04 or later, drives are presented correctly once more under `/dev/disk/by-id`. For a long time Ubuntu Server was not recommended (see [FAQ - Why not Ubuntu Server?](../01-overview/faq.md#why-ubuntu-desktop-instead-of-ubuntu-server)) however Ubuntu Server is now the recommended choice for a simple PMS deployment.
+    As of Ubuntu Server 22.04 or later, drives are presented correctly once more under `/dev/disk/by-id`. For a long time Ubuntu Server was not recommended (see [FAQ - Why not Ubuntu Server?](../01-overview/faq.md#why-ubuntu-desktop-instead-of-ubuntu-server)) however if you're running Ubuntu, the Server variant is now the recommended choice for a simple PMS deployment. In reality, [Proxmox](../02-tech-stack/proxmox.md) is our preference these days.
 
 There are a few options you have with regards to boot drive. The simplest option is buy a dedicated SSD for this purpose. Use this drive for the OS and temporary files (like in-progress file transfers) before moving them to your array. You might find putting your Plex metadata on an SSD such as this will help performance of library loading.
 
@@ -25,63 +29,28 @@ Running the Gnome desktop on a server is a bit unnecessary as we'll manage this 
 !!! danger 
     Experimental ZFS on root support was added to 20.04 LTS. Need I say more about installing your server on an option marked as 'experimental' in the installer? OK, for clarity, don't!.
 
-Create a user as prompted by the installer and set a secure password. Once rebooted into the OS, it's time to start configuring the system ready to be the Perfect Media Server.
+Create a user as prompted by the installer and set a secure password. With installation complete, it's time to reboot into the OS. Let's start configuring the system ready to be your Perfect Media Server.
 
-## Docker
+## mergerfs
 
-For our container runtime, we'll be using docker. There are other options in this space but for now, docker is the most mature.
+[mergerfs](https://github.com/trapexit/mergerfs) is the (not so) secret sauce that makes Perfect Media Server possible. Here's a more detailed [explanation](../02-tech-stack/mergerfs.md).
 
-We are using Ubuntu which means docker installation is simple and well supported. See the [docker documentation](https://docs.docker.com/engine/install/ubuntu/) for full details.
-
-### docker-compose
-
-`docker-compose` is a tool for defining and running multiple containers at once using docker. Installing compose is optional but highly recommended as it drastically simplifies container lifecycle management. 
-
-Defining, starting, stopped and upgrading dozens of containers all at once is reduced to a single command using bash aliases.
-
-!!! info
-    `docker-compose` installation instructions for Linux can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
-
-### Container file permissions
-
-We need to find the user and group IDs for the user we plan to run our containers with. This is important because otherwise we will end up with file permissions errors.
-
-The [LinuxServer.io](https://www.linuxserver.io/) team are one of the most popular containerisation projects on the web. They provide a whole [fleet](https://fleet.linuxserver.io/) of containers that cater to pretty much every need the average Media Server enthusiast has. They pioneered a system of defining `PUID` and `PGID` in container environment variables to ensure permissions issues became a thing of the past.
-
-!!! success
-    Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
-
-With containers, when using volumes (`-v` flags) permissions issues can arise between the host OS and the container. Avoid this issue by running containers which support the user `PUID` and group `PGID` flags. Not all containers support this but all containers from LSIO do.
-
-In this instance `PUID=1000` and `PGID=1000`, to find yours use `id username` as below:
-
-```
-  $ id username
-    uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
-```
-
-You can check the owner of a specific file or directory with `ls -la`.
-
-## MergerFS
-
-[MergerFS](https://github.com/trapexit/mergerfs) is the (not so) secret sauce that makes Perfect Media Server possible.
-
-Installation in Ubuntu can be performed using `apt` but the version in the Ubuntu repository is usually a little behind upstream. For example, at the time of writing Ubuntu provides `2.28.1` which was released in June 2019. The latest upstream release was Dec 23rd 2020 with version `2.32.2`.
+Installation in Ubuntu can be performed using `apt` but the version in the Ubuntu repository is usually a little behind upstream. For example, at the time of writing Ubuntu provides `2.33.3` which was released in December 2021. The latest upstream release was July 15th 2023 with version `2.36.0`.
 
 !!! Warning
     It is not recommended to install mergerfs from the Ubuntu repos - use the GitHub repo as detailed below.
 
-Instead, navigate to the mergerfs GitHub [releases](https://github.com/trapexit/mergerfs/releases) page and find the correct `.deb` file for Ubuntu 20.04. For example:
+Instead, navigate to the mergerfs GitHub [releases](https://github.com/trapexit/mergerfs/releases) page and find the correct `.deb` file for Ubuntu 22.04. For example:
 
 ```
 ## Download and install - ensure to update version number!
-wget https://github.com/trapexit/mergerfs/releases/download/2.32.2/mergerfs_2.32.2.ubuntu-focal_amd64.deb
-sudo dpkg -i mergerfs_2.32.2.ubuntu-focal_amd64.deb
+wget https://github.com/trapexit/mergerfs/releases/download/2.36.0/mergerfs_2.36.0.ubuntu-jammy_amd64.deb
+sudo dpkg -i mergerfs_2.36.0.ubuntu-jammy_amd64.deb
 
 ## Verify installation
-alex@cartman:~$ apt list mergerfs
+alex@morpheus:~$ apt list mergerfs
 Listing... Done
-mergerfs/now 2.32.2~ubuntu-focal amd64 [installed,local]
+mergerfs/now 2.36.0~ubuntu-jammy amd64 [installed,local]
 ```
 
 ## Hard Drive setup
@@ -132,12 +101,12 @@ Therefore, we can ascertain that `/dev/sdc` is mapped to this physical drive. Ne
 
 ### Brand new drives
 
-Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under *Hardware* -> [New Drive Burn-In Rituals](../hardware/new-drive-burnin.md).
+Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under *Hardware* -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
 
 !!! warning 
     **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is *any* existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
 
-The following steps will require root access, become the root user by typing `sudo su`. Using our example drive from the prior section we will use `gdisk` to create a new partition and filesystem. Run `gdisk /dev/sdX` (replacing `sdX` with your drive), for example:
+The following steps will require root access. To become the root user type `sudo su`. Using our example drive from the prior section we will use `gdisk` to create a new partition and filesystem. Run `gdisk /dev/sdX` (replacing `sdX` with your drive), for example:
 
     root@cartman:~# gdisk /dev/sdc
     GPT fdisk (gdisk) version 1.0.5
@@ -155,20 +124,22 @@ Once `gdisk` is loaded we are presented with an interactive prompt `Command (? f
 
 Use the following sequence to create one large partition spanning the entire drive. Note that the keys you need to press are at the start of each heading and the answers to the subsequent questions at the ends of the next few lines.
 
-* **`o`** - creates a new **EMPTY** GPT partition table (GPT is good for large drives over 3TB)
+```
+* o - creates a new **EMPTY** GPT partition table (GPT is good for large drives over 3TB)
     * Proceed? (Y/N) - **`Y`**
-* **`n`** - creates a new partition
+* n - creates a new partition
     * Partition number (1-128, default 1): **`1`**
     * First sector (34-15628053134, default = 2048) or {+-}size{KMGTP}: **`leave blank`**
     * Last sector (2048-15628053134, default = 15628053134) or {+-}size{KMGTP}: **`leave blank`**
     * Hex code or GUID (L to show codes, Enter = 8300): **`8300`**
-* **`p`** - (optional) validate 1 large partition to be created
+* p - (optional) validate 1 large partition to be created
     * Model: HGST HDN728080AL
     * Number  Start (sector)    End (sector)  Size       Code  Name
     * 1       2048              15628053134   7.3 TiB    8300  Linux filesystem
-* **`w`** - writes the changes made thus far
+* w - writes the changes made thus far
     * Until this point, gdisk has been non-destructive
     * Confirm that making these changes is OK and the changes queued so far will be executed
+```
 
 Next up, we'll create a filesystem on that newly created partition.
 
@@ -215,11 +186,11 @@ Assuming the previous test went well, it's time to come up with a mountpoint nam
     mkdir /mnt/parity1 # adjust this command based on your parity setup
     mkdir /mnt/storage # this will be the main mergerfs mountpoint
 
-We also just created `/mnt/storage` in addition to our data disk mountpoints of `/mnt/disk1`, `/mnt/disk2` and so on. `/mnt/storage` will be used by [MergerFS](../tech-stack/mergerfs.md) to 'pool' or 'merge' our data disks.
+We also just created `/mnt/storage` in addition to our data disk mountpoints of `/mnt/disk1`, `/mnt/disk2` and so on. `/mnt/storage` will be used by [mergerfs](../02-tech-stack/mergerfs.md) to 'pool' or 'merge' our data disks.
 
 ### fstab entries
 
-Next we need to create an entry in `/etc/fstab`. 
+Next we need to create an entry in `/etc/fstab`.
 
 This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/index.php/fstab).
 
@@ -365,16 +336,64 @@ With cron, it is a good idea to be as explicit as possible when it comes to file
 
 #### Healthchecks.io
 
-[https://healthchecks.io/](https://healthchecks.io/) notifies you when your nightly backups, weekly reports, cron jobs and scheduled tasks don't run on time. 
+[https://healthchecks.io/](https://healthchecks.io/) notifies you when your nightly backups, weekly reports, cron jobs and scheduled tasks don't run on time.
 
-It is self-hostable in a [container](https://hub.docker.com/r/linuxserver/healthchecks) but that depends on that local system being up - I like to use this free hosted service for this purpose. They provide up to 20 checks free for hobbyists.
+It is self-hostable in a [container](https://hub.docker.com/r/linuxserver/healthchecks) but that depends on that local system being up - a cheap VPS might be a good idea for this purpose.
 
-![healthchecks](../images/healthchecks.png)
+![healthchecks](../images/screenshots/healthchecks.png)
 
+## Containers
+
+To run apps on top of the base OS, we'll be using [docker](../02-tech-stack/docker.md).
+
+### docker
+
+We are using Ubuntu which means docker installation is straightforward via docker's [documentation](https://docs.docker.com/engine/install/ubuntu/).
+
+### docker-compose
+
+`docker-compose` is a tool for defining and running multiple containers at once using docker. Defining, starting, stopped and upgrading dozens of containers all at once is reduced to a single command.
+
+!!! info
+    `docker-compose` installation instructions for Linux can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
+
+Here's an example `docker-compose.yaml` file for a simple nginx webserver deployment (yep, that's the code used to deploy the site you're viewing!).
+
+```
+---
+version: "2"
+services:
+  ktz-nginx-pmswiki:
+    image: nginx
+    container_name: ktz-nginx-pmswiki
+    volumes:
+      - /tank/appdata/pms-wiki/site:/usr/share/nginx/html:ro
+    restart: unless-stopped
+```
+
+### Container file permissions
+
+We need to find the user and group IDs for the user we plan to run our containers with. This is important because otherwise we will end up with file permissions errors.
+
+The [LinuxServer.io](https://www.linuxserver.io/) team are one of the most popular containerisation projects on the web. They provide a whole [fleet](https://fleet.linuxserver.io/) of containers that cater to pretty much every need the average Media Server enthusiast has. They pioneered a system of defining `PUID` and `PGID` in container environment variables to ensure permissions issues became a thing of the past.
+
+!!! success
+    Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
+
+With containers, when using volumes (`-v` flags) permissions issues can arise between the host OS and the container. Avoid this issue by running containers which support the user `PUID` and group `PGID` flags. Not all containers support this but all containers from LSIO do.
+
+In this instance `PUID=1000` and `PGID=1000`, to find yours use `id username` as below:
+
+```
+  $ id alex
+    uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
+```
+
+You can check the owner of a specific file or directory with `ls -la`.
 
 ## Network File Sharing
 
-A NAS or file server is no good without being able to access the data remotely. We're not talking about remotely like over the internet remotely here though, instead we're talking about other computers on your LAN. Raspberry Pis, Media Players (Kodi, for example), etc. You can find more information on remote file access over the internet in the [remote access](../remote-access/index.md) and [Top 10 Self-Hosted apps list](../day-two/top10apps.md#nextcloud).
+A NAS or file server is no good without being able to access the data remotely. We're not talking about remotely like over the internet remotely here though, instead we're talking about other computers on your LAN. Raspberry Pis, Media Players (Kodi, for example), etc. You can find more information on remote file access over the internet in the [remote access](../04-day-two/remote-access/index.md) and [Top 10 Self-Hosted apps list](../04-day-two/top10apps.md#nextcloud).
 
 There are two primary methods for sharing files over the network. Samba for Windows / Mac / Linux and NFS for Linux.
 
