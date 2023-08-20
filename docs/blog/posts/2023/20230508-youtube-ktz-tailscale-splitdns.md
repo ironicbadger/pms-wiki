@@ -1,21 +1,25 @@
 ---
-draft: true 
+title: Split DNS Magic with Tailscale - Access remote services from anywhere!
 date: 2023-05-08
+authors: [ironicbadger]
 categories:
-  - youtube
   - ktzsystems
   - tailscale
   - remote-access
   - dns
 readtime: 23
 links:
-    - https://www.youtube.com/watch?v=Uzcs97XcxiE
-    - https://blog.ktz.me/splitdns-magic-with-tailscale/
+    - KTZ Systems YouTube - Split DNS Magic with Tailscale: https://www.youtube.com/watch?v=Uzcs97XcxiE
+    - ktz.blog - Split DNS Magic with Tailscale: https://blog.ktz.me/splitdns-magic-with-tailscale/
 ---
 
-# Split DNS Magic with Tailscale - Access remote services from anywhere!
+Read more about [Tailscale](https://tailscale.com) in the [PMS VPN](../../../04-day-two/remote-access/vpns.md) section.
 
+## Blog content
 
++ [ktz.blog - Split DNS Magic with Tailscale](https://blog.ktz.me/splitdns-magic-with-tailscale/)
+
+## Video content
 
 <p align="center">
 <figure markdown>

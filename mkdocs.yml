@@ -41,15 +41,16 @@ theme:
     - search.suggest
 
 plugins:
-  - git-revision-date
+  - blog:
+      categories: false
+      archive: false
+  #- git-revision-date
   - search
   - minify:
       minify_html: true
   - privacy:
       links_attr_map:
         target: _blank
-  - blog:
-      blog_dir: blog
 markdown_extensions:
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
@@ -100,15 +101,12 @@ extra:
     property: pmswiki
 
 nav:
-  - 0. PMS Blog: 
-    - blog/index.md
-    - 2023:
-      - blog/posts/2023-05-08-youtube-ktz-tailscale-splitdns.md
+  - News and Updates: blog/index.md
   - 1. Overview:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
     - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
-    - Frequently Asked Questions: '01-overview/faq.md'
+    - Frequently Asked Questions: '01-overview/faq.md'  
   - 2. Tech Stack Explained:
     - '02-tech-stack/index.md'
     - Operating Systems:  
