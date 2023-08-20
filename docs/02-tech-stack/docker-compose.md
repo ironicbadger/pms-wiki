@@ -41,7 +41,7 @@ To create the container defined above copy and paste the above into a file place
 
 ## Quality of life tweaks
 
-Bash aliases make dealing with docker-compose much easier. Being a good sysadmin is about being fundamentally lazy and finding ways to reduce the amount of work you have to do. This is where bash aliases come in. There is dedicated section about bash aliases under *Day Two -> [Quality of Life Tweaks](../day-two/quality-of-life-tweaks.md#bash-aliases)*. Here are some primarily related to docker-compose.
+Bash aliases make dealing with docker-compose much easier. Being a good sysadmin is about being fundamentally lazy and finding ways to reduce the amount of work you have to do. This is where bash aliases come in. Here are some primarily related to docker-compose:
 
 ```bash
 # /etc/bash_aliases
