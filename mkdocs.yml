@@ -123,14 +123,14 @@ nav:
 
   - 3. Installation:
     - '03-installation/index.md'
+    #- Video Install on Proxmox: '03-installation/video-install-proxmox.md'
     - NixOS:
       - Easy Mode (no Flakes): '03-installation/nixos-noflake.md'
-      - Hard Mode (using Flakes): '03-installation/nixos-flake.md' 
+      - Hard Mode (using Flakes): '03-installation/nixos-flake.md'
+      #- Video Install on NixOS: '03-installation/video-install-nixos.md'
     - Manual Installation Guides:
       - Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
-      - Manual Install on Proxmox: '03-installation/manual-install-proxmox.md'
-#     - Manual Install (Video): 'installation/manual-install-on-video.md'
-#     - Automated Install: 'installation/automated-install.md'
+      - Manual Install on Proxmox: '03-installation/manual-install-proxmox.md'      
   - 4. Day Two (Post Install):
     - Remote Access:
       - Reverse Proxies: 
@@ -138,8 +138,7 @@ nav:
         - Traefik 101 Guide: '04-day-two/remote-access/traefik101.md'
       - VPNs: '04-day-two/remote-access/vpns.md'
     - Top 10 Self-Hosted Apps: '04-day-two/top10apps.md'
-#     - Backups: 'day-two/backups.md'
-#     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
+    - Backups: '04-day-two/backups.md'
   - 5. Advanced Topics: 
     - Concepts:
       - Infrastructure as Code: '05-advanced/infraascode.md'
@@ -147,21 +146,8 @@ nav:
       - Using ZFS with MergerFS: '05-advanced/combine-zfs-and-others.md'
       - Quick Sync and iGPU passthrough: '05-advanced/passthrough-igpu-gvtg.md'
   - 6. Hardware:
-#     - Intel QuickSync: 'hardware/intel-quicksync.md'
+    - Intel QuickSync: '06-hardware/intel-quicksync.md'
     - Cases: '06-hardware/cases.md'
     - Storage:
       - New Drive Burn-In Rituals: '06-hardware/new-drive-burnin.md'
-#     - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
-#     
-#     #- Post Install Checklist: 'installation/post-install-checklist.md'
-
-#   - 7. Advanced:
-#     - Concepts:
-#       - Infrastructure as Code: 'concepts/infraascode.md'
-#       - Hypervisors: 'concepts/hypervisors.md'
-#       - PCI Passthrough: 'concepts/pci-passthrough.md'
-#     - Configuration:
-#       - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
-#       - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'
-#   #- Related Projects:
-#     #- Virtualised OPNsense router: 'related-projects/virtualised-opnsense-proxmox.md'
+      - HDD Purchase Methodology: '06-hardware/hdd-purchase-methodology.md'

@@ -1,6 +1,6 @@
 # Intel Quick Sync
 
-Media servers do not need to super power beasts of systems. Indeed, an 8th gen Intel CPU is what has been running in [Badger's Stack](../01-overview/high-level.md) for years now.
+Media servers do not need to super power beasts of systems. Indeed, an 8th gen Intel CPU is what has been running in [Alex's Example PMS Build](../01-overview/alexs-example-builds.md) for years now.
 
 Quick Sync has been a game changing technology. It is a hardware media encoder built-in to most modern Intel CPUs. It's capable of encoding 2 or more 4K streams at once which is perfectly sufficent for most use cases.
 
@@ -16,4 +16,4 @@ Performance per watt is class leading too. In our testing it draws 10w or less u
 
 Modern applications for media playback like [Jellyfin](https://jellyfin.org/) and [Plex](https://jellyfin.org/) support QSV for hardware transcoding. Unfortunately Plex lock it behind a paid Plex Pass option but it is well supported.
 
-More info [here](../advanced/passthrough-igpu-gvtg.md#plex-hardware-acceleration).
+More info [here](../05-advanced/passthrough-igpu-gvtg.md#plex-hardware-acceleration).
