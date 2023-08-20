@@ -11,13 +11,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.3
+
       - name: Connect Tailscale
-        uses: tailscale/github-action@v1
+        uses: tailscale/github-action@v2
         with:
           # Your Tailscale authentication key, from the admin panel.
           authkey: ${{ secrets.TAILSCALE_AUTHKEY_CLOUDNODE }}
           # Tailscale version to use.
-          #version:
+          version: '1.46.1'
 
       # Build
       - name: Pull latest changes on VPS
