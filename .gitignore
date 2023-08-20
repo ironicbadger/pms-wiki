@@ -1,6 +1,7 @@
 # ignore rendered site
 site/
 .cache/
+.test-secrets
 
 # Created by https://www.toptal.com/developers/gitignore/api/vscode,macos,windows,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=vscode,macos,windows,linux
