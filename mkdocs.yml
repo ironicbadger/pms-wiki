@@ -48,6 +48,8 @@ plugins:
   - privacy:
       links_attr_map:
         target: _blank
+  - blog:
+      blog_dir: blog
 markdown_extensions:
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
@@ -104,6 +106,7 @@ nav:
     - Getting Started: '01-overview/index.md'
     - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
     - Frequently Asked Questions: '01-overview/faq.md'
+    - PMS Blog: 'blog/index.md'
   - 2. Tech Stack Explained:
     - '02-tech-stack/index.md'
     - Operating Systems:  
@@ -118,9 +121,6 @@ nav:
       - docker: '02-tech-stack/docker.md'
       - docker-compose: '02-tech-stack/docker-compose.md'
       - podman: '02-tech-stack/podman.md'
-    # - Advanced:
-    #   - hypervisors:
-
   - 3. Installation:
     - '03-installation/index.md'
     #- Video Install on Proxmox: '03-installation/video-install-proxmox.md'
