@@ -21,17 +21,23 @@ jobs:
           # Tailscale version to use.
           version: '1.46.1'
 
-      # Build
-      - name: Pull latest changes on VPS
-        uses: appleboy/ssh-action@master
-        with:
-            host: ktz-cloud
-            username: ${{ secrets.VPS_DEPLOY_USER }}
-            script: cd ${{ secrets.VPS_PROJECT_PATH }} && git pull
+      - name: Stop the server
+        run: |
+          ssh ${{ secrets.VPS_DEPLOY_USER }}@ktz-cloud
+          cd ${{ secrets.VPS_PROJECT_PATH }} && git pull
+          docker-compose run pms-wiki build
+
+      # # Build
+      # - name: Pull latest changes on VPS
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #       host: ktz-cloud
+      #       username: ${{ secrets.VPS_DEPLOY_USER }}
+      #       script: cd ${{ secrets.VPS_PROJECT_PATH }} && git pull
             
-      - name: Build on VPS
-        uses: appleboy/ssh-action@master
-        with:
-            host: ktz-cloud
-            username: ${{ secrets.VPS_DEPLOY_USER }}
-            script: cd ${{ secrets.VPS_PROJECT_PATH }} && docker-compose run pms-wiki build
+      # - name: Build on VPS
+      #   uses: appleboy/ssh-action@master
+      #   with:
+      #       host: ktz-cloud
+      #       username: ${{ secrets.VPS_DEPLOY_USER }}
+      #       script: cd ${{ secrets.VPS_PROJECT_PATH }} && docker-compose run pms-wiki build
