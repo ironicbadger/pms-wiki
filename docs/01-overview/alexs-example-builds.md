@@ -5,8 +5,6 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
 !!! info
     Access the living and breathing repository I use to configure all my infrastructure on GitHub at [ironicbadger/infra](https://github.com/ironicbadger/infra).
 
-
-
 ## On this day in history
 
 === "August 2023"

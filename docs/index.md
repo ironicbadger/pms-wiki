@@ -16,7 +16,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
     Learn what "a PMS" is and see [Alex's example PMS build](01-overview/alexs-example-builds.md). Discover how you can dive-in and why you might want to build yourself a freedom respecting NAS.
 
-    [:octicons-arrow-right-24: Getting Started](01-overview/index.md)
+    [:octicons-arrow-right-24: Getting started](01-overview/index.md)
 
 -   :octicons-mortar-board-24:{ .lg .middle } - __Tech Stack Explained__
 
@@ -33,7 +33,7 @@ If you're looking to build a media server, then you've come to the right place. 
     You won't get far without some hardware! Read reviews on [cases](06-hardware/cases.md), dial-in [remote access](04-day-two/remote-access/index.md) or how to [burn-in](06-hardware/new-drive-burnin.md) a new hard drive.
 
     [:octicons-arrow-right-24: Learn More](06-hardware/intel-quicksync.md)
-
+  
 -   :material-floppy:{ .lg .middle } - __Installation Guides__
 
     ---
