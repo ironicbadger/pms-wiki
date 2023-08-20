@@ -1,0 +1,35 @@
+name: Deploy to VPS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-via-tailscale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3.5.3
+      - name: Connect Tailscale
+        uses: tailscale/github-action@v1
+        with:
+          # Your Tailscale authentication key, from the admin panel.
+          authkey: ${{ secrets.TAILSCALE_AUTHKEY_CLOUDNODE }}
+          # Tailscale version to use.
+          #version:
+
+      # Build
+      - name: Pull latest changes on VPS
+        uses: appleboy/ssh-action@master
+        with:
+            host: ktz-cloud
+            USERNAME: ${{ secrets.VPS_DEPLOY_USER }}
+            script: cd ${{ secrets.VPS_PROJECT_PATH }} && git pull
+            
+      - name: Build on VPS
+        uses: appleboy/ssh-action@master
+        with:
+            host: ktz-cloud
+            USERNAME: ${{ secrets.VPS_DEPLOY_USER }}
+            script: cd ${{ secrets.VPS_PROJECT_PATH }} && docker-compose run pms-wiki build
