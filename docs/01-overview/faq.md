@@ -14,7 +14,7 @@ Some NAS software works around poor write performance with the use of cache driv
 
 ### What type of Hard Drive should I buy?
 
-There is no one right answer to this question. Ask 10 folks on [r/datahoarder](https://www.reddit.com/r/DataHoarder/) and you will recieve 37 different answers! That said, there are some principals to follow when purchasing a drive and I cover my methodology in the 2019 PMS edition but have added a dedicated article on this under *Hardware -> [HDD Purchase Methodology](../hardware/hdd-purchase-methodology.md)*.
+There is no one right answer to this question. Ask 10 folks on [r/datahoarder](https://www.reddit.com/r/DataHoarder/) and you will recieve 37 different answers! That said, there are some principals to follow when purchasing a drive and I cover my methodology in the 2019 PMS edition but have added a dedicated article on this under *Hardware -> [HDD Purchase Methodology](../06-hardware/hdd-purchase-methodology.md)*.
 
 ## Archived FAQs
 

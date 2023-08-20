@@ -5,7 +5,12 @@
 
 It is a fact of life that some mechanical hard drives are created more equal than others. The manufacturing tolerances involved are microscopic and transportation is a high risk time for any drive. For these reasons I try to follow some rules when purchasing drive(s).
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/09PTfJWF7T8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p align="center">
+<figure markdown>
+<iframe width="740" height="415" src="https://www.youtube.com/embed/09PTfJWF7T8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<figcaption>A recent video from my KTZ Systems YouTube channel on the topic of hard drives.</figcaption>
+</figure>
+</p>
 
 ## The Rules
 
