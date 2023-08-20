@@ -16,7 +16,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
     Learn what "a PMS" is and see [Alex's example PMS build](01-overview/alexs-example-builds.md). Discover how you can dive-in and why you might want to build yourself a freedom respecting NAS.
 
-    [:octicons-arrow-right-24: Getting started](01-overview/index.md)
+    [:octicons-arrow-right-24: Getting Started](01-overview/index.md)
 
 -   :octicons-mortar-board-24:{ .lg .middle } - __Tech Stack Explained__
 
@@ -24,21 +24,21 @@ If you're looking to build a media server, then you've come to the right place. 
 
     Explore the underlying open-source technologies and gain a deeper understanding of how the nuts and bolts fit together in this DIY NAS solution.
 
-    [:octicons-arrow-right-24: Explore the tech](02-tech-stack/index.md)
+    [:octicons-arrow-right-24: Explore the Tech](02-tech-stack/index.md)
 
 -   :fontawesome-solid-server:{ .lg .middle } - __Hardware Considerations__
 
     ---
 
-    You won't get far without some hardware to run this software on. Read reviews on [cases](06-hardware/cases.md) or how to [burn-in](06-hardware/new-drive-burnin.md) a new hard drive.
+    You won't get far without some hardware! Read reviews on [cases](06-hardware/cases.md), dial-in [remote access](04-day-two/remote-access/index.md) or how to [burn-in](06-hardware/new-drive-burnin.md) a new hard drive.
 
-    [:octicons-arrow-right-24: Learn more...]()
+    [:octicons-arrow-right-24: Learn More](06-hardware/intel-quicksync.md)
 
 -   :material-floppy:{ .lg .middle } - __Installation Guides__
 
     ---
 
-    Guided installations for Ubuntu, Proxmox and NixOS. After install, deploy my [top 10](04-day-two/top10apps.md) self-hosted app picks.
+    Guides for installations on top of Ubuntu, Proxmox and NixOS. After installation is finished, deploy our [top 10](04-day-two/top10apps.md) self-hosted app picks.
 
     [:octicons-arrow-right-24: Begin Installation](03-installation/index.md)
 
