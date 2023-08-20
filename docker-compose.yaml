@@ -3,7 +3,9 @@ version: "3.3"
 services:
   pms-wiki:
     build: .
-    image: pms-wiki
+    platform: linux/x86_64
+    image: ghcr.io/ironicbadger/mkdocs-material-insiders
+    # image: pms-wiki
     volumes:
       - .:/docs
     ports:

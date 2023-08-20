@@ -5,23 +5,26 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: extra
   language: en
-  #logo: images/site/logo.png
   favicon: images/assets/favicon.png
   icon:
     repo: fontawesome/brands/github
     logo: fontawesome/regular/folder-open
   palette:
+    # Palette toggle for light mode
     - scheme: default
       primary: blue
       accent: teal
       toggle:
-        icon: material/weather-night
+        icon: material/brightness-7 
         name: Switch to dark mode
+    # Palette toggle for dark mode
     - scheme: slate
+      accent: teal
+      primary: deep orange
       toggle:
-        icon: material/weather-sunny
+        icon: material/brightness-4
         name: Switch to light mode
   font:
     code: Jet Brains Mono
@@ -29,37 +32,46 @@ theme:
     - navigation.instant
     - navigation.sections # prevents collapsible sections
     - navigation.indexes # section index pages
-    - navigation.expand #expands sections by default
+    #- navigation.expand #expands sections by default
+    - toc.follow
+    - toc.integrate # moves toc to the left
   # insiders only
-  #   - search.suggest
-
+    - navigation.path # breadcrumbs at the top of each page
+    - search.suggest
 plugins:
   - git-revision-date
   - search
   - minify:
       minify_html: true
+  - privacy:
+      links_attr_map:
+        target: _blank
 markdown_extensions:
-  - abbr
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
+  - md_in_html # grids (insiders)
   - pymdownx.details # enables collapsible admonitions
   - footnotes
-  - meta # adds support for front matter
   - toc:
       permalink: true
       toc_depth: 4
-  - pymdownx.highlight: # code highlighting
-      linenums: true
-  - pymdownx.tabbed # enables tabs for embedded blocks
+  - abbr # enables glossary
   - pymdownx.snippets: # enables glossary
       auto_append:
-        - includes/glossary.md
-  - pymdownx.superfences # allows for the nesting of code blocks inside other blocks
-  - pymdownx.keys
-
+        - extra/glossary.md
+  - pymdownx.keys # display keyboard commands nicely ++ctrl+alt+del++
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
 copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
-  - extra.css
+  - ../extra.css
 extra:
   social:
     - icon: 'fontawesome/brands/github'
@@ -75,56 +87,57 @@ extra:
       name: IronicBadger on Twitter
     - icon: 'fontawesome/solid/microphone'
       link: 'https://selfhosted.show/'
-      name: IronicBadger's Podcast - selfhosted.show
+      name: Alex's Podcast - selfhosted.show
   analytics:
     provider: plausible
     property: pmswiki
-
 nav:
-  #- Welcome: 'index.md'
   - 1. Overview:
-    - index.md
-    - Introduction: '01-overview/overview.md'
+    - 'index.md'
+    - Getting Started: '01-overview/index.md'
+    - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
     - Frequently Asked Questions: '01-overview/faq.md'
-    - Badgers Stack - May 2022: '01-overview/high-level.md'
   - 2. Tech Stack Explained:
-    - Linux: 'tech-stack/linux.md'
+    - '02-tech-stack/index.md'
+    - Operating Systems:  
+      - '02-tech-stack/os/index.md'
+      - Proxmox: '02-tech-stack/proxmox.md'
+      - NixOS: '02-tech-stack/nixos.md'
+    - Data and Storage:
+      - mergerfs: '02-tech-stack/mergerfs.md'
+      - SnapRAID: '02-tech-stack/snapraid.md'
+      - ZFS: '02-tech-stack/zfs.md'
     - Containers:
-      - Docker: 'tech-stack/docker.md'
-      - docker-compose: 'tech-stack/docker-compose.md'
-    - MergerFS: 'tech-stack/mergerfs.md'
-    - SnapRAID: 'tech-stack/snapraid.md'
-    - ZFS: 'tech-stack/zfs.md'
-    - Proxmox: 'tech-stack/proxmox.md'
-    - NAS Software Comparison: 'tech-stack/nas-software-comparison.md'
+      - docker: '02-tech-stack/docker.md'
+      - docker-compose: '02-tech-stack/docker-compose.md'
+      - podman: '02-tech-stack/podman.md'
   - 3. Installation:
-    - Manual Install on Ubuntu: 'installation/manual-install-ubuntu.md'
-    #- Manual Install on Proxmox: 'installation/manual-install-proxmox.md'
-    - Manual Install (Video): 'installation/manual-install-on-video.md'
-    - Automated Install: 'installation/automated-install.md'
-  - 4. Remote Access: 
-    - remote-access/index.md
-    - VPNs: 'remote-access/vpns.md'
-    - Traefik 101 Guide: 'remote-access/traefik101.md'
-    - SSH (Secure Shell): 'remote-access/ssh.md'
-    #- WireGuard: 'remote-access/wireguard.md'
-  - 5. Hardware:
-    - Intel QuickSync: 'hardware/intel-quicksync.md'
-    - Cases: 'hardware/cases.md'
-    - HDD Purchase Methodology: 'hardware/hdd-purchase-methodology.md'
-    - New Drive Burn-In Rituals: 'hardware/new-drive-burnin.md'
-    #- Post Install Checklist: 'installation/post-install-checklist.md'
-  - 6. Day Two (Post Install):
-    - Top 10 Self-Hosted Apps: 'day-two/top10apps.md'
-    - Backups: 'day-two/backups.md'
-    - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
-  - 7. Advanced:
+    - '03-installation/index.md'
+    #- Video Install on Proxmox: '03-installation/video-install-proxmox.md'
+    - NixOS:
+      - Easy Mode (no Flakes): '03-installation/nixos-noflake.md'
+      - Hard Mode (using Flakes): '03-installation/nixos-flake.md'
+      #- Video Install on NixOS: '03-installation/video-install-nixos.md'
+    - Manual Installation Guides:
+      - Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
+      - Manual Install on Proxmox: '03-installation/manual-install-proxmox.md'      
+  - 4. Day Two (Post Install):
+    - Remote Access:
+      - Reverse Proxies: 
+        - '04-day-two/remote-access/index.md'
+        - Traefik 101 Guide: '04-day-two/remote-access/traefik101.md'
+      - VPNs: '04-day-two/remote-access/vpns.md'
+    - Top 10 Self-Hosted Apps: '04-day-two/top10apps.md'
+    - Backups: '04-day-two/backups.md'
+  - 5. Advanced Topics: 
     - Concepts:
-      - Infrastructure as Code: 'concepts/infraascode.md'
-      - Hypervisors: 'concepts/hypervisors.md'
-      - PCI Passthrough: 'concepts/pci-passthrough.md'
-    - Configuration:
-      - Using ZFS with MergerFS: 'advanced/combine-zfs-and-others.md'
-      - Quick Sync and Proxmox passthrough: 'advanced/passthrough-igpu-gvtg.md'
-  #- Related Projects:
-    #- Virtualised OPNsense router: 'related-projects/virtualised-opnsense-proxmox.md'
+      - Infrastructure as Code: '05-advanced/infraascode.md'
+    - Configurations:
+      - Using ZFS with MergerFS: '05-advanced/combine-zfs-and-others.md'
+      - Quick Sync and iGPU passthrough: '05-advanced/passthrough-igpu-gvtg.md'
+  - 6. Hardware:
+    - Intel QuickSync: '06-hardware/intel-quicksync.md'
+    - Cases: '06-hardware/cases.md'
+    - Storage:
+      - New Drive Burn-In Rituals: '06-hardware/new-drive-burnin.md'
+      - HDD Purchase Methodology: '06-hardware/hdd-purchase-methodology.md'
