@@ -1,6 +1,6 @@
 # Proxmox
 
-Is Proxmox right for you? See *[which distro should I pick?](linux/linux.md#which-distro-should-i-pick)*.
+Is Proxmox right for you? See *[which distro should I pick?](os/linux.md#which-distro-should-i-pick)*.
 
 ![proxmox](../images/logos/proxmox.svg)
 
@@ -8,7 +8,7 @@ Is Proxmox right for you? See *[which distro should I pick?](linux/linux.md#whic
 
 Proxmox Virtual Environment is an open-source server virtualization management platform. It is a Debian-based Linux distribution with a modified Ubuntu LTS kernel and allows deployment and management of virtual machines and containers.
 
-It is provided as both a standalone distribution and as a package to be installed on top of an existing Debian installation. We write more about Proxmox under *Advanced Concepts -> [Hypervisors](../concepts/hypervisors.md)*.
+It is provided as both a standalone distribution and as a package to be installed on top of an existing Debian installation.
 
 ![proxmox-ui-ktz](../images/tech-stack/proxmox-ui-8.png)
 
@@ -30,9 +30,9 @@ I have found a lot value from virtualising my media server though. Snapshots, po
 
 You might be the right fit for virtualising via Proxmox if you want to run more than one major service on the same hardware. AdGuard Home, Home Assistant, Blue Iris and PMS for example will all comfortably fit onto a single system with 64GB RAM. 
 
-![proxmox-ui](../images/igpu-passthrough/image-5.png)
+![proxmox-ui](../images/advanced/igpu-passthrough/image-5.png)
 
-I know this because since discovering just how powerful Intel's Quick Sync was, I rebuilt my PMS around this technology and wrote about it on [blog.ktz.me](https://blog.ktz.me/passthrough-intel-igpu-with-gvt-g-to-a-vm-and-use-it-with-plex/) and under *Advanced Configuration -> [Quick Sync and Proxmox passthrough](../advanced/passthrough-igpu-gvtg.md)* using Intel's GVT-g virtual GPU technology to pass more than a integrated graphics unit to more than one VM.
+I know this because since discovering just how powerful Intel's Quick Sync was, I rebuilt my PMS around this technology and wrote about it on [blog.ktz.me](https://blog.ktz.me/passthrough-intel-igpu-with-gvt-g-to-a-vm-and-use-it-with-plex/) and under *Advanced Configuration -> [Quick Sync and Proxmox passthrough](../05-advanced/passthrough-igpu-gvtg.md)* using Intel's GVT-g virtual GPU technology to pass more than a integrated graphics unit to more than one VM.
 
 ## What about ESXI?
 
