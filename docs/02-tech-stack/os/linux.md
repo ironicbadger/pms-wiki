@@ -13,4 +13,4 @@ The project was founded in 1991 as a personal project by Linus Torvalds (hence t
 
 ## Which distro should I pick?
 
-See [installation](03-installation/index.md).
+See [installation](../../03-installation/index.md).

@@ -8,7 +8,7 @@ Ubuntu isn't perfect. They make weird choices about pushing proprietary app pack
 
 
 
-Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Arch, SUSE, or whatever else will work just fine as a NAS. The main things to watch out for are software availability in a timely fashion (*cough, cough debian*) and whether you can stomach DKMS builds for things like ZFS or not. For what it's worth, I use Proxmox everywhere as the PMS baseOS in my homelab. Full details are available in [Alex's PMS Example Build](../../01-overview/alexs-example-builds.md) if you're curious.
+Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Arch, SUSE, or whatever else will work just fine as a NAS. The main things to watch out for are software availability in a timely fashion (*cough, cough debian*) and whether you can stomach DKMS builds for things like ZFS or not. For what it's worth, I use Proxmox everywhere as the PMS baseOS in my homelab. Full details are available in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md) if you're curious.
 
 !!! info
     The original incarnation of PMS used Debian. Ubuntu is derivative of Debian [^3] and besides from native ZFS support you can pretty much use the two interchangeably - the choice is yours.

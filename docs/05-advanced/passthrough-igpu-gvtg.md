@@ -10,7 +10,7 @@ What if you want to run Plex in a VM and take advantage of hardware accelerated 
 !!! danger
     Since publication I have abandoned this method due to instability and poor performance. See my reasoning in [this blog post](https://blog.ktz.me/why-i-stopped-using-intel-gvt-g-on-proxmox/).
 
-![proxmox-passthrough](../images/igpu-passthrough/image-5.png)
+![proxmox-passthrough](../images/advanced/igpu-passthrough/image-5.png)
 
 !!! note
     This [blog post](https://cetteup.com/216/how-to-use-an-intel-vgpu-for-plexs-hardware-accelerated-streaming-in-a-proxmox-vm/) which was helpful in my research for this topic.
@@ -21,15 +21,14 @@ That is precisely what [GVT-g](https://wiki.archlinux.org/index.php/Intel_GVT-g)
 
 Take the iGPU and give a VM, or multiple VMs, a slice of that graphics chip to do with whatever it wants. In our case, we'll use the Quick Sync portion of the iGPU to transcode Plex H264 streams in one VM and Blue Iris streams in another.
 
-<iframe width="760" height="415" src="https://www.youtube.com/embed/IXUS1W7Ifys" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-If you're not convinced yet, take a look this video from Wendell who explains in a lot of detail why this technology is so cool! Intels rumoured upcoming XE graphics card might support it but until then, we'll have to make do with the iGPU in your CPU.
+<p align="center">
+<figure markdown>
+<iframe width="740" height="415" src="https://www.youtube.com/embed/IXUS1W7Ifys" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<figcaption>If you're not convinced yet, take a look this video from Wendell who explains in a lot of detail why this technology is so cool!</figcaption>
+</figure>
+</p>
 
 ## Power Usage
-
-Full details in episode 34 of Self-Hosted.
-
-<iframe src="https://player.fireside.fm/v2/dUlrHQih+zIXDaNZP?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 
 If you needed even more convincing, take a look at the following numbers and see just how incredibly power efficient Quick Sync is compared to software based transcoding with Plex.
 
@@ -44,13 +43,27 @@ This was a legitmate "holy shit!" moment for me. Quick Sync is capable of a 4k t
 
 On top of that, Quick Sync can handle in excess of 20 1080p streams and about 5 4k transcodes in my testing. Astonishing given the power draw. Less power draw means less heat and lower electricity bills - what's not to like?!
 
+<p align="center">
+<figure markdown>
+<iframe src="https://player.fireside.fm/v2/dUlrHQih+zIXDaNZP?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
+<figcaption>Full details in episode 34 of Self-Hosted.</figcaption>
+</figure>
+</p>
+
 ## Setting up PCI passthrough (on Proxmox)
 
-PCI passthrough requires a very particular set of hardware although things now are easier than they used to be a few years ago. For reference my hardware is an Intel i5 8500 and an AsRock Z370-I motherboard. I did an episode of Linux Unplugged where we went into full details on passthrough.
+PCI passthrough requires a very particular set of hardware. Things now are easier than they used to be a few years ago but special care is still required - you can't just assume any motherboard / cpu combo will work without some homework or luck. 
 
+For reference my hardware is detailed in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md). 
+
+<p align="center">
+<figure markdown>
 <iframe src="https://player.fireside.fm/v2/RUkczH-V+9ZRzR3sB?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
+<figcaption>I joined an episode of Linux Unplugged where we went into full details on passthrough.</figcaption>
+</figure>
+</p>
 
-Full instructions are provided on the [Proxmox wiki] to enable passthrough. Once you've enabled IOMMU verify you've done so correctly like so:
+Full instructions are provided on the [Proxmox wiki](https://pve.proxmox.com/wiki/PCI_Passthrough) to enable passthrough. Once you've enabled IOMMU verify you've done so correctly like so:
 
 ```
 alex@unas:~$ dmesg | grep -e DMAR -e IOMMU -e AMD-Vi
@@ -97,12 +110,12 @@ So far, everything we've done was covered in the Proxmox wiki and the previously
 
 * Navigate to the VM you'd like to configure. Click `Add -> PCI Device`.
 
-![add pci device](../images/igpu-passthrough/image-1.png)
+![add pci device](../images/advanced/igpu-passthrough/image-1.png)
 
 * Select the device `0000:00:02.0` (this doesn't appear to change in my testing between different machines) and then from the `MDev Type` drop down note that you have two options. 
     * `i915-GVTg_V5_4` is for some reason limited to 1 virtual device but `i915-GVTg_V5_8` presents us with 2 available devices. Select `V5_8` and hit Add.
 
-![add pci device](../images/igpu-passthrough/image-2.png)
+![add pci device](../images/advanced/igpu-passthrough/image-2.png)
 
 * Repeat these steps for the second VM you'd like to use the iGPU with.
 
@@ -135,11 +148,11 @@ services:
 
 The key here is `devices: /dev/dri:/dev/dri`. Once you've got the container up and running you'll need to tell Plex to use hardware transcoding in settings.
 
-![plex enable hardware transcoding](../images/igpu-passthrough/image-3.png)
+![plex enable hardware transcoding](../images/advanced/igpu-passthrough/image-3.png)
 
 Once that is done, install `intel-gpu-tools` (assuming you're on Ubuntu this is available in the repos) and monitor the utilisation with `sudo intel_gpu_top`.
 
-![intel gpu top](../images/igpu-passthrough/image-4.png)
+![intel gpu top](../images/advanced/igpu-passthrough/image-4.png)
 
 ## Hardware acceleration in Blue Iris
 
@@ -147,16 +160,21 @@ In the second VM I run Blue Iris, my NVR software of choice. It requires Windows
 
 Under Blue Iris settings ensure you have `Cameras -> Hardware accelerated decode` enabled and set to Intel.
 
-![blue iris hardware decode](../images/igpu-passthrough/image-6.png)
+![blue iris hardware decode](../images/advanced/igpu-passthrough/image-6.png)
 
 I have 6 4k cameras coming into Blue Iris and these are the performance stats provided to me via Task Manager. I think you'll agree, very acceptable.
 
-![windows igpu usage passed through](../images/igpu-passthrough/image-7.png)
+![windows igpu usage passed through](../images/advanced/igpu-passthrough/image-7.png)
 
 ## Summary
 
 The power of Quick Sync is very impressive for the amount of energy it consumes. In my opinion, this is the holy grail of media server technologies. Used gear can be had quite cheaply now, the i5 8500 used here was $110 off of eBay.
 
-<iframe width="700" height="400" src="https://www.youtube.com/embed/Yl1twPPmEgc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p align="center">
+<figure markdown>
+<iframe width="740" height="415" src="https://www.youtube.com/embed/Yl1twPPmEgc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<figcaption>Control up to 4 systems from a single Raspberry Pi with PiKVM</figcaption>
+</figure>
+</p>
 
 Couple this with other great projects like PiKVM and cheaper, more readily available consumer grade gear is able to be your next home server. See this [blog.ktz.me](https://blog.ktz.me/use-1-pikvm-instance-to-control-4-systems/) post for info on how to control up to 4 systems using 1 PiKVM box.

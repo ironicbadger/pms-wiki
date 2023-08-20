@@ -173,7 +173,7 @@ errors: No known data errors
 
 ## Replication basics
 
-One of the most compelling reasons to use ZFS is replication. We get more into the weeds of backups in **Day Two -> [Backups](../day-two/backups.md)** but this section will focus on the ZFS specific `zfs send/receive` functionality using [Sanoid](https://github.com/jimsalterjrs/sanoid) and Syncoid.
+One of the most compelling reasons to use ZFS is replication. We get more into the weeds of backups in **Day Two -> [Backups](../04-day-two/backups.md)** but this section will focus on the ZFS specific `zfs send/receive` functionality using [Sanoid](https://github.com/jimsalterjrs/sanoid) and Syncoid.
 
 !!! hint
     Replication requires a remote system also running ZFS. I built a small system at a parent's house under the stairs to perform this function.

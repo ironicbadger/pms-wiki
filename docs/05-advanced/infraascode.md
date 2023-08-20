@@ -1,6 +1,6 @@
 # Infrastructure as Code
 
-![infraascodebook](../images/infraascodebook.jpg){: align=right width=200 }
+![infraascodebook](../images/advanced/infraascodebook.jpg){: align=right width=200 }
 
 A few years ago, I read a book. That book was [Infrastructure as Code](https://infrastructure-as-code.com/book/) by Kief Moris. In this book, Kief lays out a framework for defining every part of your infrastructure in text files - or as we sometimes call it, code.
 
@@ -34,26 +34,23 @@ For example, let's say you deploy a server using automation and then begin to ma
 
 Now that we've drilled into you why Infrastructure as Code is so useful, it's time to investigate two of the primary tools used in practice. They are Ansible and Terraform.
 
-## Ansible
+## Automation Tools
 
-![ansible-logo](../images/ansible_logo_wide.png)
+!!! info
+    This section will be expanded further in future but for the time being, you can see how I deploy all my infrastructure via my open-source [ironicbadger/infra](https://github.com/ironicbadger/infra) repository.
+
+Which one should you use? I get this question a lot. It's true, there is a huge overlap between Ansible and Terraform but they both *excel* in different areas. So I tend to delineate between two like this.
+
+Terraform creates the infrastructure. Ansible configures the infrastructure.
+
+### Ansible
+
+![ansible-logo](../images/logos/ansible_logo_wide.png)
 
 Ansible is an open-source software provisioning, configuration management, and application-deployment tool enabling infrastructure as code.
 
-!!! info
-    This section will be expanded further in future but for the time being, you can see how I deploy all my infrastructure via my open-source [ironicbadger/infra](https://github.com/ironicbadger/infra) repository.
+### Terraform
 
-## Terraform
-
-![terraform-logo](../images/terraform_logo_wide.png)
+![terraform-logo](../images/logos/terraform_logo_wide.png)
 
 Terraform is a tool to express the nuts of bolts of infrastructure as code. Think VMs, load balancers, storage, DNS, etc defined as code and stored in versioned source control.
-
-!!! info
-    This section will be expanded further in future but for the time being, you can see how I deploy all my infrastructure via my open-source [ironicbadger/infra](https://github.com/ironicbadger/infra) repository.
-
-## Which one should I use?
-
-I get this question a lot. It's true, there is a huge overlap between Ansible and Terraform but they both *excel* in different areas. So I tend to delineate between two like this.
-
-Terraform creates the infrastructure. Ansible configures the infrastructure.

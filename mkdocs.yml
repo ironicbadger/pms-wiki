@@ -140,12 +140,12 @@ nav:
     - Top 10 Self-Hosted Apps: '04-day-two/top10apps.md'
 #     - Backups: 'day-two/backups.md'
 #     - Quality of Life Tweaks: 'day-two/quality-of-life-tweaks.md'
-#   - 5. Remote Access: 
-#     - remote-access/index.md
-#     - VPNs: 'remote-access/vpns.md'
-#     - Traefik 101 Guide: 'remote-access/traefik101.md'
-#     - SSH (Secure Shell): 'remote-access/ssh.md'
-#     #- WireGuard: 'remote-access/wireguard.md'
+  - 5. Advanced Topics: 
+    - Concepts:
+      - Infrastructure as Code: '05-advanced/infraascode.md'
+    - Configurations:
+      - Using ZFS with MergerFS: '05-advanced/combine-zfs-and-others.md'
+      - Quick Sync and iGPU passthrough: '05-advanced/passthrough-igpu-gvtg.md'
   - 6. Hardware:
 #     - Intel QuickSync: 'hardware/intel-quicksync.md'
     - Cases: '06-hardware/cases.md'

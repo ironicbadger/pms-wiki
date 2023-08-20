@@ -7,7 +7,7 @@ In this article we will be discussing reverse proxies, how they will enable you 
 
 ## Overview
 
-![traefik-tls-arch-diagram](../images/traefik101/traefik-tls-arch-diag.png)
+![traefik-tls-arch-diagram](../../images/traefik101/traefik-tls-arch-diag.png)
 
 Traefik is the brains of the operation here acting as a middle man between multiple parties - your container(s), Let's Encrypt and Cloudflare. It is responsible for detecting when new containers have been created, communicating with Let's Encrypt to request a certificate to be issued and talking with Cloudflare by creating domain ownership verification records.   
 
@@ -54,7 +54,7 @@ Traefik works best with a single primary container host. Those containers should
 
 The first component of this architecture is [Traefik](https://traefik.io/), a reverse proxy. The job of a reverse proxy is to listen for incoming requests, match that request to a rule, go get the requested content and finally serve it back to the user. This process is entirely transparent to the user and appears as if the target service is responding directly to you.
 
-![reverse-proxy-digram](../images/traefik101/reverseproxy.png)
+![reverse-proxy-digram](../../images/traefik101/reverseproxy.png)
 
 !!! info
     Traefik supports numerous [providers](https://doc.traefik.io/traefik/https/acme/#providers) for DNS challenge verification, but we will only be discussing Cloudflare in the scope of this article. Using Cloudflare for DNS [is free](https://www.cloudflare.com/plans/). You are welcome to use other DNS providers, but will need to adjust these steps according to Traefik's provider documentation if you do.
