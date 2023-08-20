@@ -27,13 +27,13 @@ Drives of a useful capacity cost upwards of $150 (x4 = $600). $600 is a chunk of
 
 This doesn't take into consideration the increased simultaneous failure risk of buying 4 drives from the same batch (when drives go bad they usually fail at a similar point if from the same batch)! With MergerFS the drive addition process is as simple as partitioning the drive, adding it to the mount command in `/etc/fstab` and you’re done. 
 
-I do however suggest considering your use case carefully. For example MergerFS is best suited to large, primarily write once read many datasets like media files. Last year I decided to start using a ZFS mirror for my most critical data and merging that using MergerFS as well - see [combining ZFS and MergerFS](../advanced/combine-zfs-and-others.md).
+I do however suggest considering your use case carefully. For example MergerFS is best suited to large, primarily write once read many datasets like media files. Last year I decided to start using a ZFS mirror for my most critical data and merging that using MergerFS as well - see [combining ZFS and MergerFS](../05-advanced/combine-zfs-and-others.md).
 
 ## Drive Pooling
 
 In the following diagram there are five separate disks. Each disk is a different size, is formatted with differing filesystems and they may already contain data - all of this is fine for MergerFS.
 
-![mergerfs-blue](../images/mergerfs-blue.png)
+![mergerfs-blue](../images/tech-stack/mergerfs-blue.png)
 
 Configuration is performed via a single line of configuration in `/etc/fstab`[^1]. MergerFS has a lot knobs and dials to turn should you wish, they are all detailed in the [README](https://github.com/trapexit/mergerfs/blob/master/README.md) on the projects GitHub page.
 
@@ -111,6 +111,6 @@ As you can see we now have data spread across multiple filesystems or physical d
 As discussed in [create policies](#create-policies), use of the correct create policy (the default of `epmfs` should suffice) in MergerFS is important to maintain this set up. The important part being `existing path` as without this option MergerFS will spread files out across multiple drives based on which has most free space.
 
 
-[^1]: More information about `/etc/fstab` is detailed in the [manual installation](../installation/manual-install-ubuntu.md) section.
+[^1]: More information about `/etc/fstab` is detailed in the [manual installation](../03-installation/manual-install-ubuntu.md) section.
 [^2]: [What is Parity?](https://en.wikipedia.org/wiki/Standard_RAID_levels#Simplified_parity_example)
 [^3]: [trapexit/mergerfs docs](https://github.com/trapexit/mergerfs#why-are-all-my-files-ending-up-on-1-drive)
