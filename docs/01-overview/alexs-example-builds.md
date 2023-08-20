@@ -5,10 +5,6 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
 !!! info
     Access the living and breathing repository I use to configure all my infrastructure on GitHub at [ironicbadger/infra](https://github.com/ironicbadger/infra).
 
-## Network Diagram
-
-![ktz-network-diagram-2023](../images/diagrams/ktz-network-diagram-2023.png)
-
 ## On this day in history
 
 === "August 2023"
@@ -94,3 +90,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     See my infra repo for a full list [here](https://github.com/ironicbadger/infra/blob/master/group_vars/morpheus.yaml#L275).
 
 ![motherboard](../images/hardware/asrockmobo.jpg)
+
+## Network Diagram
+
+![ktz-network-diagram-2023](../images/diagrams/ktz-network-diagram-2023.png)

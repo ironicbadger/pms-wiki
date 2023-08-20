@@ -39,7 +39,6 @@ theme:
   # insiders only
     - navigation.path # breadcrumbs at the top of each page
     - search.suggest
-
 plugins:
   - blog:
       categories: false
@@ -60,8 +59,6 @@ markdown_extensions:
   - toc:
       permalink: true
       toc_depth: 4
-#   - pymdownx.highlight: # code highlighting
-#       linenums: true
   - abbr # enables glossary
   - pymdownx.snippets: # enables glossary
       auto_append:
@@ -76,7 +73,6 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
-
 copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
   - ../extra.css
@@ -99,7 +95,6 @@ extra:
   analytics:
     provider: plausible
     property: pmswiki
-
 nav:
   - News and Updates: blog/index.md
   - 1. Overview:
