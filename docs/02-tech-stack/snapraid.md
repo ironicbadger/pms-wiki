@@ -1,6 +1,6 @@
 # SnapRAID
 
-SnapRAID provides us some basic protection against drive failures and is the perfect pairing with [mergerfs](mergerfs.md). This diagram illustrates the relationship between mergerfs and SnapRAID - each is responsible for a different area and the two operate independently of each other.
+[SnapRAID](https://www.snapraid.it/) provides us some basic protection against drive failures and is the perfect pairing with [mergerfs](mergerfs.md). This diagram illustrates the relationship between mergerfs and SnapRAID - each is responsible for a different area and the two operate independently of each other.
 
 <p align="center">
 <img alt="mergerfs-snapraid-diagram" src="../../images/tech-stack/diagram-mergerfs-snapraid.png" width="525">
