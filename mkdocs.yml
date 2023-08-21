@@ -102,6 +102,7 @@ nav:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
     - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
+    - NAS Software Comparison: '01-overview/nas-software-comparison.md'
     - Frequently Asked Questions: '01-overview/faq.md'  
   - 2. Tech Stack Explained:
     - '02-tech-stack/index.md'
