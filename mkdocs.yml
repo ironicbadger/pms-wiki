@@ -30,6 +30,7 @@ theme:
     code: Jet Brains Mono
   features:
     - navigation.instant
+    - navigation.instant.prefetch
     - navigation.sections # prevents collapsible sections
     - navigation.indexes # section index pages
     #- navigation.expand #expands sections by default
