@@ -5,7 +5,7 @@ edit_uri: edit/main/docs/
 
 theme:
   name: material
-  custom_dir: extra
+  custom_dir: overrides
   language: en
   favicon: images/assets/favicon.png
   icon:
@@ -63,7 +63,7 @@ markdown_extensions:
   - abbr # enables glossary
   - pymdownx.snippets: # enables glossary
       auto_append:
-        - extra/glossary.md
+        - overrides/glossary.md
   - pymdownx.keys # display keyboard commands nicely ++ctrl+alt+del++
   - pymdownx.superfences
   - pymdownx.tabbed:
@@ -76,7 +76,7 @@ markdown_extensions:
   - pymdownx.tilde
 copyright: 2020 - 2023 &copy; Alex Kretzschmar - Licensed under GPLv3
 extra_css:
-  - ../extra.css
+  - extra.css
 extra:
   social:
     - icon: 'fontawesome/brands/github'

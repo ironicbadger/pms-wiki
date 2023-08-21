@@ -1,1 +1,0 @@
-Picking which container to run can be daunting. Here are some thoughts.
