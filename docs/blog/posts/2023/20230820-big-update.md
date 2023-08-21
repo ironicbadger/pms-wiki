@@ -20,5 +20,3 @@ Stay tuned for more updates and content, specifically on YouTube and around NixO
 Hope you enjoy the refreshed site!
 
 -Alex
-
-test
