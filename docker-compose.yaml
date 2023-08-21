@@ -4,8 +4,7 @@ services:
   pms-wiki:
     build: .
     platform: linux/x86_64
-    image: ghcr.io/ironicbadger/mkdocs-material-insiders
-    # image: pms-wiki
+    image: git.ktz.me/alexktz/mkdocs-material-insiders
     volumes:
       - .:/docs
     ports:
