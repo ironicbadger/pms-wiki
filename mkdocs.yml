@@ -95,7 +95,7 @@ extra:
       name: Alex's Podcast - selfhosted.show
   analytics:
     provider: plausible
-    property: pmswiki
+    property: perfectmediaserver.com
 nav:
   - News and Updates: blog/index.md
   - 1. Overview:
