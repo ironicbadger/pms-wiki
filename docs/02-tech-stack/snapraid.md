@@ -1,6 +1,10 @@
 # SnapRAID
 
-[SnapRAID](https://www.snapraid.it/) provides us some basic protection against drive failures and is the perfect pairing with [mergerfs](mergerfs.md). This diagram illustrates the relationship between mergerfs and SnapRAID - each is responsible for a different area and the two operate independently of each other.
+[SnapRAID](https://www.snapraid.it/) provides us some basic protection against drive failures and pairs well with [mergerfs](mergerfs.md). Perhaps confusingly, you don't need one for the other to fuction.
+
+You can use mergerfs without SnapRAID. And you can use SnapRAID without mergerfs. mergerfs *merges* multiple drives together for access under a single mountpoint. SnapRAID calculates parity to recover data if a drive fails. They work well together to replicate a similar type of "JBOD parity" system as unraid uses. The difference here being that unraid does the parity calculations in real-time (and therefore seriously hurts write performance) vs SnapRAID which does the calcuations on a timed basis every *X* time period.
+
+For most PMS deployments, your media will be spread across a handful of JBOD drives merged together with [mergerfs](mergerfs.md). Without SnapRAID if a drive were to fail, you'd instantly lose all data on the failed drive forever. With SnapRAID you're able to rebuild that failed drive using parity data from your last snapshot. This approach is uniquely well suited to large, static datasets like media libraries. It is not well suited to fast moving data like your Plex metadata for example.
 
 <p align="center">
 <img alt="mergerfs-snapraid-diagram" src="../../images/tech-stack/diagram-mergerfs-snapraid.png" width="525">
