@@ -141,11 +141,9 @@ nav:
     - Top 10 Self-Hosted Apps: '04-day-two/top10apps.md'
     - Backups: '04-day-two/backups.md'
   - 5. Advanced Topics: 
-    - Concepts:
-      - Infrastructure as Code: '05-advanced/infraascode.md'
-    - Configurations:
-      - Using ZFS with mergerfs: '05-advanced/combine-zfs-and-others.md'
-      - Quick Sync and iGPU passthrough: '05-advanced/passthrough-igpu-gvtg.md'
+    - Infrastructure as Code: '05-advanced/infraascode.md'
+    - Using ZFS with mergerfs: '05-advanced/combine-zfs-and-others.md'
+    - Quick Sync and iGPU passthrough: '05-advanced/passthrough-igpu-gvtg.md'
   - 6. Hardware:
     - Intel QuickSync: '06-hardware/intel-quicksync.md'
     - Cases: '06-hardware/cases.md'
