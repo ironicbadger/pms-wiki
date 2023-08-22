@@ -113,7 +113,7 @@ One of the biggest problems NixOS has right now is that it's in the middle of a 
 
 If the beautiful single-file simplicity isn't the future then why even bother with Flakes? This is a tough question to answer because the learning curve for Flakes if you're trying to write your own from scratch as non-developer is near vertical. Despite this I pesevered with them over the course a few weeks and ended with a single Flake that can deploy a common set of packages and other user goodies like shell integrations across Linux *and* MacOS. Remember how Nix is a package manager? Well, that means we can use Nix and a related tool called [Home Manager](https://github.com/nix-community/home-manager) to manage this configurations, declaratively, across multiple architectures and OSs. If you don't think that's cool, then you probably have your answer about whether NixOS is for you or not!
 
-``` nix title='Excerpt from <a href="https://github.com/ironicbadger/nix-testing/blob/main/flake.nix" target="_blank">github.com/ironicbadger/nix-testing/flake.nix</a>' 
+``` nix title='Excerpt from <a href="https://github.com/ironicbadger/nix-testing/blob/main/flake.nix" target="_blank">github.com/ironicbadger/nix-testing/flake.nix</a> that shows configuring macOS alongside nixOS in the same file.' 
     {
       darwinConfigurations = {
         personal-laptop = darwinSystem "aarch64-darwin" "slartibartfast" "alex";
