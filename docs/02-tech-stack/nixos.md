@@ -2,6 +2,9 @@
 
 ![nixos](../images/logos/nixos-logo.png)
 
+!!! info
+    August 21st 2023 - This page is not finished yet.
+
 NixOS is quite different from almost any other Linux distribution you've ever used. It is a Linux distribution built on top of the Nix[^1] package manager which uses a *declarative model* for package and configuration management[^2].
 
 The declarative model has its roots in software development[^3]. This is a fancy way of saying "I declare I want my system to look like this" via a `configuration.nix` file and having the Nix tooling go and figure out how to turn that config file into a functional system. We'll get more into more of a discussion about Flakes[^4] shortly but first, let's explore what NixOS does well for readers of PMS.
