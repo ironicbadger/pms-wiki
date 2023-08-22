@@ -13,7 +13,7 @@ What if I told you that you could configure your entire system in one single fil
 
 That is the promise of NixOS.
 
-## The Rabbit Hole
+## Take the blue pill
 
 There is a lot to like about Nix (the package manager) and NixOS (the OS) but if you aren't careful, you will drown in the complexity on offer. This article is deliberately sparse of the deeply inner technical workings of the Nix ecosystem in an attempt to make it more approachable.
 
@@ -29,10 +29,10 @@ Example snippets from `/etc/nixos/configuration.nix`. The full example file can 
 Creating a user named `alex` is easy, as is configuring the group membership of that user. Typically this is would require something like `usermod -aG docker alex` or a specific Ansible playbook task.
 
 ``` nix
-  users.users.alex = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
-  };
+users.users.alex = {
+  isNormalUser = true;
+  extraGroups = [ "wheel" "docker" ];
+};
 ```
 
 ### Packages
@@ -40,9 +40,11 @@ Creating a user named `alex` is easy, as is configuring the group membership of 
 With a "normal" Linux distro, if you wanted to install a package it's as easy as typing `apt install htop`. You can operate in this fashion on NixOS but it isn't recommended. The next time you build your system any changes you made manually will be overridden by the "declared state" in `configuration.nix`. This is by design. And it's a good thing.
 
 ``` nix
-  environment.systemPackages = with pkgs; [
-    htop
-  ];
+environment.systemPackages = with pkgs; [
+  htop
+  vim
+  hollywood
+];
 ```
 
 ### Networking
@@ -50,21 +52,21 @@ With a "normal" Linux distro, if you wanted to install a package it's as easy as
 Want to specify a static IP address for your system? It's just a few lines.
 
 ``` nix
-  networking = {
-    firewall.enable = false;
-    hostName = "testnix";
-    interfaces = {
-      enp1s0 = {
-        useDHCP = false;
-        ipv4.addresses = [ {
-          address = "10.42.0.50";
-          prefixLength = 20;
-        } ];
-      };
+networking = {
+  firewall.enable = false;
+  hostName = "testnix";
+  interfaces = {
+    enp1s0 = {
+      useDHCP = false;
+      ipv4.addresses = [ {
+        address = "10.42.0.50";
+        prefixLength = 20;
+      } ];
     };
-    defaultGateway = "10.42.0.254";
-    nameservers = [ "10.42.0.253" ];
   };
+  defaultGateway = "10.42.0.254";
+  nameservers = [ "10.42.0.253" ];
+};
 ```
 
 ### Virtualisation
@@ -74,15 +76,15 @@ How does one install docker "the Nix way?" Nix is smart. It knows by us asking t
 In a normal install we'd have to get pretty far down into the weeds to configure things like that, with Nix its just a few lines.
 
 ``` nix
-  virtualisation = {
-    docker = {
+virtualisation = {
+  docker = {
+    enable = true;
+    autoPrune = {
       enable = true;
-      autoPrune = {
-        enable = true;
-        dates = "weekly";
-      };
+      dates = "weekly";
     };
   };
+};
 ```
 
 ### Service Management
@@ -90,12 +92,12 @@ In a normal install we'd have to get pretty far down into the weeds to configure
 The equivalent of `systemctl enable sshd` is straightforward.
 
 ``` nix
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-    settings.PermitRootLogin = "yes";
-  };
-  services.tailscale.enable = true;
+services.openssh = {
+  enable = true;
+  settings.PasswordAuthentication = false;
+  settings.PermitRootLogin = "yes";
+};
+services.tailscale.enable = true;
 ```
 
 ### Enable ZFS
@@ -103,9 +105,9 @@ The equivalent of `systemctl enable sshd` is straightforward.
 This one is really hard.
 
 ``` nix
-  boot.supportedFilesystems = [ "zfs" ];
-  boot.zfs.extraPools = [ "tank" ];
-  services.zfs.autoScrub.enable = true;
+boot.supportedFilesystems = [ "zfs" ];
+boot.zfs.extraPools = [ "tank" ];
+services.zfs.autoScrub.enable = true;
 ```
 
 Yup, that's it! Really.
