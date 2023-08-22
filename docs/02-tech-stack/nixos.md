@@ -7,7 +7,7 @@
 
 NixOS is quite different from almost any other Linux distribution you've ever used. It is a Linux distribution built on top of the Nix[^1] package manager which uses a *declarative model* for package and configuration management[^2].
 
-The declarative model has its roots in software development[^3]. This is a fancy way of saying "I declare I want my system to look like this" via a `configuration.nix` file and having the Nix tooling go and figure out how to turn that config file into a functional system. We'll get more into more of a discussion about Flakes[^4] shortly but first, let's explore what NixOS does well for readers of PMS.
+This is a fancy way of saying "I declare I want my system to look like this" via a `configuration.nix` file and having the Nix tooling go and figure out how to turn that config file into a functional system. We'll get more into more of a discussion about Flakes[^4] shortly but first, let's explore what NixOS does well for readers of PMS.
 
 What if I told you that you could configure your entire system in one single file? What if that file could configure installed packages, file shares, users, networking and allow the same sort of modularity that tools like Ansible do but at a fraction of the cognitive investment? 
 
@@ -142,7 +142,6 @@ Remember how Nix is a package manager? Well, that means we can use Nix and a rel
 
 [^1]: [GitHub - Nix, the purely functional package manager](https://github.com/NixOS/nix)
 [^2]: [Nixos.org - How Nix works](https://nixos.org/guides/how-nix-works.html)
-[^3]: [Wikipedia - Declarative Programming](https://en.wikipedia.org/wiki/Declarative_programming)
 [^4]: [Nixos.org - Flakes](https://nixos.wiki/wiki/Flakes)
 [^5]: [discourse.nixos.org - Why are Flakes still experimental?](https://discourse.nixos.org/t/why-are-flakes-still-experimental/29317/11)
 [^6]: [GitHub - nixos/rfcs #136](https://github.com/NixOS/rfcs/pull/136)
