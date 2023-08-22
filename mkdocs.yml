@@ -142,7 +142,7 @@ nav:
     - Concepts:
       - Infrastructure as Code: '05-advanced/infraascode.md'
     - Configurations:
-      - Using ZFS with MergerFS: '05-advanced/combine-zfs-and-others.md'
+      - Using ZFS with mergerfs: '05-advanced/combine-zfs-and-others.md'
       - Quick Sync and iGPU passthrough: '05-advanced/passthrough-igpu-gvtg.md'
   - 6. Hardware:
     - Intel QuickSync: '06-hardware/intel-quicksync.md'
