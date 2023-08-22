@@ -40,6 +40,6 @@ Backups are no good if you can't restore from them. Make sure you test your back
 
 For more information, check out Episode 20 of the Self-Hosted podcast, where Chris and Alex discuss these tools in more depth.
 
+<p align="center">
 <iframe src="https://player.fireside.fm/v2/dUlrHQih+pywvrsnF?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe> 
-
-
+</p>
