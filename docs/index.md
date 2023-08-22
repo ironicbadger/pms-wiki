@@ -14,7 +14,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
     ---
 
-    Learn what "a PMS" is and see [Alex's example PMS build](01-overview/alexs-example-builds.md). Discover how you can dive-in and why you might want to build yourself a freedom respecting NAS.
+    Learn what "a PMS" is and see [Alex's example PMS build](01-overview/alexs-example-builds.md). Discover how you can dive in and why you might want to build yourself a freedom-respecting NAS.
 
     [:octicons-arrow-right-24: Getting started](01-overview/index.md)
 
@@ -30,7 +30,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
     ---
 
-    You won't get far without some hardware! Read reviews on [cases](06-hardware/cases.md), dial-in [remote access](04-day-two/remote-access/index.md) or how to [burn-in](06-hardware/new-drive-burnin.md) a new hard drive.
+    You won't get far without some hardware! Read reviews on [cases](06-hardware/cases.md), dial-in [remote access](04-day-two/remote-access/index.md), or how to burn in a new hard drive.
 
     [:octicons-arrow-right-24: Learn More](06-hardware/intel-quicksync.md)
   
@@ -38,7 +38,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
     ---
 
-    Guides for installations on top of Ubuntu, Proxmox and NixOS. After installation is finished, deploy our [top 10](04-day-two/top10apps.md) self-hosted app picks.
+    Guides for installations on top of Ubuntu, Proxmox, and NixOS. After installation is finished, deploy our [top 10](04-day-two/top10apps.md) self-hosted app picks.
 
     [:octicons-arrow-right-24: Begin Installation](03-installation/index.md)
 
@@ -57,9 +57,9 @@ If you're looking to build a media server, then you've come to the right place. 
 
 ## What is PMS? And what is this site for?
 
-PMS isn't so much as a "you must do things this way" type deal, it's more like a set of principles and guidelines to help you build a similar solution. The software discussed here has worked very well for many years now and can completely replace Unraid, TrueNAS or a Synology based setup. 
+PMS isn't so much a "you must do things this way" type of deal, it's more like a set of principles and guidelines to help you build a similar solution. The software discussed here has worked very well for many years now and can completely replace Unraid, TrueNAS, or a Synology based setup. 
 
-By sharing the knowledge and thought patterns used to drive the decisions made here, you will leave armed with the ability to build your own DIY NAS or as I like to call it, the Perfect Media Server (PMS).
+By sharing the knowledge and thought patterns used to drive the decisions made here, you will leave armed with the ability to build your own DIY NAS, or as I like to call it, the Perfect Media Server (PMS).
 
 !!! help "How to get help"
 
@@ -69,21 +69,21 @@ By sharing the knowledge and thought patterns used to drive the decisions made h
 
 ## Community Contributions
 
-This site is a unique type of documentation resource. It's an open source, collaborative repository of information and having a wide and diverse pool of contributors is vital to making the site as useful to as many folks as possible. 
+This site is a unique type of documentation resource. It's an open-source, collaborative repository of information, and having a wide and diverse pool of contributors is vital to making the site as useful to as many folks as possible. 
 
 If you see a mistake, or think there's a hole in the content (why didn't you do it *this way*?), pull requests will be considered via GitHub. Use the icon in the top right if you'd like to correct something here or help improve the site.
 
-In particular the case reviews section relies on contributors **like you**! Please submit your media server case mini review of 1 picture and 250 words or less.
+In particular, the case reviews section relies on contributors **like you**! Please submit your media server case mini-review of 1 picture and 250 words or less.
 
 ## About the Author
 
 ![alex](images/assets/alex.jpg){: align=right width=230 }
 
-perfectmediaserver.com is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some totally awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors). 
+perfectmediaserver.com is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors)](https://github.com/IronicBadger/pms-wiki/graphs/contributors). 
 
 Alex is a Developer Advocate at Tailscale. Has a YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems). Alex writes technical posts over at [blog.ktz.me](https://blog.ktz.me) covering topics from Homelab to Infrastructure as Code to electronics to Home Automation.
 
-You can find a full list his various online presences over at [alex.ktz.me](https://alex.ktz.me). 
+You can find a full list of his various online presences over at [alex.ktz.me](https://alex.ktz.me). 
 
 ## Self-Hosted podcast
 
