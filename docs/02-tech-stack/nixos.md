@@ -7,7 +7,7 @@
 
 NixOS is quite different from almost any other Linux distribution you've ever used. It is a Linux distribution built on top of the Nix[^1] package manager which uses a *declarative model* for package and configuration management[^2].
 
-This is a fancy way of saying "I declare I want my system to look like this" via a `configuration.nix` file and having the Nix tooling go and figure out how to turn that config file into a functional system. We'll get more into more of a discussion about Flakes[^4] shortly but first, let's explore what NixOS does well for readers of PMS.
+This is a fancy way of saying "I declare I want my system to look like this" via a `configuration.nix` file and having the Nix tooling go and figure out how to turn that config file into a functional system. We'll get more into more of a discussion about Flakes[^4] shortly but first, let's explore what attracted me to NixOS in the first place, simplicity.
 
 What if I told you that you could configure your entire system in one single file? What if that file could configure installed packages, file shares, users, networking and allow the same sort of modularity that tools like Ansible do but at a fraction of the cognitive investment? 
 
