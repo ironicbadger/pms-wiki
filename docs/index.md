@@ -53,7 +53,7 @@ If you're looking to build a media server, then you've come to the right place. 
     - [Perfect Media Server (2017 Edition) - Extensive video guides](https://blog.linuxserver.io/2017/06/24/the-perfect-media-server-2017/)
     - [Perfect Media Server (2019 Edition) - Boring is reliable + adding ZFS](https://blog.linuxserver.io/2019/07/16/perfect-media-server-2019/)
     - [Perfect Media Server (2020 Edition) - Launching perfectmediaserver.com](https://blog.ktz.me/the-perfect-media-server-2020-edition/)
-    - [Perfect Media Server (2023 Edition) - What about Proxmox?]()
+    - [Perfect Media Server (2023 Edition) - I run NixOS, btw?]()
 
 ## What is PMS? And what is this site for?
 
