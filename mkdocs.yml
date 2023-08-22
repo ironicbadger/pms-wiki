@@ -94,8 +94,10 @@ extra:
       link: 'https://selfhosted.show/'
       name: Alex's Podcast - selfhosted.show
   analytics:
-    provider: plausible
-    property: perfectmediaserver.com
+    # provider: plausible
+    # property: perfectmediaserver.com
+    provider: google
+    property: G-DF6SGTVVBC
 nav:
   - News and Updates: blog/index.md
   - 1. Overview:
