@@ -107,11 +107,11 @@ nav:
     - NAS Software Comparison: '01-overview/nas-software-comparison.md'
     - Frequently Asked Questions: '01-overview/faq.md'  
   - 2. Tech Stack Explained:
-    - '02-tech-stack/index.md'
-    - Operating Systems:  
-      - '02-tech-stack/os/index.md'
-      - Proxmox: '02-tech-stack/proxmox.md'
-      - NixOS: '02-tech-stack/nixos.md'
+    - '02-tech-stack/os/index.md'
+    #- Operating Systems:  
+    #- Linux: '02-tech-stack/os/index.md'
+    - Proxmox: '02-tech-stack/proxmox.md'
+    - NixOS: '02-tech-stack/nixos.md'
     - Data and Storage:
       - mergerfs: '02-tech-stack/mergerfs.md'
       - SnapRAID: '02-tech-stack/snapraid.md'
@@ -122,14 +122,15 @@ nav:
       - podman: '02-tech-stack/podman.md'
   - 3. Installation:
     - '03-installation/index.md'
+    - Proxmox: '03-installation/manual-install-proxmox.md'
+    - NixOS: '03-installation/nixos-flake.md'
     #- Video Install on Proxmox: '03-installation/video-install-proxmox.md'
-    - NixOS:
-      - Easy Mode (no Flakes): '03-installation/nixos-noflake.md'
-      - Hard Mode (using Flakes): '03-installation/nixos-flake.md'
+    # - NixOS:
+    #   - Easy Mode (no Flakes): '03-installation/nixos-noflake.md'
+    #   - Hard Mode (using Flakes): '03-installation/nixos-flake.md'
       #- Video Install on NixOS: '03-installation/video-install-nixos.md'
-    - Manual Installation Guides:
-      - Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
-      - Manual Install on Proxmox: '03-installation/manual-install-proxmox.md'      
+    - Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
+            
   - 4. Day Two (Post Install):
     - Remote Access:
       - Reverse Proxies: 
