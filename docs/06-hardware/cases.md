@@ -39,7 +39,7 @@ The Fractal Define R5 is a classic example of "if it ain't broke, don't fix it".
 
 <figure markdown>
 ![alexs-uk-server](../images/hardware/cases/define-r5.jpg)
-<figcaption>This is Alex's old server from before he emigrated to the USA. It lives in the UK as his primary off-site [backup](../04-day-two/backups.md) system.</figcaption>
+<figcaption>This is Alex's old server from before he emigrated to the USA. It lives in the UK as his primary off-site <a href="../04-day-two/backups.md">backup</a> system.</figcaption>
 </figure>
 
 * Motherboard Form Factor - Mini-ITX, mATX, ATX
