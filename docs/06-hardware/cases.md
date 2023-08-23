@@ -9,6 +9,8 @@ The perfect case doesn't exist. But here are some options that might do the tric
 
 ## Lian-Li PC-Q25B
 
+> Review contributed by [ironicbadger](https://github.com/ironicbadger)
+
 The Lian-Li PC-Q25B was released several years ago (not totally sure but it looks like 2013) and is unfortunately no longer in production so far as I can tell. You can find the odd used model popping up on eBay. It supports 5 hot swap 3.5" drives and has space for 2 more non hot swap 3.5" drives in the bottom.
 
 ![lian-li-pcq25b](../images/hardware/cases/q25b.jpg)
