@@ -22,9 +22,9 @@ If you're looking to build a media server, then you've come to the right place. 
 
     ---
 
-    Explore the underlying open-source technologies and gain a deeper understanding of how the nuts and bolts fit together in this DIY NAS solution.
+    Explore the underlying open-source technologies PMS recommends such as [mergerfs](02-tech-stack/mergerfs.md), [SnapRAID](02-tech-stack/snapraid.md), [ZFS](02-tech-stack/zfs.md), [Proxmox](02-tech-stack/proxmox.md), [docker](02-tech-stack/docker.md), and [docker-compose](02-tech-stack/docker-compose.md).
 
-    [:octicons-arrow-right-24: Explore the Tech](02-tech-stack/index.md)
+    [:octicons-arrow-right-24: Explore the Tech Stack](02-tech-stack/os/index.md)
 
 -   :fontawesome-solid-server:{ .lg .middle } - __Hardware Considerations__
 

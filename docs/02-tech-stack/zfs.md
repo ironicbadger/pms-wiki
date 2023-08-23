@@ -5,7 +5,7 @@ Use of ZFS with PMS is entirely optional. However, it does have some pedigree in
 !!! info
     Use of ZFS with PMS is entirely optional. 
     
-    See [combining ZFS with MergerFS](../05-advanced/combine-zfs-and-others.md) for full information on using ZFS alongside other filesystems thus avoiding "the hidden cost of ZFS"[^1].
+    See [combining ZFS with mergerfs](../05-advanced/combine-zfs-and-others.md) for full information on using ZFS alongside other filesystems thus avoiding "the hidden cost of ZFS"[^1].
 
 ## What is ZFS?
 

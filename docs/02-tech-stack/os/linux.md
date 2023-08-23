@@ -11,6 +11,18 @@ The project was founded in 1991 as a personal project by Linus Torvalds (hence t
     
     A "distribution" is the Linux kernel paired with the required packages to make a system boot, connect to the network, display video and so on.
 
+## The Technology Stack for PMS
+
++ [Proxmox](proxmox.md)
++ [NixOS](nixos.md)
++ Data and Storage
+    + [mergerfs](mergerfs.md)
+    + [SnapRAID](snapraid.md)
+    + [ZFS](zfs.md)
++ containers 
+    + [docker](docker.md) - container runtime
+    + [docker-compose](docker-compose.md) - container management
+
 ## Which distro should I pick?
 
 See [installation](../../03-installation/index.md).

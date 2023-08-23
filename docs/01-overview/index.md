@@ -8,12 +8,12 @@ Under the hood, it's built around the following technologies:
     + [Proxmox](../02-tech-stack/proxmox.md)
     + [NixOS](../02-tech-stack/nixos.md) - *new for 2023!*
 + Data and Storage
-    + [MergerFS](../02-tech-stack/mergerfs.md)
+    + [mergerfs](../02-tech-stack/mergerfs.md)
     + [SnapRAID](../02-tech-stack/snapraid.md)
     + [ZFS](../02-tech-stack/zfs.md)
 + containers 
     + [docker](../02-tech-stack/docker.md) - container runtime
-    + [docker-compose](../02-tech-stack/docker-compose.md)) - container management
+    + [docker-compose](../02-tech-stack/docker-compose.md) - container management
 
 ## The requirements
 

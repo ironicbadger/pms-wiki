@@ -25,7 +25,7 @@ If you treat every drive (new or not) like it's about to die, I've found that is
 
 Therefore running a test which will read and write every sector of the drive for verification and take at least 24 hours to complete seems logical.
 
-Back in the day, I ran unRAID before switching out to Debian + SnapRAID + MergerFS 2-3 years ago. unRAID had this concept of 'pre-clearing' a drive before use which served two purposes. 
+Back in the day, I ran unRAID before switching out to Debian + SnapRAID + mergerfs 2-3 years ago. unRAID had this concept of 'pre-clearing' a drive before use which served two purposes. 
 
 1. Prepare the drive for use by unRAID 
 2. A stress test.

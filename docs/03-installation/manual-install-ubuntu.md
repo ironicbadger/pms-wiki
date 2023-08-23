@@ -71,7 +71,7 @@ The filesystem wars have raged for decades and there is no right or wrong one to
     
     Due to some quirkiness in how Ubuntu server and desktop present drives under `/dev/disk/by-id` we recommend using the Ubuntu desktop variant. You can [disable the desktop services](https://linuxconfig.org/how-to-disable-enable-gui-on-boot-in-ubuntu-20-04-focal-fossa-linux-desktop) if system resources are at a premium.
 
-Remember with MergerFS you are able to safely mix and match filesystems and drive sizes which is part of it's real magic. This means you don't have to stress too much about picking exactly the right filesystem up front because you aren't locked in.
+Remember with mergerfs you are able to safely mix and match filesystems and drive sizes which is part of it's real magic. This means you don't have to stress too much about picking exactly the right filesystem up front because you aren't locked in.
 
 ### Identifying drives
 
@@ -180,7 +180,7 @@ Verify that the drive mounted and displays the correct size as expected:
 
 Mountpoints are where the OS mounts a specific disk partition. For example, you could have multiple partitions on the same disk mounted to different places for redundancy or performance reasons. For our purposes here we'll keep things simple by mounting each data disk partition one by one.
 
-Assuming the previous test went well, it's time to come up with a mountpoint naming scheme. We recommended `/mnt/diskN` because it makes the `fstab` entry for MergerFS simpler thanks to wildcard support (more on this shortly). For example:
+Assuming the previous test went well, it's time to come up with a mountpoint naming scheme. We recommended `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support (more on this shortly). For example:
 
     mkdir /mnt/disk{1,2,3,4}
     mkdir /mnt/parity1 # adjust this command based on your parity setup
@@ -195,7 +195,7 @@ Next we need to create an entry in `/etc/fstab`.
 This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/index.php/fstab).
 
 !!! note 
-    Note that MergerFS does *not* mount the parity drive, it only mounts `/mnt/disk*`. MergerFS has *nothing to do* with parity, that is what we use SnapRAID for.
+    Note that mergerfs does *not* mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has *nothing to do* with parity, that is what we use SnapRAID for.
 
 Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapRAID parity drive. 
 
