@@ -30,13 +30,13 @@ Coming soon ^TM^.
 [openmediavault](https://www.openmediavault.org/) is open-source, based around Debian and has been regularly updated for years. It is capable of providing every feature that PMS does *and* provides a webUI. The project does a lot of things right and is a notable contender in this comparison and is for the most part the work of one developer, votdev. Incredible stuff.
 
 <p align="center">
-<img alt="omv-github" src="../images/screenshots/omv-github.png">
+<img alt="omv-github" src="../../images/screenshots/omv-github.png">
 </p>
 
 That said, for a GUI to be worth learning it has to be meaningfully better than the alternative by reducing complexity or being eye-candy. Unfortunately, OMV fails on both fronts. Sadly the UI looks dated and each time I've tried to use the project over the years I've come away frustrated by the extra complexity it adds. 
 
 <p align="center">
-<img alt="omv-ui" src="../images/screenshots/omv-ui.png">
+<img alt="omv-ui" src="../../images/screenshots/omv-ui.png">
 </p>
 
 This pervasive frustration was also the case as a new user. Something that could be configured in a few lines of a config file required navigating a UI and doing a whole lot of clicking. As a more experienced administrator these days I have embraced automation via [Ansible](../05-advanced/infraascode.md#ansible) and can rebuild a server in 15 minutes from scratch. Managing a server entirely via the CLI might seem intimidating at first but it's really the way to go. Yes, even via mobile using JuiceSSH on Android or blink on iOS - see [remote access](../04-day-two/remote-access/index.md).
