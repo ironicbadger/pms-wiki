@@ -42,6 +42,12 @@ The Fractal Define R5 is a classic example of "if it ain't broke, don't fix it".
 <figcaption>This is Alex's old server from before he emigrated to the USA. It lives in the UK as his primary off-site [backup](../04-day-two/backups.md) system.</figcaption>
 </figure>
 
+* Motherboard Form Factor - Mini-ITX, mATX, ATX
+* PSU Form Factor - ATX
+* Number of 3.5" drive bays - 8
+* Dimensions - 23"D x 21.5"W x 13"H
+* Pricing - [$125-150](https://amzn.to/47FW8vd)
+
 The case supports motherboards ranging from ITX to ATX in size. There's ample room for cable management with the high quality fit and finish that is a Fractal trademark at this point. The most remarkable thing about this case is how unremarkable it is, and I mean that in a good way. There's almost nothing not to like. It's a thoughtfully laid out and extremely well-built thing.
 
 The drive cages can be reconfigured by adding [additional cages](https://www.reddit.com/r/DataHoarder/comments/kbrjp7/10x8tb_snapraidmergerfs_in_a_fractal_define_r5/) to add more drives in the space in the area directly in front of the PSU. All sorts of 3d printed [mods](https://www.thingiverse.com/thing:2763188) exist for this case due to its long standing popularity.
