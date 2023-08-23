@@ -31,7 +31,27 @@ The build pictured made use of an [ASrock Rack C2750D4I](https://www.asrockrack.
 
 ## Fractal Define Series
 
-...
+### Fractal Define R5
+
+> Review contributed by [ironicbadger](https://github.com/ironicbadger)
+
+The Fractal Define R5 is a classic example of "if it ain't broke, don't fix it". If you've ever seen one of these Define series cases before, then you've already got a fairly good idea of what this case is. A competent, sleek, and understated design, capable of holding 8x 3.5" hard drives and 2x 5.25" drives very comfortably.
+
+<figure markdown>
+![alexs-uk-server](../images/hardware/cases/define-r5.jpg)
+<figcaption>This is Alex's old server from before he emigrated to the USA. It lives in the UK as his primary off-site [backup](../04-day-two/backups.md) system.</figcaption>
+</figure>
+
+The case supports motherboards ranging from ITX to ATX in size. There's ample room for cable management with the high quality fit and finish that is a Fractal trademark at this point. The most remarkable thing about this case is how unremarkable it is, and I mean that in a good way. There's almost nothing not to like. It's a thoughtfully laid out and extremely well-built thing.
+
+The drive cages can be reconfigured by adding [additional cages](https://www.reddit.com/r/DataHoarder/comments/kbrjp7/10x8tb_snapraidmergerfs_in_a_fractal_define_r5/) to add more drives in the space in the area directly in front of the PSU. All sorts of 3d printed [mods](https://www.thingiverse.com/thing:2763188) exist for this case due to its long standing popularity.
+
+Fan noise and vibration noise is about as quiet as it gets for a box containing half a dozen hard drives. Rubber grommets on the white drive sleds absorb much of the vibration frequencies and the sound deadened side panels take care of most of the rest.
+
+This is an extreme nitpick but I've always wished Fractal made a backplane for their drive cages. Wiring up 8 individual drives can be a bit of a chore.
+
+Overall, it's an extremely solid option for anyone looking to build a PMS system and will give you space to grow if you're just starting with a couple of drives today.
+
 
 ## Fractal Node Series
 
