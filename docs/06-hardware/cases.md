@@ -101,3 +101,27 @@ Inside the case there is ample room for cable management and an included SATA Ba
 * Pricing - I purchased mine in 2021 for $164, they are currently selling $230.
 
 I choose this case since it provided me with hot swap bays in a reasonble tower form factor. Overall besides the fan issues I have been extremely happy with this case.
+
+
+## NZXT Phantom 240
+
+> Review contributed by [Vogete](https://github.com/vogete)
+
+The NZXT Phantom 240 might not stand out from the croud in any of the features of aesthetics it offers (though subjectically it looks amazing in white with its stormtrooper style), but it will definitely impress you with its price. At just $69.99 (release price), it's hard to beat the value of the materials you get with it. Unfortuantely as far as I can tell it's not being sold much at most places, so it might be hard, or impossible to come by.
+
+![nzxt-phantom-240](../images/hardware/cases/phantom-240.jpg)
+_Plenty of space and airflow, but the dust can find its way in as well._
+
+* Motherboard Form Factor - Mini-ITX, mATX, ATX
+* PSU Form Factor - ATX
+* Number of 3.5" drive bays - 6 (0 hotswap)
+* Dimensions - 7.6 x 20.8 x 20.8" / 195 x 530 x 529 mm
+* Pricing - It was released for $69.99 (I purchased it for $50 in 2018), but haven't found any recent prices as nobody really sells them anymore.
+
+The case comes with 3.5" drive bays, sadly none of them are hot swap, and another 3 5.25" bays which you can technically repurpose for even more drives. The 3.5" bays are removable, so if you prefer to fit a longer graphics card, you have the option to reevalute your priorities.
+
+Fitting a full sized ATX board with an ATX power supply, you can use pretty much any consumer hardware you get your hands on. The width of the case however might get you in trouble with larger tower coolers inside, like the Noctua NH-D15, which unfortunately pushes against the plastic sidepanel window, creating a little dent as you close it. To make sure it doesn't damage the window too much, I put some electrical tape on the Noctua's cooling "tips".
+
+The Phantom's worst side is the poor fittings all around the case. The lower quality build makes the entire chassis vibrate rather loudly with just a few spinning drives in it (surprisingly increasing my drive count from 4 to 6 actually made it quieter). If you plan on using it next to you (like me), you might want to reconsider getting the Phantom, because it might just haunt you with its noise (I guess the name does actually fit the product).
+
+When I was shopping for a case, I chose the Phantom 240 for the maximum amount of drive bays, for the least amount of money, while still supporting ATX compontents. It certainly has flaws, like the tight cable management space in behind the back panel, or the lack of filters around the case (see the dust on the picture?), it's hard to find a cheaper (new) case that offers a better value. If you you ever get your hands on one, it will serve you well enough for its price.
