@@ -1,7 +1,6 @@
 name: Deploy to VPS via Tailscale
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
@@ -10,8 +9,6 @@ jobs:
   deploy-via-tailscale:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.3
-
       - name: Connect Tailscale
         uses: tailscale/github-action@v2
         with:
