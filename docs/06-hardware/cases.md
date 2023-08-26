@@ -79,3 +79,25 @@ _Lots of space for drives, even with poor cable management._
 * Pricing - I purchased mine on promotion for about $80 years back, but they seem to have nearly doubled in price and sit at around $140 new.
 
 While this chassis is larger than other offerings, I chose it for its generous number of 3.5" bays, included quality fans and support for ATX power supplies. Front I/O is adequate, and the blue power LED can simply be unplugged should it cause a disturbance. Included are two fans that are controlled by a built-in 3 position switch. I've always kept it at its lowest and temperature has never been a concern.
+
+
+## Silverstone CS380
+
+> Review contributed by [glennbrown](http://github.com/glennbrown)
+
+The Silverstone CS380 was released in 2016 and is a great option for a Perfect Media Server. The case offers eight 3.5" hot swap bays plus two additional 5.25" bays.
+
+Inside the case there is ample room for cable management and an included SATA Backplane that uses standard sata connectors and molex plugs. There is room for longer ATX power supplies. There are three included fans however they are loud, I replaced them with Artic P12's. It has clarence for larger tower coolers, pictured is a Arctic Freezer i35. The additional 5.25" bays can provide more drive expansion options.
+
+<figure markdown>
+![silverstone-cs380](../images/hardware/cases/silverstone-cs380.jpg)
+<figcaption>Lots of space and very solidly built case
+</figure>
+
+* Motherboard - mITX, mATX & ATX
+* PSU Form Factor - ATX
+* Number of 3.5" drive bays - 8 Hot Swap with an option for two more with two [Icy Dock Enclosures](https://www.amazon.com/ICY-DOCK-Tray-Less-Enclosure-MB171SP-1B/dp/B0992RQNPB?th=1)
+* Dimensions - 8.46"W x 16.77"H x 19.17"D
+* Pricing - I purchased mine in 2021 for $164, they are currently selling $230.
+
+I choose this case since it provided me with hot swap bays in a reasonble tower form factor. Overall besides the fan issues I have been extremely happy with this case.
