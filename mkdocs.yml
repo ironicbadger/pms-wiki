@@ -124,7 +124,7 @@ nav:
   - 3. Installation:
     - '03-installation/index.md'
     - Proxmox: '03-installation/manual-install-proxmox.md'
-    - NixOS: '03-installation/nixos-flake.md'
+    #- NixOS: '03-installation/nixos-flake.md'
     #- Video Install on Proxmox: '03-installation/video-install-proxmox.md'
     # - NixOS:
     #   - Easy Mode (no Flakes): '03-installation/nixos-noflake.md'
