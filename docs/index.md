@@ -1,6 +1,3 @@
----
-title:
----
 # Welcome to Perfect Media Server!
 ![logo](images/assets/logo.png)
 
