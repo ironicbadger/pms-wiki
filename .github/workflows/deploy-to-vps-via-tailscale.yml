@@ -1,5 +1,4 @@
 name: Deploy to VPS via Tailscale
-
 on:
   push:
     branches:
