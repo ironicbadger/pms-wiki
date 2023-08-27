@@ -13,15 +13,15 @@ The project was founded in 1991 as a personal project by Linus Torvalds (hence t
 
 ## The Technology Stack for PMS
 
-+ [Proxmox](proxmox.md)
-+ [NixOS](nixos.md)
++ [Proxmox](../proxmox.md)
++ [NixOS](../nixos.md)
 + Data and Storage
-    + [mergerfs](mergerfs.md)
-    + [SnapRAID](snapraid.md)
-    + [ZFS](zfs.md)
+    + [mergerfs](../mergerfs.md)
+    + [SnapRAID](../snapraid.md)
+    + [ZFS](../zfs.md)
 + containers 
-    + [docker](docker.md) - container runtime
-    + [docker-compose](docker-compose.md) - container management
+    + [docker](../docker.md) - container runtime
+    + [docker-compose](../docker-compose.md) - container management
 
 ## Which distro should I pick?
 
