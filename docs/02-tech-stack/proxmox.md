@@ -41,7 +41,7 @@ I have found a lot value from running Proxmox. For example, running a dedicated 
 
 ![proxmox-ui](../images/advanced/igpu-passthrough/image-5.png)
 
-If you want to dive deep into the rabbit hole, you can with Proxmox. Because Proxmox is just Linux underneath you can use it like you would any other installation. This also means things like PCI passthrough or ZFS don't require waiting for vendor patches or releases, it just works.
+If you want to dive deep into the rabbit hole, you can with Proxmox - but you don't *have* to. With that said, because Proxmox is just Linux underneath you can use it like you would any other Linux installation and totally ignore the UI layer. This also means things like PCI passthrough or ZFS don't require waiting for vendor patches or releases, they just work.
 
 ## What about VMware / ESXI?
 
