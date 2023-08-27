@@ -17,7 +17,19 @@ Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Ar
 
 ## Proxmox
 
-[Proxmox](../02-tech-stack/proxmox.md) is the PMS defacto base OS these days. It's a bastardized version of debian and ubuntu smushed together with some "proxmox sauce" thrown in on top. This means you get ZFS support out the box, a VM and LXC hosting platform with a fully featured web interface and an API to automate tools like Ansible and Terraform against if that floats your boat. Combine that with Proxmox's ability to cluster multiple nodes together for failover, migration, and storage and it becomes quite a compelling option as a base OS for PMS.
+[Proxmox](../02-tech-stack/proxmox.md) is the PMS defacto base OS these days. It's a bastardized version of debian and ubuntu smushed together with some "proxmox sauce" thrown in on top. 
+
+This means you get ZFS support out the box, a VM and LXC hosting platform with a fully featured web interface and an API to automate tools like Ansible and Terraform against if that floats your boat. Combine that with Proxmox's ability to cluster multiple nodes together for failover, migration, and storage and it becomes quite a compelling option as a base OS for PMS.
+
+!!! success "Is Proxmox the right choice for me?"
+    NixOS is the right choice for you if:
+
+    1. You like a stable base distro in debian
+    2. You want to run Virtual Machines
+    3. You want to run LXC containers
+    4. You want to use ZFS
+    5. You'd like to cluster multiple servers together
+    6. The idea of NixOS is a bit much yet
 
 ## NixOS
 
