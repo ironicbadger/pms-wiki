@@ -129,7 +129,7 @@ When I was shopping for a case, I chose the Phantom 240 for the maximum amount o
 ## Classico Storage Case
 > Review contributed by [CoffeeAndCynicism](https://github.com/CoffeeAndCynicism)
 
-![Classico Storage Case](../images/hardware/classicocase.jpg)
+![Classico Storage Case](../images/hardware/cases/classicocase.jpg)
 _While this case is cheap and cheerful, it provides significant value for it's pricepoint._
 
 - **Motherboard Form Factor:** ATX, Micro-ATX, Mini-ITX
