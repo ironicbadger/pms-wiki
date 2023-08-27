@@ -125,3 +125,25 @@ Fitting a full sized ATX board with an ATX power supply, you can use pretty much
 The Phantom's worst side is the poor fittings all around the case. The lower quality build makes the entire chassis vibrate rather loudly with just a few spinning drives in it (surprisingly increasing my drive count from 4 to 6 actually made it quieter). If you plan on using it next to you (like me), you might want to reconsider getting the Phantom, because it might just haunt you with its noise (I guess the name does actually fit the product).
 
 When I was shopping for a case, I chose the Phantom 240 for the maximum amount of drive bays, for the least amount of money, while still supporting ATX components. It certainly has flaws, like the tight cable management space in behind the back panel, or the lack of filters around the case (see the dust on the picture?), it's hard to find a cheaper (new) case that offers a better value. If you you ever get your hands on one, it will serve you well enough for its price.
+
+## Classico Storage Case
+> Review contributed by [CoffeeAndCynicism](https://github.com/CoffeeAndCynicism)
+
+![Classico Storage Case](../images/hardware/classicocase.jpg)
+_While this case is cheap and cheerful, it provides significant value for it's pricepoint._
+
+- **Motherboard Form Factor:** ATX, Micro-ATX, Mini-ITX
+- **PSU Form Factor:** ATX
+- **Number of 3.5" Drive Bays:** 12
+- **Dimensions:** 18.5" x 16.92" x 8.07"
+- **Pricing:** Approximately $60 USD on [Newegg](https://www.newegg.com/p/2AM-02CE-000H9) / [eBay](https://www.ebay.com/sch/i.html?_&_nkw=Classico+Storage+Case)
+
+This case, originally designed for Chia mining, proves to be an excellent option for storage and home server enthusiasts. Notably, it offers remarkable support for a substantial number of 3.5" HDDs, all at an affordable price point.
+
+The case comes equipped with four 12V molex fans (non-PWM) - 3x140MM front intake fans and 4x20MM rear exhaust fan. What sets this case apart is its mesh front and side panels, which facilitate excellent airflow. This feature is particularly valuable for those using passively cooled NICs/HBAs.
+
+With a dedicated shrouded PSU compartment, there's ample space for effective cable management in the basement and behind the motherboard tray. This design allows for organized cable routing for all the SATA drives, ensuring a neat and clutter-free interior.
+
+The case features four removable HDD cages that can accommodate a total of eight drives. Additionally, there are two 3.5" HDD sleds on top of the PSU shroud and another drive cage in the basement, capable of holding two more 3.5" HDDs. In total, this case can house an impressive twelve 3.5" HDDs. Furthermore, it offers space for two 2.5" SSDs on the backside of the motherboard tray, useful for OS drives.
+
+While unfortunately the drives aren't hotswThis case is an exceptional choice for those seeking a cost-effective solution for their storage and home server needs.
