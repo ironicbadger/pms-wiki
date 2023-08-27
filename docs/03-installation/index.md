@@ -21,8 +21,7 @@ Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Ar
 
 This means you get ZFS support out the box, a VM and LXC hosting platform with a fully featured web interface and an API to automate tools like Ansible and Terraform against if that floats your boat. Combine that with Proxmox's ability to cluster multiple nodes together for failover, migration, and storage and it becomes quite a compelling option as a base OS for PMS.
 
-!!! success "Is Proxmox the right choice for me?"
-    Proxmox is the right choice for you if:
+!!! success "Proxmox is the right choice for you if:"
 
     1. You like a stable base distro in debian
     2. You want to run Virtual Machines
@@ -37,8 +36,7 @@ This means you get ZFS support out the box, a VM and LXC hosting platform with a
 
 The documentation is lacking in key areas - namely Flakes - due to a glacial pace of governance and an abdundance of caution when making radical changes to the configuration structure of the system. This sound like negatives but in the long run, they aren't. The downside is it means right now, the new NixOS user experience is a bit messy.
 
-!!! success "Is NixOS the right choice for me?"
-    NixOS is the right choice for you if:
+!!! success "NixOS is the right choice for you if:"
 
     1. You enjoy a simple, declaratively configured system
     2. You enjoy writing code or are already a developer
@@ -52,8 +50,7 @@ The documentation is lacking in key areas - namely Flakes - due to a glacial pac
 
 The "old" [manual installation guide for Ubuntu](manual-install-ubuntu.md) remains public mostly for posterity and because it's insanely detailed covering every step of building an Ubuntu system from scratch.
 
-!!! success "Is Ubuntu the right choice for me?"
-    Ubuntu is the right choice for your PMS installation if:
+!!! success "Ubuntu is the right choice for you if:"
 
     1. You're already running it and are happy with it
     2. You want a faster update cycle than Proxmox provides
