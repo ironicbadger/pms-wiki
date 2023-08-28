@@ -41,4 +41,4 @@ To deploy the site, push to `main`, and a GitHub action will do the rest.
 
 ## Contributing
 
-To contribute, open a PR, and I will review it. Gratefully received!
+To contribute, open a PR, and I will review it. Gratefully received! 
