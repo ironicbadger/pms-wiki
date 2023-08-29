@@ -66,6 +66,9 @@ Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
+### Intelli J ###
+.idea
+
 # Dump file
 *.stackdump
 
