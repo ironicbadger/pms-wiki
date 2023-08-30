@@ -1,2 +1,3 @@
 mkdocs-git-revision-date-plugin
+mkdocs-rss-plugin
 material-plausible-plugin

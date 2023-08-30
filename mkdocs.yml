@@ -45,6 +45,10 @@ plugins:
   - blog:
       categories: false
       archive: false
+  - rss:
+      match_path: blog/.*
+      date_from_meta:
+        as_creation: date
   #- git-revision-date
   - search
   - minify:
