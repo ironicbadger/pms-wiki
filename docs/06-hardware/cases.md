@@ -178,3 +178,35 @@ With a dedicated shrouded PSU compartment, there's ample space for effective cab
 The case features four removable HDD cages that can accommodate a total of eight drives. Additionally, there are two 3.5" HDD sleds on top of the PSU shroud and another drive cage in the basement, capable of holding two more 3.5" HDDs. In total, this case can house an impressive twelve 3.5" HDDs. Furthermore, it offers space for two 2.5" SSDs on the backside of the motherboard tray, useful for OS drives.
 
 Whilst the drives aren't hot swappable, this case is an exceptional choice for those seeking a cost-effective solution for their storage and home server needs.
+
+---
+
+## Silverstone DS380B Mini ITX Tower Case
+
+> Review contributed by [stochasticpenguin](https://github.com/stochasticpenguin)
+
+The Silverstone DS380B is available from the usual suspects and pops up on the second-hand market at a 30% discount from time to time. It supports 8 hot-swap 3.5" drives and has space for 4 more non-hot-swap 2.5" drives internally.
+
+<figure markdown>
+![SilverStone DS380B](../images/hardware/cases/ds380b.jpg){: width=700 }
+<figcaption>The DS380 provides 8 hot-swap bays in a small compact form factor.</figcaption>
+</figure>
+
+- Motherboard Form Factor - Mini-ITX
+- PSU Form Factor - SFX
+- Number of 3.5" drive bays - 8 (8 hot swap caddies)
+- Number of 2.5" drive bays - 4 (internally mounted)
+- Dimensions - 14 x 8.24 x 11.25" / 356 x 210 x 286 mm
+- Pricing: 
+	- Average used sale price on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=silverstone+DS380&_sacat=0) $180
+	- Typical new price on [Amazon](https://www.amazon.com/SilverStone-Technology-Mini-ITX-Computer-DS380B/dp/B00IAELTAI) or [Newegg](https://www.newegg.com/p/N82E16811163255) $215
+
+The DS380 offers a large number of easily interchangeable drives and a hot-swap backplane. This makes it compatible with a cold backup strategy or easy site-to-site transfer. Just ensure that you include a hot-swap-capable HBA in your build. 
+
+Many completed builds are available with pictures of different configurations on [pcpartpicker.](https://pcpartpicker.com/builds/#e=2504,1825) You can opt for one fewer drive and include a full-length GPU, or with very slight modification using a Dremel you can fit a full-length SAS HBA without sacrificing a drive bay.
+
+With the 2x supplied 120mm fans pushing flow across the drive cage and one exhaust fan (120mm) pushing flow out the rear, there is more than adequate cooling for all 8 drives. Even in an overheated (29 C) laundry closet, drive temperatures peak around 40 C. The fine mesh screens on the inlet and PSU vents prevent any notable internal buildup of dust after 9 months of operation.
+
+The above build features a [Supermicro X11SCL-IF](https://www.supermicro.com/en/products/motherboard/x11scl-if), [Intel Core i3-9100T](https://ark.intel.com/content/www/us/en/ark/products/134871/intel-core-i39100t-processor-6m-cache-up-to-3-70-ghz.html), and an [LSI SAS 9211-8i](https://docs.broadcom.com/doc/12353333) HBA using SATA breakout cables; powered by a [Corsair SF450](https://www.corsair.com/us/en/p/psu/cp-9020104-na/sf-series-sf450-450-watt-80-plus-gold-certified-high-performance-sfx-psu-cp-9020104-na). The location of the PSU (behind the 2.5" drive cage) makes for an adventure in cable management but is an otherwise great home office server.
+
+---
