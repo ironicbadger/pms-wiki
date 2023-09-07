@@ -14,7 +14,7 @@ I used to advocate for running everything in a VM to keep the host OS clean. How
 
 Keeping the hypervisor host clean would be more ideal but the trade off is worth it. Almost all apps run as containers anyway, so there aren't any messy app dependencies on the host, except docker if that even counts! Storage is in the hypervisor OS so it can be used for VMs without internal bridges or file sharing set up required. It just makes everything a little bit simpler doing it this way.
 
-Alex runs a Home Assistant VM, a couple of LXCs (for Pihole and as a Tailscale exit node) and everything else goes directly onto the host.
+Alex runs a Home Assistant VM, a couple of LXCs (for Pihole and as a Tailscale exit node) and everything else, including docker, goes directly onto the host.
 
 ## What performance can I expect?
 
