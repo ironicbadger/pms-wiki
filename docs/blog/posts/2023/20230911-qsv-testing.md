@@ -13,7 +13,7 @@ I am therefore delighted to announce a new project to gather as much data on the
 
 <p align="center">
 <figure markdown>
-<iframe width="740" height="415" src="https://www.youtube.com/watch?v=ceUIUyZwchY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="740" height="415" src="https://www.youtube.com/embed/ceUIUyZwchY?si=ahj8O6553YoGiWds" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <figcaption>A call to action! Please lend your hardware to support this benchmarking effort.</figcaption>
 </figure>
 </p>
