@@ -47,6 +47,11 @@ Instead, navigate to the mergerfs GitHub [releases](https://github.com/trapexit/
 wget https://github.com/trapexit/mergerfs/releases/download/2.36.0/mergerfs_2.36.0.ubuntu-jammy_amd64.deb
 sudo dpkg -i mergerfs_2.36.0.ubuntu-jammy_amd64.deb
 
+## Alternatively, get the latest version using Github API - ensure to replace the release_type to your distrubution & architecture (eg. bookworm_amd64, buster_i386, etc).
+export release_type=jammy_amd64
+wget $(curl -s https://api.github.com/repos/trapexit/mergerfs/releases/latest | jq -r ".assets[] | select(.name | test(\"${release_type}\")) | .browser_download_url")
+sudo dpkg -i mergerfs_*$release_type.deb
+
 ## Verify installation
 alex@morpheus:~$ apt list mergerfs
 Listing... Done
