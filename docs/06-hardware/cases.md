@@ -210,3 +210,25 @@ With the 2x supplied 120mm fans pushing flow across the drive cage and one exhau
 The above build features a [Supermicro X11SCL-IF](https://www.supermicro.com/en/products/motherboard/x11scl-if), [Intel Core i3-9100T](https://ark.intel.com/content/www/us/en/ark/products/134871/intel-core-i39100t-processor-6m-cache-up-to-3-70-ghz.html), and an [LSI SAS 9211-8i](https://docs.broadcom.com/doc/12353333) HBA using SATA breakout cables; powered by a [Corsair SF450](https://www.corsair.com/us/en/p/psu/cp-9020104-na/sf-series-sf450-450-watt-80-plus-gold-certified-high-performance-sfx-psu-cp-9020104-na). The location of the PSU (behind the 2.5" drive cage) makes for an adventure in cable management but is an otherwise great home office server.
 
 ---
+
+## Supermicro CSE-743AC-1200B-SQ
+
+> Review contributed by [TeamBVD](https://github.com/teambvd)
+
+The Supermicro CSE-74x series chassis have been around for at least the last 15 years, with many/most parts being interoperable between generations. I've had a 747 2009, modularly upgrading it over time as needed, so when it came time to buy another chassis, Supermicro was an easy choice, and I went with the CSE-743AC-1200B-SQ:
+
+<figure markdown>
+![Supermicro CSE-743AC-1200B-SQ](../images/hardware/cases/cse-743ac.jpg){: width=700 }
+<figcaption>The 'SQ' (Super Quiet) variant of the 743 chassis promises an operational 27dBA</figcaption>
+</figure>
+
+* Motherboard Form Factor - Micro ATX / ATX / E-ATX (12"x13") / 7 PCIe slots
+* PSU Form Factor - ATX, 1200W Platinum (Included)
+* Num. 3.5" drive bays - 8 x hotswap SAS3 / SATA
+* Num. 5.25" bays - 3
+* Dimensions - 17.8 x 7 x 25.5" / 452 x 178 x 647 mm (4U rack mount)
+* Pricing - New [$720](https://www.shopblt.com/item/supermicro-cse-743ac-1200b-sq-black-4u-tower-sc743ac/supmic_cse743ac1200bsq.html) -> [$590](https://www.connection.com/product/supermicro-chassis-4u-tower-eatx-8-3.5-sas-sata-hs-bays-865w-ps-black/cse-743tq-865b/8145984?cac=Result) depending on configuration as of Sept. 2023 - Used $350-650 (eBay) again, depending on configuration)
+
+Supermicro has been of some renown in the homelab space for many years, though often this is for their 24-48 bay shelves which commonly require modification in order to bring noise levels down to acceptable levels. In addition, many may mistakenly feel their only option for purchasing SMC's chassis are on the used market, however there are actually a number of suitable vendors. As one can tell from the pricing, there's potentially limited savings from buying at least this specific model used. SMC's chassis model decoder can be found [here](https://www.supermicro.com/products/Product_Naming_Convention/Naming_CSE.cfm).
+
+As alluded to above, these chassis are extremely long-lived, infinitely customizable (with drop-in components from the manufacturer), and should typically be considered an investment. They can be used in either a tower or rackmounted configuration, and with SMC's '[Mobile Rack](https://www.supermicro.com/en/products/chassis?pro=filter%3Dfeature%26feature%3DMobile%20Rack)' units (also [easily available](https://www.shopblt.com/search/order_id=150936720&s_lastpos=0&t_all=1&s_all=%22MOBILE+RACK%22&s_mfg=SUPMIC&s_cat=&s_costcomp=&s_cost=&s_max=100)), take advantage of the 5.25" bays for up to 5 additional 3.5" drive bays (total of 13), or 12 x 2.5" bays. A more extensive detailing of my work with this specific chassis can be found on the [UnRAID forums](https://forums.unraid.net/topic/113032-the-next-generation-m12swa-threadripper-pro/).
