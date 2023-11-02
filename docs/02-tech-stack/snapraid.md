@@ -22,7 +22,7 @@ The project provides a handy comparison chart of how SnapRAID stacks up against 
 
 ## Why SnapRAID?
 
-In the PMS [overview](../01-overview/index.md#the-requirements) we laid out a number of requirements, let's take a look and see which of those SnapRAID will fulfil.
+In the PMS [overview](../01-overview/index.md#the-requirements) we laid out a number of requirements, let's take a look and see which of those SnapRAID will fulfill.
 
 * Provide fault tolerance to protect against (inevitable) hard drive failure
 * Checksum files to guard against bitrot
