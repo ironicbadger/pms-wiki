@@ -50,7 +50,6 @@
     nvme-cli
     sanoid
     snapraid
-    tailscale
     tdns-cli
     tmux
     tree
