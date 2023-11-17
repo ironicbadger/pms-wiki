@@ -55,6 +55,8 @@
     tree
     vim
     wget
+    smartmontools
+    e2fsprogs # badblocks
   ];
 
   networking = {
