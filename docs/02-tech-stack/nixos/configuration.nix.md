@@ -50,12 +50,13 @@
     nvme-cli
     sanoid
     snapraid
-    tailscale
     tdns-cli
     tmux
     tree
     vim
     wget
+    smartmontools
+    e2fsprogs # badblocks
   ];
 
   networking = {
