@@ -1,3 +1,7 @@
+---
+description: For most PMS deployments, your media will be spread across a handful of JBOD drives merged together with [mergerfs](mergerfs.md). Without SnapRAID if a drive were to fail, you'd instantly lose all data on the failed drive forever. With SnapRAID you're able to rebuild that failed drive using parity data from your last snapshot. 
+---
+
 # SnapRAID
 
 [SnapRAID](https://www.snapraid.it/) provides us some basic protection against drive failures and pairs well with [mergerfs](mergerfs.md). Perhaps confusingly, you don't need one for the other to fuction.
