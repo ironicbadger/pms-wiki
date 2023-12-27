@@ -52,6 +52,8 @@ plugins:
   - privacy:
       links_attr_map:
         target: _blank
+  - social:
+      cards_layout: default
 markdown_extensions:
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
