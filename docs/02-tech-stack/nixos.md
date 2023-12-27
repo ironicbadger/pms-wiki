@@ -140,7 +140,7 @@ This is not an easy question to answer. If absolute dependency pinning and repro
 
 However, for the rest of us mere mortals the learning curve for flake adoption is almost vertical. And it doesn't really start to level out for quite a long time. For most people, most of the time - and certainly those of you who are new to Linux and building your own systems - it is likely too much. The single file based `configuration.nix` paradigm is so beautiful, so elegant, and simple to understand that if I were building a PMS from scratch today, it's where I would start.
 
-PMS has historically been based around the Debian / Ubuntu ecosystem for many years. In no small part this is due to the courage shown by Canonical to ship ZFS (Proxmox benefits from this too as they ship a modified Ubuntu kernel on top of a Debian base). But Nix gives us almost everything these distros do, and in such an amazingly simple package. The biggest downside? It's different. You wil have to adjust your way of thinking. But once you do, there is little doubt that Nix - or at least fully declarative systems - are the only way to roll.
+PMS has historically been based around the Debian / Ubuntu ecosystem for many years. In no small part this is due to the courage shown by Canonical to ship ZFS (Proxmox benefits from this too as they ship a modified Ubuntu kernel on top of a Debian base). But Nix gives us almost everything these distros do, and in such an amazingly simple package. The biggest downside? It's different. You will have to adjust your way of thinking. But once you do, there is little doubt that Nix - or at least fully declarative systems - are the only way to roll.
 
 
 [^1]: [GitHub - Nix, the purely functional package manager](https://github.com/NixOS/nix)
