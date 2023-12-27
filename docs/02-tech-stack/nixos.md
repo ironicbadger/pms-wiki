@@ -1,3 +1,7 @@
+---
+description: Take the blue pill and enter declarative server nirvana.
+---
+
 # NixOS
 
 ![nixos](../images/logos/nixos-logo.png)
@@ -132,7 +136,7 @@ Remember how Nix is a package manager? Well, that means we can use Nix and a rel
 
 ## To Flake, or not to Flake?
 
-This is not an easy question to answer. If absolute dependency pinning and reproducibility at all costs is your goal then they are for you. Likewise if you're a software developer and your mind works in code - you'll likely lovel them.
+This is not an easy question to answer. If absolute dependency pinning and reproducibility at all costs is your goal then they are for you. Likewise if you're a software developer and your mind works in code - you'll likely love them.
 
 However, for the rest of us mere mortals the learning curve for flake adoption is almost vertical. And it doesn't really start to level out for quite a long time. For most people, most of the time - and certainly those of you who are new to Linux and building your own systems - it is likely too much. The single file based `configuration.nix` paradigm is so beautiful, so elegant, and simple to understand that it's where if I were building a PMS from scratch today I would start.
 
