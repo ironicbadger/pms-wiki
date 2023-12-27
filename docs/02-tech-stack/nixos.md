@@ -2,9 +2,6 @@
 
 ![nixos](../images/logos/nixos-logo.png)
 
-!!! info
-    August 21st 2023 - This page is not finished yet.
-
 NixOS is quite different from almost any other Linux distribution you've ever used. It is a Linux distribution built on top of the Nix[^1] package manager which uses a *declarative model* for package and configuration management[^2].
 
 This is a fancy way of saying "I declare I want my system to look like this" via a `configuration.nix` file and having the Nix tooling go and figure out how to turn that config file into a functional system. We'll get more into more of a discussion about Flakes[^4] shortly but first, let's explore what attracted me to NixOS in the first place, simplicity.
@@ -133,11 +130,13 @@ Remember how Nix is a package manager? Well, that means we can use Nix and a rel
 };
 ```
 
-
-
 ## To Flake, or not to Flake?
 
+This is not an easy question to answer. If absolute dependency pinning and reproducibility at all costs is your goal then they are for you. Likewise if you're a software developer and your mind works in code - you'll likely lovel them.
 
+However, for the rest of us mere mortals the learning curve for flake adoption is almost vertical. And it doesn't really start to level out for quite a long time. For most people, most of the time - and certainly those of you who are new to Linux and building your own systems - it is likely too much. The single file based `configuration.nix` paradigm is so beautiful, so elegant, and simple to understand that it's where if I were building a PMS from scratch today I would start.
+
+PMS has historically been based around the Debian / Ubuntu ecosystem for many years. In no small part to the ZFS courage shown by Canonical. But Nix gives us almost everything these distros do, and in such an amazingly simple package. The biggest downside? It's different. You wil have to adjust your way of thinking. But once you do, there is little doubt that Nix - or at least fully declarative systems - are the only way to roll.
 
 
 [^1]: [GitHub - Nix, the purely functional package manager](https://github.com/NixOS/nix)
