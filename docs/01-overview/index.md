@@ -1,3 +1,7 @@
+---
+description: Perfect Media Server is a 100% open-source collection of technologies enabling you to build your own media server from scratch and runs on Linux.
+---
+
 # What is "Perfect Media Server"?
 
 Perfect Media Server (PMS) is a 100% open-source collection of technologies enabling you to build your own media server from scratch and runs on Linux.

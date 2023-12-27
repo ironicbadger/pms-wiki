@@ -1,3 +1,7 @@
+---
+description: Seeing as so many of you asked for it, here's what Alex does. Here are his hardware and software stacks - updated regularly.
+---
+
 # Alex's PMS Stack
 
 Here's a high level overview snapshot of my PMS implementation as it stands right now.

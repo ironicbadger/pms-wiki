@@ -1,3 +1,7 @@
+---
+description: Some of the most commonly asked questions about building a media server.
+---
+
 Here are some of the most commonly asked questions about building a media server.
 
 ## Can I migrate existing data from another NAS software?
