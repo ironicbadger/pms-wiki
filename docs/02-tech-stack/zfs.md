@@ -1,3 +1,7 @@
+---
+description: Use of ZFS with PMS is entirely optional. However, it does have some pedigree in keeping data safe and provides features for remote replication that prove useful when backing up. This article will cover the basics of ZFS for use with PMS. 
+---
+
 # ZFS
 
 Use of ZFS with PMS is entirely optional. However, it does have some pedigree in keeping data safe and provides features for remote replication that prove useful when backing up. This article will cover the basics of ZFS for use with PMS. 
