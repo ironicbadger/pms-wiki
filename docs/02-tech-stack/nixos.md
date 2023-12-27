@@ -138,7 +138,7 @@ Remember how Nix is a package manager? Well, that means we can use Nix and a rel
 
 This is not an easy question to answer. If absolute dependency pinning and reproducibility at all costs is your goal then they are for you. Likewise if you're a software developer and your mind works in code - you'll likely love them.
 
-However, for the rest of us mere mortals the learning curve for flake adoption is almost vertical. And it doesn't really start to level out for quite a long time. For most people, most of the time - and certainly those of you who are new to Linux and building your own systems - it is likely too much. The single file based `configuration.nix` paradigm is so beautiful, so elegant, and simple to understand that it's where if I were building a PMS from scratch today I would start.
+However, for the rest of us mere mortals the learning curve for flake adoption is almost vertical. And it doesn't really start to level out for quite a long time. For most people, most of the time - and certainly those of you who are new to Linux and building your own systems - it is likely too much. The single file based `configuration.nix` paradigm is so beautiful, so elegant, and simple to understand that if I were building a PMS from scratch today, it's where I would start.
 
 PMS has historically been based around the Debian / Ubuntu ecosystem for many years. In no small part to the ZFS courage shown by Canonical. But Nix gives us almost everything these distros do, and in such an amazingly simple package. The biggest downside? It's different. You wil have to adjust your way of thinking. But once you do, there is little doubt that Nix - or at least fully declarative systems - are the only way to roll.
 
