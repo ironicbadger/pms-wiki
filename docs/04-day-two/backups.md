@@ -12,7 +12,7 @@ The 3-2-1 backup strategy breaks down to these requirements:
 
 3 copies may seem excessive, but it provides excellent redundancy against adverse situations. Let's take a look at an example of an effective implementation of this strategy.
 
-The first copy is stored on a ZFS mirror, similar in concept to RAID 0. This keeps complete copies of the data on both drives in a mirrored fashion. While data is redundantly copied between to the two drives protecting from one single drive failure, if both drives were to fail at the same time the data is irrevocably lost. Therefore, it is necessary to have additional copies of the data to protect against other potential risks such as electrical damage, natural disasters, fires, and floods.
+The first copy is stored on a ZFS mirror, similar in concept to RAID 1. This keeps complete copies of the data on both drives in a mirrored fashion. While data is redundantly copied between to the two drives protecting from one single drive failure, if both drives were to fail at the same time the data is irrevocably lost. Therefore, it is necessary to have additional copies of the data to protect against other potential risks such as electrical damage, natural disasters, fires, and floods.
 
 !!! warning
     RAID of any form is NOT a backup! Only multiple physical copies following the 3-2-1 rule are a true backup. RAID is often incorrectly conflated with being a backup however it is designed to increase uptime not prevent data loss in and of itself.
