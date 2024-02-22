@@ -160,6 +160,7 @@ There are a *lot* of options in this space - just take a look at [awesome-selfho
 * [Photoprism](https://github.com/photoprism/photoprism)
 * [Librephotos](https://github.com/LibrePhotos/librephotos)
 * [Piwigo](http://piwigo.org/)
+* [Immich](https://immich.app/)
 
 ## 10. Tiddlywiki
 
