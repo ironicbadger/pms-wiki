@@ -30,7 +30,7 @@ This means you get ZFS support out the box, a VM and LXC hosting platform with a
 !!! success "Proxmox is the right choice for you if:"
 
 
-    1. You like a stable base distro in debian
+    1. You like a stable base distro on debian
     2. You want to run Virtual Machines
     3. You want to run LXC containers
     4. You want to use ZFS

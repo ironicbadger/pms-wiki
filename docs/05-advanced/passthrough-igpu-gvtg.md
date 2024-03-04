@@ -95,7 +95,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet intel_iommu=on i915.enable_gvt=1 drm.debug=0"
 GRUB_CMDLINE_LINUX="biosdevname=0"
 ```
 
-Regenerate initramfs with update-initramfs -u -k all and reboot. To verify that mediated devices are now enabled take a look here:
+Regenerate initramfs with `update-initramfs -u -k all` and reboot. To verify that mediated devices are now enabled take a look here:
 
 ```
 root@unas:/home/alex# ls /sys/bus/pci/devices/0000\:00\:02.0/mdev_supported_types/
