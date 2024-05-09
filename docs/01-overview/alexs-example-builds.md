@@ -11,12 +11,32 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
 
 ## On this day in history
 
+=== "May 2024"
+
+    A big upgrade this month. The venerable i5-8500 based system has been upgraded to an i5-13600k and a Supermicro X13SAE-F motherboard. The existing HBA, an LSI 8 port variant, has been replaced with an LSI 16 port card as I added 3x 4tb 2.5" SSDs for download unpacking and other IOP intensive duties.
+
+    I've replaced Proxmox with NixOS for the past 2-3 months and am still very much in the experimenting phase. However, it's been quite stable and a very pleasant administration experience so far.
+
+    ## May 2023
+    ### Hardware
+
+    | Device       | Model                                                  | Reason                                                                                                                     |
+    | ------------ | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+    | CPU          | [Intel i5-13600k](https://amzn.to/4dvu7JD)             | iGPU with built-in [Quicksync](../06-hardware/intel-quicksync.md) transcoding hardware                                        |
+    | Motherboard  | [SUPERMICRO MBD-X13SAE-F](https://amzn.to/4b71X64)       | IPMI + iGPU support. Full write-up [here](https://blog.ktz.me/asrock-rack-e3c246d4u-the-perfect-media-server-motherboard/) |
+    | Case         | [Rosewill RSV-L4500](https://amzn.to/37eVqKS)          | Pre-covid this case was often under $100 but at current prices of $200 and up, it's a tough recommendation                 |
+    | Memory       | [Corsair DDR4 64GB - Non ECC](https://amzn.to/3w8LWcN) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
+    | Boot Drive   | [Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |                                                                                                                            |
+    | HBA card     | [LSI 9300-16i HBA card](https://amzn.to/3UPYTWn)       | Connects up to 16 hard drives to a single PCIe 8x slot. |
+    | Power Supply | [Seasonic PRIME 850 Gold](https://amzn.to/3OXvMLP)     | Electricity makes computer go brrrrrr. 850w is probably overkill for this use case. 5-600w would be adequate.              |
+    | Hard Drives  | A mix of drives from 8-16tb                            | See [HDD purchasing methodology](../06-hardware/hdd-purchase-methodology.md) for more details                                 |
+
 === "August 2023"
 
     PMS wise the last 18 months have been very stable. The only changes have been cycling in and out a couple of hard drives. There's been a complete [rebuild](https://www.youtube.com/watch?v=nlB73DqNFxY) of the network around PMS with a 10 gigabit fiber upgrade in the Spring of 2023. January saw a "Jellyfin January" challenge on the Self-Hosted podcast which led to my ditching Plex almost entirely (except for Audiobooks for my wife). With the demise of Twitter and reddit, I've turned back to RSS - note the entry of FreshRSS and Wallbag in the containers section.
 
     Goals for the next year are to build a new server with more PCIe lanes to add more NVME storage to take better advantage of the 10gig network in the house now I'm editing a lot more video!
-    
+
     ## August 2023
     ### Hardware
 
