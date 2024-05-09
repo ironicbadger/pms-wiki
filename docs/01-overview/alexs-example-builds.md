@@ -31,6 +31,17 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Power Supply | [Seasonic PRIME 850 Gold](https://amzn.to/3OXvMLP)     | Electricity makes computer go brrrrrr. 850w is probably overkill for this use case. 5-600w would be adequate.              |
     | Hard Drives  | A mix of drives from 12-20tb                            | See [HDD purchasing methodology](../06-hardware/hdd-purchase-methodology.md) for more details                                 |
 
+    ### Software
+
+    | Type              | Product / Version                                          | Reason                                               |
+    | ----------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+    | OS                | [NixOS](../02-tech-stack/nixos.md)                    | ZFS support and VM UI is nice to have.               |
+    | Parity            | [SnapRAID](../02-tech-stack/snapraid.md)                      | Increases uptime and fights bit-rot style corruption |
+    | Critical data     | [ZFS](../02-tech-stack/zfs.md)   | Increasingly moving away from critical data on anything other than ZFS |
+    | Drive pooling     | [mergerfs](../02-tech-stack/mergerfs.md)                      | Presents many disks under one mountpoint              |
+    | Container runtime | [docker](../02-tech-stack/docker.md)                          | Is there another way to run software?               |
+    | VM(s)             | [Home Assistant](../04-day-two/top10apps.md#3-home-assistant) | Hard to express how much utility Home Assitant provides   |
+
 === "August 2023"
 
     PMS wise the last 18 months have been very stable. The only changes have been cycling in and out a couple of hard drives. There's been a complete [rebuild](https://www.youtube.com/watch?v=nlB73DqNFxY) of the network around PMS with a 10 gigabit fiber upgrade in the Spring of 2023. January saw a "Jellyfin January" challenge on the Self-Hosted podcast which led to my ditching Plex almost entirely (except for Audiobooks for my wife). With the demise of Twitter and reddit, I've turned back to RSS - note the entry of FreshRSS and Wallbag in the containers section.
