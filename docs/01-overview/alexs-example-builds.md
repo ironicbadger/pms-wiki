@@ -35,7 +35,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
 
     | Type              | Product / Version                                          | Reason                                               |
     | ----------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
-    | OS                | [NixOS](../02-tech-stack/nixos.md)                    | ZFS support and VM UI is nice to have.               |
+    | OS                | [NixOS](../02-tech-stack/nixos.md)                    | "I do declare my Linux system declaratively!"               |
     | Parity            | [SnapRAID](../02-tech-stack/snapraid.md)                      | Increases uptime and fights bit-rot style corruption |
     | Critical data     | [ZFS](../02-tech-stack/zfs.md)   | Increasingly moving away from critical data on anything other than ZFS |
     | Drive pooling     | [mergerfs](../02-tech-stack/mergerfs.md)                      | Presents many disks under one mountpoint              |
