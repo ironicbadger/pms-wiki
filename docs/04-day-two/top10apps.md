@@ -4,12 +4,14 @@ Once you have a server running 24/7 in your life, you'll quickly start wondering
 
 The [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) list details [Free](https://en.wikipedia.org/wiki/Free_software) Software network services and web applications which can be hosted locally. There is also a [Non-Free](https://github.com/awesome-selfhosted/awesome-selfhosted/blob/master/non-free.md) page.
 
+Ethan over at [selfh.st](https://selfh.st) recently released an interesting directory of software over at [selfh.st/companions](https://selfh.st/companions/) aiming to rival the awesome list.
 
 <p align="center">
 <iframe src="https://fireside.fm/player/v2/dUlrHQih+c60wLQ-X?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 </p>
 
 My YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems) - is still in its early days but I'm building a playlist of [self-hosted app spotlights](https://www.youtube.com/playlist?list=PLmaj94hXs3GG9yIc4nB5CdIBQ9nAays0I) you might enjoy.
+
 
 ## 1. Jellyfin
 
@@ -68,7 +70,17 @@ A fantastic resource to learn more about the project is YouTube. [Everything Sma
 
 Home Assistant can be run as a standalone container, on a Raspberry Pi, as a VM and countless [other ways](https://www.home-assistant.io/getting-started/). The learning curve is real but this project really is worth your time to investigate.
 
-## 4. Traefik
+## 4. Immich
+
+![immich-logo](../images/logos/immich-logo-stacked-dark.svg){: align=right width=200 }
+
+[Immich](https://immich.app/) is a self-hosted photo management and backup solution that is better at what it does than any of the major proprietary tech company owned solutions Whilst most people are OK with sending their photos off to the cloud for big-tech to process them, monetize them via AI and what have you, some of us aren't.
+
+Immich does local machine learning on your images to do things like face detection, object search and more. I even [made a video](https://youtu.be/QHWNu_in0Zc?si=XHcfw8xnXwbFBM2B) about it for $dayjob showcasing remote machine learning with remote GPUs as well. The Self-Hosted podcast covered Immich extensively in [episode 110](https://notes.jupiterbroadcasting.com/self-hosted/2023/episode-110/) if you'd like to learn more. It's a really fantastic project and it's well worth a look.
+
+Immich recently [joined FUTO](https://immich.app/blog/2024/immich-core-team-goes-fulltime/). I hope to see that this gives the project the runway it needs to really become the defacto open-source solution for photo management. I wrote about the options in 2021 for [Ars Technica](https://arstechnica.com/gadgets/2021/06/the-big-alternatives-to-google-photos-showdown/) and since then Immich has come out of nowhere.
+
+## 5. Traefik
 
 ![traefik-logo](../images/top10/traefik-logo.webp){: align=right width=200 }
 
@@ -84,7 +96,7 @@ The elegance of configuring the ingress rules for a service in the same place as
 * [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
 * [PMS reverse proxy comparison](../04-day-two/remote-access/index.md)
 
-## 5. Gitea
+## 6. Gitea
 
 ![gitea-logo](../images/top10/gitea-logo.png){: align=left width=240 }
 
@@ -104,7 +116,7 @@ Gitea doesn't have the kind of built-in CI features like the largest self-hosted
 * [Gitlab](https://about.gitlab.com/)
 * [Gogs](https://gogs.io/)
 
-## 6. Smokeping
+## 7. Smokeping
 
 [Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. It pings things - both remote and local - and records how much latency there is between you and the target.
 
@@ -117,7 +129,7 @@ It isn't a terribly glamourous application to look at, but it enables you to see
 </figure>
 </p>
 
-## 7. Grafana
+## 8. Grafana
 
 [Grafana](https://grafana.com/) itself is graphing tool to display data stored elsewhere. It excels at displaying time-series data like the kind gathered by monitoring tools like [Telegraf](https://blog.linuxserver.io/2017/11/25/how-to-monitor-your-server-using-grafana-influxdb-and-telegraf/) and [Prometheus](https://prometheus.io/). It takes a bit of work to get a dashboard configured just the way you like it but is well worth the effort - after all, who doesn't like a pretty graph?
 
@@ -125,7 +137,7 @@ It isn't a terribly glamourous application to look at, but it enables you to see
 
 I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server setup.
 
-## 8. Librespeed
+## 9. Librespeed
 
 A speed test tool that can be run on your LAN or hosted in the cloud. This is available as a Self-Hosted [container](https://hub.docker.com/r/linuxserver/librespeed) as well as at [librespeed.org](https://librespeed.org/).
 
@@ -140,7 +152,7 @@ This is really useful when you want to test the speed between your current syste
 
 By running this container on your LAN you're able to remove the internet from the equation and get a better idea about what's going on your LAN.
 
-## 9. Lychee
+## 10. Lychee
 
 [Lychee](https://lychee.electerious.com/) proclaims to be "self-hosted photo-management done right". It does certainly do a very good job at presenting images with a clean interface and makes dividing them up into albums relatively straightforward.
 
@@ -162,7 +174,7 @@ There are a *lot* of options in this space - just take a look at [awesome-selfho
 * [Piwigo](http://piwigo.org/)
 * [Immich](https://immich.app/)
 
-## 10. Tiddlywiki
+## 11. Tiddlywiki
 
 A personal wiki is a personal choice. My personal favourite is Tiddlywiki - we covered it in episode 12 of Self-Hosted. [Tiddlywiki v5](https://github.com/Jermolene/TiddlyWiki5) is the latest version but it has a long heritage with the first release dating back to September 2004!
 
@@ -188,7 +200,7 @@ I run Tiddlywiki out of a container authored by [mazzolino](https://hub.docker.c
 * [wiki.js](https://wiki.js)
 * [Zim](https://zim-wiki.org/)
 
-## 11. Surprise me...
+## 12. Surprise me...
 
 `<insert Spinal Tap reference>`
 
