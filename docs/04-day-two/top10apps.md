@@ -190,7 +190,7 @@ My absolute favourite thing about Tiddlywiki is just how fast it is to find what
 
 The largest quirk comes when trying to add images, it's just not well suited to this. But you can make it work with a little learning curve. If I had a feature request for v6, it would be to improve the image handling.
 
-I run Tiddlywiki out of a container authored by [mazzolino](https://hub.docker.com/r/mazzolino/tiddlywiki) which works well with Traefik.
+I run Tiddlywiki out of a container authored by [mazzolino](https://hub.docker.com/r/mazzolino/tiddlywiki) which works well with Traefik but is sadly no longer maintained. For this reason, I've largely dropped Tiddlywiki and replaced it with [Obsidian](https://obsidian.md/) as this allows the local markdown files I covet and works on all platforms.
 
 **Similar or related projects:**
 
@@ -199,6 +199,7 @@ I run Tiddlywiki out of a container authored by [mazzolino](https://hub.docker.c
 * [mkdocs](https://mkdocs.org)
 * [wiki.js](https://wiki.js)
 * [Zim](https://zim-wiki.org/)
+* [Obsidian](https://obsidian.md/)
 
 ## 12. Surprise me...
 
