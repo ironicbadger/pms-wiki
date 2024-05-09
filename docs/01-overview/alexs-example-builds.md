@@ -23,7 +23,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Device       | Model                                                  | Reason                                                                                                                     |
     | ------------ | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
     | CPU          | [Intel i5-13600k](https://amzn.to/4dvu7JD)             | iGPU with built-in [Quicksync](../06-hardware/intel-quicksync.md) transcoding hardware                                        |
-    | Motherboard  | [SUPERMICRO MBD-X13SAE-F](https://amzn.to/4b71X64)       | IPMI + iGPU support. Full write-up [here](https://blog.ktz.me/asrock-rack-e3c246d4u-the-perfect-media-server-motherboard/) |
+    | Motherboard  | [SUPERMICRO MBD-X13SAE-F](https://amzn.to/4b71X64)       | IPMI + iGPU support. Motherboard upgrade video [here](https://youtu.be/1pvUYpEyeYw?si=lLzqTXX8WAZaYp7t) |
     | Case         | [Rosewill RSV-L4500](https://amzn.to/37eVqKS)          | Pre-covid this case was often under $100 but at current prices of $200 and up, it's a tough recommendation                 |
     | Memory       | [Corsair DDR4 64GB - Non ECC](https://amzn.to/3w8LWcN) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
     | Boot Drive   | [Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |                                                                                                                            |
