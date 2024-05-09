@@ -74,7 +74,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     See my infra repo for a full list [here](https://github.com/ironicbadger/infra/blob/master/group_vars/morpheus.yaml#L275).
 
 === "May 2022"
-    
+
     ## May 2022
     ### Hardware
 
@@ -113,7 +113,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
 
     See my infra repo for a full list [here](https://github.com/ironicbadger/infra/blob/master/group_vars/morpheus.yaml#L275).
 
-![motherboard](../images/hardware/asrockmobo.jpg)
+    ![motherboard](../images/hardware/asrockmobo.jpg)
 
 ## Network Diagram
 
