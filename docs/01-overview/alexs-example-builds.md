@@ -17,7 +17,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
 
     I've replaced Proxmox with NixOS for the past 2-3 months and am still very much in the experimenting phase. However, it's been quite stable and a very pleasant administration experience so far.
 
-    ## May 2023
+    ## May 2024
     ### Hardware
 
     | Device       | Model                                                  | Reason                                                                                                                     |
