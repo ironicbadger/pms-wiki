@@ -26,10 +26,10 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Motherboard  | [SUPERMICRO MBD-X13SAE-F](https://amzn.to/4b71X64)       | IPMI + iGPU support. Motherboard upgrade video [here](https://youtu.be/1pvUYpEyeYw?si=lLzqTXX8WAZaYp7t) |
     | Case         | [Rosewill RSV-L4500](https://amzn.to/37eVqKS)          | The baseline standard for 4u rack mount cases that can hold a ton of hard drives for relatively cheap                 |
     | Memory       | [64GB Samsung DDR5 ECC Memory](https://amzn.to/3UT9Mqj) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
-    | Boot Drive   | [Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |                                                                                                                            |
+    | Boot Drive   | [2x Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |    Running in a ZFS mirror configuration.                                                                                                                        |
     | HBA card     | [LSI 9300-16i HBA card](https://amzn.to/3UPYTWn)       | Connects up to 16 hard drives to a single PCIe 8x slot. |
     | Power Supply | [Seasonic PRIME 850 Gold](https://amzn.to/3OXvMLP)     | Electricity makes computer go brrrrrr. 850w is probably overkill for this use case. 5-600w would be adequate.              |
-    | Hard Drives  | A mix of drives from 8-16tb                            | See [HDD purchasing methodology](../06-hardware/hdd-purchase-methodology.md) for more details                                 |
+    | Hard Drives  | A mix of drives from 12-20tb                            | See [HDD purchasing methodology](../06-hardware/hdd-purchase-methodology.md) for more details                                 |
 
 === "August 2023"
 
