@@ -17,3 +17,4 @@
 *[webUI]: Web User Interface (GUI)
 *[KVM]: Kernel Virtual Machines
 *[VMUG]: VMware User Group
+*[QSV]: Intel Quick Sync Video
