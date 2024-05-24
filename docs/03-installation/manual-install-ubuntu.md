@@ -8,7 +8,7 @@ By the time you've worked through this section, you should have installed your O
 
 ![dual-cpu-motherboard](../images/hardware/dualxeon.jpg){: align=right width=430 }
 
-At the time of writing the most recent Long-Term Support (LTS) release of Ubuntu is 22.04. Installation of Ubuntu itself is documented by [Canonical](https://canonical.com/) (the company behind Ubuntu) on their [website](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview). 
+At the time of writing the most recent Long-Term Support (LTS) release of Ubuntu is 22.04. Installation of Ubuntu itself is documented by [Canonical](https://canonical.com/) (the company behind Ubuntu) on their [website](https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview).
 
 I linked to the desktop installation instructions but Canonical also provide a more minimial server release if you don't have any desire for the desktop related cruft to be installed on your server.
 
@@ -19,14 +19,14 @@ Creating a bootable USB stick to install Linux from used to be a tricky thing. T
 
 When it works, [Ventoy](https://www.ventoy.net/en/index.html) is magic. It turns a single USB drive into a 'universal' USB boot drive. Simply drop ISOs into the predetermined folder and you can boot them immediately. No messing with partition tables or `dd` or etcher, etc.
 
-!!! info 
+!!! info
     As of Ubuntu Server 22.04 or later, drives are presented correctly once more under `/dev/disk/by-id`. For a long time Ubuntu Server was not recommended (see [FAQ - Why not Ubuntu Server?](../01-overview/faq.md#why-ubuntu-desktop-instead-of-ubuntu-server)) however if you're running Ubuntu, the Server variant is now the recommended choice for a simple PMS deployment. In reality, [Proxmox](../02-tech-stack/proxmox.md) is our preference these days.
 
 There are a few options you have with regards to boot drive. The simplest option is buy a dedicated SSD for this purpose. Use this drive for the OS and temporary files (like in-progress file transfers) before moving them to your array. You might find putting your Plex metadata on an SSD such as this will help performance of library loading.
 
 Running the Gnome desktop on a server is a bit unnecessary as we'll manage this server 99% of the time via SSH. If you'd like to remove the desktop altogether, [here](https://askubuntu.com/questions/1233025/how-to-remove-gnome-shell-from-ubuntu-20-04-lts-to-install-other-desktop-environ) are some instructions on doing so from AskUbuntu. This step is *completely optional*.
 
-!!! danger 
+!!! danger
     Experimental ZFS on root support was added to 20.04 LTS. Need I say more about installing your server on an option marked as 'experimental' in the installer? OK, for clarity, don't!.
 
 Create a user as prompted by the installer and set a secure password. With installation complete, it's time to reboot into the OS. Let's start configuring the system ready to be your Perfect Media Server.
@@ -72,8 +72,8 @@ In order to use these disks our OS needs to mount them. *Mounting* means that we
 The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. `xfs` allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on choosing your filesystem [here](https://access.redhat.com/articles/3129891).
 
 !!! info
-    There are two version of Ubuntu mainline available - the [desktop](https://ubuntu.com/download/desktop) and [server](https://ubuntu.com/download/server) variants. 
-    
+    There are two version of Ubuntu mainline available - the [desktop](https://ubuntu.com/download/desktop) and [server](https://ubuntu.com/download/server) variants.
+
     Due to some quirkiness in how Ubuntu server and desktop present drives under `/dev/disk/by-id` we recommend using the Ubuntu desktop variant. You can [disable the desktop services](https://linuxconfig.org/how-to-disable-enable-gui-on-boot-in-ubuntu-20-04-focal-fossa-linux-desktop) if system resources are at a premium.
 
 Remember with mergerfs you are able to safely mix and match filesystems and drive sizes which is part of it's real magic. This means you don't have to stress too much about picking exactly the right filesystem up front because you aren't locked in.
@@ -108,7 +108,7 @@ Therefore, we can ascertain that `/dev/sdc` is mapped to this physical drive. Ne
 
 Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under *Hardware* -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
 
-!!! warning 
+!!! warning
     **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is *any* existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
 
 The following steps will require root access. To become the root user type `sudo su`. Using our example drive from the prior section we will use `gdisk` to create a new partition and filesystem. Run `gdisk /dev/sdX` (replacing `sdX` with your drive), for example:
@@ -169,7 +169,7 @@ Move onto the next section 'Existing drive' to learn how to mount it (make it av
     Ensure you have the correct supporting libraries for your filesystem installed such as `xfsprogs` for XFS.
 
     With Ubuntu this is achieved via `sudo apt install xfsprogs`.
-    
+
 You should now be able to mount the drive manually like so:
 
     mkdir /mnt/manualdiskmounttest
@@ -199,7 +199,7 @@ Next we need to create an entry in `/etc/fstab`.
 
 This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/index.php/fstab).
 
-!!! note 
+!!! note
     Note that mergerfs does *not* mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has *nothing to do* with parity, that is what we use SnapRAID for.
 
 Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapRAID parity drive. 
@@ -257,7 +257,7 @@ sudo dpkg -i build/snapraid-from-source.deb
 
 Verify successful installation with:
 
-``` 
+```
 alex@cartman:~$ snapraid --version
 snapraid v11.5 by Andrea Mazzoleni, http://www.snapraid.it
 ```
@@ -471,7 +471,7 @@ pdbedit -L -v
 systemctl restart smbd
 ```
 
-* Verify using a client: 
+* Verify using a client:
     * Linux - `sudo smbstatus`
     * Mac - Open finder, press Command+K and enter `smb://serverip/storage`
     * Windows - Open file explorer and enter into the address bar `\\serverip\share`
@@ -514,7 +514,7 @@ Ensure the mountpoint exists. If it doesn't, create it with `mkdir /mnt/mountpoi
 
 ### NFS
 
-Once again, the [Arch Wiki](https://wiki.archlinux.org/index.php/NFS#Installation) is the best place to dive _deep_ on NFS, and there really is a lot of great information in that article. 
+Once again, the [Arch Wiki](https://wiki.archlinux.org/index.php/NFS#Installation) is the best place to dive _deep_ on NFS, and there really is a lot of great information in that article.
 
 There isn't much call for NFS these days for home use and we've found most users can get by with only samba quite happily. If you need NFS, you'll know it.
 
