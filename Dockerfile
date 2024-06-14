@@ -1,4 +1,4 @@
-FROM git.ktz.me/alexktz/mkdocs-material-insiders:latest
+FROM ghcr.io/ironicbadger/mkdocs-material-insiders:latest
 
 RUN git config --global --add safe.directory /docs
 
