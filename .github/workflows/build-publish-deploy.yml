@@ -26,4 +26,5 @@ jobs:
             docker push ghcr.io/ironicbadger/pms-wiki:latest
             docker container prune -f
             docker image prune -f
+            docker compose up -d pms-wiki
           "
