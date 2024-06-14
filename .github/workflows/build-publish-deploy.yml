@@ -21,18 +21,18 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
-      - name: Connect Tailscale
-        uses: tailscale/github-action@v2
-        with:
-          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-          tags: tag:ci
+      # - name: Connect Tailscale
+      #   uses: tailscale/github-action@v2
+      #   with:
+      #     oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+      #     oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+      #     tags: tag:ci
 
-      - name: Do the deploy thing
-        run: |
-          ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud "
-            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }}
-            docker pull ghcr.io/ironicbadger/pms-wiki
-            docker compose up -d pms-wiki
-            docker image prune -af
-          "
+      # - name: Do the deploy thing
+      #   run: |
+      #     ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud "
+      #       docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }}
+      #       docker pull ghcr.io/ironicbadger/pms-wiki
+      #       docker compose up -d pms-wiki
+      #       docker image prune -af
+      #     "
