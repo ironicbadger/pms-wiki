@@ -1,4 +1,4 @@
-name: Deploy to VPS via Tailscale
+name: Build, publish, and deploy.
 on:
   push:
     branches:
