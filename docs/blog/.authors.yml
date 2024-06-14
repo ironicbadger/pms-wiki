@@ -1,4 +1,5 @@
-ironicbadger:
-  name: "Alex Kretzschmar"
-  description: Author
-  avatar: https://avatars.githubusercontent.com/u/2773080
+authors:
+  ironicbadger:
+    name: "Alex Kretzschmar"
+    description: Author
+    avatar: https://avatars.githubusercontent.com/u/2773080
