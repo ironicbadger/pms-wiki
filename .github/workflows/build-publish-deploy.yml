@@ -22,6 +22,8 @@ jobs:
             cd ${{ secrets.VPS_PROJECT_PATH }}
             git pull
             docker compose run pms-wiki build
-            docker tag pms-wiki ghcr.io/ironicbadger/pms-wiki
-            docker push ghcr.io/ironicbadger/pms-wiki
+            docker compose build
+            docker push ghcr.io/ironicbadger/pms-wiki:latest
+            docker container prune -f
+            docker image prune -f
           "
