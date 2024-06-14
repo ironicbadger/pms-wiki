@@ -31,7 +31,8 @@ jobs:
       - name: Do the deploy thing
         run: |
           ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud "
-            docker compose pull pms-wiki
+            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }}
+            docker pull ghcr.io/ironicbadger/pms-wiki
             docker compose up -d pms-wiki
             docker image prune -af
           "
