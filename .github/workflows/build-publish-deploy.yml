@@ -7,51 +7,20 @@ on:
 jobs:
   build-publish-deploy:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to GHCR
-        uses: docker/login-action@v3
+      - name: Connect Tailscale
+        uses: tailscale/github-action@v2
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
 
-      - name: Build and push
-        uses: docker/build-push-action@v5
-        with:
-          push: true
-          tags: ghcr.io/ironicbadger/pms-wiki:latest
-
-      # - name: Build and push Docker image
-      #   uses: mr-smithers-excellent/docker-build-push@v6
-      #   with:
-      #     image: pms-wiki
-      #     registry: ghcr.io
-      #     username: ${{ github.actor }}
-      #     password: ${{ secrets.GHCR_TOKEN }}
-
-      # - name: Connect Tailscale
-      #   uses: tailscale/github-action@v2
-      #   with:
-      #     oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
-      #     oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
-      #     tags: tag:ci
-
-      # - name: Do the deploy thing
-      #   run: |
-      #     ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud "
-      #       docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }}
-      #       docker pull ghcr.io/ironicbadger/pms-wiki
-      #       docker compose up -d pms-wiki
-      #       docker image prune -af
-      #     "
+      - name: Do the deploy thing
+        run: |
+          ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud "
+            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }}
+            git pull
+            docker-compose run pms-wiki build
+            docker tag pms-wiki ghcr.io/ironicbadger/pms-wiki
+            docker push ghcr.io/ironicbadger/pms-wiki
+          "
