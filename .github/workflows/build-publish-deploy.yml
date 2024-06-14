@@ -31,7 +31,6 @@ jobs:
       - name: Do the deploy thing
         run: |
           ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud "
-            cd ${{ secrets.VPS_PROJECT_PATH }}
             docker compose pull pms-wiki
             docker compose up -d pms-wiki
             docker image prune -af
