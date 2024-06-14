@@ -5,9 +5,22 @@ on:
       - main
 
 jobs:
-  deploy-via-tailscale:
+  build-publish-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v6
+        with:
+          image: ghcr.io/ironicbadger/pms-wiki
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_TOKEN }}
+
       - name: Connect Tailscale
         uses: tailscale/github-action@v2
         with:
@@ -19,6 +32,7 @@ jobs:
         run: |
           ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud "
             cd ${{ secrets.VPS_PROJECT_PATH }}
-            git pull
-            docker-compose run pms-wiki build
+            docker-compose pull pms-wiki
+            docker-compose up -d pms-wiki
+            docker image prune -af
           "
