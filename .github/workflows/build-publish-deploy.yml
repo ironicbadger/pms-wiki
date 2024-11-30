@@ -20,9 +20,8 @@ jobs:
         run: |
           ssh -o "StrictHostKeyChecking no" ironicbadger@ktz-cloud "
             docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GHCR_TOKEN }}
-            cd ${{ secrets.VPS_PROJECT_PATH }}
+            cd /opt/appdata/pms-wiki
             git pull
-            docker compose run pms-wiki build
             docker compose build
             docker push ghcr.io/ironicbadger/pms-wiki:latest
             docker container prune -f
