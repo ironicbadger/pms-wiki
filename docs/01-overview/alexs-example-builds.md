@@ -25,7 +25,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | CPU          | [Intel i5-13600k](https://amzn.to/4dvu7JD)             | iGPU with built-in [Quicksync](../06-hardware/intel-quicksync.md) transcoding hardware                                        |
     | Motherboard  | [SUPERMICRO MBD-X13SAE-F](https://amzn.to/4b71X64)       | IPMI + iGPU support. Motherboard upgrade video [here](https://youtu.be/1pvUYpEyeYw?si=lLzqTXX8WAZaYp7t) |
     | Case         | [Rosewill RSV-L4500](https://amzn.to/37eVqKS)          | The baseline standard for 4u rack mount cases that can hold a ton of hard drives for relatively cheap                 |
-    | Memory       | [64GB Samsung DDR5 ECC Memory](https://amzn.to/3UT9Mqj) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
+    | Memory       | [64GB Kingston 32GB DDR5 4800MT/s ECC CL40 2RX8](https://amzn.to/4eWEc1R) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
     | Boot Drive   | [2x Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |    Running in a ZFS mirror configuration.                                                                                                                        |
     | HBA card     | [LSI 9300-16i HBA card](https://amzn.to/3UPYTWn)       | Connects up to 16 hard drives to a single PCIe 8x slot. |
     | Power Supply | [Seasonic PRIME 850 Gold](https://amzn.to/3OXvMLP)     | Electricity makes computer go brrrrrr. 850w is probably overkill for this use case. 5-600w would be adequate.              |
