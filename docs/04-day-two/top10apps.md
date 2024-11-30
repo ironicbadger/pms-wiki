@@ -4,10 +4,8 @@ Once you have a server running 24/7 in your life, you'll quickly start wondering
 
 The [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted) list details [Free](https://en.wikipedia.org/wiki/Free_software) Software network services and web applications which can be hosted locally. There is also a [Non-Free](https://github.com/awesome-selfhosted/awesome-selfhosted/blob/master/non-free.md) page.
 
-Ethan over at [selfh.st](https://selfh.st) recently released an interesting directory of software over at [selfh.st/companions](https://selfh.st/companions/) aiming to rival the awesome list.
-
 <p align="center">
-<iframe src="https://fireside.fm/player/v2/dUlrHQih+c60wLQ-X?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://player.fireside.fm/v2/dUlrHQih+KXqyZUPK?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 </p>
 
 My YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems) - is still in its early days but I'm building a playlist of [self-hosted app spotlights](https://www.youtube.com/playlist?list=PLmaj94hXs3GG9yIc4nB5CdIBQ9nAays0I) you might enjoy.
@@ -15,15 +13,15 @@ My YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems) - is sti
 
 ## 1. Jellyfin
 
-[Jellyfin](https://jellyfin.org/) is the volunteer-built media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
+[Jellyfin](https://jellyfin.org/) is the media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
 
 <p align="center">
 <img alt="jellyfin-banner" src="../../images/top10/jellyfin.png">
 </p>
 
-Jellyfin has come a really long way in the last 12 months (list edited Jan 2023). No cloud connectivity required for authentication, no random streaming services and hugely snappy performance are all great reasons to try Jellyfin. Did I mention that it's completely open source too?
+Jellyfin serves no business model, and is not subject to the gradual enshitification that we've seen with Plex over the years. With no cloud connectivity required for authentication, no random streaming services and snappy performance - a fully featured, local first media server experience awaits. Did I mention that it's completely open source too?
 
-It really is worth a look if you haven't tried it in a while. Client updates are coming thick and fast and the server side of things has improved hugely as well. Jellyfin is the future of media servers, no doubt. Check out episode 87 of the podcast where we discuss our Jellyfin January challenge and invite the audience to take the challenge with us!
+It really is worth a look if you haven't tried it in a while. Client updates are coming thick and fast and the server side of things has improved hugely as well. Jellyfin is the future of media servers, no doubt. Check out episode 87 of the Self-Hosted podcast where we discuss our Jellyfin January challenge and invite the audience to take the challenge with us!
 
 <p align="center">
 <iframe src="https://player.fireside.fm/v2/dUlrHQih+B62wpyjN?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
@@ -37,7 +35,31 @@ It really is worth a look if you haven't tried it in a while. Client updates are
 * [Emby](https://emby.media/)
 * [Kodi](https://kodi.tv/)
 
-## 2. Nextcloud
+
+## 2. Home Assistant
+
+![home-assistant-logo](../images/top10/ha-logo.png){: align=right width=200 }
+
+Open source home automation that puts local control and privacy first. [Home Assistant](https://www.home-assistant.io/) is a truly remarkable project. At the time of writing it has over 3000 [integrations](https://www.home-assistant.io/integrations/) with all manner of devices, services and hardware supported. This is the true magic of Home Assistant.
+
+A [demo](https://demo.home-assistant.io/#/lovelace/0) is available if you're curious to see it in action. But the real magic comes when you start automating your life to a point where when Home Assistant isn't there, you miss it. Automate the lights, climate control and yes, even your dog (via a bedtime routine) with Home Assistant!
+
+A fantastic resource to learn more about the project is YouTube. [Everything Smart Home](https://www.youtube.com/@EverythingSmartHome), [The Hook Up](https://www.youtube.com/c/TheHookUp), [Intermit.tech](https://www.youtube.com/c/IntermitTech), [Smart Home Solver](https://www.youtube.com/@SmartHomeSolver) and [DigiblurDIY](https://www.youtube.com/c/digiblurDIY) are some of the most well-known channels. This isn’t an exhaustive list but should give you plenty of material to work with if you’re in need of inspiration or buying advice.
+
+Home Assistant can be run as a standalone container, on a Raspberry Pi, as a VM and countless [other ways](https://www.home-assistant.io/getting-started/). The learning curve is real but this project really is worth your time to investigate.
+
+## 3. Immich
+
+![immich-logo](../images/logos/immich-logo-stacked-dark.svg){: align=right width=200 }
+
+[Immich](https://immich.app/) is a self-hosted photo management and backup solution that is better at what it does than any of the major proprietary tech company owned solutions Whilst most people are OK with sending their photos off to the cloud for big-tech to process them, monetize them via AI and what have you, some of us aren't.
+
+Immich does local machine learning on your images to do things like face detection, object search and more. I even [made a video](https://youtu.be/QHWNu_in0Zc?si=XHcfw8xnXwbFBM2B) about it for $dayjob showcasing remote machine learning with remote GPUs as well. The Self-Hosted podcast covered Immich extensively in [episode 110](https://notes.jupiterbroadcasting.com/self-hosted/2023/episode-110/) if you'd like to learn more. It's a really fantastic project and it's well worth a look.
+
+Immich recently [joined FUTO](https://immich.app/blog/2024/immich-core-team-goes-fulltime/). I hope to see that this gives the project the runway it needs to really become the defacto open-source solution for photo management. I wrote about the options in 2021 for [Ars Technica](https://arstechnica.com/gadgets/2021/06/the-big-alternatives-to-google-photos-showdown/) and since then Immich has come out of nowhere.
+
+
+## 4. Nextcloud
 
 [Nextcloud](https://nextcloud.com/) - The self-hosted productivity platform that keeps you in control.
 
@@ -47,7 +69,9 @@ Surely this pick needs no introduction. Think of Nextcloud somewhat like your ow
 <img alt="nextcloud-banner" src="../../images/top10/nextcloud-banner.png">
 </p>
 
-The recently launched [Nextcloud Hub](https://nextcloud.com/hub) brings together several key areas of functionality:
+It can be a bit unreliable and unwieldy to administer at times - especially around update cycles. But once you get a working configuration it's a really handy tool.
+
+[Nextcloud Hub](https://nextcloud.com/hub) brings together several key areas of functionality:
 
 * [Nextcloud Files](https://nextcloud.com/files) - offers universal file access on desktop, mobile and web. Find files with powerful search, share your thoughts in comments or lock files until you are done with them. 
 * [Nextcloud Talk](https://nextcloud.com/talk) - delivers on-premises, private audio/video conferencing and text chat through browser and mobile interfaces with integrated screen sharing and SIP integration.
@@ -58,42 +82,20 @@ The recently launched [Nextcloud Hub](https://nextcloud.com/hub) brings together
 * [Seafile](https://www.seafile.com/en/home/)
 * [Filestash](https://github.com/mickael-kerjean/filestash)
 
-## 3. Home Assistant
-
-![home-assistant-logo](../images/top10/ha-logo.png){: align=right width=200 }
-
-Open source home automation that puts local control and privacy first. [Home Assistant](https://www.home-assistant.io/) is a truly remarkable project. At the time of writing it has over 2500 [integrations](https://www.home-assistant.io/integrations/) with all manner of devices, services and hardware supported. This is the true magic of Home Assistant.
-
-A [demo](https://demo.home-assistant.io/#/lovelace/0) is available if you're curious to see it in action. But the real magic comes when you start automating your life to a point where when Home Assistant isn't there, you miss it. Automate the lights, climate control and yes, even your dog (via a bedtime routine) with Home Assistant!
-
-A fantastic resource to learn more about the project is YouTube. [Everything Smart Home](https://www.youtube.com/@EverythingSmartHome), [The Hook Up](https://www.youtube.com/c/TheHookUp), [Intermit.tech](https://www.youtube.com/c/IntermitTech), [Smart Home Solver](https://www.youtube.com/@SmartHomeSolver) and [DigiblurDIY](https://www.youtube.com/c/digiblurDIY) are some of the most well-known channels. This isn’t an exhaustive list but should give you plenty of material to work with if you’re in need of inspiration or buying advice.
-
-Home Assistant can be run as a standalone container, on a Raspberry Pi, as a VM and countless [other ways](https://www.home-assistant.io/getting-started/). The learning curve is real but this project really is worth your time to investigate.
-
-## 4. Immich
-
-![immich-logo](../images/logos/immich-logo-stacked-dark.svg){: align=right width=200 }
-
-[Immich](https://immich.app/) is a self-hosted photo management and backup solution that is better at what it does than any of the major proprietary tech company owned solutions Whilst most people are OK with sending their photos off to the cloud for big-tech to process them, monetize them via AI and what have you, some of us aren't.
-
-Immich does local machine learning on your images to do things like face detection, object search and more. I even [made a video](https://youtu.be/QHWNu_in0Zc?si=XHcfw8xnXwbFBM2B) about it for $dayjob showcasing remote machine learning with remote GPUs as well. The Self-Hosted podcast covered Immich extensively in [episode 110](https://notes.jupiterbroadcasting.com/self-hosted/2023/episode-110/) if you'd like to learn more. It's a really fantastic project and it's well worth a look.
-
-Immich recently [joined FUTO](https://immich.app/blog/2024/immich-core-team-goes-fulltime/). I hope to see that this gives the project the runway it needs to really become the defacto open-source solution for photo management. I wrote about the options in 2021 for [Ars Technica](https://arstechnica.com/gadgets/2021/06/the-big-alternatives-to-google-photos-showdown/) and since then Immich has come out of nowhere.
-
 ## 5. Traefik
 
 ![traefik-logo](../images/top10/traefik-logo.webp){: align=right width=200 }
 
 Yes, I know. A reverse proxy isn't the most terribly exciting inclusion in this list but it is one of the most important. [Traefik](https://traefik.io/traefik/) (pronounced "traffic") is my go-to reverse proxy. It can be configured alongside the containers it is proxying in the same [docker-compose](../02-tech-stack/docker-compose.md) yaml file.
 
-Traefik does what any good reverse proxy should in 2023, it integrates with certbot and Let's Encrypt for automated TLS certificate generation for your service. Setup can be a bit complex at first but there's a complete [Traefik 101 guide](../04-day-two/remote-access/traefik101.md) over in the "remote access" section.
+Traefik does what any good reverse proxy should in 2025, it integrates with certbot and Let's Encrypt for automated TLS certificate generation for your service. Setup can be a bit complex at first but there's a complete [Traefik 101 guide](../04-day-two/remote-access/traefik101.md) over in the "remote access" section.
 
 The elegance of configuring the ingress rules for a service in the same place as you define the configuration for the service itself makes up for any of the shortcomings due to initial setup complexity in my opinion.
 
 **Similar or related projects:**
 
-* [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 * [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
+* [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 * [PMS reverse proxy comparison](../04-day-two/remote-access/index.md)
 
 ## 6. Gitea
@@ -102,7 +104,7 @@ The elegance of configuring the ingress rules for a service in the same place as
 
 A self-hosted, lightweight, yet highly feature rich git server, [Gitea](https://gitea.io) is much more powerful than it might seem at first. Sure, it has all the obivous trappings you'd expect from a code hosting solution such as multi-user support, organisations and a similar merge/fork model to a certain well-known online hub for Git activity. 
 
-As of [v1.19](https://blog.gitea.com/release-of-1.19.0/#-gitea-actions-21937) in March 2023 Gitea added Actions, a built-in CI system like GitHub Actions. With Gitea Actions, you can reuse your familiar workflows and Github Actions in your self-hosted Gitea instance. While it is not currently fully compatible with GitHub Actions, we intend to become as compatible as possible in future versions.
+As of [v1.19](https://blog.gitea.com/release-of-1.19.0/#-gitea-actions-21937) in March 2023 Gitea added Actions, a built-in CI system like GitHub Actions. With Gitea Actions, you can reuse your familiar workflows and Github Actions in your self-hosted Gitea instance.
 
 ![gitea](../images/top10/gitea-ui.png)
 
@@ -129,15 +131,7 @@ It isn't a terribly glamourous application to look at, but it enables you to see
 </figure>
 </p>
 
-## 8. Grafana
-
-[Grafana](https://grafana.com/) itself is graphing tool to display data stored elsewhere. It excels at displaying time-series data like the kind gathered by monitoring tools like [Telegraf](https://blog.linuxserver.io/2017/11/25/how-to-monitor-your-server-using-grafana-influxdb-and-telegraf/) and [Prometheus](https://prometheus.io/). It takes a bit of work to get a dashboard configured just the way you like it but is well worth the effort - after all, who doesn't like a pretty graph?
-
-![grafana](../images/top10/grafana.png)
-
-I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server setup.
-
-## 9. Librespeed
+## 8. Librespeed
 
 A speed test tool that can be run on your LAN or hosted in the cloud. This is available as a Self-Hosted [container](https://hub.docker.com/r/linuxserver/librespeed) as well as at [librespeed.org](https://librespeed.org/).
 
@@ -152,13 +146,13 @@ This is really useful when you want to test the speed between your current syste
 
 By running this container on your LAN you're able to remove the internet from the equation and get a better idea about what's going on your LAN.
 
-## 10. Lychee
+## 9. Lychee
 
 [Lychee](https://lychee.electerious.com/) proclaims to be "self-hosted photo-management done right". It does certainly do a very good job at presenting images with a clean interface and makes dividing them up into albums relatively straightforward.
 
 ![lychee](../images/top10/lychee.png)
 
-I have a demo instance running at [gallery.selfhosted.show](https://gallery.selfhosted.show) if you'd like to take it for a quick test drive yourself. Lychee isn't necessarily the best in this space but it's a pretty good all-round option with no frills (no face scanning or machine learning type features).
+I have a demo instance running at [gallery.ktz.cloud](https://gallery.ktz.cloud) if you'd like to take it for a quick test drive yourself. Lychee isn't really a management app, but it's a pretty good all-round option with no frills to share photos with friends and family.
 
 <figure>
     <iframe src="https://player.fireside.fm/v2/dUlrHQih+OssEQUFF?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
@@ -173,6 +167,14 @@ There are a *lot* of options in this space - just take a look at [awesome-selfho
 * [Librephotos](https://github.com/LibrePhotos/librephotos)
 * [Piwigo](http://piwigo.org/)
 * [Immich](https://immich.app/)
+
+## 10. Grafana
+
+[Grafana](https://grafana.com/) itself is graphing tool to display data stored elsewhere. It excels at displaying time-series data like the kind gathered by monitoring tools like [Telegraf](https://blog.linuxserver.io/2017/11/25/how-to-monitor-your-server-using-grafana-influxdb-and-telegraf/) and [Prometheus](https://prometheus.io/). It takes a bit of work to get a dashboard configured just the way you like it but is well worth the effort - after all, who doesn't like a pretty graph?
+
+![grafana](../images/top10/grafana.png)
+
+I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server setup.
 
 ## 11. Tiddlywiki
 
