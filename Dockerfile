@@ -1,9 +1,14 @@
-FROM ghcr.io/ironicbadger/mkdocs-material-insiders:latest
+FROM ghcr.io/ironicbadger/mkdocs-material-insiders:latest AS builder
 
-RUN git config --global --add safe.directory /docs
+WORKDIR /build
+COPY requirements.txt .
+RUN pip install --no-cache-dir -U -r requirements.txt
 
-COPY requirements.txt /docs/requirements.txt
-RUN pip install -U -r /docs/requirements.txt
+COPY . .
+RUN mkdocs build
 
-FROM nginx
-COPY ./site /usr/share/nginx/html
+# Final stage
+FROM nginx:alpine
+COPY --from=builder /build/site /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
