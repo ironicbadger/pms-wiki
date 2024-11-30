@@ -6,8 +6,6 @@ In the context of building PMS you have two real choices. If you're at all inter
 
 Ubuntu isn't perfect. They make weird choices about pushing proprietary app packaging formats like SNAP [^1] that you can't easily disable[^2]. But their courage to ship ZFS and provide bi-annual LTS means that it has been a predictable, reliable and dependable long term option to build PMS on top of.
 
-
-
 Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Arch, SUSE, or whatever else will work just fine as a NAS. The main things to watch out for are software availability in a timely fashion (*cough, cough debian*) and whether you can stomach DKMS builds for things like ZFS or not. For what it's worth, I use Proxmox everywhere as the PMS baseOS in my homelab. Full details are available in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md) if you're curious.
 
 !!! info
