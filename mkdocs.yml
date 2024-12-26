@@ -74,7 +74,7 @@ markdown_extensions:
   - pymdownx.keys # display keyboard commands nicely ++ctrl+alt+del++
   - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -100,7 +100,7 @@ extra:
   analytics:
     provider: plausible
     domain: perfectmediaserver.com
-    src: "https://plausible.ktz.cloud/js/plausible.js"
+    src: "https://plausible.ktz.cloud/js/script.js"
     # provider: google
     # property: G-DF6SGTVVBC
 nav:
