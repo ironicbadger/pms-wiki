@@ -4,6 +4,8 @@ The section walks you through a manual setup of a Perfect Media Server atop of P
 
 By the time you've worked through this section, you should have a functioning system. Proxmox will be the base OS, we'll cover the basics of partitioning drives and configuring them to use mergerfs, as well as some other useful stuff like how to setup shares with samba etc.
 
+For a full rationale of why Proxmox is recommended as the Base OS, please refer to [tech-stack/proxmox](../02-tech-stack/proxmox).
+
 ## Base OS installation
 
 ![px-install](../images/proxmox/px-install.png)
