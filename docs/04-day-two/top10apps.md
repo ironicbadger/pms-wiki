@@ -102,7 +102,7 @@ The elegance of configuring the ingress rules for a service in the same place as
 
 ![gitea-logo](../images/top10/gitea-logo.png){: align=left width=240 }
 
-A self-hosted, lightweight, yet highly feature rich git server, [Gitea](https://gitea.io) is much more powerful than it might seem at first. Sure, it has all the obivous trappings you'd expect from a code hosting solution such as multi-user support, organisations and a similar merge/fork model to a certain well-known online hub for Git activity. 
+A self-hosted, lightweight, yet highly feature rich git server, [Gitea](https://gitea.io) is much more powerful than it might seem at first. Sure, it has all the obivous trappings you'd expect from a code hosting solution such as multi-user support, organisations and a similar merge/fork model to a certain well-known online hub for Git activity.
 
 As of [v1.19](https://blog.gitea.com/release-of-1.19.0/#-gitea-actions-21937) in March 2023 Gitea added Actions, a built-in CI system like GitHub Actions. With Gitea Actions, you can reuse your familiar workflows and Github Actions in your self-hosted Gitea instance.
 
@@ -176,35 +176,8 @@ There are a *lot* of options in this space - just take a look at [awesome-selfho
 
 I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server setup.
 
-## 11. Tiddlywiki
-
-A personal wiki is a personal choice. My personal favourite is Tiddlywiki - we covered it in episode 12 of Self-Hosted. [Tiddlywiki v5](https://github.com/Jermolene/TiddlyWiki5) is the latest version but it has a long heritage with the first release dating back to September 2004!
-
-<p align="center">
-<iframe src="https://player.fireside.fm/v2/dUlrHQih+E9_oEK6o?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
-</p>
-
-The workflow of using the wiki takes a little getting used to but there are a few key features which have meant that it has stood the test during 2020 in my household.
-
-My absolute favourite thing about Tiddlywiki is just how fast it is to find what you're looking for. The search is fuzzy style (meaning that as you type, the results are instantly filtered) and it searches the entire text of an article - not just the titles or tags. It's written entirely in Javascript and requires very little in the way of server-side processing. No database, no encrypted files, just plain old text files (markdown is supported - yay!). I also love that information can belong to multiple categories at the same time via a simple tag - Tiddlywiki works the way my brain does and I *love* it.
-
-![tiddlywiki-ui](../images/top10/tiddlywiki-ui.png)
-
-The largest quirk comes when trying to add images, it's just not well suited to this. But you can make it work with a little learning curve. If I had a feature request for v6, it would be to improve the image handling.
-
-I run Tiddlywiki out of a container authored by [mazzolino](https://hub.docker.com/r/mazzolino/tiddlywiki) which works well with Traefik but is sadly no longer maintained. For this reason, I've largely dropped Tiddlywiki and replaced it with [Obsidian](https://obsidian.md/) as this allows the local markdown files I covet and works on all platforms.
-
-**Similar or related projects:**
-
-* [Bookstack](https://www.bookstackapp.com/)
-* [Mediawiki](https://www.mediawiki.org/wiki/MediaWiki)
-* [mkdocs](https://mkdocs.org)
-* [wiki.js](https://wiki.js)
-* [Zim](https://zim-wiki.org/)
-* [Obsidian](https://obsidian.md/)
-
-## 12. Surprise me...
+## 11. Surprise me...
 
 `<insert Spinal Tap reference>`
 
-What are your favourites? Let me know @IronicBadger on Twitter.
+What are your favourites? Let me know [[@ironicbadger](https://techhub.social/@ironicbadger)] on Mastodon.
