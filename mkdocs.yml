@@ -36,6 +36,7 @@ theme:
     - navigation.instant.prefetch
     - navigation.sections # prevents collapsible sections
     - navigation.indexes # section index pages
+    - -navigation.feedback
     #- navigation.expand #expands sections by default
     #- navigation.tabs # section tabs along the top
     - toc.follow
