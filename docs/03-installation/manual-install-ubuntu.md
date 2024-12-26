@@ -1,8 +1,11 @@
 # Bare Metal Manual Install
 
-This section walks you through a totally manual installation of a Perfect Media Server. 
+This section walks you through a totally manual installation of a Perfect Media Server.
 
 By the time you've worked through this section, you should have installed your OS, configured your drives and network file sharing. It assumes very little prior knowledge. As is the norm with this site, if you find a mistake please let me know via a GitHub issue or PR.
+
+!!! info
+    It is recommended to use Proxmox rather than Ubuntu these days for extra flexibility and features that Proxmox provides. This page is left online for posterity but is no longer maintained. See the [proxmox guide](./manual-install-proxmox.md) instead.
 
 ## Base OS installation
 
