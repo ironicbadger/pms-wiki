@@ -83,7 +83,7 @@ markdown_extensions:
   - pymdownx.tilde
 copyright: 2020 - 2025 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
 extra_css:
-  - extra.css
+  - ./extra.css
 extra:
   social:
     - icon: 'fontawesome/brands/github'
