@@ -180,4 +180,4 @@ I've written previously about [monitoring your UPS](https://blog.linuxserver.io/
 
 `<insert Spinal Tap reference>`
 
-What are your favourites? Let me know [[@ironicbadger](https://techhub.social/@ironicbadger)] on Mastodon.
+What are your favourites? Let me know [@ironicbadger](https://techhub.social/@ironicbadger) on Mastodon.
