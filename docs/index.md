@@ -66,21 +66,9 @@ By sharing the knowledge and thought patterns used to drive the decisions made h
 
 ## Community Contributions
 
-This site is a unique type of documentation resource. It's an open-source, collaborative repository of information, and having a wide and diverse pool of contributors is vital to making the site as useful to as many folks as possible. 
+This site is a unique type of documentation resource. It's an open-source, collaborative repository of information, and having a wide and diverse pool of contributors is vital to making the site as useful to as many folks as possible.
 
 If you see a mistake, or think there's a hole in the content (why didn't you do it *this way*?), pull requests will be considered via GitHub. Use the icon in the top right if you'd like to correct something here or help improve the site.
-
-In particular, the case reviews section relies on contributors **like you**! Please submit your media server case mini-review of 1 picture and 250 words or less.
-
-## About the Author
-
-![alex](images/assets/alex.jpg){: align=right width=230 }
-
-perfectmediaserver.com is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors). 
-
-Alex is a Developer Advocate at Tailscale. Has a YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems). Alex writes technical posts over at [blog.ktz.me](https://blog.ktz.me) covering topics from Homelab to Infrastructure as Code to electronics to Home Automation.
-
-You can find a full list of his various online presences over at [alex.ktz.me](https://alex.ktz.me). 
 
 ## Self-Hosted podcast
 

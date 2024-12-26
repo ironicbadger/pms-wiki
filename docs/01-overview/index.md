@@ -10,12 +10,11 @@ Under the hood, it's built around the following technologies:
 
 + [Linux](../02-tech-stack/os/linux.md)
     + [Proxmox](../02-tech-stack/proxmox.md)
-    + [NixOS](../02-tech-stack/nixos.md) - *new for 2023!*
 + Data and Storage
     + [mergerfs](../02-tech-stack/mergerfs.md)
     + [SnapRAID](../02-tech-stack/snapraid.md)
     + [ZFS](../02-tech-stack/zfs.md)
-+ containers 
++ containers
     + [docker](../02-tech-stack/docker.md) - container runtime
     + [docker-compose](../02-tech-stack/docker-compose.md) - container management
 
@@ -56,3 +55,13 @@ This project was born out of a period in my life between 2011 and 2016 where I d
 During this period I discovered Linux, the world of open-source and everything that enabled. Open-source has fundamentally changed my life for the better. From 2018 - 2023 I had the honor of working for Red Hat along my journey of helping to further that FOSS mission. As of August 2023, I now work for [Tailscale](https://tailscale.com).
 
 PMS is my own personal project to give back to the community knowledge that so many others helped me learn - life changing skills and knowledge about building and managing my own servers and infrastructure. Thank you if you were one of those who helped me along the way - this site is for you.
+
+## About the Author
+
+![alex](images/assets/alex.jpg){: align=right width=230 }
+
+perfectmediaserver.com is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors).
+
+Alex is a Developer Advocate at Tailscale. Has a YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems). Alex writes technical posts over at [blog.ktz.me](https://blog.ktz.me) covering topics from Homelab to Infrastructure as Code to electronics to Home Automation.
+
+You can find a full list of his various online presences over at [alex.ktz.me](https://alex.ktz.me).
