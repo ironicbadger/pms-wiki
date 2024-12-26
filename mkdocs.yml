@@ -99,7 +99,7 @@ extra:
       name: Alex's Podcast - selfhosted.show
   analytics:
     provider: plausible
-    domain: plausible.ktz.cloud
+    domain: perfectmediaserver.com
     src: "https://plausible.ktz.cloud/js/script.js"
     # provider: google
     # property: G-DF6SGTVVBC
