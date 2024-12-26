@@ -48,6 +48,7 @@ plugins:
       categories: false
       archive: false
   #- git-revision-date
+  - material-plausible
   - search
   - minify:
       minify_html: true
@@ -56,7 +57,6 @@ plugins:
         target: _blank
   - social:
       cards_layout: default
-  - material-plausible
 markdown_extensions:
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
@@ -77,12 +77,10 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      #emoji_index: !!python/name:materialx.emoji.twemoji
-      #emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
-copyright: 2020 - 2024 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
+copyright: 2020 - 2025 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
 extra_css:
   - extra.css
 extra:
