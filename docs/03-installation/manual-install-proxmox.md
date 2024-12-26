@@ -6,7 +6,7 @@ By the time you've worked through this section, you should have a functioning sy
 
 ## Base OS installation
 
-![px-install](../images/proxmox/px-install.png){: align=right width=430 }
+![px-install](../images/proxmox/px-install.png)
 
 There are two ways to install Proxmox.
 
@@ -35,7 +35,7 @@ It is time to configure repositories. By default Proxmox ships with enterprise r
 
 Load up the community scripts website and look for `Proxmox VE tools -> Proxmox VE Post Install`. This script provides options for managing Proxmox VE repositories, including disabling the Enterprise Repo, adding or correcting PVE sources, enabling the No-Subscription Repo, adding the test Repo, disabling the subscription nag, updating Proxmox VE, and rebooting the system.
 
-![px-helper](../images/proxmox/px-helper-scripts.png){: align=right width=430 }
+![px-helper](../images/proxmox/px-helper-scripts.png)
 
 From the Proxmox command line, execute:
 
