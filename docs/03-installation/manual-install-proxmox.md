@@ -187,7 +187,7 @@ Move onto the next section 'Existing drive' to learn how to mount it (make it av
 !!! info
     Ensure you have the correct supporting libraries for your filesystem installed such as `xfsprogs` for XFS.
 
-    With Ubuntu this is achieved via `sudo apt install xfsprogs`.
+    With Debian this is achieved via `sudo apt install xfsprogs`.
 
 You should now be able to mount the drive manually like so:
 
@@ -349,20 +349,20 @@ To run apps on top of the base OS, we'll be using [docker](../02-tech-stack/dock
 
 ### docker
 
-We are using Ubuntu which means docker installation is straightforward via docker's [documentation](https://docs.docker.com/engine/install/ubuntu/).
+We are using Debian which means docker installation is straightforward via docker's [documentation](https://docs.docker.com/engine/install/ubuntu/). Or if you just want a simple one liner:
 
-### docker-compose
+```
+curl -fsSL https://get.docker.com | sh
+```
 
-`docker-compose` is a tool for defining and running multiple containers at once using docker. Defining, starting, stopped and upgrading dozens of containers all at once is reduced to a single command.
+### docker compose
 
-!!! info
-    `docker-compose` installation instructions for Linux can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
+`docker compose` is a tool for defining and running multiple containers at once using docker. Defining, starting, stopped and upgrading dozens of containers all at once is reduced to a single command. It ships with docker itself and requires no extra configuration.
 
-Here's an example `docker-compose.yaml` file for a simple nginx webserver deployment (yep, that's the code used to deploy the site you're viewing!).
+Here's an example `compose.yaml` file for a simple nginx webserver deployment (yep, that's the code used to deploy the site you're viewing right now!).
 
 ```
 ---
-version: "2"
 services:
   ktz-nginx-pmswiki:
     image: nginx
