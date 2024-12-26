@@ -58,7 +58,7 @@ PMS is my own personal project to give back to the community knowledge that so m
 
 ## About the Author
 
-![alex](images/assets/alex.jpg){: align=right width=230 }
+![alex](../images/assets/alex.jpg){: align=right width=230 }
 
 perfectmediaserver.com is written and maintained by [Alex Kretzschmar](https://www.linkedin.com/in/alex-kretzschmar/) (aka [@IronicBadger](https://twitter.com/ironicbadger)) plus some awesome [contributors](https://github.com/IronicBadger/pms-wiki/graphs/contributors).
 
