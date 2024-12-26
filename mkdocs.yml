@@ -56,6 +56,7 @@ plugins:
         target: _blank
   - social:
       cards_layout: default
+  - material-plausible
 markdown_extensions:
   - admonition # enables coloured blocks mid article
   - attr_list # improves image handling
@@ -94,17 +95,15 @@ extra:
       name: IronicBadger on Mastodon
     - icon: 'fontawesome/brands/linkedin'
       link: 'https://www.linkedin.com/in/alex-kretzschmar/'
-    - icon: 'fontawesome/brands/twitter'
-      link: 'https://twitter.com/ironicbadger'
-      name: IronicBadger on Twitter
     - icon: 'fontawesome/solid/microphone'
       link: 'https://selfhosted.show/'
       name: Alex's Podcast - selfhosted.show
   analytics:
-    # provider: plausible
-    # property: perfectmediaserver.com
-    provider: google
-    property: G-DF6SGTVVBC
+    provider: plausible
+    property: perfectmediaserver.com
+    src: "https://plausible.ktz.cloud/js/plausible.js"
+    # provider: google
+    # property: G-DF6SGTVVBC
 nav:
   - News and Updates: blog/index.md
   - 1. Overview:
@@ -112,10 +111,10 @@ nav:
     - Getting Started: '01-overview/index.md'
     - Alex's PMS Example Build: '01-overview/alexs-example-builds.md'
     #- NAS Software Comparison: '01-overview/nas-software-comparison.md'
-    - FAQs: '01-overview/faq.md'  
+    - FAQs: '01-overview/faq.md'
   - 2. Tech Stack Explained:
     - '02-tech-stack/os/index.md'
-    #- Operating Systems:  
+    #- Operating Systems:
     #- Linux: '02-tech-stack/os/index.md'
     - Proxmox: '02-tech-stack/proxmox.md'
     - NixOS: '02-tech-stack/nixos.md'
@@ -125,19 +124,18 @@ nav:
       - ZFS: '02-tech-stack/zfs.md'
     - Containers:
       - docker: '02-tech-stack/docker.md'
-      - docker-compose: '02-tech-stack/docker-compose.md'
+      - docker compose: '02-tech-stack/docker-compose.md'
       - podman: '02-tech-stack/podman.md'
   - 3. Installation:
     - '03-installation/index.md'
-    - Proxmox: '03-installation/manual-install-proxmox.md'
+    - Manual install on Proxmox: '03-installation/manual-install-proxmox.md'
     #- NixOS: '03-installation/nixos-flake.md'
     #- Video Install on Proxmox: '03-installation/video-install-proxmox.md'
     # - NixOS:
     #   - Easy Mode (no Flakes): '03-installation/nixos-noflake.md'
     #   - Hard Mode (using Flakes): '03-installation/nixos-flake.md'
       #- Video Install on NixOS: '03-installation/video-install-nixos.md'
-    - Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
-            
+    #- Manual Install on Ubuntu: '03-installation/manual-install-ubuntu.md'
   - 4. Day Two (Post Install):
     - Remote Access:
       - Reverse Proxies: 
