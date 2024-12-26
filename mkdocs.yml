@@ -85,6 +85,12 @@ copyright: 2020 - 2025 &copy; Alex Kretzschmar - This work is licensed under CC 
 extra_css:
   - ./extra.css
 extra:
+  analytics:
+    provider: plausible
+    domain: perfectmediaserver.com
+    src: "https://plausible.ktz.cloud/js/plausible.js"
+    # provider: google
+    # property: G-DF6SGTVVBC
   social:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/ironicbadger'
@@ -97,12 +103,6 @@ extra:
     - icon: 'fontawesome/solid/microphone'
       link: 'https://selfhosted.show/'
       name: Alex's Podcast - selfhosted.show
-  analytics:
-    provider: plausible
-    domain: perfectmediaserver.com
-    src: "https://plausible.ktz.cloud/js/script.js"
-    # provider: google
-    # property: G-DF6SGTVVBC
 nav:
   - News and Updates: blog/index.md
   - 1. Overview:
