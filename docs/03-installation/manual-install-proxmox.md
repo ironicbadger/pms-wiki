@@ -18,7 +18,7 @@ There are two ways to install Proxmox.
 !!! danger
     To prevent accidentally installing Ubuntu on the wrong drive and overwriting data it is recommended to disconnect data drives during installation.
 
-Proxmox make a [full installation guide](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html) available on their site. Creating a bootable USB stick to install Linux from used to be a tricky thing. There is a [guide](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html#_prepare_a_usb_flash_drive_as_installation_medium) on the Proxmox website for the official method.
+Proxmox make a [full installation guide](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html) available on their site. There is a [guide](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html#_prepare_a_usb_flash_drive_as_installation_medium) on the Proxmox website for the official method of creating a USB install key.
 
 When installing Proxmox you are offered a "graphical" or "terminal" installation. Pick your preference, it doesn't make a difference long term.
 
