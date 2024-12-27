@@ -1,6 +1,6 @@
 # Proxmox
 
-Is Proxmox right for you? See *[which distro should I pick?](os/linux.md#which-distro-should-i-pick)*.
+Is Proxmox right for you? See *[which distro should I pick?](../03-installation/index.md#which-distro-should-i-pick)*.
 
 ![proxmox](../images/logos/proxmox.svg)
 
