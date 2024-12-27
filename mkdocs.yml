@@ -54,6 +54,7 @@ plugins:
   - minify:
       minify_html: true
   - privacy:
+      assets: false
       links_attr_map:
         target: _blank
   - social:
@@ -87,7 +88,7 @@ extra_css:
 extra:
   analytics:
     provider: plausible
-    domain: plausible.ktz.cloud
+    domain: perfectmediaserver.com
     src: "https://plausible.ktz.cloud/js/plausible.js"
     # provider: google
     # property: G-DF6SGTVVBC
