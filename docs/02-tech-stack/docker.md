@@ -1,6 +1,6 @@
 # Docker
 
-Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/) PMS article Docker was fairly new. Fast forward 5 years and containerisation has cemented itself as a major force in the industry.
+Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/) PMS article docker was fairly new. Fast forward 8(!) years and containerisation has cemented itself as a major force in the industry.
 
 For those looking to build a media server, containers offer a uniquely brilliant way to run applications. They divorce the running application from its data whilst making managing their persistent data and configuration simple.
 
