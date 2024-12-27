@@ -53,13 +53,15 @@ If you're looking to build a media server, then you've come to the right place. 
 
 ## What is PMS? And what is this site for?
 
-PMS isn't so much a "you must do things this way" type of deal, it's more like a set of principles and guidelines to help you build a similar solution. The software discussed here has worked very well for many years now and can completely replace Unraid, TrueNAS, or a Synology based setup. 
+Perfect Media Server (PMS) isn't so much a "you must do things this way" type of deal, it's more like a set of principles and guidelines to help you build a similar solution. The software discussed here has worked very well for many years now and can completely replace Unraid, TrueNAS, or a Synology based setup.
 
-By sharing the knowledge and thought patterns used to drive the decisions made here, you will leave armed with the ability to build your own DIY NAS, or as I like to call it, the Perfect Media Server (PMS).
+By sharing the knowledge and thought patterns used to drive the decisions made here, you will leave armed with the ability to build your own DIY NAS, or as I like to call it, the Perfect Media Server.
+
+That said, there are detailed instructions scattered throughout the site on many aspects of setting one up from scratch. Good luck, and have fun!
 
 !!! help "How to get help"
 
-    If you need any assistance with the content on this site then please head over to the Self-Hosted podcast [Discord server](https://discord.gg/Z5NfMB5jU8) where you can find me `@alexktz` and there is a dedicated `#perfectmediaserver` channel.
+    If you need any assistance with the content on this site then please head over to the Self-Hosted podcast [Discord server](https://discord.gg/Z5NfMB5jU8) where you can find me `@alexktz`.
 
     Self-Hosted podcast Discord server invite URL - [https://discord.gg/Z5NfMB5jU8](https://discord.gg/Z5NfMB5jU8)
 
@@ -76,5 +78,3 @@ Lastly, if you like this kind of thing, check out the [Self-Hosted](https://self
 <iframe src="https://player.fireside.fm/v2/dUlrHQih+aGtGAbih?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 
 <script data-name="BMC-Widget" src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" data-id="alexktz" data-description="Support me on Buy me a coffee!" data-color="#ff813f" data-position="Right" data-x_margin="18" data-y_margin="18"></script>
-
-.
