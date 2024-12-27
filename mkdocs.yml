@@ -87,7 +87,7 @@ extra_css:
 extra:
   analytics:
     provider: plausible
-    domain: perfectmediaserver.com
+    domain: plausible.ktz.cloud
     src: "https://plausible.ktz.cloud/js/plausible.js"
     # provider: google
     # property: G-DF6SGTVVBC
