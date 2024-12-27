@@ -2,10 +2,9 @@
 
 Around the time of the 2017 PMS guide I made the switch to `docker-compose` and it has been happily serving my container lifecycle needs ever since. Here's an screen recording example of updating the containers on the DigitalOcean droplet I use to run my personal blog.
 
-<p align="center">
-<iframe width="740" height="415" src="https://www.youtube.com/embed/K2QCVMXZVYM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</p>
-
+<figure markdown="span">
+  ![compose-update-gif](../images/assets/compose.gif){ width="1280" }
+</figure>
 
 ## What is docker-compose?
 
