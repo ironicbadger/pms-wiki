@@ -1,5 +1,7 @@
 # Installation
 
+## Which distro should I pick?
+
 You are at a cross-roads and must pick a path, it's time to pick an OS. Everyone has a different set of requirements but if in doubt it is my recommendation that you proceed with Proxmox.
 
 In the context of building PMS you have two real choices. If you're at all interested in using ZFS, then Ubuntu is the only mainstream distribution which ships with it baked into the kernel and doesn't rely on DKMS - see *ZFS -> [What about the license?](../02-tech-stack/zfs.md#what-about-the-license)*.
