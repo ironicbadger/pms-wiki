@@ -4,20 +4,18 @@
 
 You are at a cross-roads and must pick a path, it's time to pick an OS. Everyone has a different set of requirements but if in doubt it is my recommendation that you proceed with Proxmox.
 
-In the context of building PMS you have two real choices. If you're at all interested in using ZFS, then Ubuntu is the only mainstream distribution which ships with it baked into the kernel and doesn't rely on DKMS - see *ZFS -> [What about the license?](../02-tech-stack/zfs.md#what-about-the-license)*.
+This is because Proxmox ships an Ubuntu userspace on top of a stable Debian base with a modified Ubuntu kernel. This means you get the benefits of ZFS without having to rely on DKMS. You also gain the ability to run virtual machines and LXCs from a slick web UI.
 
-Ubuntu isn't perfect. They make weird choices about pushing proprietary app packaging formats like SNAP [^1] that you can't easily disable[^2]. But their courage to ship ZFS and provide bi-annual LTS means that it has been a predictable, reliable and dependable long term option to build PMS on top of.
+Previously, this site recommended Ubuntu. And whilst it isn't perfect - things like weird choices about pushing proprietary app packaging formats like SNAP [^1] that you can't easily disable[^2]. But Canonical's courage to ship ZFS and provide bi-annual LTS meant it was been a predictable, reliable and dependable long term option to build PMS on top of.
 
-Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Arch, SUSE, or whatever else will work just fine as a NAS. The main things to watch out for are software availability in a timely fashion (*cough, cough debian*) and whether you can stomach DKMS builds for things like ZFS or not. For what it's worth, I use Proxmox everywhere as the PMS baseOS in my homelab. Full details are available in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md) if you're curious.
+Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Arch, SUSE, or whatever else will work just fine as a NAS. The main things to watch out for are software availability in a timely fashion (*cough, cough debian*) and whether you can stomach DKMS builds for things like ZFS or not. For what it's worth, I use Proxmox everywhere as the PMS base OS in my homelab. Full details are available in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md) if you're curious.
 
 !!! info
-    The original incarnation of PMS used Debian. Ubuntu is derivative of Debian [^3] and besides from native ZFS support you can pretty much use the two interchangeably - the choice is yours.
-
-
+    The original incarnation of PMS used Debian. Then migrated to Ubuntu Server. Before finally landing and settling on Proxmox for a long while. Adventures with NixOS continue but Proxmox remains the recommended target for most users.
 
 ## Proxmox
 
-[Proxmox](../02-tech-stack/proxmox.md) is the PMS defacto base OS these days. It's a bastardized version of debian and ubuntu smushed together with some "proxmox sauce" thrown in on top. 
+[Proxmox](../02-tech-stack/proxmox.md) is the PMS defacto base OS these days. It's a bastardized version of debian and ubuntu smushed together with some "proxmox sauce" thrown in on top.
 
 This means you get ZFS support out the box, a VM and LXC hosting platform with a fully featured web interface and an API to automate tools like Ansible and Terraform against if that floats your boat. Combine that with Proxmox's ability to cluster multiple nodes together for failover, migration, and storage and it becomes quite a compelling option as a base OS for PMS.
 
@@ -32,7 +30,7 @@ This means you get ZFS support out the box, a VM and LXC hosting platform with a
 
 ## NixOS
 
-[NixOS](../02-tech-stack/nixos.md) is brand new to me and PMS for 2023. It's a marked change in the way of approaching Linux and system configuration and it isn't ready for everyone yet. 
+[NixOS](../02-tech-stack/nixos.md) is brand new to me and PMS for 2023. It's a marked change in the way of approaching Linux and system configuration and it isn't ready for everyone yet.
 
 The documentation is lacking in key areas - namely Flakes - due to a glacial pace of governance and an abdundance of caution when making radical changes to the configuration structure of the system. This sound like negatives but in the long run, they aren't. The downside is it means right now, the new NixOS user experience is a bit messy.
 
