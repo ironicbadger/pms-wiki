@@ -37,7 +37,7 @@ YAML[^2] stands for Yet Another Markup Language and for correct parsing of these
 
 In short, make sure everything lines up vertically and you'll be OK. Use an editor which highlights spaces for bonus points. VSCode has some nice syntax plug-ins and YAML is one of them.
 
-To create the container defined above copy and paste the above into a file placed at `~/compose.yaml`, run `docker-compose up -d` and watch. When the output has finished updating, your Librespeed container will be accessible at `serverip:8008`. Try it out!
+To create the container defined above copy and paste the above into a file placed at `~/compose.yaml`, run `docker compose up -d` and watch. When the output has finished updating, your Librespeed container will be accessible at `serverip:8008`. Try it out!
 
 [^1]: [Docker - docker-compose](https://docs.docker.com/compose/)
 [^2]: [YAML.org - Spec](https://yaml.org/spec/)
