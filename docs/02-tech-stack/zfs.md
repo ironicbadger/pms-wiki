@@ -19,7 +19,7 @@ ZFS merges the traditional volume management and filesystem layers, and it uses 
 
 Jim Salter wrote a [ZFS 101](https://arstechnica.com/information-technology/2020/05/zfs-101-understanding-zfs-storage-and-performance/) piece for Ars Technica. It goes into excruciating detail but is a fantastic primer if you're curious to learn more.
 
-Simply put, ZFS is the gold standard for storing data. You must pay attention when creating a ZFS vdev due to the lack of flexibility on offer[^1]. This is [due to change](https://twitter.com/mahrens1/status/1338876011161690112?s=20) with the *eventual* inclusion of RAIDZ expansion but at the time of writing this feature is not available.
+Simply put, ZFS is the gold standard for storing data. You must pay attention when creating a ZFS vdev due to the lack of flexibility on offer[^1]. This is [due to change](https://twitter.com/mahrens1/status/1338876011161690112?s=20) with the *eventual* inclusion of RAIDZ expansion <s>but at the time of writing this feature is not available</s> which became available on 14 January 2025 with the release of version 2.3.0.
 
 <p align=center>
 <img src="../../images/tech-stack/zfs-raidz-tweet.png">
