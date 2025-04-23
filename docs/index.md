@@ -3,7 +3,12 @@
 
 If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software, wherever possible.
 
-<br />
+<p align="center">
+<figure markdown>
+<iframe width="740" height="415" src="https://www.youtube.com/embed/Yt67zz9p0FU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<figcaption>Perfect Media Server is now on YouTube!</figcaption>
+</figure>
+</p>
 
 <div class="grid cards" markdown>
 
