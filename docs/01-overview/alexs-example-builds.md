@@ -126,6 +126,31 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
 
     ![motherboard](../images/hardware/asrockmobo.jpg)
 
+=== "Pre 2022"
+
+    ## Pre 2022
+    ### Hardware
+
+    | Device       | Model                                                  | Reason                                                                                                                     |
+    | ------------ | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
+    | CPU          | [Intel i5 8500](https://amzn.to/3LMgZBH)               | iGPU with built-in [Quicksync](../06-hardware/intel-quicksync.md) transcoding hardware                                        |
+    | Motherboard  | [ASRock Z370 Taichi](https://www.asrock.com/mb/intel/Z370%20Taichi/index.asp)       | My old desktop motherboard repurposed |
+    | Case         | [Rosewill RSV-L4500](https://amzn.to/37eVqKS)          | A big old rack mount case with space for 12-15 3.5" spinners               |
+    | Memory       | [Corsair DDR4 64GB - Non ECC](https://amzn.to/3w8LWcN) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
+    | Boot Drive   | [Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |                                                                                                                            |
+    | Power Supply | [Seasonic PRIME 850 Gold](https://amzn.to/3OXvMLP)     | Electricity makes computer go brrrrrr. 850w is probably overkill for this use case. 5-600w would be adequate.              |
+    | Hard Drives  | A mix of drives from 8-14tb                            | See [HDD purchasing methodology](../06-hardware/hdd-purchase-methodology.md) for more details                                 |
+
+    ### Software
+
+    | Type              | Product / Version                                          | Reason                                               |
+    | ----------------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+    | OS                | [Proxmox](../02-tech-stack/proxmox.md)                    | ZFS support and VM UI is nice to have.               |
+    | Parity            | [SnapRAID](../02-tech-stack/snapraid.md)                      | Increases uptime and fights bit-rot style corruption |
+    | Drive pooling     | [mergerfs](../02-tech-stack/mergerfs.md)                      | Present many disks under one mountpoint              |
+    | Container runtime | [docker](../02-tech-stack/docker.md)                          | Is there another way to run software?               |
+    | VM                | [Home Assistant](../04-day-two/top10apps.md#3-home-assistant) | Because turning lights on and off at the switch is so 200-late       |
+
 ## Network Diagram
 
 ![ktz-network-diagram-2023](../images/diagrams/ktz-network-diagram-2023.png)
