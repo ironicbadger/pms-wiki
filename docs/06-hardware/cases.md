@@ -1,12 +1,12 @@
-[//]: #
+[//]: # 
 
 # Cases
 
 The perfect case doesn't exist. But here are some options that might do the trick (there are affiliate links to some of them) in your next server build.
 
 !!! success "Contribute your mini case review!"
-Help us make this page into the best case review page for media server enthusiasts around.
-
+    Help us make this page into the best case review page for media server enthusiasts around. 
+    
     Submit a PR with your mini case review (250 word max), even link to your own personal blog if you like for the full review. Include at least one picture of the case and follow the format defined in the [Lian-Li PC-Q25B](#lian-li-pc-q25b) section.
 
     Please use the following code snippet for your image when submitting case reviews!
@@ -29,15 +29,15 @@ The Lian-Li PC-Q25B was released in 2011 and is unfortunately no longer in produ
 <figcaption>The diminuitive size of this case, along with 5 hot swap bays, made it perfect for apartment living.</figcaption>
 </figure>
 
-- Motherboard Form Factor - Mini-ITX
-- PSU Form Factor - SFX
-- Number of 3.5" drive bays - 7 (5 hot swap)
-- Dimensions - 7.8 x 11 x 14.4" / 199 x 280 x 366 mm
-- Pricing - Avg used sale price on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=lian+li+pc-q25b&_sacat=0&rt=nc&LH_Sold=1&LH_Complete=1) $55-100
+* Motherboard Form Factor - Mini-ITX
+* PSU Form Factor - SFX
+* Number of 3.5" drive bays - 7 (5 hot swap)
+* Dimensions - 7.8 x 11 x 14.4" / 199 x 280 x 366 mm
+* Pricing - Avg used sale price on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_nkw=lian+li+pc-q25b&_sacat=0&rt=nc&LH_Sold=1&LH_Complete=1) $55-100
 
 This case was popular in the [unRAID compulsive design](https://www.google.com/search?q=lian+li+pc+q25b+site:forums.unraid.net&sxsrf=ALeKk010EUCoKTRzD-kvP21muTqzIAtB5w:1609223374686&sa=X&ved=2ahUKEwjc0fKcyPLtAhWIq1kKHSnfCPEQrQIoBHoECAcQBQ&biw=1532&bih=1158) forum and several users posted successful builds if you're after an idea of how the finished product will look.
 
-The above picture is my own personal build from when I lived in a tiny apartment in London and space was at a premium. The diminuitive size of this case made it perfect for apartment living. Sporting only 2 fans (1 120mm and 120/140mm) it was quiet and had a small, but sufficient, amount of airflow meaning that temps were never an issue.
+The above picture is my own personal build from when I lived in a tiny apartment in London and space was at a premium. The diminuitive size of this case made it perfect for apartment living. Sporting only 2 fans (1 120mm and 120/140mm) it was quiet and had a small, but sufficient, amount of airflow meaning that temps were never an issue. 
 
 The build pictured made use of an [ASrock Rack C2750D4I](https://www.asrockrack.com/general/productdetail.asp?Model=C2750D4I#Specifications) board which sadly fell victim to the [C2000 Intel bug](http://forum.asrock.com/forum_posts.asp?TID=4376&title=intels-atom-c2000-chips-are-bricking-products) (of death). A shame really because that motherboard was a fantastic level of price to performance for a media server in those days (2016-2018).
 
@@ -64,11 +64,11 @@ The Fractal Define R5 is a classic example of "if it ain't broke, don't fix it".
 <figcaption>This is Alex's old server from before he emigrated to the USA. It lives in the UK as his primary off-site <a href="../../04-day-two/backups/">backup</a> system.</figcaption>
 </figure>
 
-- Motherboard Form Factor - Mini-ITX, mATX, ATX
-- PSU Form Factor - ATX
-- Number of 3.5" drive bays - 8
-- Dimensions - 23"D x 21.5"W x 13"H
-- Pricing - [$125-150](https://amzn.to/47FW8vd)
+* Motherboard Form Factor - Mini-ITX, mATX, ATX
+* PSU Form Factor - ATX
+* Number of 3.5" drive bays - 8
+* Dimensions - 23"D x 21.5"W x 13"H
+* Pricing - [$125-150](https://amzn.to/47FW8vd)
 
 The case supports motherboards ranging from ITX to ATX in size. There's ample room for cable management with the high quality fit and finish that is a Fractal trademark at this point. The most remarkable thing about this case is how unremarkable it is, and I mean that in a good way. There's almost nothing not to like. It's a thoughtfully laid out and extremely well-built thing.
 
@@ -86,7 +86,7 @@ Overall, it's an extremely solid option for anyone looking to build a PMS system
 
 > Review contributed by [Hogcycle](https://github.com/hogcycle)
 
-The Fractal Design Node 804 was released in 2014 and is a solid contender for a Perfect Media Server. A major distinction and benefit is how this case is split down the middle into two chambers.
+The Fractal Design Node 804 was released in 2014 and is a solid contender for a Perfect Media Server. A major distinction and benefit is how this case is split down the middle into two chambers. 
 
 Beneath an acrylic window lies a shallow, yet adequate space for a micro-ATX based computer. Cooler clearance should not be an issue for flat-face style heatsinks like the Noctua L9 series. Beneath the other side panel is a spacious area with two "rails" that hold cages that hold 4x 3.5" drives each. Two more 3.5 in. drives can be mounted in the floor of the case, for a total of 10 with two 2.5" slots remaining. Vibration is mostly mitigated with rubber dampers on each included screw. Access is easy with large knurled thumbscrews holding the exterior together.
 
@@ -95,11 +95,11 @@ Beneath an acrylic window lies a shallow, yet adequate space for a micro-ATX bas
 <figcaption>Lots of space for drives, despite the case having overall poor cable management.</figcaption>
 </figure>
 
-- Motherboard Form Factor - Micro-ATX
-- PSU Form Factor - ATX
-- Number of 3.5" drive bays - 10 (0 hot swap)
-- Dimensions - 15.3 x 13.5 x 11.8 " / 388 x 342 x 300 mm (LWH
-- Pricing - I purchased mine on promotion for about $80 years back, but they seem to have nearly doubled in price and sit at around $140 new.
+* Motherboard Form Factor - Micro-ATX
+* PSU Form Factor - ATX
+* Number of 3.5" drive bays - 10 (0 hot swap)
+* Dimensions - 15.3 x 13.5 x 11.8 " /  388 x 342 x 300  mm (LWH
+* Pricing - I purchased mine on promotion for about $80 years back, but they seem to have nearly doubled in price and sit at around $140 new.
 
 While this chassis is larger than other offerings, I chose it for its generous number of 3.5" bays, included quality fans and support for ATX power supplies. Front I/O is adequate, and the blue power LED can simply be unplugged should it cause a disturbance. Included are two fans that are controlled by a built-in 3 position switch. I've always kept it at its lowest and temperature has never been a concern.
 
@@ -118,11 +118,11 @@ Inside the case there is ample room for cable management and an included SATA Ba
 <figcaption>Lots of space and very solidly built case.</figcaption>
 </figure>
 
-- Motherboard - mITX, mATX & ATX
-- PSU Form Factor - ATX
-- Number of 3.5" drive bays - 8 Hot Swap with an option for two more with two [Icy Dock Enclosures](https://www.amazon.com/ICY-DOCK-Tray-Less-Enclosure-MB171SP-1B/dp/B0992RQNPB?th=1)
-- Dimensions - 8.46"W x 16.77"H x 19.17"D
-- Pricing - I purchased mine in 2021 for $164, they are currently selling $230.
+* Motherboard - mITX, mATX & ATX
+* PSU Form Factor - ATX
+* Number of 3.5" drive bays - 8 Hot Swap with an option for two more with two [Icy Dock Enclosures](https://www.amazon.com/ICY-DOCK-Tray-Less-Enclosure-MB171SP-1B/dp/B0992RQNPB?th=1)
+* Dimensions - 8.46"W x 16.77"H x 19.17"D
+* Pricing - I purchased mine in 2021 for $164, they are currently selling $230.
 
 I choose this case since it provided me with hot swap bays in a reasonble tower form factor. Overall besides the fan issues I have been extremely happy with this case.
 
@@ -139,11 +139,11 @@ The NZXT Phantom 240 might not stand out from the crowd in any of the features o
 <figcaption>Plenty of space and airflow, but the dust can find its way in as well.</figcaption>
 </figure>
 
-- Motherboard Form Factor - Mini-ITX, mATX, ATX
-- PSU Form Factor - ATX
-- Number of 3.5" drive bays - 6 (0 hotswap)
-- Dimensions - 7.6 x 20.8 x 20.8" / 195 x 530 x 529 mm
-- Pricing - It was released for $69.99 (I purchased it for $50 in 2018), but haven't found any recent prices as nobody really sells them anymore.
+* Motherboard Form Factor - Mini-ITX, mATX, ATX
+* PSU Form Factor - ATX
+* Number of 3.5" drive bays - 6 (0 hotswap)
+* Dimensions - 7.6 x 20.8 x 20.8" / 195 x 530 x 529 mm
+* Pricing - It was released for $69.99 (I purchased it for $50 in 2018), but haven't found any recent prices as nobody really sells them anymore.
 
 The case comes with 6x 3.5" drive bays, sadly none of them are hot swap, and another 3x 5.25" bays which you can technically repurpose for even more drives. The 3.5" bays are removable, so if you prefer to fit a longer graphics card, you have the option to reevaluate your priorities.
 
@@ -156,7 +156,6 @@ When I was shopping for a case, I chose the Phantom 240 for the maximum amount o
 ---
 
 ## Classico Storage Case
-
 > Review contributed by [CoffeeAndCynicism](https://github.com/CoffeeAndCynicism)
 
 <figure markdown>
@@ -198,11 +197,11 @@ The Silverstone DS380B is available from the usual suspects and pops up on the s
 - Number of 3.5" drive bays - 8 (8 hot swap caddies)
 - Number of 2.5" drive bays - 4 (internally mounted)
 - Dimensions - 14 x 8.24 x 11.25" / 356 x 210 x 286 mm
-- Pricing:
-  - Average used sale price on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=silverstone+DS380&_sacat=0) $180
-  - Typical new price on [Amazon](https://www.amazon.com/SilverStone-Technology-Mini-ITX-Computer-DS380B/dp/B00IAELTAI) or [Newegg](https://www.newegg.com/p/N82E16811163255) $215
+- Pricing: 
+	- Average used sale price on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=silverstone+DS380&_sacat=0) $180
+	- Typical new price on [Amazon](https://www.amazon.com/SilverStone-Technology-Mini-ITX-Computer-DS380B/dp/B00IAELTAI) or [Newegg](https://www.newegg.com/p/N82E16811163255) $215
 
-The DS380 offers a large number of easily interchangeable drives and a hot-swap backplane. This makes it compatible with a cold backup strategy or easy site-to-site transfer. Just ensure that you include a hot-swap-capable HBA in your build.
+The DS380 offers a large number of easily interchangeable drives and a hot-swap backplane. This makes it compatible with a cold backup strategy or easy site-to-site transfer. Just ensure that you include a hot-swap-capable HBA in your build. 
 
 Many completed builds are available with pictures of different configurations on [pcpartpicker.](https://pcpartpicker.com/builds/#e=2504,1825) You can opt for one fewer drive and include a full-length GPU, or with very slight modification using a Dremel you can fit a full-length SAS HBA without sacrificing a drive bay.
 
@@ -223,12 +222,12 @@ The Supermicro CSE-74x series chassis have been around for at least the last 15 
 <figcaption>The 'SQ' (Super Quiet) variant of the 743 chassis promises an operational 27dBA</figcaption>
 </figure>
 
-- Motherboard Form Factor - Micro ATX / ATX / E-ATX (12"x13") / 7 PCIe slots
-- PSU Form Factor - ATX, 1200W Platinum (Included)
-- Num. 3.5" drive bays - 8 x hotswap SAS3 / SATA
-- Num. 5.25" bays - 3
-- Dimensions - 17.8 x 7 x 25.5" / 452 x 178 x 647 mm (4U rack mount)
-- Pricing - New [$720](https://www.shopblt.com/item/supermicro-cse-743ac-1200b-sq-black-4u-tower-sc743ac/supmic_cse743ac1200bsq.html) -> [$590](https://www.connection.com/product/supermicro-chassis-4u-tower-eatx-8-3.5-sas-sata-hs-bays-865w-ps-black/cse-743tq-865b/8145984?cac=Result) depending on configuration as of Sept. 2023 - Used $350-650 (eBay) again, depending on configuration)
+* Motherboard Form Factor - Micro ATX / ATX / E-ATX (12"x13") / 7 PCIe slots
+* PSU Form Factor - ATX, 1200W Platinum (Included)
+* Num. 3.5" drive bays - 8 x hotswap SAS3 / SATA
+* Num. 5.25" bays - 3
+* Dimensions - 17.8 x 7 x 25.5" / 452 x 178 x 647 mm (4U rack mount)
+* Pricing - New [$720](https://www.shopblt.com/item/supermicro-cse-743ac-1200b-sq-black-4u-tower-sc743ac/supmic_cse743ac1200bsq.html) -> [$590](https://www.connection.com/product/supermicro-chassis-4u-tower-eatx-8-3.5-sas-sata-hs-bays-865w-ps-black/cse-743tq-865b/8145984?cac=Result) depending on configuration as of Sept. 2023 - Used $350-650 (eBay) again, depending on configuration)
 
 Supermicro has been of some renown in the homelab space for many years, though often this is for their 24-48 bay shelves which commonly require modification in order to bring noise levels down to acceptable levels. In addition, many may mistakenly feel their only option for purchasing SMC's chassis are on the used market, however there are actually a number of suitable vendors. As one can tell from the pricing, there's potentially limited savings from buying at least this specific model used. SMC's chassis model decoder can be found [here](https://www.supermicro.com/products/Product_Naming_Convention/Naming_CSE.cfm).
 
