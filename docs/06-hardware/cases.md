@@ -91,7 +91,7 @@ The Fractal Design Node 804 was released in 2014 and is a solid contender for a 
 Beneath an acrylic window lies a shallow, yet adequate space for a micro-ATX based computer. Cooler clearance should not be an issue for flat-face style heatsinks like the Noctua L9 series. Beneath the other side panel is a spacious area with two "rails" that hold cages that hold 4x 3.5" drives each. Two more 3.5 in. drives can be mounted in the floor of the case, for a total of 10 with two 2.5" slots remaining. Vibration is mostly mitigated with rubber dampers on each included screw. Access is easy with large knurled thumbscrews holding the exterior together.
 
 <figure markdown>
-![fractal-node-804](../images/hardware/cases/node804.jpg)){: width=700 }
+![fractal-node-804](../images/hardware/cases/node804.jpg){: width=700 }
 <figcaption>Lots of space for drives, despite the case having overall poor cable management.</figcaption>
 </figure>
 

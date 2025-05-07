@@ -1,4 +1,5 @@
 mkdocs-git-revision-date-plugin
 material-plausible-plugin
-mkdocs-material
+mkdocs-material[imaging]
 mkdocs-material-extensions
+mkdocs-minify-plugin
