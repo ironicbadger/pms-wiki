@@ -19,4 +19,4 @@ Tailscale is awesome. It has completely replaced the need to open any ports in m
 
 Tailscale is my day job and you can find out a ton more over on the Tailscale YouTube channel. I won't like here just to separate church and state a little, but the gist is that I found the project organically - started using it - Tailscale sponsored the Self-Hosted podcast and I like it so much that I ended up getting a job there.
 
-Replacing your reverse proxy? Yup - Tailscale serve. Your VPN server? Yup. Your complex firewall configuration? Yup. Identity management? Kinda - at least the ACLs will allow you to control who or what can connect to resources. 123
+Replacing your reverse proxy? Yup - Tailscale serve. Your VPN server? Yup. Your complex firewall configuration? Yup. Identity management? Kinda - at least the ACLs will allow you to control who or what can connect to resources.
