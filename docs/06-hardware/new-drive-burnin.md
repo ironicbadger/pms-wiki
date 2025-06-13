@@ -30,7 +30,7 @@ Back in the day, I ran unRAID before switching out to Debian + SnapRAID + merger
 1. Prepare the drive for use by unRAID 
 2. A stress test.
 
-It is for these reasons that I now religiously do not commit any data to a drive until it has undergone at least one full cycle using a tool called badblocks. A link to the Arch wiki is here for more information.
+It is for these reasons that I now religiously do not commit any data to a drive until it has undergone at least one full cycle using a tool called badblocks. A link to the Arch wiki is [here](https://wiki.archlinux.org/title/Badblocks) for more information.
 
 It's stressful for a drive? Yes. But it is much better to have the drive fail within the first 14 days during which time I don't have to go through a manufacturer RMA or worse, lose data and have to go through a PITA RMA. Weed out the weaklings early and then relax(ish). Manufacturers will often replace drives during an RMA with a refurbished model in case you needed
 
