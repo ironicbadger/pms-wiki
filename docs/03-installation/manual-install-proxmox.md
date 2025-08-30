@@ -42,7 +42,7 @@ Load up the community scripts website and look for `Proxmox VE tools -> Proxmox 
 From the Proxmox command line, execute:
 
 ```
-bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/misc/post-pve-install.sh)"
+bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/tools/pve/post-pve-install.sh)"
 ```
 
 Follow the prompts (defaults are good), reboot and continue here once complete. Feel free to run any other community helper scripts too - there's a lot of _great_ stuff over there.
