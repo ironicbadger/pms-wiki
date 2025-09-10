@@ -37,7 +37,7 @@ In the following diagram there are five separate disks. Each disk is a different
 
 ![mergerfs-blue](../images/tech-stack/mergerfs-blue.png)
 
-Configuration is performed via a single line of configuration in `/etc/fstab`[^1]. mergerfs has a lot knobs and dials to turn should you wish, they are all detailed in the [mergerfs-docs](trapexit.github.io/mergerfs) on the projects GitHub page.
+Configuration is performed via a single line of configuration in `/etc/fstab`[^1]. mergerfs has a lot knobs and dials to turn should you wish, they are all detailed in the [mergerfs-docs](trapexit.github.io/mergerfs).
 
 !!! example "An example `/etc/fstab` entry for mergerfs"
     ```
