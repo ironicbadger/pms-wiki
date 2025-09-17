@@ -1,0 +1,58 @@
+name: Validate MkDocs Build
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+      - 'overrides/**'
+      - 'mkdocs.yml'
+      - 'requirements.txt'
+      - '.github/workflows/validate-build.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+          
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt', '**/mkdocs.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+            
+      - name: Install MkDocs and dependencies
+        run: |
+          pip install --upgrade pip
+          pip install mkdocs-material
+          pip install mkdocs-material[imaging]
+          pip install mkdocs-minify-plugin
+          pip install mkdocs-git-revision-date-plugin
+          pip install mkdocs-material-plausible-plugin
+          pip install pillow cairosvg
+          
+      - name: Build MkDocs site
+        run: mkdocs build --strict --verbose
+        
+      - name: Check for build warnings
+        run: |
+          mkdocs build --strict 2>&1 | tee build.log
+          if grep -q "WARNING" build.log; then
+            echo "::warning::Build completed with warnings. Please review the output above."
+          fi
+          
+      - name: Upload build artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mkdocs-build-site
+          path: site/
+          retention-days: 7

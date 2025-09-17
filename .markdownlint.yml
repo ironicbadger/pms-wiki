@@ -1,0 +1,88 @@
+# Markdownlint configuration for PMS Wiki
+# https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+
+# Default state for all rules
+default: true
+
+# Line length
+MD013:
+  # Allow long lines for tables and code blocks
+  line_length: 120
+  tables: false
+  code_blocks: false
+  
+# Inline HTML - disabled as MkDocs Material uses HTML
+MD033:
+  allowed_elements:
+    - div
+    - span
+    - br
+    - p
+    - a
+    - img
+    - details
+    - summary
+    - kbd
+    - sup
+    - sub
+    - figure
+    - figcaption
+
+# First line in file should be a top-level heading
+MD041: false
+
+# Duplicate heading - disabled for docs that may repeat headings
+MD024: false
+
+# Multiple headings with the same content - disabled for consistency
+MD025: false
+
+# Trailing punctuation in heading
+MD026:
+  punctuation: ".,;:!"
+
+# Lists should be surrounded by blank lines
+MD032: true
+
+# Code block style
+MD046:
+  style: fenced
+
+# Emphasis style
+MD049:
+  style: underscore
+
+# Strong style  
+MD050:
+  style: asterisk
+
+# Link and image style
+MD054:
+  link_image_style: collapsed
+  link_image_collapse_single_space: true
+
+# Table pipe style
+MD055:
+  style: leading_and_trailing
+
+# Table row style
+MD056: true
+
+# Dollar signs used before commands without showing output
+MD014: false
+
+# No bare URLs - disabled as some docs use them intentionally
+MD034: false
+
+# Horizontal rules style
+MD035:
+  style: "---"
+
+# No inline HTML - disabled for MkDocs Material
+MD033: false
+
+# First line should be a heading - disabled for included files
+MD041: false
+
+# Require code fence language - disabled as not always needed
+MD040: false
