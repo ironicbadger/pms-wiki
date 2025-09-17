@@ -39,6 +39,8 @@ jobs:
             --exclude "example.org"
             --exclude "plausible.ktz.cloud"
             --exclude "techhub.social"
+            --exclude "reddit.com"
+            --exclude "www.reddit.com"
             --exclude-path node_modules/
             --exclude-path .git/
             '**/*.md'
