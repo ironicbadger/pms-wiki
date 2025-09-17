@@ -11,7 +11,23 @@ MD013:
   tables: false
   code_blocks: false
   
-# Inline HTML - disabled as MkDocs Material uses HTML
+# Dollar signs used before commands without showing output
+MD014: false
+
+# Duplicate heading - disabled for docs that may repeat headings
+MD024: false
+
+# Multiple headings with the same content - disabled for consistency
+MD025: false
+
+# Trailing punctuation in heading
+MD026:
+  punctuation: ".,;:!"
+
+# Lists should be surrounded by blank lines
+MD032: true
+
+# Inline HTML - disabled as MkDocs Material uses HTML extensively
 MD033:
   allowed_elements:
     - div
@@ -28,21 +44,18 @@ MD033:
     - figure
     - figcaption
 
-# First line in file should be a top-level heading
+# No bare URLs - disabled as some docs use them intentionally
+MD034: false
+
+# Horizontal rules style
+MD035:
+  style: "---"
+
+# Require code fence language - disabled as not always needed
+MD040: false
+
+# First line in file should be a top-level heading - disabled for included files
 MD041: false
-
-# Duplicate heading - disabled for docs that may repeat headings
-MD024: false
-
-# Multiple headings with the same content - disabled for consistency
-MD025: false
-
-# Trailing punctuation in heading
-MD026:
-  punctuation: ".,;:!"
-
-# Lists should be surrounded by blank lines
-MD032: true
 
 # Code block style
 MD046:
@@ -67,22 +80,3 @@ MD055:
 
 # Table row style
 MD056: true
-
-# Dollar signs used before commands without showing output
-MD014: false
-
-# No bare URLs - disabled as some docs use them intentionally
-MD034: false
-
-# Horizontal rules style
-MD035:
-  style: "---"
-
-# No inline HTML - disabled for MkDocs Material
-MD033: false
-
-# First line should be a heading - disabled for included files
-MD041: false
-
-# Require code fence language - disabled as not always needed
-MD040: false
