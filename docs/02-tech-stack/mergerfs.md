@@ -37,7 +37,7 @@ In the following diagram there are five separate disks. Each disk is a different
 
 ![mergerfs-blue](../images/tech-stack/mergerfs-blue.png)
 
-Configuration is performed via a single line of configuration in `/etc/fstab`[^1]. mergerfs has a lot knobs and dials to turn should you wish, they are all detailed in the [README](https://github.com/trapexit/mergerfs/blob/master/README.md) on the projects GitHub page.
+Configuration is performed via a single line of configuration in `/etc/fstab`[^1]. mergerfs has a lot knobs and dials to turn should you wish, they are all detailed in the [mergerfs-docs](trapexit.github.io/mergerfs).
 
 !!! example "An example `/etc/fstab` entry for mergerfs"
     ```
@@ -53,7 +53,7 @@ It's possible to string multiple drives together manually as well. The syntax fo
 
 ## Create policies
 
-A fundamentally important part of having a successful experience with mergerfs is setting the correct [policies](https://github.com/trapexit/mergerfs#functions--policies--categories) for your use case. 
+A fundamentally important part of having a successful experience with mergerfs is setting the correct [policies](https://trapexit.github.io/mergerfs/latest/config/functions_categories_policies/) for your use case. 
 
 !!! info
     For most people, most of the time, the default behaviours will be just fine[^3].
@@ -115,4 +115,4 @@ As discussed in [create policies](#create-policies), use of the correct create p
 
 [^1]: More information about `/etc/fstab` is detailed in the [manual installation](../03-installation/manual-install-ubuntu.md) section.
 [^2]: [What is Parity?](https://en.wikipedia.org/wiki/Standard_RAID_levels#Simplified_parity_example)
-[^3]: [trapexit/mergerfs docs](https://github.com/trapexit/mergerfs#why-are-all-my-files-ending-up-on-1-drive)
+[^3]: [trapexit/mergerfs docs](https://trapexit.github.io/mergerfs/latest/faq/why_isnt_it_working/#why-are-all-my-files-ending-up-on-1-filesystem)
