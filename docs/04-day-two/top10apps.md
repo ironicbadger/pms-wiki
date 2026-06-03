@@ -10,7 +10,6 @@ The [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhoste
 
 My YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems) - is still in its early days but I'm building a playlist of [self-hosted app spotlights](https://www.youtube.com/playlist?list=PLmaj94hXs3GG9yIc4nB5CdIBQ9nAays0I) you might enjoy.
 
-
 ## 1. Jellyfin
 
 [Jellyfin](https://jellyfin.org/) is the media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
@@ -35,7 +34,6 @@ It really is worth a look if you haven't tried it in a while. Client updates are
 * [Emby](https://emby.media/)
 * [Kodi](https://kodi.tv/)
 
-
 ## 2. Home Assistant
 
 ![home-assistant-logo](../images/top10/ha-logo.png){: align=right width=200 }
@@ -58,12 +56,11 @@ Immich does local machine learning on your images to do things like face detecti
 
 Immich recently [joined FUTO](https://immich.app/blog/2024/immich-core-team-goes-fulltime/). I hope to see that this gives the project the runway it needs to really become the defacto open-source solution for photo management. I wrote about the options in 2021 for [Ars Technica](https://arstechnica.com/gadgets/2021/06/the-big-alternatives-to-google-photos-showdown/) and since then Immich has come out of nowhere.
 
-
 ## 4. Nextcloud
 
 [Nextcloud](https://nextcloud.com/) - The self-hosted productivity platform that keeps you in control.
 
-Surely this pick needs no introduction. Think of Nextcloud somewhat like your own personal Dropbox replacement. Although, that is doing it a disservice because Nextcloud supports *many* more features than Dropbox. Nextcloud provide a [demo](https://try.nextcloud.com) if you'd like to try before you "buy" (Nextcloud is free).
+Surely this pick needs no introduction. Think of Nextcloud somewhat like your own personal Dropbox replacement. Although, that is doing it a disservice because Nextcloud supports _many_ more features than Dropbox. Nextcloud provide a [demo](https://try.nextcloud.com) if you'd like to try before you "buy" (Nextcloud is free).
 
 <p align="center">
 <img alt="nextcloud-banner" src="../images/top10/nextcloud-banner.png">
@@ -73,7 +70,7 @@ It can be a bit unreliable and unwieldy to administer at times - especially arou
 
 [Nextcloud Hub](https://nextcloud.com/hub) brings together several key areas of functionality:
 
-* [Nextcloud Files](https://nextcloud.com/files) - offers universal file access on desktop, mobile and web. Find files with powerful search, share your thoughts in comments or lock files until you are done with them. 
+* [Nextcloud Files](https://nextcloud.com/files) - offers universal file access on desktop, mobile and web. Find files with powerful search, share your thoughts in comments or lock files until you are done with them.
 * [Nextcloud Talk](https://nextcloud.com/talk) - delivers on-premises, private audio/video conferencing and text chat through browser and mobile interfaces with integrated screen sharing and SIP integration.
 * [Nextcloud Groupware](https://nextcloud.com/groupware) - integrates Calendar, Contacts, Mail and other productivity features to help teams get their work done faster, easier and on your terms.
 
@@ -159,7 +156,7 @@ I have a demo instance running at [gallery.ktz.cloud](https://gallery.ktz.cloud)
     <figcaption><i>Lychee discussion begins at 7 minutes</i></figcaption>
 </figure>
 
-There are a *lot* of options in this space - just take a look at [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted#photo-and-video-galleries).
+There are a _lot_ of options in this space - just take a look at [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted#photo-and-video-galleries).
 
 **Similar or related projects:**
 

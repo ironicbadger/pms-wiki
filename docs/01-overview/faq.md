@@ -24,7 +24,7 @@ Alex runs a Home Assistant VM, a couple of LXCs (for Pihole and as a Tailscale e
 
 How fast can your disks write? The limiting factor for performance is the drive itself. With a modern mechanical drive this is typically anywhere from 130MB/s - 220MB/s read/write speeds. SSDs start at 5-600MB/s and only go up from there.
 
-Unraid works around poor write performance, due to the way its parity system works, with the use of cache drives. I have never found the need to do this with PMS. 
+Unraid works around poor write performance, due to the way its parity system works, with the use of cache drives. I have never found the need to do this with PMS.
 
 ## What types of data should I store on mergerfs?
 
@@ -34,5 +34,4 @@ Careful consideration should be given to moving busier workloads like databases 
 
 ## What type of Hard Drive should I buy?
 
-There is no one right answer to this question. Ask 10 folks on [r/datahoarder](https://www.reddit.com/r/DataHoarder/) and you will recieve 37 different answers! That said, there are some principals to follow when purchasing a drive and I cover my methodology in the 2019 PMS edition but have added a dedicated article on this under *Hardware -> [HDD Purchase Methodology](../06-hardware/hdd-purchase-methodology.md)*.
-
+There is no one right answer to this question. Ask 10 folks on [r/datahoarder](https://www.reddit.com/r/DataHoarder/) and you will recieve 37 different answers! That said, there are some principals to follow when purchasing a drive and I cover my methodology in the 2019 PMS edition but have added a dedicated article on this under _Hardware -> [HDD Purchase Methodology](../06-hardware/hdd-purchase-methodology.md)_.

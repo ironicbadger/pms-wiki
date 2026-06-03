@@ -23,7 +23,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Device       | Model                                                  | Reason                                                                                                                     |
     | ------------ | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
     | CPU          | [Intel i5-13600k](https://amzn.to/4dvu7JD)             | iGPU with built-in [Quicksync](../06-hardware/intel-quicksync.md) transcoding hardware                                        |
-    | Motherboard  | [SUPERMICRO MBD-X13SAE-F](https://amzn.to/4b71X64)       | IPMI + iGPU support. Motherboard upgrade video [here](https://youtu.be/1pvUYpEyeYw?si=lLzqTXX8WAZaYp7t) |
+    | Motherboard  | [SUPERMICRO MBD-X13SAE-F](https://amzn.to/4b71X64)       | IPMI + iGPU support. [Motherboard upgrade video](https://youtu.be/1pvUYpEyeYw?si=lLzqTXX8WAZaYp7t) |
     | Case         | [Rosewill RSV-L4500](https://amzn.to/37eVqKS)          | The baseline standard for 4u rack mount cases that can hold a ton of hard drives for relatively cheap                 |
     | Memory       | [2x Kingston Server Premier 32GB 4800MT/s DDR5 ECC CL40 DIMM 2Rx8 Hynix M Server Memory - KSM48E40BD8KM-32HM](https://amzn.to/3RSyh4P) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
     | Boot Drive   | [2x Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |    Running in a ZFS mirror configuration.                                                                                                                        |
@@ -54,7 +54,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Device       | Model                                                  | Reason                                                                                                                     |
     | ------------ | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
     | CPU          | [Intel i5 8500](https://amzn.to/3LMgZBH)               | iGPU with built-in [Quicksync](../06-hardware/intel-quicksync.md) transcoding hardware                                        |
-    | Motherboard  | [ASRock Rack E3C246D4U](https://amzn.to/3LMh88d)       | IPMI + iGPU support. Full write-up [here](https://blog.ktz.me/asrock-rack-e3c246d4u-the-perfect-media-server-motherboard/) |
+    | Motherboard  | [ASRock Rack E3C246D4U](https://amzn.to/3LMh88d)       | IPMI + iGPU support. [Full ASRock Rack E3C246D4U write-up](https://blog.ktz.me/asrock-rack-e3c246d4u-the-perfect-media-server-motherboard/) |
     | Case         | [Rosewill RSV-L4500](https://amzn.to/37eVqKS)          | Pre-covid this case was often under $100 but at current prices of $200 and up, it's a tough recommendation                 |
     | Memory       | [Corsair DDR4 64GB - Non ECC](https://amzn.to/3w8LWcN) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
     | Boot Drive   | [Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |                                                                                                                            |
@@ -82,7 +82,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | [FreshRSS](https://freshrss.org/index.html)      | Self-hosted RSS and Atom feed aggregator   | - tbd -   |
     | [Wallabag](https://wallabag.org/)                | Save and classify articles. Read them later.   | - tbd -   |
 
-    See my infra repo for a full list [here](https://github.com/ironicbadger/infra/blob/master/group_vars/morpheus.yaml#L275).
+    See my infra repo for a [full container list](https://github.com/ironicbadger/infra/blob/master/group_vars/morpheus.yaml#L275).
 
 === "May 2022"
 
@@ -92,7 +92,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Device       | Model                                                  | Reason                                                                                                                     |
     | ------------ | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
     | CPU          | [Intel i5 8500](https://amzn.to/3LMgZBH)               | iGPU with built-in [Quicksync](../06-hardware/intel-quicksync.md) transcoding hardware                                        |
-    | Motherboard  | [ASRock Rack E3C246D4U](https://amzn.to/3LMh88d)       | IPMI + iGPU support. Full write-up [here](https://blog.ktz.me/asrock-rack-e3c246d4u-the-perfect-media-server-motherboard/) |
+    | Motherboard  | [ASRock Rack E3C246D4U](https://amzn.to/3LMh88d)       | IPMI + iGPU support. [Full ASRock Rack E3C246D4U write-up](https://blog.ktz.me/asrock-rack-e3c246d4u-the-perfect-media-server-motherboard/) |
     | Case         | [Rosewill RSV-L4500](https://amzn.to/37eVqKS)          | Pre-covid this case was often under $100 but at current prices of $200 and up, it's a tough recommendation                 |
     | Memory       | [Corsair DDR4 64GB - Non ECC](https://amzn.to/3w8LWcN) | 64GB is enough to run my entire production stack without being tempted to use it as a dev environment too                  |
     | Boot Drive   | [Samsung 500GB M.2 NVMe SSD](https://amzn.to/37kBI0l)  |                                                                                                                            |
@@ -122,7 +122,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | [Smokeping](https://oss.oetiker.ch/smokeping/)   | Latency measurement and graphing tool      | [Top 10 Apps - Smokeping](../04-day-two/top10apps.md#6-smokeping)   |
     | [Librespeed](https://librespeed.org/)            | Self-hosted speedtest tool                 | [Top 10 Apps - Librespeed](../04-day-two/top10apps.md#8-librespeed) |
 
-    See my infra repo for a full list [here](https://github.com/ironicbadger/infra/blob/master/group_vars/morpheus.yaml#L275).
+    See my infra repo for a [full container list](https://github.com/ironicbadger/infra/blob/master/group_vars/morpheus.yaml#L275).
 
     ![motherboard](../images/hardware/asrockmobo.jpg)
 

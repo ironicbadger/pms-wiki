@@ -25,12 +25,12 @@ If you treat every drive (new or not) like it's about to die, I've found that is
 
 Therefore running a test which will read and write every sector of the drive for verification and take at least 24 hours to complete seems logical.
 
-Back in the day, I ran unRAID before switching out to Debian + SnapRAID + mergerfs 2-3 years ago. unRAID had this concept of 'pre-clearing' a drive before use which served two purposes. 
+Back in the day, I ran unRAID before switching out to Debian + SnapRAID + mergerfs 2-3 years ago. unRAID had this concept of 'pre-clearing' a drive before use which served two purposes.
 
-1. Prepare the drive for use by unRAID 
+1. Prepare the drive for use by unRAID
 2. A stress test.
 
-It is for these reasons that I now religiously do not commit any data to a drive until it has undergone at least one full cycle using a tool called badblocks. A link to the Arch wiki is [here](https://wiki.archlinux.org/title/Badblocks) for more information.
+It is for these reasons that I now religiously do not commit any data to a drive until it has undergone at least one full cycle using a tool called badblocks. See the [Arch Wiki badblocks article](https://wiki.archlinux.org/title/Badblocks) for more information.
 
 It's stressful for a drive? Yes. But it is much better to have the drive fail within the first 14 days during which time I don't have to go through a manufacturer RMA or worse, lose data and have to go through a PITA RMA. Weed out the weaklings early and then relax(ish). Manufacturers will often replace drives during an RMA with a refurbished model in case you needed
 
@@ -39,16 +39,18 @@ It's stressful for a drive? Yes. But it is much better to have the drive fail wi
 As the name suggests `badblocks` is a program to test storage devices for bad blocks. It takes a really long time (you can expect an 8TB drive to take a full week to complete a badblocks run) and is extremely stressful for a disk to perform. Perfect. It is available to any Linux platform and I have taken to using a 'burnin' script to wrap smartctl tests before and after in order to have relatively high confidence that the drive will not fail soon.
 
 !!! danger
-    You will completely overwrite any and all data with badblocks if you're not careful. YOU HAVE BEEN WARNED! 
+    You will completely overwrite any and all data with badblocks if you're not careful. YOU HAVE BEEN WARNED!
 
 The basic invocation of badblocks is very simple. USE `-w` WITH EXTREME CAUTION - it will overwrite all disk contents in an unrecoverable fashion (yes, even forensically). Here's an example of how you might run badblocks manually.
 
-    badblocks -b 4096 -wsv /dev/sdX
+```
+badblocks -b 4096 -wsv /dev/sdX
+```
 
 With this command, badblocks will perform 4 complete write and read cycles across the entire drive, the last of which zeroes the drive.
 
 !!! hint
-    The scripts used can be found on GitHub [here](https://github.com/Spearfoot/disk-burnin-and-testing).
+    The [disk burn-in and testing scripts are available on GitHub](https://github.com/Spearfoot/disk-burnin-and-testing).
 
 ## Burn-in script
 
@@ -61,6 +63,6 @@ When you are ready to do a destructive burn in (recommended for new drives) you 
     <figcaption><i>Using tmux to run 3 burn-ins at once</i></figcaption>
 </figure>
 
-I highly recommend using tmux for long term processes such as this. Launch a new tmux session with tmux. Default is that Ctrl-B is your 'modifier', similar to VIM. Once you press 'Ctrl-B' and then let go you can then perform commands to split your window into multiple panes or exit the session (leaving it running the background). Reattach with tmux a. A tmux cheatsheet is linked [here](https://gist.github.com/MohamedAlaa/2961058).
+I highly recommend using tmux for long term processes such as this. Launch a new tmux session with tmux. Default is that Ctrl-B is your 'modifier', similar to VIM. Once you press 'Ctrl-B' and then let go you can then perform commands to split your window into multiple panes or exit the session (leaving it running the background). Reattach with tmux a. A [tmux cheatsheet](https://gist.github.com/MohamedAlaa/2961058) is also available.
 
 For bonus points you can monitor drive temps with `watch -n 60 hddtemp /dev/sd[c,d,e]`.

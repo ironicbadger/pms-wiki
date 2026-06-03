@@ -1,14 +1,14 @@
 ---
-description: Use of ZFS with PMS is entirely optional. However, it does have some pedigree in keeping data safe and provides features for remote replication that prove useful when backing up. This article will cover the basics of ZFS for use with PMS. 
+description: Use of ZFS with PMS is entirely optional. However, it does have some pedigree in keeping data safe and provides features for remote replication that prove useful when backing up. This article will cover the basics of ZFS for use with PMS.
 ---
 
 # ZFS
 
-Use of ZFS with PMS is entirely optional. However, it does have some pedigree in keeping data safe and provides features for remote replication that prove useful when backing up. This article will cover the basics of ZFS for use with PMS. 
+Use of ZFS with PMS is entirely optional. However, it does have some pedigree in keeping data safe and provides features for remote replication that prove useful when backing up. This article will cover the basics of ZFS for use with PMS.
 
 !!! info
-    Use of ZFS with PMS is entirely optional. 
-    
+    Use of ZFS with PMS is entirely optional.
+
     See [combining ZFS with mergerfs](../05-advanced/combine-zfs-and-others.md) for full information on using ZFS alongside other filesystems thus avoiding "the hidden cost of ZFS"[^1].
 
 ## What is ZFS?
@@ -19,7 +19,7 @@ ZFS merges the traditional volume management and filesystem layers, and it uses 
 
 Jim Salter wrote a [ZFS 101](https://arstechnica.com/information-technology/2020/05/zfs-101-understanding-zfs-storage-and-performance/) piece for Ars Technica. It goes into excruciating detail but is a fantastic primer if you're curious to learn more.
 
-Simply put, ZFS is the gold standard for storing data. You must pay attention when creating a ZFS vdev due to the lack of flexibility on offer[^1]. This is [due to change](https://twitter.com/mahrens1/status/1338876011161690112?s=20) with the *eventual* inclusion of RAIDZ expansion <s>but at the time of writing this feature is not available</s> which became available on 14 January 2025 with the release of version 2.3.0.
+Simply put, ZFS is the gold standard for storing data. You must pay attention when creating a ZFS vdev due to the lack of flexibility on offer[^1]. This is [due to change](https://twitter.com/mahrens1/status/1338876011161690112?s=20) with the _eventual_ inclusion of RAIDZ expansion <s>but at the time of writing this feature is not available</s> which became available on 14 January 2025 with the release of version 2.3.0.
 
 <p align=center>
 <img src="../images/tech-stack/zfs-raidz-tweet.png">
@@ -61,14 +61,14 @@ Fedora recently adopted[^6] BTRFS as the default so it must be ready for primeti
 !!! quote
     The Btrfs community has users that have been using it for most of the past decade at scale. It's been the default on openSUSE (and SUSE Linux Enterprise) since 2014, and Facebook has been using it for all their OS and data volumes, in their data centers, for almost as long. Btrfs is a mature, well-understood, and battle-tested file system, used on both desktop/container and server/cloud use-cases. We do have developers of the Btrfs filesystem maintaining and supporting the code in Fedora, one is a Change owner, so issues that are pinned to Btrfs can be addressed quickly.
 
-Using BTRFS *would be easier* than ZFS simply because it is shipped as part of the Linux kernel. 
+Using BTRFS _would be easier_ than ZFS simply because it is shipped as part of the Linux kernel.
 
 Perhaps one day PMS will switch out to BTRFS but that day is a ways off yet - ZFS is here to stay for now if for no other reason than I have replicated multiple TBs of data reliably for a year+ with no data loss whatsoever. In otherwords, I'm locked in.
 
 ## Creating a storage pool
 
 !!! info
-    I originally wrote an article on this topic for the LinuxServer.io blog [here](https://blog.linuxserver.io/2019/05/14/getting-started-with-zfs-on-linux/).
+    I originally wrote a [LinuxServer.io blog article on getting started with ZFS on Linux](https://blog.linuxserver.io/2019/05/14/getting-started-with-zfs-on-linux/).
 
 This article assumes you are using Ubuntu. We'll be creating a mirrored pair of drives for use with ZFS here. For reasons why you should use mirrors see [Jim's](https://jrs-s.net/2015/02/06/zfs-you-should-use-mirror-vdevs-not-raidz/) blog.
 
@@ -78,7 +78,7 @@ This article assumes you are using Ubuntu. We'll be creating a mirrored pair of 
 apt install zfsutils-linux
 ```
 
-* Create a mirrored pair using the drive `by-id` idenifiers 
+* Create a mirrored pair using the drive `by-id` idenifiers
     * Make sure to set `ashift` correctly as below
 
 ```
@@ -97,11 +97,11 @@ alex@cartman:~$ zpool status
   scan: scrub repaired 0B in 0 days 12:16:03 with 0 errors on Sun Dec 13 12:40:04 2020
 config:
 
-	NAME                                    STATE     READ WRITE CKSUM
-	tank                                    ONLINE       0     0     0
-	  mirror-0                              ONLINE       0     0     0
-	    ata-ST10000DM0004-2GR11L_serial     ONLINE       0     0     0
-	    ata-WDC_WD100EMAZ-00WJTA0_serial    ONLINE       0     0     0
+    NAME                                    STATE     READ WRITE CKSUM
+    tank                                    ONLINE       0     0     0
+      mirror-0                              ONLINE       0     0     0
+        ata-ST10000DM0004-2GR11L_serial     ONLINE       0     0     0
+        ata-WDC_WD100EMAZ-00WJTA0_serial    ONLINE       0     0     0
 
 errors: No known data errors
 ```
@@ -147,7 +147,7 @@ $ zfs create -o mountpoint=/mnt/point tank/dataset/to/mount
 
 ## Tuning ashift
 
-Jim Salter's blog at jrs-s.net[^7] has a number of excellent posts about ZFS including some about tuning in addition to his Ars Technica article [^8]. 
+Jim Salter's blog at jrs-s.net[^7] has a number of excellent posts about ZFS including some about tuning in addition to his Ars Technica article [^8].
 
 You must make sure you set `ashift` correctly. Disks often lie about their sector size and if you ignore this setting it can drastically degrade performance. Most large drives have 4k sectors so an `ashift=12` is usually fine. Some Samsung SSD have 8k sectors where `ashift=13` would be required.
 
@@ -168,11 +168,11 @@ alex@cartman:~$ zpool status
   scan: scrub repaired 0B in 0 days 12:16:03 with 0 errors on Sun Dec 13 12:40:04 2020
 config:
 
-	NAME                                    STATE     READ WRITE CKSUM
-	tank                                    ONLINE       0     0     0
-	  mirror-0                              ONLINE       0     0     0
-	    ata-ST10000DM0004-2GR11L_serial     ONLINE       0     0     0
-	    ata-WDC_WD100EMAZ-00WJTA0_serial    ONLINE       0     0     0
+    NAME                                    STATE     READ WRITE CKSUM
+    tank                                    ONLINE       0     0     0
+      mirror-0                              ONLINE       0     0     0
+        ata-ST10000DM0004-2GR11L_serial     ONLINE       0     0     0
+        ata-WDC_WD100EMAZ-00WJTA0_serial    ONLINE       0     0     0
 
 errors: No known data errors
 ```
@@ -183,9 +183,8 @@ One of the most compelling reasons to use ZFS is replication. We get more into t
 
 !!! hint
     Replication requires a remote system also running ZFS. I built a small system at a parent's house under the stairs to perform this function.
-    
-    [rsync.net](https://rsync.net) is expensive but provides this functionality 'in the cloud'.
 
+    [rsync.net](https://rsync.net) is expensive but provides this functionality 'in the cloud'.
 
 [^1]: [The Hidden Cost of ZFS for a Home NAS](https://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html)
 [^2]: [Bonwick, Jeff (December 8, 2005) - "ZFS End-to-End Data Integrity"](https://en.wikipedia.org/wiki/ZFS#cite_note-endtoend-30)

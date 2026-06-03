@@ -15,7 +15,7 @@ You can find the original blog series of PMS here:
 - [Perfect Media Server (2019 Edition) - Boring is reliable + adding ZFS](https://blog.linuxserver.io/2019/07/16/perfect-media-server-2019/)
 - [Perfect Media Server (2020 Edition) - Launching perfectmediaserver.com](https://blog.ktz.me/the-perfect-media-server-2020-edition/)
 
-If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software wherever possible. 
+If you're looking to build a media server, then you've come to the right place. This site documents the many aspects of building a media server using Free and Open Source Software wherever possible.
 
 ## Usage
 
@@ -41,4 +41,4 @@ To deploy the site, push to `main`, and a GitHub action will do the rest.
 
 ## Contributing
 
-To contribute, open a PR, and I will review it. Gratefully received! 
+To contribute, open a PR, and I will review it. Gratefully received!

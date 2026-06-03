@@ -9,7 +9,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
 <div class="grid cards" markdown>
 
--   :material-folder-open:{ .lg .middle } - __An Overview of PMS__
+-   :material-folder-open:{ .lg .middle } - **An Overview of PMS**
 
     ---
 
@@ -17,7 +17,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
     [:octicons-arrow-right-24: Getting started](01-overview/index.md)
 
--   :octicons-mortar-board-24:{ .lg .middle } - __Tech Stack Explained__
+-   :octicons-mortar-board-24:{ .lg .middle } - **Tech Stack Explained**
 
     ---
 
@@ -25,7 +25,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
     [:octicons-arrow-right-24: Explore the Tech Stack](02-tech-stack/os/index.md)
 
--   :fontawesome-solid-server:{ .lg .middle } - __Hardware Considerations__
+-   :fontawesome-solid-server:{ .lg .middle } - **Hardware Considerations**
 
     ---
 
@@ -33,7 +33,7 @@ If you're looking to build a media server, then you've come to the right place. 
 
     [:octicons-arrow-right-24: Learn More](06-hardware/intel-quicksync.md)
 
--   :material-floppy:{ .lg .middle } - __Installation Guides__
+-   :material-floppy:{ .lg .middle } - **Installation Guides**
 
     ---
 
@@ -71,7 +71,7 @@ That said, there are detailed instructions scattered throughout the site on many
 
 This site is a unique type of documentation resource. It's an open-source, collaborative repository of information, and having a wide and diverse pool of contributors is vital to making the site as useful to as many folks as possible.
 
-If you see a mistake, or think there's a hole in the content (why didn't you do it *this way*?), pull requests will be considered via GitHub. Use the icon in the top right if you'd like to correct something here or help improve the site.
+If you see a mistake, or think there's a hole in the content (why didn't you do it _this way_?), pull requests will be considered via GitHub. Use the icon in the top right if you'd like to correct something here or help improve the site.
 
 ## Self-Hosted podcast
 

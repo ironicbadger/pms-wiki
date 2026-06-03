@@ -20,4 +20,4 @@ Performance per watt is class leading too. In our testing it draws 10w or less u
 
 Modern applications for media playback like [Jellyfin](https://jellyfin.org/) and [Plex](https://jellyfin.org/) support QSV for hardware transcoding. Unfortunately Plex lock it behind a paid Plex Pass option but it is well supported.
 
-More info [here](../05-advanced/passthrough-igpu-gvtg.md#plex-hardware-acceleration).
+More info is available in the [Plex hardware acceleration guide](../05-advanced/passthrough-igpu-gvtg.md#plex-hardware-acceleration).

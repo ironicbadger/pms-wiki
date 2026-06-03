@@ -1,22 +1,22 @@
-[//]: # 
+[//]: #
 
 # Cases
 
 The perfect case doesn't exist. But here are some options that might do the trick (there are affiliate links to some of them) in your next server build.
 
 !!! success "Contribute your mini case review!"
-    Help us make this page into the best case review page for media server enthusiasts around. 
-    
+    Help us make this page into the best case review page for media server enthusiasts around.
+
     Submit a PR with your mini case review (250 word max), even link to your own personal blog if you like for the full review. Include at least one picture of the case and follow the format defined in the [Lian-Li PC-Q25B](#lian-li-pc-q25b) section.
 
     Please use the following code snippet for your image when submitting case reviews!
 
-    ```
-    <figure markdown>
-    ![lian-li-pcq25b](../images/hardware/cases/q25b.jpg){: width=700 }
-    <figcaption>Example caption.</figcaption>
-    </figure>
-    ```
+<figure markdown>
+![lian-li-pcq25b](../images/hardware/cases/q25b.jpg){: width=700 }
+<figcaption>Example caption.</figcaption>
+</figure>
+```
+```
 
 ## Lian-Li PC-Q25B
 
@@ -37,7 +37,7 @@ The Lian-Li PC-Q25B was released in 2011 and is unfortunately no longer in produ
 
 This case was popular in the [unRAID compulsive design](https://www.google.com/search?q=lian+li+pc+q25b+site:forums.unraid.net&sxsrf=ALeKk010EUCoKTRzD-kvP21muTqzIAtB5w:1609223374686&sa=X&ved=2ahUKEwjc0fKcyPLtAhWIq1kKHSnfCPEQrQIoBHoECAcQBQ&biw=1532&bih=1158) forum and several users posted successful builds if you're after an idea of how the finished product will look.
 
-The above picture is my own personal build from when I lived in a tiny apartment in London and space was at a premium. The diminuitive size of this case made it perfect for apartment living. Sporting only 2 fans (1 120mm and 120/140mm) it was quiet and had a small, but sufficient, amount of airflow meaning that temps were never an issue. 
+The above picture is my own personal build from when I lived in a tiny apartment in London and space was at a premium. The diminuitive size of this case made it perfect for apartment living. Sporting only 2 fans (1 120mm and 120/140mm) it was quiet and had a small, but sufficient, amount of airflow meaning that temps were never an issue.
 
 The build pictured made use of an [ASrock Rack C2750D4I](https://www.asrockrack.com/general/productdetail.asp?Model=C2750D4I#Specifications) board which sadly fell victim to the [C2000 Intel bug](http://forum.asrock.com/forum_posts.asp?TID=4376&title=intels-atom-c2000-chips-are-bricking-products) (of death). A shame really because that motherboard was a fantastic level of price to performance for a media server in those days (2016-2018).
 
@@ -86,7 +86,7 @@ Overall, it's an extremely solid option for anyone looking to build a PMS system
 
 > Review contributed by Hogcycle
 
-The Fractal Design Node 804 was released in 2014 and is a solid contender for a Perfect Media Server. A major distinction and benefit is how this case is split down the middle into two chambers. 
+The Fractal Design Node 804 was released in 2014 and is a solid contender for a Perfect Media Server. A major distinction and benefit is how this case is split down the middle into two chambers.
 
 Beneath an acrylic window lies a shallow, yet adequate space for a micro-ATX based computer. Cooler clearance should not be an issue for flat-face style heatsinks like the Noctua L9 series. Beneath the other side panel is a spacious area with two "rails" that hold cages that hold 4x 3.5" drives each. Two more 3.5 in. drives can be mounted in the floor of the case, for a total of 10 with two 2.5" slots remaining. Vibration is mostly mitigated with rubber dampers on each included screw. Access is easy with large knurled thumbscrews holding the exterior together.
 
@@ -197,11 +197,11 @@ The Silverstone DS380B is available from the usual suspects and pops up on the s
 - Number of 3.5" drive bays - 8 (8 hot swap caddies)
 - Number of 2.5" drive bays - 4 (internally mounted)
 - Dimensions - 14 x 8.24 x 11.25" / 356 x 210 x 286 mm
-- Pricing: 
-	- Average used sale price on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=silverstone+DS380&_sacat=0) $180
-	- Typical new price on [Amazon](https://www.amazon.com/SilverStone-Technology-Mini-ITX-Computer-DS380B/dp/B00IAELTAI) or [Newegg](https://www.newegg.com/p/N82E16811163255) $215
+- Pricing:
+    - Average used sale price on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=silverstone+DS380&_sacat=0) $180
+    - Typical new price on [Amazon](https://www.amazon.com/SilverStone-Technology-Mini-ITX-Computer-DS380B/dp/B00IAELTAI) or [Newegg](https://www.newegg.com/p/N82E16811163255) $215
 
-The DS380 offers a large number of easily interchangeable drives and a hot-swap backplane. This makes it compatible with a cold backup strategy or easy site-to-site transfer. Just ensure that you include a hot-swap-capable HBA in your build. 
+The DS380 offers a large number of easily interchangeable drives and a hot-swap backplane. This makes it compatible with a cold backup strategy or easy site-to-site transfer. Just ensure that you include a hot-swap-capable HBA in your build.
 
 Many completed builds are available with pictures of different configurations on [pcpartpicker.](https://pcpartpicker.com/builds/#e=2504,1825) You can opt for one fewer drive and include a full-length GPU, or with very slight modification using a Dremel you can fit a full-length SAS HBA without sacrificing a drive bay.
 
@@ -229,6 +229,6 @@ The Supermicro CSE-74x series chassis have been around for at least the last 15 
 * Dimensions - 17.8 x 7 x 25.5" / 452 x 178 x 647 mm (4U rack mount)
 * Pricing - New [$720](https://www.shopblt.com/item/supermicro-cse-743ac-1200b-sq-black-4u-tower-sc743ac/supmic_cse743ac1200bsq.html) -> [$590](https://www.connection.com/product/supermicro-chassis-4u-tower-eatx-8-3.5-sas-sata-hs-bays-865w-ps-black/cse-743tq-865b/8145984?cac=Result) depending on configuration as of Sept. 2023 - Used $350-650 (eBay) again, depending on configuration)
 
-Supermicro has been of some renown in the homelab space for many years, though often this is for their 24-48 bay shelves which commonly require modification in order to bring noise levels down to acceptable levels. In addition, many may mistakenly feel their only option for purchasing SMC's chassis are on the used market, however there are actually a number of suitable vendors. As one can tell from the pricing, there's potentially limited savings from buying at least this specific model used. SMC's chassis model decoder can be found [here](https://www.supermicro.com/products/Product_Naming_Convention/Naming_CSE.cfm).
+Supermicro has been of some renown in the homelab space for many years, though often this is for their 24-48 bay shelves which commonly require modification in order to bring noise levels down to acceptable levels. In addition, many may mistakenly feel their only option for purchasing SMC's chassis are on the used market, however there are actually a number of suitable vendors. As one can tell from the pricing, there's potentially limited savings from buying at least this specific model used. SMC's [chassis model decoder](https://www.supermicro.com/products/Product_Naming_Convention/Naming_CSE.cfm) can help explain the naming scheme.
 
 As alluded to above, these chassis are extremely long-lived, infinitely customizable (with drop-in components from the manufacturer), and should typically be considered an investment. They can be used in either a tower or rackmounted configuration, and with SMC's '[Mobile Rack](https://www.supermicro.com/en/products/chassis?pro=filter%3Dfeature%26feature%3DMobile%20Rack)' units (also [easily available](https://www.shopblt.com/search/order_id=150936720&s_lastpos=0&t_all=1&s_all=%22MOBILE+RACK%22&s_mfg=SUPMIC&s_cat=&s_costcomp=&s_cost=&s_max=100)), take advantage of the 5.25" bays for up to 5 additional 3.5" drive bays (total of 13), or 12 x 2.5" bays. A more extensive detailing of my work with this specific chassis can be found on the [UnRAID forums](https://forums.unraid.net/topic/113032-the-next-generation-m12swa-threadripper-pro/).

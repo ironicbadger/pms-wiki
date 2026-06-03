@@ -76,12 +76,12 @@ The following section details the steps to identify, mount and partition the har
 
 ### Mounting drives manually
 
-In order to use these disks our OS needs to mount them. *Mounting* means that we are providing the OS with instructions on how to read or write data to a specific drive. The most common way of configuring drives for use with PMS is to create one large partition and format it with a single filesystem which spans the entire drive, often `ext4` or `xfs`, and then mounting it.
+In order to use these disks our OS needs to mount them. _Mounting_ means that we are providing the OS with instructions on how to read or write data to a specific drive. The most common way of configuring drives for use with PMS is to create one large partition and format it with a single filesystem which spans the entire drive, often `ext4` or `xfs`, and then mounting it.
 
 !!! success
     You may now connect your data disks.
 
-The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. `xfs` allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on choosing your filesystem [here](https://access.redhat.com/articles/3129891).
+The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. `xfs` allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on [choosing your filesystem](https://access.redhat.com/articles/3129891).
 
 Remember with mergerfs you are able to safely mix and match filesystems and drive sizes which is part of it's real magic. This means you don't have to stress too much about picking exactly the right filesystem up front because you aren't locked in.
 
@@ -104,7 +104,9 @@ Drives:
 
 Once you're happy that everything is showing up, list all drives in a system with:
 
-    ls /dev/disk/by-id
+```
+ls /dev/disk/by-id
+```
 
 The output will look something like this:
 
@@ -127,21 +129,23 @@ Therefore, we can ascertain that `/dev/sdc` is mapped to this physical drive. Ne
 
 ### Brand new drives
 
-Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under *Hardware* -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
+Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
 
 !!! warning
-    **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is *any* existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
+    **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is _any_ existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
 
 The following steps will require root access. To become the root user type `sudo su`. Using our example drive from the prior section we will use `gdisk` to create a new partition and filesystem. Run `gdisk /dev/sdX` (replacing `sdX` with your drive), for example:
 
-    root@cartman:~# gdisk /dev/sdc
-    GPT fdisk (gdisk) version 1.0.5
+```
+root@cartman:~# gdisk /dev/sdc
+GPT fdisk (gdisk) version 1.0.5
 
-    Partition table scan:
-        MBR: protective
-        BSD: not present
-        APM: not present
-        GPT: not present
+Partition table scan:
+    MBR: protective
+    BSD: not present
+    APM: not present
+    GPT: not present
+```
 
 Once `gdisk` is loaded we are presented with an interactive prompt `Command (? for help):`. To see all options simply type `?`. In the initial output from gdisk we can see there is no partition table present on this drive - it's a good sanity check you have the right drive before erasing the partition and file allocation tables.
 
@@ -176,7 +180,9 @@ Next up, we'll create a filesystem on that newly created partition.
 
 Create an `ext4` filesystem thus (replace `X` with your drive letter):
 
-    mkfs.ext4 /dev/sdX1
+```
+mkfs.ext4 /dev/sdX1
+```
 
 Congratulations! Your new drive is now formatted and ready to store data.
 
@@ -193,14 +199,18 @@ Move onto the next section 'Existing drive' to learn how to mount it (make it av
 
 You should now be able to mount the drive manually like so:
 
-    mkdir /mnt/manualdiskmounttest
-    mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/manualdiskmounttest
+```
+mkdir /mnt/manualdiskmounttest
+mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/manualdiskmounttest
+```
 
 Verify that the drive mounted and displays the correct size as expected:
 
-    root@cartman:~# df -h
-    Filesystem                        Size  Used Avail Use% Mounted on
-    /dev/sdc1                         7.3T  2.8T  4.6T  38% /mnt/manualdiskmounttest
+```
+root@cartman:~# df -h
+Filesystem                        Size  Used Avail Use% Mounted on
+/dev/sdc1                         7.3T  2.8T  4.6T  38% /mnt/manualdiskmounttest
+```
 
 ### Mountpoints
 
@@ -208,9 +218,11 @@ Mountpoints are where the OS mounts a specific disk partition. For example, you 
 
 Assuming the previous test went well, it's time to come up with a mountpoint naming scheme. We recommended `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support (more on this shortly). For example:
 
-    mkdir /mnt/disk{1,2,3,4}
-    mkdir /mnt/parity1 # adjust this command based on your parity setup
-    mkdir /mnt/storage # this will be the main mergerfs mountpoint
+```
+mkdir /mnt/disk{1,2,3,4}
+mkdir /mnt/parity1 # adjust this command based on your parity setup
+mkdir /mnt/storage # this will be the main mergerfs mountpoint
+```
 
 We also just created `/mnt/storage` in addition to our data disk mountpoints of `/mnt/disk1`, `/mnt/disk2` and so on. `/mnt/storage` will be used by [mergerfs](../02-tech-stack/mergerfs.md) to 'pool' or 'merge' our data disks.
 
@@ -221,7 +233,7 @@ Next we need to create an entry in `/etc/fstab`.
 This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/index.php/fstab).
 
 !!! note
-    Note that mergerfs does *not* mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has *nothing to do* with parity, that is what we use SnapRAID for.
+    Note that mergerfs does _not_ mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has _nothing to do_ with parity, that is what we use SnapRAID for.
 
 Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapRAID parity drive.
 
@@ -322,7 +334,6 @@ Edit the configuration file for snapraid-runner, a default is provided at `/opt/
     * `enabled = True`
     * `percentage = 22` - The % of the array to scrub
     * `older-than = 8` - Only scrub data if older than this number of days
-
 
 Finally, create a cronjob to automatically run `snapraid-runner`. You will want to ensure the file SnapRAID is checking parity for are not changing during this time. Ideally at something like 4 or 5am, it would be a good idea to also temporarily disable any services that write to your storage during this time - that is optional though.
 
@@ -508,7 +519,6 @@ On a remote system you might wish to mount your samba shares permanently using `
 ```
 
 Ensure the mountpoint exists. If it doesn't, create it with `mkdir /mnt/mountpoint`. Also make sure to set `smbpasswd` as described above.
-
 
 ### NFS
 

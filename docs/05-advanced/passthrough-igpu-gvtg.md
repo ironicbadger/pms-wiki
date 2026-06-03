@@ -15,9 +15,9 @@ What if you want to run Plex in a VM and take advantage of hardware accelerated 
 !!! note
     This [blog post](https://cetteup.com/216/how-to-use-an-intel-vgpu-for-plexs-hardware-accelerated-streaming-in-a-proxmox-vm/) which was helpful in my research for this topic.
 
-Passing through an entire GPU is very useful for specific tasks but isn't a very efficient use of resources. Wouldn't it be nice if we could slice up 1 GPU and use it with multiple VMs at once? 
+Passing through an entire GPU is very useful for specific tasks but isn't a very efficient use of resources. Wouldn't it be nice if we could slice up 1 GPU and use it with multiple VMs at once?
 
-That is precisely what [GVT-g](https://wiki.archlinux.org/index.php/Intel_GVT-g) permits us to do! 
+That is precisely what [GVT-g](https://wiki.archlinux.org/index.php/Intel_GVT-g) permits us to do!
 
 Take the iGPU and give a VM, or multiple VMs, a slice of that graphics chip to do with whatever it wants. In our case, we'll use the Quick Sync portion of the iGPU to transcode Plex H264 streams in one VM and Blue Iris streams in another.
 
@@ -38,7 +38,6 @@ If you needed even more convincing, take a look at the following numbers and see
 | i5 8500              | 23w  | 93w       | 98w               | 35w                 | 75w                  | AsRock Z170         | Corsair SF600 |
 | Helios64             | 14w  | 20w       | 51w               | n/a                 | n/a                  | Helios64            | Helios64      |
 
-
 This was a legitmate "holy shit!" moment for me. Quick Sync is capable of a 4k transcode at 35w! This is a 10x reduction from the Dual Xeon setup I'd been using previously.
 
 On top of that, Quick Sync can handle in excess of 20 1080p streams and about 5 4k transcodes in my testing. Astonishing given the power draw. Less power draw means less heat and lower electricity bills - what's not to like?!
@@ -52,9 +51,9 @@ On top of that, Quick Sync can handle in excess of 20 1080p streams and about 5 
 
 ## Setting up PCI passthrough (on Proxmox)
 
-PCI passthrough requires a very particular set of hardware. Things now are easier than they used to be a few years ago but special care is still required - you can't just assume any motherboard / cpu combo will work without some homework or luck. 
+PCI passthrough requires a very particular set of hardware. Things now are easier than they used to be a few years ago but special care is still required - you can't just assume any motherboard / cpu combo will work without some homework or luck.
 
-For reference my hardware is detailed in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md). 
+For reference my hardware is detailed in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md).
 
 <p align="center">
 <figure markdown>
@@ -77,7 +76,7 @@ Next, using the same Proxmox wiki page navigate to the section entitled 'Mediate
 
 ## Mediated device setup (Intel GTV-g)
 
-You already modified `/etc/modules` in the previous step, you'll want to add kvmgt as well in that file. 
+You already modified `/etc/modules` in the previous step, you'll want to add kvmgt as well in that file.
 
 Modify `/etc/default/grub` so that it looks like this when done:
 
@@ -99,7 +98,7 @@ Regenerate initramfs with `update-initramfs -u -k all` and reboot. To verify tha
 
 ```
 root@unas:/home/alex# ls /sys/bus/pci/devices/0000\:00\:02.0/mdev_supported_types/
-i915-GVTg_V5_4	i915-GVTg_V5_8
+i915-GVTg_V5_4    i915-GVTg_V5_8
 ```
 
 If you see `i915-GVTg_V5_4` you're good to go.
@@ -112,7 +111,7 @@ So far, everything we've done was covered in the Proxmox wiki and the previously
 
 ![add pci device](../images/advanced/igpu-passthrough/image-1.png)
 
-* Select the device `0000:00:02.0` (this doesn't appear to change in my testing between different machines) and then from the `MDev Type` drop down note that you have two options. 
+* Select the device `0000:00:02.0` (this doesn't appear to change in my testing between different machines) and then from the `MDev Type` drop down note that you have two options.
     * `i915-GVTg_V5_4` is for some reason limited to 1 virtual device but `i915-GVTg_V5_8` presents us with 2 available devices. Select `V5_8` and hit Add.
 
 ![add pci device](../images/advanced/igpu-passthrough/image-2.png)
@@ -129,7 +128,7 @@ Some of you will think I'm crazy but I run my Perfect Media Server in a VM with 
 ```yaml
 ---
 version: "2"
-services:  
+services:
   plex:
     image: plexinc/pms-docker
     container_name: plex

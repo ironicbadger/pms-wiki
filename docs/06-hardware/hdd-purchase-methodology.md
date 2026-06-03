@@ -36,7 +36,7 @@ Many people in the r/datahoarder community and other related communities have su
 
 ### Rule #3 - The retailer matters
 
-Rule #3 is obvious. Don't buy naked drives from Amazon. I have twice due to competitive prices and low shipping ordered drives from Amazon, ignoring my own advice. Alas, on both occasions the drives were wrapped in a single layer of cardboard with no padding and on one occasion the drive had a visible dent in the casing. 
+Rule #3 is obvious. Don't buy naked drives from Amazon. I have twice due to competitive prices and low shipping ordered drives from Amazon, ignoring my own advice. Alas, on both occasions the drives were wrapped in a single layer of cardboard with no padding and on one occasion the drive had a visible dent in the casing.
 
 I never even bothered trying to power that one up. It was returned immediately. Save yourself the hassle and don't buy drives from Amazon.
 
