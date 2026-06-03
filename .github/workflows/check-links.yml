@@ -43,6 +43,7 @@ jobs:
             --exclude "linkedin.com"
             --exclude "reddit.com"
             --exclude "www.reddit.com"
+            --exclude "arstechnica.com"
             --exclude "ark.intel.com"
             --exclude "connection.com"
             --exclude "corsair.com"
