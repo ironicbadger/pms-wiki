@@ -1,12 +1,12 @@
 # Backups
 
-When it comes to data, it is often said that one is none, and two is one. However, according to the [3-2-1 strategy](https://www.seagate.com/blog/what-is-a-3-2-1-backup-strategy/), three is one. 
+When it comes to data, it is often said that one is none, and two is one. However, according to the [3-2-1 strategy](https://www.seagate.com/blog/what-is-a-3-2-1-backup-strategy/), three is one.
 
 ## Implementation
 
 The 3-2-1 backup strategy breaks down to these requirements:
 
-- 3 copies of data 
+- 3 copies of data
 - 2 different mediums
 - 1 offsite copy
 
@@ -41,5 +41,5 @@ Backups are no good if you can't restore from them. Make sure you test your back
 For more information, check out Episode 20 of the Self-Hosted podcast, where Chris and Alex discuss these tools in more depth.
 
 <p align="center">
-<iframe src="https://player.fireside.fm/v2/dUlrHQih+pywvrsnF?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe> 
+<iframe src="https://player.fireside.fm/v2/dUlrHQih+pywvrsnF?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 </p>

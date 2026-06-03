@@ -1,12 +1,12 @@
 ---
-description: For most PMS deployments, your media will be spread across a handful of JBOD drives merged together with [mergerfs](mergerfs.md). Without SnapRAID if a drive were to fail, you'd instantly lose all data on the failed drive forever. With SnapRAID you're able to rebuild that failed drive using parity data from your last snapshot. 
+description: For most PMS deployments, your media will be spread across a handful of JBOD drives merged together with [mergerfs](mergerfs.md). Without SnapRAID if a drive were to fail, you'd instantly lose all data on the failed drive forever. With SnapRAID you're able to rebuild that failed drive using parity data from your last snapshot.
 ---
 
 # SnapRAID
 
 [SnapRAID](https://www.snapraid.it/) provides us some basic protection against drive failures and pairs well with [mergerfs](mergerfs.md). Perhaps confusingly, you don't need one for the other to fuction.
 
-You can use mergerfs without SnapRAID. And you can use SnapRAID without mergerfs. mergerfs *merges* multiple drives together for access under a single mountpoint. SnapRAID calculates parity to recover data if a drive fails. They work well together to replicate a similar type of "JBOD parity" system as unraid uses. The difference here being that unraid does the parity calculations in real-time (and therefore seriously hurts write performance) vs SnapRAID which does the calcuations on a timed basis every *X* time period.
+You can use mergerfs without SnapRAID. And you can use SnapRAID without mergerfs. mergerfs _merges_ multiple drives together for access under a single mountpoint. SnapRAID calculates parity to recover data if a drive fails. They work well together to replicate a similar type of "JBOD parity" system as unraid uses. The difference here being that unraid does the parity calculations in real-time (and therefore seriously hurts write performance) vs SnapRAID which does the calcuations on a timed basis every _X_ time period.
 
 For most PMS deployments, your media will be spread across a handful of JBOD drives merged together with [mergerfs](mergerfs.md). Without SnapRAID if a drive were to fail, you'd instantly lose all data on the failed drive forever. With SnapRAID you're able to rebuild that failed drive using parity data from your last snapshot. This approach is uniquely well suited to large, static datasets like media libraries. It is not well suited to fast moving data like your Plex metadata for example.
 
@@ -16,7 +16,7 @@ For most PMS deployments, your media will be spread across a handful of JBOD dri
 
 ## What is SnapRAID?
 
-SnapRAID[^1] is a free and open-source project licensed under GPLv3 which calculates parity information for disk arrays and will protect against up to 6 disk failures at once. It essentially takes JBOD and provides a cohesive glue for them protecting against drive failure and bitrot. It is primarily targeted at media center users with lots of big files that rarely change. 
+SnapRAID[^1] is a free and open-source project licensed under GPLv3 which calculates parity information for disk arrays and will protect against up to 6 disk failures at once. It essentially takes JBOD and provides a cohesive glue for them protecting against drive failure and bitrot. It is primarily targeted at media center users with lots of big files that rarely change.
 
 It supports mismatched disk sizes although the parity drive must be as large or larger than the largest data disk (see diagram above). Uniquely, it runs across a plethora of OS’s such as Linux, OS X, Windows, BSD, Solaris and OpenIndiana – pretty impressive.
 
@@ -38,7 +38,7 @@ SnapRAID helps us meet each of these criteria and when combined with mergerfs en
 
 It will also work on already populated data drives, a big win over traditional RAID. Again, it allows only the drives in use to be spun up unlike RAID which requires all drives spinning to access a file on one drive.
 
-The first recorded instance of this saying was found in a cave in France and dates back thousands of years - RAID is not backup. Do not think that because you have a local parity setup that your data is backed up. What happens if a pipe burst or a burgler stole the whole thing or zombies came to dinner? We cover more details on proper backups in *Day Two -> [Backups](../04-day-two/backups.md)*.
+The first recorded instance of this saying was found in a cave in France and dates back thousands of years - RAID is not backup. Do not think that because you have a local parity setup that your data is backed up. What happens if a pipe burst or a burgler stole the whole thing or zombies came to dinner? We cover more details on proper backups in _Day Two -> [Backups](../04-day-two/backups.md)_.
 
 ## Is SnapRAID right for me?
 
@@ -56,7 +56,7 @@ SnapRAID offers a drive pooling feature that on the face of it looks like it mak
 
 ## Using SnapRAID with mergerfs and ZFS
 
-If, like me, you have a large collection of media files *and* some more high churn datasets then consider the more advanced implementation detailed in *Advanced Configurations -> [Using ZFS with mergerfs](../05-advanced/combine-zfs-and-others.md)*. This combines a SnapRAID protected array of data disks and a ZFS mirror to have the cake and eat it too.
+If, like me, you have a large collection of media files _and_ some more high churn datasets then consider the more advanced implementation detailed in _Advanced Configurations -> [Using ZFS with mergerfs](../05-advanced/combine-zfs-and-others.md)_. This combines a SnapRAID protected array of data disks and a ZFS mirror to have the cake and eat it too.
 
 [^1]: [snapraid.it](https://www.snapraid.it/)
 [^2]: [SnapRAID compared](https://www.snapraid.it/compare)

@@ -1,6 +1,6 @@
 # VPNs
 
-VPNs are common place these days. Many folks use them to pretend to be in a country they are not to avoid geoblocks with streaming services or to connect to their place of work. They can also be used to hide your immediate identity online so are often used to sail the seven seas and should *definitely* be used on any kind of public wifi.
+VPNs are common place these days. Many folks use them to pretend to be in a country they are not to avoid geoblocks with streaming services or to connect to their place of work. They can also be used to hide your immediate identity online so are often used to sail the seven seas and should _definitely_ be used on any kind of public wifi.
 
 We can use VPNs for more than this though. By using a VPN to secure the traffic passing in and out of our firewall we largely avoid the need to open ports in our firewall which we already established is bad security practice unless absolutely neccessary.
 
@@ -33,6 +33,5 @@ To assuage those worried about the control server being a closed source, hosted 
 ## OpenVPN
 
 OpenVPN is pretty much limited to legacy infrastructure at this point. There is very little reason to consider standing up a new instance of OpenVPN.
-
 
 [1]: https://arstechnica.com/gadgets/2020/01/linus-torvalds-pulled-wireguard-vpn-into-the-5-6-kernel-source-tree/

@@ -9,7 +9,7 @@ In this article we will be discussing reverse proxies, how they will enable you 
 
 ![traefik-tls-arch-diagram](../../images/traefik101/traefik-tls-arch-diag.png)
 
-Traefik is the brains of the operation here acting as a middle man between multiple parties - your container(s), Let's Encrypt and Cloudflare. It is responsible for detecting when new containers have been created, communicating with Let's Encrypt to request a certificate to be issued and talking with Cloudflare by creating domain ownership verification records.   
+Traefik is the brains of the operation here acting as a middle man between multiple parties - your container(s), Let's Encrypt and Cloudflare. It is responsible for detecting when new containers have been created, communicating with Let's Encrypt to request a certificate to be issued and talking with Cloudflare by creating domain ownership verification records.
 
 There are quite a few moving parts to this operation but in essence, it's a simple transaction - albeit one with quite a few steps.
 
@@ -18,7 +18,7 @@ There are quite a few moving parts to this operation but in essence, it's a simp
   <figcaption><a href="/images/traefik101/tls-cert-issuing-sequence.png" target="_blank">Click here for full resolution</a> - This diagram shows the sequence of issuing a TLS certificate automatically.</figcaption>
 </figure>
 
-I know the diagram above is a little small so please use the full resolution link if you need it. 
+I know the diagram above is a little small so please use the full resolution link if you need it.
 
 One of the nice things about Traefik is that this process is largely transparent to the end user and configured by adding a few labels to each container like this:
 
@@ -45,7 +45,7 @@ This guide assumes a few things are in place:
 * You have a Cloudflare account to use as your DNS provider (this is free)
 * You have a single host running docker and a few containers
 
-Traefik works best with a single primary container host. Those containers should be running on the same host you intend to run Traefik on. Not in a VM, not on a remote host, but the same OS. This is because Traefik watches the docker socket (the main entrypoint for the docker API) for changes so it knows when a container has been created, modified or destroyed. 
+Traefik works best with a single primary container host. Those containers should be running on the same host you intend to run Traefik on. Not in a VM, not on a remote host, but the same OS. This is because Traefik watches the docker socket (the main entrypoint for the docker API) for changes so it knows when a container has been created, modified or destroyed.
 
 !!!warning
     There are some security concerns to mounting the docker socket this way, so make sure you [understand the risks](https://raesene.github.io/blog/2016/03/06/The-Dangers-Of-Docker.sock/) and are aware of the [workarounds](https://chriswiegman.com/2019/11/protecting-your-docker-socket-with-traefik-2/) before proceeding.
@@ -109,7 +109,7 @@ There are many options out there for domain registrars but I have used [namechea
 
 <img src="/images/traefik101/namecheap-manage.png" align="center">
 
-Next under `NAMESERVERS` clear out all existing values and select `Custom DNS`. 
+Next under `NAMESERVERS` clear out all existing values and select `Custom DNS`.
 
 <img src="/images/traefik101/namecheap-nameservers.png" align="center">
 
@@ -133,11 +133,11 @@ $ dig perfectmediaserver.com NS
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 65494
 ;; QUESTION SECTION:
-;perfectmediaserver.com.		IN	NS
+;perfectmediaserver.com.        IN    NS
 
 ;; ANSWER SECTION:
-perfectmediaserver.com.	41321	IN	NS	gabe.ns.cloudflare.com.
-perfectmediaserver.com.	41321	IN	NS	kia.ns.cloudflare.com.
+perfectmediaserver.com.    41321    IN    NS    gabe.ns.cloudflare.com.
+perfectmediaserver.com.    41321    IN    NS    kia.ns.cloudflare.com.
 
 ;; Query time: 0 msec
 ;; SERVER: 127.0.0.53#53(127.0.0.53)
@@ -145,7 +145,7 @@ perfectmediaserver.com.	41321	IN	NS	kia.ns.cloudflare.com.
 ;; MSG SIZE  rcvd: 102
 ```
 
-!!! warning 
+!!! warning
     This can take up to 24h so be patient and be sure not to spam Let's Encrypt with requests from Traefik in the meantime else you may get locked out for up to a week by [rate limiting](https://letsencrypt.org/docs/rate-limits/).
 
 ## Let's Encrypt Staging API
@@ -156,16 +156,16 @@ Whilst you are first trying all this stuff out it might be a good idea to use th
 
 ## Traefik and the Docker provider
 
-Traefik creates a corresponding service and router for each container. This is a long and potentially complex topic to *understand* but comprehension is not a pre-requisite for usage to begin with.
+Traefik creates a corresponding service and router for each container. This is a long and potentially complex topic to _understand_ but comprehension is not a pre-requisite for usage to begin with.
 
-Full documentation on the provider can be found [here](https://doc.traefik.io/traefik/routing/providers/docker/).
+Full documentation is available in the [Traefik Docker provider docs](https://doc.traefik.io/traefik/routing/providers/docker/).
 
 ## Traefik and TLS apps (like Unifi)
 
 Apps like Ubiquiti's Unifi software can be run as a container and do so over TLS locally almost always using a self-signed TLS certificate. This breaks the default model used by Traefik which expects plain http traffic. We can set `insecureSkipVerify=true` as a `command` parameter to tell Traefik to ignore the self-signed certs. The full configuration line looks like this:
 
   `- --serversTransport.insecureSkipVerify=true`
-  
+
 ## Traefik and declaring ports
 
 Traefik relies on apps to have the correct ports exposed in its Dockerfile. We can override this or expose multiple ports using this label applied to the container itself:
@@ -174,4 +174,4 @@ Traefik relies on apps to have the correct ports exposed in its Dockerfile. We c
 
 ## A more complete example
 
-You can find a more complex docker-compose example in my infra repo [here](https://github.com/IronicBadger/infra/blob/master/dev/traefik/docker-compose.yaml).
+You can find a more complex [Traefik docker-compose example in my infra repo](https://github.com/IronicBadger/infra/blob/master/dev/traefik/docker-compose.yaml).

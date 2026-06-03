@@ -8,7 +8,7 @@ This is because Proxmox ships an Ubuntu userspace on top of a stable Debian base
 
 Previously, this site recommended Ubuntu. And whilst it isn't perfect - things like weird choices about pushing proprietary app packaging formats like SNAP [^1] that you can't easily disable[^2]. But Canonical's courage to ship ZFS and provide bi-annual LTS meant it was been a predictable, reliable and dependable long term option to build PMS on top of.
 
-Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Arch, SUSE, or whatever else will work just fine as a NAS. The main things to watch out for are software availability in a timely fashion (*cough, cough debian*) and whether you can stomach DKMS builds for things like ZFS or not. For what it's worth, I use Proxmox everywhere as the PMS base OS in my homelab. Full details are available in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md) if you're curious.
+Ultimately, there's no right or wrong answer. Ubuntu, Proxmox, Debian, NixOS, Arch, SUSE, or whatever else will work just fine as a NAS. The main things to watch out for are software availability in a timely fashion (_cough, cough debian_) and whether you can stomach DKMS builds for things like ZFS or not. For what it's worth, I use Proxmox everywhere as the PMS base OS in my homelab. Full details are available in [Alex's PMS Example Build](../01-overview/alexs-example-builds.md) if you're curious.
 
 !!! info
     The original incarnation of PMS used Debian. Then migrated to Ubuntu Server. Before finally landing and settling on Proxmox for a long while. Adventures with NixOS continue but Proxmox remains the recommended target for most users.
@@ -56,7 +56,6 @@ The "old" [manual installation guide for Ubuntu](manual-install-ubuntu.md) remai
     4. You need ZFS without resorting DKMS
     5. You don't mind Snaps being part of a server OS
     6. You don't mind Canonical marketing to you in the terminal
-
 
 [^1]: [snapcraft.io](https://snapcraft.io/)
 [^2]: [Disabling Snaps in Ubuntu 20.04](https://news.ycombinator.com/item?id=22972661)

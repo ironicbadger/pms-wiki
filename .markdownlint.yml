@@ -4,13 +4,9 @@
 # Default state for all rules
 default: true
 
-# Line length
-MD013:
-  # Allow long lines for tables and code blocks
-  line_length: 120
-  tables: false
-  code_blocks: false
-  
+# Line length - disabled for MkDocs prose where soft wrapping is preferred.
+MD013: false
+
 # Dollar signs used before commands without showing output
 MD014: false
 
@@ -20,29 +16,29 @@ MD024: false
 # Multiple headings with the same content - disabled for consistency
 MD025: false
 
-# Trailing punctuation in heading
-MD026:
-  punctuation: ".,;:!"
+# Trailing punctuation in heading - disabled for conversational docs headings.
+MD026: false
+
+# Unordered list style - disabled because files mix markers intentionally.
+MD004: false
+
+# Unordered list indentation - disabled for MkDocs card and nested list syntax.
+MD007: false
+
+# Headings should be surrounded by blank lines - disabled for MkDocs pages/front matter.
+MD022: false
+
+# Spaces after list markers - disabled for MkDocs Material card lists.
+MD030: false
+
+# Fenced code blocks should be surrounded by blank lines - disabled for MkDocs blocks.
+MD031: false
 
 # Lists should be surrounded by blank lines
 MD032: true
 
-# Inline HTML - disabled as MkDocs Material uses HTML extensively
-MD033:
-  allowed_elements:
-    - div
-    - span
-    - br
-    - p
-    - a
-    - img
-    - details
-    - summary
-    - kbd
-    - sup
-    - sub
-    - figure
-    - figcaption
+# Inline HTML - disabled as MkDocs Material uses HTML and embeds extensively.
+MD033: false
 
 # No bare URLs - disabled as some docs use them intentionally
 MD034: false
@@ -57,17 +53,25 @@ MD040: false
 # First line in file should be a top-level heading - disabled for included files
 MD041: false
 
-# Code block style
-MD046:
-  style: fenced
+# Images should have alternate text - disabled because MkDocs image attributes confuse markdownlint.
+MD045: false
+
+# Code block style - disabled because MkDocs tabs/admonitions require indented content.
+MD046: false
+
+# Spaces inside code spans - disabled because indented MkDocs fences can be misread.
+MD038: false
 
 # Emphasis style
 MD049:
   style: underscore
 
-# Strong style  
+# Strong style
 MD050:
   style: asterisk
+
+# Reference definitions should be needed - disabled because footnotes can be generated/consumed by MkDocs.
+MD053: false
 
 # Link and image style
 MD054:
@@ -80,3 +84,6 @@ MD055:
 
 # Table row style
 MD056: true
+
+# Table column alignment - disabled because prose tables are not kept visually aligned.
+MD060: false

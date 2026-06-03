@@ -34,7 +34,7 @@ Media servers generally run 24/7, needs lots of hard drives and often run apps t
 * Saturate a gigabit LAN connection
 * Run multiple applications at once using containers
 
-PMS requires a bit more elbow grease to setup compared with other solutions but you are in complete control of every aspect of your system and once it's done it will just keep on going for years to come. 
+PMS requires a bit more elbow grease to setup compared with other solutions but you are in complete control of every aspect of your system and once it's done it will just keep on going for years to come.
 
 On top of that, the software used is all open source which means you'll never be at the mercy of a companies decision to change tack leaving you locked in to a legacy solution. Furthermore there are no license fees to pay and perhaps best of all, there’s a comprehensive guide on how you can set this up yourself!!
 

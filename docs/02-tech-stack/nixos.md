@@ -6,11 +6,11 @@ description: Take the blue pill and enter declarative server nirvana.
 
 ![nixos](../images/logos/nixos-logo.png)
 
-NixOS is quite different from almost any other Linux distribution you've ever used. It is a Linux distribution built on top of the Nix[^1] package manager which uses a *declarative model* for package and configuration management[^2].
+NixOS is quite different from almost any other Linux distribution you've ever used. It is a Linux distribution built on top of the Nix[^1] package manager which uses a _declarative model_ for package and configuration management[^2].
 
 This is a fancy way of saying "I declare I want my system to look like this" via a `configuration.nix` file and having the Nix tooling go and figure out how to turn that config file into a functional system. We'll get more into more of a discussion about Flakes[^4] shortly but first, let's explore what attracted me to NixOS in the first place, simplicity.
 
-What if I told you that you could configure your entire system in one single file? What if that file could configure installed packages, file shares, users, networking and allow the same sort of modularity that tools like Ansible do but at a fraction of the cognitive investment? 
+What if I told you that you could configure your entire system in one single file? What if that file could configure installed packages, file shares, users, networking and allow the same sort of modularity that tools like Ansible do but at a fraction of the cognitive investment?
 
 That is the promise of NixOS.
 
@@ -20,7 +20,7 @@ There is a lot to like about Nix (the package manager) and NixOS (the OS) but if
 
 ## The `configuration.nix` file
 
-Example snippets from `/etc/nixos/configuration.nix`. The full example file can be found [here](nixos/configuration.nix.md){:target="_blank"}.
+Example snippets from `/etc/nixos/configuration.nix`. The [full example configuration file](nixos/configuration.nix.md){:target="_blank"} is also available.
 
 !!! warning
     Make sure to read the [Flakes](#flakes) and [To Flake, or not to Flake](#to-flake-or-not-to-flake) sections of this article before proceeding.
@@ -115,13 +115,13 @@ Yup, that's it! Really.
 
 ## Flakes
 
-One of the biggest problems NixOS has right now is that it's in the middle of a transition and everything you just read above is *probably* going to be replaced by a much more complicated, and much less well documented configuration paradigm known as *Flakes*[^4]. Flakes have proven to be a controversial [^5] [^6] feature in the Nix community however, they appear to be the future of the ecosystem.
+One of the biggest problems NixOS has right now is that it's in the middle of a transition and everything you just read above is _probably_ going to be replaced by a much more complicated, and much less well documented configuration paradigm known as _Flakes_[^4]. Flakes have proven to be a controversial [^5] [^6] feature in the Nix community however, they appear to be the future of the ecosystem.
 
-So if the beautiful single-file simplicity isn't the future and Flakes are, then why even bother with Nix? This is a tough question to answer. The learning curve for Flakes, if you're trying to write your own from scratch as non-developer, is near vertical. Despite this, I persevered with them over the course a few weeks. And ended up with a single Flake that can deploy a common set of packages and other user goodies, like shell integrations across Linux *and* MacOS. Don't knock them until you've experienced them!
+So if the beautiful single-file simplicity isn't the future and Flakes are, then why even bother with Nix? This is a tough question to answer. The learning curve for Flakes, if you're trying to write your own from scratch as non-developer, is near vertical. Despite this, I persevered with them over the course a few weeks. And ended up with a single Flake that can deploy a common set of packages and other user goodies, like shell integrations across Linux _and_ MacOS. Don't knock them until you've experienced them!
 
 Remember how Nix is a package manager? Well, that means we can use Nix and a related tool called [Home Manager](https://github.com/nix-community/home-manager) to manage these configurations, declaratively, across multiple architectures and OSs. If you don't think that's cool, then you probably have your answer about whether NixOS is for you or not!
 
-``` nix title='Excerpt from <a href="https://github.com/ironicbadger/nix-testing/blob/main/flake.nix" target="_blank">github.com/ironicbadger/nix-testing/flake.nix</a> that shows configuring macOS alongside nixOS in the same file.' 
+``` nix title='Excerpt from <a href="https://github.com/ironicbadger/nix-testing/blob/main/flake.nix" target="_blank">github.com/ironicbadger/nix-testing/flake.nix</a> that shows configuring macOS alongside nixOS in the same file.'
 {
   darwinConfigurations = {
     personal-laptop = darwinSystem "aarch64-darwin" "slartibartfast" "alex";
@@ -141,7 +141,6 @@ This is not an easy question to answer. If absolute dependency pinning and repro
 However, for the rest of us mere mortals the learning curve for flake adoption is almost vertical. And it doesn't really start to level out for quite a long time. For most people, most of the time - and certainly those of you who are new to Linux and building your own systems - it is likely too much. The single file based `configuration.nix` paradigm is so beautiful, so elegant, and simple to understand that if I were building a PMS from scratch today, it's where I would start.
 
 PMS has historically been based around the Debian / Ubuntu ecosystem for many years. In no small part this is due to the courage shown by Canonical to ship ZFS (Proxmox benefits from this too as they ship a modified Ubuntu kernel on top of a Debian base). But Nix gives us almost everything these distros do, and in such an amazingly simple package. The biggest downside? It's different. You will have to adjust your way of thinking. But once you do, there is little doubt that Nix - or at least fully declarative systems - are the only way to roll.
-
 
 [^1]: [GitHub - Nix, the purely functional package manager](https://github.com/NixOS/nix)
 [^2]: [Nixos.org - How Nix works](https://nixos.org/guides/how-nix-works.html)

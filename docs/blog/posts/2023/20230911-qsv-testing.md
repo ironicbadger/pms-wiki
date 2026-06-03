@@ -9,7 +9,7 @@ readtime: 2
 
 Quick Sync Video (QSV) is the hardware video transcoding circuitry built into most Intel CPUs for the last few years. Whilst there are many sites which provide benchmarks of the raw performance of a CPUs general processing cores or its iGPU performance for gaming, there isn't a great deal of data on the performance of the QSV hardware.
 
-I am therefore delighted to announce a new project to gather as much data on the performance of QSV as possible. See this YouTube video for more information. 
+I am therefore delighted to announce a new project to gather as much data on the performance of QSV as possible. See this YouTube video for more information.
 
 <p align="center">
 <figure markdown>

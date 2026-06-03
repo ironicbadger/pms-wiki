@@ -7,8 +7,8 @@ Ah, [Linux](https://linux.org). This game changing, pioneering, free and open so
 The project was founded in 1991 as a personal project by Linus Torvalds (hence the name Linux). Linux powers many of the worlds computers, is the basis of the Android kernel and is perhaps the ultimate unsung hero of modern computing times. Here is a full [history of Linux](https://en.wikipedia.org/wiki/History_of_Linux) if you're curious.
 
 !!! info
-    When we refer to "Linux", we are technically referring to the Linux kernel. 
-    
+    When we refer to "Linux", we are technically referring to the Linux kernel.
+
     A "distribution" is the Linux kernel paired with the required packages to make a system boot, connect to the network, display video and so on.
 
 ## The Technology Stack for PMS
@@ -19,7 +19,7 @@ The project was founded in 1991 as a personal project by Linus Torvalds (hence t
     + [mergerfs](../mergerfs.md)
     + [SnapRAID](../snapraid.md)
     + [ZFS](../zfs.md)
-+ containers 
++ containers
     + [docker](../docker.md) - container runtime
     + [docker-compose](../docker-compose.md) - container management
 

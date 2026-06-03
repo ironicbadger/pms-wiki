@@ -1,6 +1,6 @@
 # Proxmox
 
-Is Proxmox right for you? See *[which distro should I pick?](../03-installation/index.md#which-distro-should-i-pick)*.
+Is Proxmox right for you? See _[which distro should I pick?](../03-installation/index.md#which-distro-should-i-pick)_.
 
 ![proxmox](../images/logos/proxmox.svg)
 
@@ -19,16 +19,15 @@ Proxmox is open-source and provides extremely simple Virtual Machine management 
 Proxmox also natively supports running LXC (LinuX Containers) containers from the UI. These are similar to docker containers but behave more like a traditional VM would with a full init system, often systemd. I've been running my [Pihole DNS](https://blog.ktz.me/fully-automated-dns-and-dhcp-with-pihole-and-dnsmasq/) out of one for a while and it just works - makes me think I should do more this way but I'm quite attached to my docker-compose workflow for media apps.
 
 !!! info
-    For the longest time I avoided Proxmox because of a nag screen that is displayed on new installations asking for subscriptions. I assumed, incorrectly, that Proxmox was demo-ware. That is not the case and I maintain an Ansible role to remove the nag screen completely [here](https://github.com/IronicBadger/ansible-role-proxmox-nag-removal).
+    For the longest time I avoided Proxmox because of a nag screen that is displayed on new installations asking for subscriptions. I assumed, incorrectly, that Proxmox was demo-ware. That is not the case and I maintain an [Ansible role to remove the Proxmox nag screen](https://github.com/IronicBadger/ansible-role-proxmox-nag-removal).
 
 ## Do I need Proxmox?
 
-[Proxmox](../02-tech-stack/proxmox.md) is the PMS defacto base OS these days. It's a bastardized version of debian and ubuntu smushed together with some "proxmox sauce" thrown in on top. 
+[Proxmox](../02-tech-stack/proxmox.md) is the PMS defacto base OS these days. It's a bastardized version of debian and ubuntu smushed together with some "proxmox sauce" thrown in on top.
 
 This means you get ZFS support out the box, a VM and LXC hosting platform with a fully featured web interface and an API to automate tools like Ansible and Terraform against if that floats your boat. Combine that with Proxmox's ability to cluster multiple nodes together for failover, migration, and storage and it becomes quite a compelling option as a base OS for PMS.
 
 !!! success "Proxmox is the right choice for you if:"
-
 
     1. You like a stable base distro on debian
     2. You want to run Virtual Machines
@@ -41,7 +40,7 @@ I have found a lot value from running Proxmox. For example, running a dedicated 
 
 ![proxmox-ui](../images/advanced/igpu-passthrough/image-5.png)
 
-If you want to dive deep into the rabbit hole, you can with Proxmox - but you don't *have* to. With that said, because Proxmox is just Linux underneath you can use it like you would any other Linux installation and totally ignore the UI layer. This also means things like PCI passthrough or ZFS don't require waiting for vendor patches or releases, they just work.
+If you want to dive deep into the rabbit hole, you can with Proxmox - but you don't _have_ to. With that said, because Proxmox is just Linux underneath you can use it like you would any other Linux installation and totally ignore the UI layer. This also means things like PCI passthrough or ZFS don't require waiting for vendor patches or releases, they just work.
 
 ## What about VMware / ESXI?
 

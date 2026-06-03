@@ -12,7 +12,7 @@ We'll come onto what a container is shortly but first let's discuss why you migh
 
 My lightbulb moment with docker came a few years ago after I'd reinstalled my server OS. I'd got everything just the way I liked it, all the apps were working great but an update borked something and I had to reload. However, this time, I was using docker for my applications, stored their data in volumes[^1] and kept a text file with each command I'd use to create the containers (this was pre docker-compose).
 
-What normally followed reinstallation was a lengthy, often multi-day, process of getting things back to where they were. This time though, things were different. I copied each `docker run` command and I was back up and running within 10 *minutes*, I was done. That was it, the game changed that day.
+What normally followed reinstallation was a lengthy, often multi-day, process of getting things back to where they were. This time though, things were different. I copied each `docker run` command and I was back up and running within 10 _minutes_, I was done. That was it, the game changed that day.
 
 This was because the configuration data for the applications was stored in a separate location via a volume[^1] bind mount. Backing up configuration was nothing new but that this happened by design meant I'd taken a leap forward in deployment reliability and repeatability.
 
@@ -25,17 +25,19 @@ Beyond the fact that separating the application runtime from its configuration m
 A container is an application in a box. A few years ago, the Linux kernel added some features called namespaces and cgroups which enable isolating processes from each other. Therefore, in essence, a container is a process isolated in memory by the kernel.
 
 !!! tip
-    [This](https://archive.fosdem.org/2016/schedule/event/namespaces_and_cgroups/) talk by James Bottomley at FOSDEM 2016 was pivotal in my understanding of containers. He explains what cgroups and namespaces are in a way that is easy to understand and I highly suggest watching the recording of his talk linked [here](https://archive.fosdem.org/2016/schedule/event/namespaces_and_cgroups/).
+    [This talk by James Bottomley at FOSDEM 2016](https://archive.fosdem.org/2016/schedule/event/namespaces_and_cgroups/) was pivotal in my understanding of containers. He explains what cgroups and namespaces are in a way that is easy to understand and I highly suggest watching the recording.
 
 What this means for users is that dependency and resource clashes are a thing of the past. Need two slightly different versions of Java for two applications? No problem!
 
-More than this, containers are more secure. They employ the principal of minimum viable permissions and unless you permit access into them, you are guaranteed by virtue of the kernel technology underneath that noone else can either. 
+More than this, containers are more secure. They employ the principal of minimum viable permissions and unless you permit access into them, you are guaranteed by virtue of the kernel technology underneath that noone else can either.
 
 ### My first container
 
 For example, nginx is a popular web server - in fact it is serving this website to your eyeballs and is running in a container! Web servers use ports to listen for traffic, commonly port 80 or 443.
 
-    docker run -p 80:80 nginx
+```
+docker run -p 80:80 nginx
+```
 
 On a host with docker running, this command will create an nginx container and permit you access to port 80 where the web server is running by visiting `http://system-ip` in your browser.
 
@@ -48,8 +50,10 @@ Try running the same command again but remove `-p 80:80`. Notice how by removing
 
 Suppose we wanted to run two webservers like so:
 
-    docker run --name nginx1 -p 80:80 nginx
-    docker run --name nginx2 -p 81:80 nginx
+```
+docker run --name nginx1 -p 80:80 nginx
+docker run --name nginx2 -p 81:80 nginx
+```
 
 Notice that the second container uses port 81. This is because the command `-p 81:80` is actually mapping port 80 from inside the container to port 81 on the host. Ports mapped to the host must be unique but nginx can run on port 80 inside each container because each one is its own isolated environment.
 
@@ -58,7 +62,7 @@ Notice that the second container uses port 81. This is because the command `-p 8
 docker-compose[^2] is a tool for defining and running multi-container Docker applications. With docker-compose, a YAML file is used to configure your application’s services. It enables you to use a single command to create, start, stop and destroy the services in your configuration file.
 
 !!! info "For more details"
-    See the [docker-compose](docker-compose.md) 
+    See the [docker-compose](docker-compose.md)
 
 ## Where do I get containers from?
 
@@ -69,7 +73,7 @@ Some other notable registries include, but are not limited to:
 * [Quay.io](https://quay.io/)
 * [GitHub Container Registry](https://github.com/features/packages)
 
-I might be biased due to my prior involvement with the project but [LinuxServer.io](https://linuxserver.io) make the largest collection of media server type containers on the internet. At the time of writing their containers have seen over 14 billion pulls and you can find a full list of the available apps packaged by the team [here](https://fleet.linuxserver.io/).
+I might be biased due to my prior involvement with the project but [LinuxServer.io](https://linuxserver.io) make the largest collection of media server type containers on the internet. At the time of writing their containers have seen over 14 billion pulls and you can find a [full list of available LinuxServer.io apps](https://fleet.linuxserver.io/).
 
 ## How do I pick one container over another?
 
@@ -86,8 +90,8 @@ The first place I always check is LinuxServer's [Fleet](https://fleet.linuxserve
 * I wrote a few of them
 
 !!! info
-    If LSIO make a container as well as the upstream project then you might want to default to the upstream image. 
-    
+    If LSIO make a container as well as the upstream project then you might want to default to the upstream image.
+
     *But*, almost all LSIO images support multiarch and some offer features that the officially provided containers don't such as hardware transcoding for Plex - I run the `linuxserver/plex` image for integration with Intel QuickSync.
 
 Next, I'll take a look at Docker Hub. If there are multiple images doing the same thing I'll look at the number of downloads - generally more is better but not always. I'll try and find the Dockerfile for the container in question - usually this is available on the Docker Hub page but not always (I'll avoid Dockerfile-less containers as I have little clue what they're up to).
@@ -99,9 +103,6 @@ For an incredible list of inspiration, check out [awesome-selfhosted](https://gi
 ## What about podman?
 
 See [podman](podman.md).
-
-
-
 
 [^1]: [Docker Volumes explained - docs.docker.com/storage/volumes](https://docs.docker.com/storage/volumes/)
 [^2]: [docker-compose - docs.docker.com/compose](https://docs.docker.com/compose/)

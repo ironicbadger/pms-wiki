@@ -27,7 +27,7 @@ When it works, [Ventoy](https://www.ventoy.net/en/index.html) is magic. It turns
 
 There are a few options you have with regards to boot drive. The simplest option is buy a dedicated SSD for this purpose. Use this drive for the OS and temporary files (like in-progress file transfers) before moving them to your array. You might find putting your Plex metadata on an SSD such as this will help performance of library loading.
 
-Running the Gnome desktop on a server is a bit unnecessary as we'll manage this server 99% of the time via SSH. If you'd like to remove the desktop altogether, [here](https://askubuntu.com/questions/1233025/how-to-remove-gnome-shell-from-ubuntu-20-04-lts-to-install-other-desktop-environ) are some instructions on doing so from AskUbuntu. This step is *completely optional*.
+Running the Gnome desktop on a server is a bit unnecessary as we'll manage this server 99% of the time via SSH. If you'd like to remove the desktop altogether, AskUbuntu has [instructions for removing Gnome Shell from Ubuntu](https://askubuntu.com/questions/1233025/how-to-remove-gnome-shell-from-ubuntu-20-04-lts-to-install-other-desktop-environ). This step is _completely optional_.
 
 !!! danger
     Experimental ZFS on root support was added to 20.04 LTS. Need I say more about installing your server on an option marked as 'experimental' in the installer? OK, for clarity, don't!.
@@ -67,12 +67,12 @@ The following section details the steps to identify, mount and partition the har
 
 ### Mounting drives manually
 
-In order to use these disks our OS needs to mount them. *Mounting* means that we are providing the OS with instructions on how to read or write data to a specific drive. The most common way of configuring drives for use with PMS is to create one large partition and format it with a single filesystem which spans the entire drive, often `ext4` or `xfs`, and then mounting it.
+In order to use these disks our OS needs to mount them. _Mounting_ means that we are providing the OS with instructions on how to read or write data to a specific drive. The most common way of configuring drives for use with PMS is to create one large partition and format it with a single filesystem which spans the entire drive, often `ext4` or `xfs`, and then mounting it.
 
 !!! success
     You may now connect your data disks.
 
-The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. `xfs` allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on choosing your filesystem [here](https://access.redhat.com/articles/3129891).
+The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. `xfs` allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on [choosing your filesystem](https://access.redhat.com/articles/3129891).
 
 !!! info
     There are two version of Ubuntu mainline available - the [desktop](https://ubuntu.com/download/desktop) and [server](https://ubuntu.com/download/server) variants.
@@ -85,7 +85,9 @@ Remember with mergerfs you are able to safely mix and match filesystems and driv
 
 List all drives in a system with:
 
-    ls /dev/disk/by-id
+```
+ls /dev/disk/by-id
+```
 
 The output will look something like this:
 
@@ -109,21 +111,23 @@ Therefore, we can ascertain that `/dev/sdc` is mapped to this physical drive. Ne
 
 ### Brand new drives
 
-Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under *Hardware* -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
+Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
 
 !!! warning
-    **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is *any* existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
+    **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is _any_ existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
 
 The following steps will require root access. To become the root user type `sudo su`. Using our example drive from the prior section we will use `gdisk` to create a new partition and filesystem. Run `gdisk /dev/sdX` (replacing `sdX` with your drive), for example:
 
-    root@cartman:~# gdisk /dev/sdc
-    GPT fdisk (gdisk) version 1.0.5
+```
+root@cartman:~# gdisk /dev/sdc
+GPT fdisk (gdisk) version 1.0.5
 
-    Partition table scan:
-        MBR: protective
-        BSD: not present
-        APM: not present
-        GPT: not present
+Partition table scan:
+    MBR: protective
+    BSD: not present
+    APM: not present
+    GPT: not present
+```
 
 Once `gdisk` is loaded we are presented with an interactive prompt `Command (? for help):`. To see all options simply type `?`. In the initial output from gdisk we can see there is no partition table present on this drive - it's a good sanity check you have the right drive before erasing the partition and file allocation tables.
 
@@ -158,9 +162,11 @@ Next up, we'll create a filesystem on that newly created partition.
 
 Create an `ext4` filesystem thus (replace `X` with your drive letter):
 
-    mkfs.ext4 /dev/sdX1
+```
+mkfs.ext4 /dev/sdX1
+```
 
-Congratulations! Your new drive is now formatted and ready to store data. 
+Congratulations! Your new drive is now formatted and ready to store data.
 
 Move onto the next section 'Existing drive' to learn how to mount it (make it available to the OS for use).
 
@@ -175,14 +181,18 @@ Move onto the next section 'Existing drive' to learn how to mount it (make it av
 
 You should now be able to mount the drive manually like so:
 
-    mkdir /mnt/manualdiskmounttest
-    mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/manualdiskmounttest
+```
+mkdir /mnt/manualdiskmounttest
+mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/manualdiskmounttest
+```
 
 Verify that the drive mounted and displays the correct size as expected:
 
-    root@cartman:~# df -h
-    Filesystem                        Size  Used Avail Use% Mounted on
-    /dev/sdc1                         7.3T  2.8T  4.6T  38% /mnt/manualdiskmounttest
+```
+root@cartman:~# df -h
+Filesystem                        Size  Used Avail Use% Mounted on
+/dev/sdc1                         7.3T  2.8T  4.6T  38% /mnt/manualdiskmounttest
+```
 
 ### Mountpoints
 
@@ -190,9 +200,11 @@ Mountpoints are where the OS mounts a specific disk partition. For example, you 
 
 Assuming the previous test went well, it's time to come up with a mountpoint naming scheme. We recommended `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support (more on this shortly). For example:
 
-    mkdir /mnt/disk{1,2,3,4}
-    mkdir /mnt/parity1 # adjust this command based on your parity setup
-    mkdir /mnt/storage # this will be the main mergerfs mountpoint
+```
+mkdir /mnt/disk{1,2,3,4}
+mkdir /mnt/parity1 # adjust this command based on your parity setup
+mkdir /mnt/storage # this will be the main mergerfs mountpoint
+```
 
 We also just created `/mnt/storage` in addition to our data disk mountpoints of `/mnt/disk1`, `/mnt/disk2` and so on. `/mnt/storage` will be used by [mergerfs](../02-tech-stack/mergerfs.md) to 'pool' or 'merge' our data disks.
 
@@ -203,9 +215,9 @@ Next we need to create an entry in `/etc/fstab`.
 This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/index.php/fstab).
 
 !!! note
-    Note that mergerfs does *not* mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has *nothing to do* with parity, that is what we use SnapRAID for.
+    Note that mergerfs does _not_ mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has _nothing to do_ with parity, that is what we use SnapRAID for.
 
-Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapRAID parity drive. 
+Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapRAID parity drive.
 
 ```
 ##/etc/fstab example
@@ -301,13 +313,13 @@ exclude appdata/
 exclude *.!sync
 ```
 
-A full list of typical excludes can be found in GitHub [here](https://github.com/IronicBadger/infra/blob/master/group_vars/morpheus.yaml#L52).
+A full list of [typical SnapRAID excludes can be found in GitHub](https://github.com/IronicBadger/infra/blob/master/group_vars/morpheus.yaml#L52).
 
 ### Automating Parity Calculation
 
 As SnapRAID is designed to work by taking snapshots we must configure these to be calculated at regular intervals. We could just create a very simple cronjob and execute `snapraid sync` as part of that process, but there are a few situations we want a little more smarts than that.
 
-[snapraid-runner](https://github.com/Chronial/snapraid-runner) is a reliable way to add some logic gates to execution of SnapRAID. 
+[snapraid-runner](https://github.com/Chronial/snapraid-runner) is a reliable way to add some logic gates to execution of SnapRAID.
 
 To install, begin by cloning the git repo:
 
@@ -327,7 +339,6 @@ Edit the configuration file for snapraid-runner, a default is provided at `/opt/
     * `enabled = True`
     * `percentage = 22` - The % of the array to scrub
     * `older-than = 8` - Only scrub data if older than this number of days
-
 
 Finally, create a cronjob to automatically run `snapraid-runner`. You will want to ensure the file SnapRAID is checking parity for are not changing during this time. Ideally at something like 4 or 5am, it would be a good idea to also temporarily disable any services that write to your storage during this time - that is optional though.
 
@@ -363,7 +374,7 @@ We are using Ubuntu which means docker installation is straightforward via docke
 `docker-compose` is a tool for defining and running multiple containers at once using docker. Defining, starting, stopped and upgrading dozens of containers all at once is reduced to a single command.
 
 !!! info
-    `docker-compose` installation instructions for Linux can be found [here](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
+    Docker provides [`docker-compose` installation instructions for Linux](https://docs.docker.com/compose/install/#install-compose-on-linux-systems).
 
 Here's an example `docker-compose.yaml` file for a simple nginx webserver deployment (yep, that's the code used to deploy the site you're viewing!).
 
@@ -418,7 +429,7 @@ Let's begin by configuring the server side of things.
 
 As is often the case the [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Server) has a fantastically detailed entry on setting up and configuring a samba server. Despite the fact that PMS recommends Ubuntu, much of the configuration information provided by the Arch Wiki is valid for use by us.
 
-If you just want the most brain dead simple way to get going with samba, here it is. 
+If you just want the most brain dead simple way to get going with samba, here it is.
 
 * First, install samba:
 
@@ -494,13 +505,13 @@ apt install smbclient
 ```
 alex@cartman:~$ smbclient -L cartman -U%
 
-	Sharename       Type      Comment
-	---------       ----      -------
-	home            Disk      alex home folder
-	opt             Disk      opt directory
-	storage         Disk      Storage on cartman
-	photos          Disk      Storage on cartman
-	IPC$            IPC       IPC Service (cartman)
+    Sharename       Type      Comment
+    ---------       ----      -------
+    home            Disk      alex home folder
+    opt             Disk      opt directory
+    storage         Disk      Storage on cartman
+    photos          Disk      Storage on cartman
+    IPC$            IPC       IPC Service (cartman)
 SMB1 disabled -- no workgroup available
 ```
 
@@ -513,7 +524,6 @@ On a remote system you might wish to mount your samba shares permanently using `
 ```
 
 Ensure the mountpoint exists. If it doesn't, create it with `mkdir /mnt/mountpoint`. Also make sure to set `smbpasswd` as described above.
-
 
 ### NFS
 
