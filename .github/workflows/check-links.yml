@@ -51,6 +51,7 @@ jobs:
             --exclude "forum.asrock.com"
             --exclude "forums.unraid.net"
             --exclude "namecheap.com"
+            --exclude "nixos.org"
             --exclude "ubuntu.com"
             --exclude "pcpartpicker.com"
             --exclude "supermicro.com"
