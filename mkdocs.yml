@@ -106,6 +106,11 @@ extra:
       name: Alex's Podcast - selfhosted.show
 nav:
   - News and Updates: blog/index.md
+  - JellyfinJune:
+    - 'jellyfinjune/index.md'
+    - Overview and Playlist: 'https://perfectmediaserver.com/jellyfinjune/'
+    - Episode Notes:
+      - Episode 1: 'jellyfinjune/e01.md'
   - 1. Overview:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
