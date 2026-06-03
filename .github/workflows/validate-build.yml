@@ -32,12 +32,7 @@ jobs:
       - name: Install MkDocs and dependencies
         run: |
           pip install --upgrade pip
-          pip install mkdocs-material
-          pip install mkdocs-material[imaging]
-          pip install mkdocs-minify-plugin
-          pip install mkdocs-git-revision-date-plugin
-          pip install mkdocs-material-plausible-plugin
-          pip install pillow cairosvg
+          pip install -r requirements.txt
           
       - name: Build MkDocs site
         run: mkdocs build --strict --verbose
