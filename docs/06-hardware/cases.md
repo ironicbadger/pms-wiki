@@ -61,7 +61,7 @@ The Fractal Define R5 is a classic example of "if it ain't broke, don't fix it".
 
 <figure markdown>
 ![alexs-uk-server](../images/hardware/cases/define-r5.jpg){: width=700 }
-<figcaption>This is Alex's old server from before he emigrated to the USA. It lives in the UK as his primary off-site <a href="../../04-day-two/backups/">backup</a> system.</figcaption>
+<figcaption>This is Alex's old server from before he emigrated to the USA. It lives in the UK as his primary off-site <a href="../04-day-two/backups/">backup</a> system.</figcaption>
 </figure>
 
 * Motherboard Form Factor - Mini-ITX, mATX, ATX
@@ -84,7 +84,7 @@ Overall, it's an extremely solid option for anyone looking to build a PMS system
 
 ## Fractal Node Series
 
-> Review contributed by [Hogcycle](https://github.com/hogcycle)
+> Review contributed by Hogcycle
 
 The Fractal Design Node 804 was released in 2014 and is a solid contender for a Perfect Media Server. A major distinction and benefit is how this case is split down the middle into two chambers. 
 

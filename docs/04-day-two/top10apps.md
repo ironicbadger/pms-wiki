@@ -16,7 +16,7 @@ My YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems) - is sti
 [Jellyfin](https://jellyfin.org/) is the media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
 
 <p align="center">
-<img alt="jellyfin-banner" src="../../images/top10/jellyfin.png">
+<img alt="jellyfin-banner" src="../images/top10/jellyfin.png">
 </p>
 
 Jellyfin serves no business model, and is not subject to the gradual enshitification that we've seen with Plex over the years. With no cloud connectivity required for authentication, no random streaming services and snappy performance - a fully featured, local first media server experience awaits. Did I mention that it's completely open source too?
@@ -66,7 +66,7 @@ Immich recently [joined FUTO](https://immich.app/blog/2024/immich-core-team-goes
 Surely this pick needs no introduction. Think of Nextcloud somewhat like your own personal Dropbox replacement. Although, that is doing it a disservice because Nextcloud supports *many* more features than Dropbox. Nextcloud provide a [demo](https://try.nextcloud.com) if you'd like to try before you "buy" (Nextcloud is free).
 
 <p align="center">
-<img alt="nextcloud-banner" src="../../images/top10/nextcloud-banner.png">
+<img alt="nextcloud-banner" src="../images/top10/nextcloud-banner.png">
 </p>
 
 It can be a bit unreliable and unwieldy to administer at times - especially around update cycles. But once you get a working configuration it's a really handy tool.

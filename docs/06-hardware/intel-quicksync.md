@@ -9,7 +9,7 @@ Quick Sync (QSV) has been a game changing technology. It is a hardware media enc
 Best is of course a subjective term. But over the first half over 2024, Alex and a big chunk of the self-hosting community ran hundreds of CPU tests to benchmark QSV in the first public test of its type. For full thoughts, see the [blog post](https://blog.ktz.me/the-best-media-server-cpu-in-the-world/).
 
 <p align="center">
-<img alt="igputop" src="../../images/hardware/igpu-cpu-graph.png">
+<img alt="igputop" src="../images/hardware/igpu-cpu-graph.png">
 </p>
 
 ## Performance
