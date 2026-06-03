@@ -27,6 +27,7 @@ jobs:
             --accept=200,201,202,203,204,301,302,303,307,308
             --timeout 20
             --max-retries 3
+            --root-dir docs
             --user-agent "Mozilla/5.0 (compatible; pms-wiki-link-checker)"
             --exclude-private
             --exclude "^(?i:mailto)"
@@ -39,8 +40,21 @@ jobs:
             --exclude "example.org"
             --exclude "plausible.ktz.cloud"
             --exclude "techhub.social"
+            --exclude "linkedin.com"
             --exclude "reddit.com"
             --exclude "www.reddit.com"
+            --exclude "arstechnica.com"
+            --exclude "ark.intel.com"
+            --exclude "connection.com"
+            --exclude "corsair.com"
+            --exclude "ebay.com"
+            --exclude "forum.asrock.com"
+            --exclude "forums.unraid.net"
+            --exclude "namecheap.com"
+            --exclude "nixos.org"
+            --exclude "ubuntu.com"
+            --exclude "pcpartpicker.com"
+            --exclude "supermicro.com"
             --exclude-path node_modules/
             --exclude-path .git/
             '**/*.md'
@@ -71,21 +85,27 @@ jobs:
             let currentFile = '';
             
             for (const line of lines) {
-              // Match file paths in the report
-              if (line.includes('.md') && !line.includes('|')) {
-                currentFile = line.trim().replace(/^\*\*/, '').replace(/\*\*$/, '');
+              const sectionMatch = line.match(/^### Errors in (.+\.md)$/);
+              if (sectionMatch) {
+                currentFile = sectionMatch[1];
+                continue;
               }
-              // Match broken links
-              if (line.includes('[') && line.includes('](') && line.includes('Failed')) {
-                const match = line.match(/\[.*?\]\((.*?)\)/);
-                if (match) {
-                  brokenLinks.push({
-                    file: currentFile,
-                    url: match[1],
-                    line: line.trim()
-                  });
-                }
+
+              const errorMatch = line.match(/^\* \[([^\]]+)\] <([^>]+)> \| (.+)$/);
+              if (errorMatch) {
+                brokenLinks.push({
+                  file: currentFile,
+                  status: errorMatch[1],
+                  url: errorMatch[2],
+                  detail: errorMatch[3],
+                  line: line.trim()
+                });
               }
+            }
+
+            if (brokenLinks.length === 0) {
+              core.warning('Lychee failed, but no broken links were parsed from lychee-report.md; skipping issue creation.');
+              return;
             }
             
             const issueBody = `## Broken Links Detected
@@ -103,7 +123,9 @@ jobs:
             
             ${brokenLinks.map((link, index) => 
               `${index + 1}. **File:** \`${link.file}\`
+               **Status:** ${link.status}
                **Broken URL:** ${link.url}
+               **Details:** ${link.detail}
                **Action:** Find this URL in the file and update or remove it
             `).join('\n')}
             

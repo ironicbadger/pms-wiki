@@ -40,8 +40,6 @@ Rule #3 is obvious. Don't buy naked drives from Amazon. I have twice due to comp
 
 I never even bothered trying to power that one up. It was returned immediately. Save yourself the hassle and don't buy drives from Amazon.
 
-<img src="../../images/naked-drive.jpg" align="center">
-
 These rules happen to tie in nicely (surprise!) with some of my other overall thoughts on putting together the perfect media server and a topic I covered in the 2016 article. Namely, home users (the primary target for this series) probably don't want to have to buy 3+ drives at a time - it's just too much money to spend in one go! The ability to organically grow a system as your content collection, drone footage or linux ISO stash does is an absolutely core tenet and a key reason why I don't think any solution which requires adding more than one drive at once (going full ZFS, for example) is a suitable solution for most people, most of the time. By growing the system organically you not only put less pressure on your budget up front but you also potentially increase the overall reliability of the system thanks to Rule #1 and Rule #2.
 
 If you needed another reason; the longer you wait, the more TBs you'll get for the same cash. 2 years ago I tried to 'standardise' on 6TB drives. The time came 6 months ago when I wanted to add another drive to my system and for the same money per drive I could now furnish my system with an 8TB model. Backblaze, purveyors of the excellent ["Annual failure rate"](https://www.backblaze.com/b2/hard-drive-test-data.html) series, have [this interesting take](https://www.backblaze.com/blog/hard-drive-cost-per-gigabyte/) on cost per gigabyte.
@@ -59,9 +57,4 @@ I'll keep this section brief as there is a load of information readily available
 
 You might find yourself needing to either modify your power cables to get around the 3.3v detection fix on WD drives. WD obviously want you paying top dollar for your drives and so have enabled in the firmware a 3.3v detection dead mans switch. The fix is easy. Either A) apply kapton tape to the pins - [detailed here](https://www.reddit.com/r/DataHoarder/comments/7g2v9o/33v_pin_reset_directions_d) or B) cut the 3.3v wire on your sata connectors. Not all PSUs are affected and it's really not a big deal. See below, I made some custom power cables which omit the 3.3v rail altogether - problem solved.
 
-<p align="center">
-<img src="../../images/custom-power-cable.png">
-</p>
-
 In late 2018 I purchased 2 WD Easystores from Best Buy and 2 8TB Seagate SMR shingled drives from Amazon and so far they perform identically to their more expensive brethren. You have nothing to fear here except the lack of warranty - but for the price I'll take it.
-

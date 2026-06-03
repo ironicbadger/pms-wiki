@@ -11,7 +11,7 @@ You can use mergerfs without SnapRAID. And you can use SnapRAID without mergerfs
 For most PMS deployments, your media will be spread across a handful of JBOD drives merged together with [mergerfs](mergerfs.md). Without SnapRAID if a drive were to fail, you'd instantly lose all data on the failed drive forever. With SnapRAID you're able to rebuild that failed drive using parity data from your last snapshot. This approach is uniquely well suited to large, static datasets like media libraries. It is not well suited to fast moving data like your Plex metadata for example.
 
 <p align="center">
-<img alt="mergerfs-snapraid-diagram" src="../../images/tech-stack/diagram-mergerfs-snapraid.png" width="525">
+<img alt="mergerfs-snapraid-diagram" src="../images/tech-stack/diagram-mergerfs-snapraid.png" width="525">
 </p>
 
 ## What is SnapRAID?
