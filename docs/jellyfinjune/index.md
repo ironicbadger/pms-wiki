@@ -18,6 +18,14 @@ The material here is intentionally practical: watch the episode, copy the useful
 
     [:octicons-arrow-right-24: Open the episode notes](e01.md)
 
+-   :simple-jellyfin:{ .lg .middle } - **Episode 2: Why Jellyfin Still Matters Even If It Isn't Perfect**
+
+    ---
+
+    A pragmatic conversation with Gardiner Bryant about Jellyfin's rough edges, Plex, and why open source media servers still matter.
+
+    [:octicons-arrow-right-24: Open the episode notes](e02.md)
+
 </div>
 
 ## Why JellyfinJune exists

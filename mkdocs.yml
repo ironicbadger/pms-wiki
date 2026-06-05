@@ -111,6 +111,7 @@ nav:
     - Overview and Playlist: 'https://perfectmediaserver.com/jellyfinjune/'
     - Episode Notes:
       - Episode 1: 'jellyfinjune/e01.md'
+      - Episode 2: 'jellyfinjune/e02.md'
   - 1. Overview:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
