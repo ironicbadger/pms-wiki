@@ -80,37 +80,37 @@ Remember to repeat this process every so often (every month or two will more tha
 
 ## Hard Drive setup
 
-The following section details the steps to identify, mount and partition the hard drives in your system.
+This section covers how to identify, partition, format, and mount the hard drives in your system.
 
 ### Mounting drives manually
 
-In order to use these disks our OS needs to mount them. _Mounting_ means that we are providing the OS with instructions on how to read or write data to a specific drive. The most common way of configuring drives for use with PMS is to create one large partition and format it with a single filesystem which spans the entire drive, often `ext4` or `xfs`, and then mounting it.
+Before the OS can use a data disk, it needs to be mounted.
+
+_Mounting_ connects a filesystem on a disk or partition to a directory path, which gives the OS a place to read and write data. The most common PMS layout is one large partition per data drive, formatted with a single filesystem such as `ext4` or `xfs`, and then mounted to a predictable path.
 
 !!! success
-    You may now connect your data disks.
+    If you have not already done so, connect your data disks before continuing.
 
-The filesystem wars have raged for decades and there is no right or wrong one to pick. However, we recommended either `ext4` or `xfs` to keep things simple. `xfs` allegedly works slightly better with large files (like media files) but there is not much in it. Red Hat have a great article on [choosing your filesystem](https://access.redhat.com/articles/3129891).
+The filesystem wars have raged for decades, and there is no single correct choice. For this guide, use either `ext4` or `xfs` to keep things simple. `xfs` can work slightly better with large files, such as media files, but the difference is unlikely to matter much for most PMS builds. Red Hat has a useful article on [choosing your filesystem](https://access.redhat.com/articles/3129891).
 
-Remember with mergerfs you are able to safely mix and match filesystems and drive sizes which is part of it's real magic. This means you don't have to stress too much about picking exactly the right filesystem up front because you aren't locked in.
+With mergerfs, you can safely mix filesystems and drive sizes. This is the magic of mergerfs. You do not need to stress too much about picking the perfect filesystem up front, because you are not locked into one choice forever.
 
 ### Identifying drives
 
-First, check that all your disks show up with `inxi -xD` (`apt install inxi`).
+First, check that all your disks appear with `inxi -xD` (`apt install inxi`).
 
 ```
-root@deepthought:~# inxi -xD
+root@proxtest:~# inxi -xD
 Drives:
   Local Storage: total: raw: 92.63 TiB usable: 45.84 TiB used: 19.66 TiB (42.9%)
   ID-1: /dev/nvme0n1 vendor: Western Digital model: WD BLACK SN850X 4000GB size: 3.64 TiB
     temp: 27.9 C
-  ID-2: /dev/nvme1n1 vendor: Western Digital model: WD BLACK SN850X 4000GB size: 3.64 TiB
-    temp: 25.9 C
   ID-7: /dev/sda vendor: Crucial model: CT1000MX500SSD1 size: 931.51 GiB temp: 13.0 C
-  ID-8: /dev/sdb vendor: Samsung model: SSD 870 EVO 1TB size: 931.51 GiB temp: 15.0 C
+  ID-8: /dev/sdc vendor: Western Digital model: HGST_HDN728080ALE604_R6GPPDTY size: 7.2 TiB temp: 20.0 C
   ID-9: /dev/sdc vendor: Western Digital model: WD201KFGX-68BKJN0 size: 18.19 TiB temp: 20.0 C
 ```
 
-Once you're happy that everything is showing up, list all drives in a system with:
+Once everything is visible, list the stable disk identifiers on the system:
 
 ```
 ls /dev/disk/by-id
@@ -119,30 +119,38 @@ ls /dev/disk/by-id
 The output will look something like this:
 
 ```
-root@pxtest:~# ls /dev/disk/by-id
-ata-HGST_HDN728080ALE604_R6GPPDTY                     ata-WDC_WD100EMAZ-00WJTA0_2YJ373DD
-ata-SPCC_Solid_State_Disk_BA1B0788165300033582
-ata-WDC_WD100EMAZ-00WJTA0_2YJ2S3AD                    ata-WDC_WD100EMAZ-00WJTA0_2YJ7E2VD
-ata-WDC_WD100EMAZ-00WJTA0_2YJ2S3AD-part1              wwn-0x5000cca263c9dc2c
+root@proxtest:~# ls /dev/disk/by-id
+ata-HGST_HDN728080ALE604_R6GPPDTY
+ata-WDC_WD100EMAZ-00WJTA0_2YJ373DD
+ata-WDC_WD201KFGX-68BKJN0_ABC12345
+ata-WDC_WD100EMAZ-00WJTA0_2YJ2S3AD
+ata-WDC_WD100EMAZ-00WJTA0_2YJ2S3AD-part1
 ```
 
-We now need to create a map between ephemeral drive mappings such as `/dev/sdc` and `ata-HGST_HDN728080ALE604_R6GPPDTY`. We can do this using `ls -la /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY`. The following output is generated:
+Next, map temporary kernel device names, such as `/dev/sdc`, to stable hardware identifiers, such as `ata-HGST_HDN728080ALE604_R6GPPDTY`. The simplest way to do this is to ask which `ata-*` identifier points to the same device:
 
 ```
-root@pxtest:~# ls -la /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY
-lrwxrwxrwx 1 root root 9 Sep  9 23:08 /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY -> ../../sdc
+root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc -name 'ata-*'
+/dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY
 ```
 
-Therefore, we can ascertain that `/dev/sdc` is mapped to this physical drive. Never use `/dev/sdX` as a long term solution for drive identification as these identifiers can and do change without warning due to other hardware changes, kernel upgrades, etc. The `/dev/disk/by-id` identifier is tied to that specific piece of hardware by drive model and serial number and will therefore never change which is why it is recommended over using `/dev/sdc`.
+For a partition, query the partition device instead:
+
+```
+root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc1 -name 'ata-*-part*'
+/dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1
+```
+
+**Do not** use `/dev/sdX` names for long-term drive identification, especially in `/etc/fstab`, because they can change after hardware changes, kernel upgrades, or controller changes. Prefer the human-readable `ata-*` identifier when available because it includes the drive model and serial number. If no `ata-*` identifier is available, use another stable `/dev/disk/by-id` path such as `wwn-*`.
 
 ### Brand new drives
 
-Before we create a partition on a brand new disk, ensure you have 'burned it in' as we cover under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
+Before creating a partition on a brand new disk, make sure you have burned it in as covered under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
 
 !!! warning
-    **BE CAREFUL HERE** - We are about to perform destructive steps to the partition table of the drive. If there is _any_ existing data on this drive - **IT WILL BE WIPED**. Make sure you proceed with caution! You have been warned!
+    **BE CAREFUL HERE** - The next steps modify the drive's partition table. If there is _any_ existing data on this drive, **IT WILL BE WIPED**. Proceed carefully.
 
-The following steps will require root access. To become the root user type `sudo su`. Using our example drive from the prior section we will use `gdisk` to create a new partition and filesystem. Run `gdisk /dev/sdX` (replacing `sdX` with your drive), for example:
+The following steps require root access. On Proxmox you may already be logged in as root; if not, use `sudo -i`. Using the example drive from the previous section, use `gdisk` to create a new partition. Run `gdisk /dev/sdX`, replacing `sdX` with the drive you have intentionally selected. For example:
 
 ```
 root@cartman:~# gdisk /dev/sdc
@@ -155,12 +163,12 @@ Partition table scan:
     GPT: not present
 ```
 
-Once `gdisk` is loaded we are presented with an interactive prompt `Command (? for help):`. To see all options simply type `?`. In the initial output from gdisk we can see there is no partition table present on this drive - it's a good sanity check you have the right drive before erasing the partition and file allocation tables.
+Once `gdisk` has loaded, you will see the interactive prompt `Command (? for help):`. Type `?` to see all available options. In the initial output from `gdisk`, we can see that no partition table is present on this drive. This is a useful sanity check before erasing partition and filesystem metadata.
 
 !!! danger
     The following sequence will erase everything on this disk. **MAKE SURE YOU HAVE A BACKUP AND USE CAUTION**
 
-Use the following sequence to create one large partition spanning the entire drive. Note that the keys you need to press are at the start of each heading and the answers to the subsequent questions at the ends of the next few lines.
+Use the following sequence to create one large partition spanning the entire drive. The keys you need to press are at the start of each top-level line, and the nested lines show the prompts and suggested answers.
 
 ```
 * o - creates a new **EMPTY** GPT partition table (GPT is good for large drives over 3TB)
@@ -179,40 +187,40 @@ Use the following sequence to create one large partition spanning the entire dri
     * Confirm that making these changes is OK and the changes queued so far will be executed
 ```
 
-Next up, we'll create a filesystem on that newly created partition.
+Next, create a filesystem on the new partition.
 
 !!! info
-    Rinse and repeat this step for each new drive as required.
+    Repeat this step for each new drive as required.
 
 #### Filesystem creation
 
-Create an `ext4` filesystem thus (replace `X` with your drive letter):
+Create an `ext4` filesystem on the new partition, replacing `X` with your drive letter:
 
 ```
 mkfs.ext4 /dev/sdX1
 ```
 
-Congratulations! Your new drive is now formatted and ready to store data.
+Your new drive is now formatted and ready to store data.
 
-Move onto the next section 'Existing drive' to learn how to mount it (make it available to the OS for use).
+Continue to the next section to learn how to mount it and make it available to the OS.
 
 ### Existing drives
 
-[Identify](#identifying-drives) the existing drive and take note of the partition you wish to mount. This is usually displayed as `-part1` using `/dev/disk/by-id`.
+[Identify](#identifying-drives) the existing drive and note the partition you want to mount. When using `/dev/disk/by-id`, the first partition is usually shown with a `-part1` suffix.
 
 !!! info
-    Ensure you have the correct supporting libraries for your filesystem installed such as `xfsprogs` for XFS.
+    Make sure you have the supporting tools for your filesystem installed, such as `xfsprogs` for XFS.
 
-    With Debian this is achieved via `sudo apt install xfsprogs`.
+    On Debian or Proxmox, install them with `sudo apt install xfsprogs`.
 
-You should now be able to mount the drive manually like so:
+You should now be able to mount the drive manually:
 
 ```
 mkdir /mnt/manualdiskmounttest
 mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/manualdiskmounttest
 ```
 
-Verify that the drive mounted and displays the correct size as expected:
+Verify that the drive mounted and shows the expected size:
 
 ```
 root@cartman:~# df -h
@@ -222,9 +230,9 @@ Filesystem                        Size  Used Avail Use% Mounted on
 
 ### Mountpoints
 
-Mountpoints are where the OS mounts a specific disk partition. For example, you could have multiple partitions on the same disk mounted to different places for redundancy or performance reasons. For our purposes here we'll keep things simple by mounting each data disk partition one by one.
+Mountpoints are directories where the OS makes disk partitions available. You could mount multiple partitions from the same disk in different places for redundancy or performance reasons, but this guide keeps things simple by mounting each data disk partition one by one.
 
-Assuming the previous test went well, it's time to come up with a mountpoint naming scheme. We recommended `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support (more on this shortly). For example:
+Assuming the manual mount test went well, choose a mountpoint naming scheme. This guide recommends `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support. For example:
 
 ```
 mkdir /mnt/disk{1,2,3,4}
@@ -232,18 +240,18 @@ mkdir /mnt/parity1 # adjust this command based on your parity setup
 mkdir /mnt/storage # this will be the main mergerfs mountpoint
 ```
 
-We also just created `/mnt/storage` in addition to our data disk mountpoints of `/mnt/disk1`, `/mnt/disk2` and so on. `/mnt/storage` will be used by [mergerfs](../02-tech-stack/mergerfs.md) to 'pool' or 'merge' our data disks.
+The commands above also create `/mnt/storage`, in addition to the individual data disk mountpoints such as `/mnt/disk1` and `/mnt/disk2`. `/mnt/storage` will be used by [mergerfs](../02-tech-stack/mergerfs.md) to pool the data disks into one merged view.
 
 ### fstab entries
 
-Next we need to create an entry in `/etc/fstab`.
+Next, create entries in `/etc/fstab` so the disks mount automatically at boot.
 
-This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/index.php/fstab).
+This file tells the OS which disks to mount, where to mount them, and which options to use. It can look complex, but each `fstab` entry breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>`. See the [fstab documentation](https://wiki.archlinux.org/index.php/fstab) for more detail.
 
 !!! note
-    Note that mergerfs does _not_ mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has _nothing to do_ with parity, that is what we use SnapRAID for.
+    mergerfs does _not_ mount the parity drive; it only mounts `/mnt/disk*`. mergerfs has _nothing to do_ with parity. SnapRAID handles that later.
 
-Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapRAID parity drive.
+Here is what `/etc/fstab` might look like with four data disks and one SnapRAID parity drive:
 
 ```
 ##/etc/fstab example
@@ -256,7 +264,7 @@ Here's what your `/etc/fstab` file might look like with 4 data disks and 1 SnapR
 /mnt/disk* /mnt/storage fuse.mergerfs defaults,nonempty,allow_other,use_ino,cache.files=off,moveonenospc=true,dropcacheonclose=true,minfreespace=200G,fsname=mergerfs 0 0
 ```
 
-In order to reload the new fstab entries you've created and check them before rebooting, use `mount -a`. Then verify the mount points with `df -h`.
+After editing `/etc/fstab`, test the new entries before rebooting with `mount -a`. If that completes without errors, verify the mountpoints with `df -h`.
 
 ```
 root@cartman:~# df -h
@@ -271,7 +279,7 @@ Filesystem                        Size  Used Avail Use% Mounted on
 mergerfs                           34T   24T   10T  69% /mnt/storage
 ```
 
-If you had any existing files on your data disks they will be visible under `/mnt/storage`.
+If you had any existing files on your data disks, they will be visible under `/mnt/storage`.
 
 ## SnapRAID
 
