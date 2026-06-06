@@ -53,6 +53,7 @@ fi
 
 arch="$(dpkg --print-architecture)"
 tmpdir="$(mktemp -d)"
+chmod 755 "$tmpdir"
 trap 'rm -rf "$tmpdir"' EXIT
 
 snapraid_url="$(curl -fsSL https://api.github.com/repos/amadvance/snapraid/releases/latest \
@@ -78,8 +79,8 @@ fi
 snapraid_deb="$tmpdir/$(basename "$snapraid_url")"
 daemon_deb="$tmpdir/$(basename "$daemon_url")"
 
-curl -fL "$snapraid_url" -o "$snapraid_deb"
-curl -fL "$daemon_url" -o "$daemon_deb"
+curl -fsSL "$snapraid_url" -o "$snapraid_deb"
+curl -fsSL "$daemon_url" -o "$daemon_deb"
 
 snapraid_latest="$(dpkg-deb -f "$snapraid_deb" Version)"
 daemon_latest="$(dpkg-deb -f "$daemon_deb" Version)"

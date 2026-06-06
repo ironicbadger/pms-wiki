@@ -60,6 +60,7 @@ if [ -z "$os_release" ]; then
 fi
 
 tmpdir="$(mktemp -d)"
+chmod 755 "$tmpdir"
 trap 'rm -rf "$tmpdir"' EXIT
 
 deb_url="$(curl -fsSL https://api.github.com/repos/trapexit/mergerfs/releases/latest \
@@ -73,7 +74,7 @@ if [ -z "$deb_url" ]; then
 fi
 
 deb_file="$tmpdir/$(basename "$deb_url")"
-curl -fL "$deb_url" -o "$deb_file"
+curl -fsSL "$deb_url" -o "$deb_file"
 
 latest_version="$(dpkg-deb -f "$deb_file" Version)"
 installed_version="$(dpkg-query -W -f='${Version}' mergerfs 2>/dev/null || true)"
