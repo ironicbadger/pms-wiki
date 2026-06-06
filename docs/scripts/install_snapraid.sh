@@ -34,25 +34,6 @@ echo
 echo "This script downloads and installs the latest SnapRAID and snapraid-daemon releases from GitHub."
 echo
 
-if [ "$force" -ne 1 ]; then
-    if [ ! -r /dev/tty ]; then
-        echo "Refusing to run without --force because no interactive terminal is available."
-        exit 1
-    fi
-
-    printf "Are you sure you want to proceed? [y/N] " > /dev/tty
-    read -r answer < /dev/tty
-
-    case "$answer" in
-        y|Y|yes|YES)
-            ;;
-        *)
-            echo "Aborted."
-            exit 0
-            ;;
-    esac
-fi
-
 for command in curl dpkg dpkg-deb apt; do
     if ! command -v "$command" >/dev/null 2>&1; then
         echo "Required command not found: $command"
@@ -105,9 +86,35 @@ daemon_latest="$(dpkg-deb -f "$daemon_deb" Version)"
 snapraid_installed="$(dpkg-query -W -f='${Version}' snapraid 2>/dev/null || true)"
 daemon_installed="$(dpkg-query -W -f='${Version}' snapraid-daemon 2>/dev/null || true)"
 
+echo
+echo "Current SnapRAID version:          ${snapraid_installed:-not installed}"
+echo "GitHub SnapRAID version:           $snapraid_latest"
+echo "Current snapraid-daemon version:   ${daemon_installed:-not installed}"
+echo "GitHub snapraid-daemon version:    $daemon_latest"
+echo
+
 if [ "$snapraid_installed" = "$snapraid_latest" ] && [ "$daemon_installed" = "$daemon_latest" ]; then
     echo "SnapRAID ${snapraid_installed} and snapraid-daemon ${daemon_installed} are already installed."
     exit 0
+fi
+
+if [ "$force" -ne 1 ]; then
+    if [ ! -r /dev/tty ]; then
+        echo "Refusing to run without --force because no interactive terminal is available."
+        exit 1
+    fi
+
+    printf "Install SnapRAID %s and snapraid-daemon %s? [y/N] " "$snapraid_latest" "$daemon_latest" > /dev/tty
+    read -r answer < /dev/tty
+
+    case "$answer" in
+        y|Y|yes|YES)
+            ;;
+        *)
+            echo "Aborted."
+            exit 0
+            ;;
+    esac
 fi
 
 $sudo_cmd apt install -y "$snapraid_deb" "$daemon_deb"

@@ -34,25 +34,6 @@ echo
 echo "This script downloads and installs the latest mergerfs release from GitHub."
 echo
 
-if [ "$force" -ne 1 ]; then
-    if [ ! -r /dev/tty ]; then
-        echo "Refusing to run without --force because no interactive terminal is available."
-        exit 1
-    fi
-
-    printf "Are you sure you want to proceed? [y/N] " > /dev/tty
-    read -r answer < /dev/tty
-
-    case "$answer" in
-        y|Y|yes|YES)
-            ;;
-        *)
-            echo "Aborted."
-            exit 0
-            ;;
-    esac
-fi
-
 for command in curl dpkg dpkg-deb apt; do
     if ! command -v "$command" >/dev/null 2>&1; then
         echo "Required command not found: $command"
@@ -97,9 +78,33 @@ curl -fL "$deb_url" -o "$deb_file"
 latest_version="$(dpkg-deb -f "$deb_file" Version)"
 installed_version="$(dpkg-query -W -f='${Version}' mergerfs 2>/dev/null || true)"
 
+echo
+echo "Current mergerfs version: ${installed_version:-not installed}"
+echo "GitHub mergerfs version:  $latest_version"
+echo
+
 if [ "$installed_version" = "$latest_version" ]; then
     echo "mergerfs ${installed_version} is already installed."
     exit 0
+fi
+
+if [ "$force" -ne 1 ]; then
+    if [ ! -r /dev/tty ]; then
+        echo "Refusing to run without --force because no interactive terminal is available."
+        exit 1
+    fi
+
+    printf "Install mergerfs %s? [y/N] " "$latest_version" > /dev/tty
+    read -r answer < /dev/tty
+
+    case "$answer" in
+        y|Y|yes|YES)
+            ;;
+        *)
+            echo "Aborted."
+            exit 0
+            ;;
+    esac
 fi
 
 $sudo_cmd apt install -y "$deb_file"
