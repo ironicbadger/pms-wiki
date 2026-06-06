@@ -145,15 +145,19 @@ root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc1 -name 'ata-*-part*'
 
 ### Brand new drives
 
+> If you have pre-existing drives, you can skip this section.
+
 Before creating a partition on a brand new disk, make sure you have burned it in as covered under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
 
 !!! warning
     **BE CAREFUL HERE** - The next steps modify the drive's partition table. If there is _any_ existing data on this drive, **IT WILL BE WIPED**. Proceed carefully.
 
-The following steps require root access. On Proxmox you may already be logged in as root; if not, use `sudo -i`. Using the example drive from the previous section, use `gdisk` to create a new partition. Run `gdisk /dev/sdX`, replacing `sdX` with the drive you have intentionally selected. For example:
+The following steps require root access. On Proxmox you may already be logged in as root. If not, use `sudo su` to switch to root.
+
+Using the example drive from the previous section, use `gdisk` to create a new partition. Run `gdisk /dev/sdX`, replacing `sdX` with the drive you have intentionally selected. For example:
 
 ```
-root@cartman:~# gdisk /dev/sdc
+root@proxtest:~# gdisk /dev/sdc
 GPT fdisk (gdisk) version 1.0.5
 
 Partition table scan:
@@ -163,10 +167,10 @@ Partition table scan:
     GPT: not present
 ```
 
-Once `gdisk` has loaded, you will see the interactive prompt `Command (? for help):`. Type `?` to see all available options. In the initial output from `gdisk`, we can see that no partition table is present on this drive. This is a useful sanity check before erasing partition and filesystem metadata.
+Once `gdisk` has loaded, you will see the interactive prompt `Command (? for help):`. Type `?` to see all available options.In the initial output from `gdisk`, we can see that no partition table is present on this drive. This is a useful sanity check before erasing partition and filesystem metadata.
 
 !!! danger
-    The following sequence will erase everything on this disk. **MAKE SURE YOU HAVE A BACKUP AND USE CAUTION**
+    The following sequence will erase everything on this disk. **USE CAUTION**
 
 Use the following sequence to create one large partition spanning the entire drive. The keys you need to press are at the start of each top-level line, and the nested lines show the prompts and suggested answers.
 
@@ -194,10 +198,10 @@ Next, create a filesystem on the new partition.
 
 #### Filesystem creation
 
-Create an `ext4` filesystem on the new partition, replacing `X` with your drive letter:
+Create an `xfs` filesystem on the new partition, replacing `X` with your drive letter:
 
 ```
-mkfs.ext4 /dev/sdX1
+mkfs.xfs /dev/sdX1
 ```
 
 Your new drive is now formatted and ready to store data.
@@ -206,7 +210,7 @@ Continue to the next section to learn how to mount it and make it available to t
 
 ### Existing drives
 
-[Identify](#identifying-drives) the existing drive and note the partition you want to mount. When using `/dev/disk/by-id`, the first partition is usually shown with a `-part1` suffix.
+[Identify](#identifying-drives) the existing drive and note the partition you want to mount. When using `/dev/disk/by-id`, the first partition is usually shown with a `-part1` suffix (but not always!).
 
 !!! info
     Make sure you have the supporting tools for your filesystem installed, such as `xfsprogs` for XFS.
@@ -216,21 +220,21 @@ Continue to the next section to learn how to mount it and make it available to t
 You should now be able to mount the drive manually:
 
 ```
-mkdir /mnt/manualdiskmounttest
-mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/manualdiskmounttest
+mkdir /mnt/test
+mount /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1 /mnt/test
 ```
 
 Verify that the drive mounted and shows the expected size:
 
 ```
-root@cartman:~# df -h
+root@proxtest:~# df -h
 Filesystem                        Size  Used Avail Use% Mounted on
-/dev/sdc1                         7.3T  2.8T  4.6T  38% /mnt/manualdiskmounttest
+/dev/sdc1                         7.3T  2.8T  4.6T  38% /mnt/test
 ```
 
 ### Mountpoints
 
-Mountpoints are directories where the OS makes disk partitions available. You could mount multiple partitions from the same disk in different places for redundancy or performance reasons, but this guide keeps things simple by mounting each data disk partition one by one.
+Mountpoints map the physical drive partitions to directories on your system. This is how you interface with the data stored on the disk.
 
 Assuming the manual mount test went well, choose a mountpoint naming scheme. This guide recommends `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support. For example:
 
@@ -238,9 +242,12 @@ Assuming the manual mount test went well, choose a mountpoint naming scheme. Thi
 mkdir /mnt/disk{1,2,3,4}
 mkdir /mnt/parity1 # adjust this command based on your parity setup
 mkdir /mnt/storage # this will be the main mergerfs mountpoint
+mkdir /mnt/appdata # this will be where your self-hosted app configs + data live
 ```
 
-The commands above also create `/mnt/storage`, in addition to the individual data disk mountpoints such as `/mnt/disk1` and `/mnt/disk2`. `/mnt/storage` will be used by [mergerfs](../02-tech-stack/mergerfs.md) to pool the data disks into one merged view.
+The commands above also create `/mnt/storage`, and `/mnt/appdata`. Additionally also the individual data disk mountpoints such as `/mnt/disk1` and `/mnt/disk2` and so on.
+
+`/mnt/storage` will be used by [mergerfs](../02-tech-stack/mergerfs.md) to pool the data disks into one merged view. This is the path you'd point Jellyfin at, for example as this merges all your individual disks into one place.
 
 ### fstab entries
 
@@ -267,7 +274,7 @@ Here is what `/etc/fstab` might look like with four data disks and one SnapRAID 
 After editing `/etc/fstab`, test the new entries before rebooting with `mount -a`. If that completes without errors, verify the mountpoints with `df -h`.
 
 ```
-root@cartman:~# df -h
+root@proxtest:~# df -h
 Filesystem                        Size  Used Avail Use% Mounted on
 /dev/sdo2                          59G   22G   34G  39% /
 /dev/sdj1                         469G  118G  328G  27% /opt
@@ -279,33 +286,33 @@ Filesystem                        Size  Used Avail Use% Mounted on
 mergerfs                           34T   24T   10T  69% /mnt/storage
 ```
 
-If you had any existing files on your data disks, they will be visible under `/mnt/storage`.
+If you had any existing files on your data disks, these files will be visible under `/mnt/storage`.
 
 ## SnapRAID
 
-[SnapRAID](https://www.snapraid.it/) is a backup program for disk arrays. It stores parity information of your data and it recovers from up to six disk failures. It is mainly targeted for a home media center, with a lot of big files that rarely change.
+[SnapRAID](https://www.snapraid.it/) provides parity protection for disk arrays. It stores parity information for your data and can recover from up to six disk failures. It is mainly aimed at home media systems with large files that rarely change.
 
 !!! info
-    The Debian repos contain SnapRAID 12.2-1 at the time of writing. However the most recent release is 12.3 but the release cadence of SnapRAID is [slow](https://github.com/amadvance/snapraid/blob/master/HISTORY) so you likely won't see major issues by using the repo package here (unlike mergerfs).
+    The Debian repositories may lag behind the latest SnapRAID release. At the time of writing the repos contain v12.4-1 and GitHub shows v14.6 as the latest.
 
-To install SnapRAID execute:
+Like we did with mergerfs we therefore will install the latest SnapRAID release directly from GitHub with this command. Again, be sure to create some habit around regularly checking for updates here as this package will not be upgraded when you do `apt update` etc in future.
 
 ```
-apt install snapraid
+## Downloads latest version from GitHub for your CPU architecture
+curl -s https://api.github.com/repos/amadvance/snapraid/releases/latest | grep "browser_download_url.*_$(dpkg --print-architecture).deb\"" | cut -d '"' -f 4 | wget -qi - && sudo apt install -y ./snapraid_*_$(dpkg --print-architecture).deb && rm snapraid_*.deb
 ```
 
 ### Configure SnapRAID
 
-You should familiarise yourself with the documentation provided by [SnapRAID](https://www.snapraid.it/manual) with regards to all the configuration options available.
+Familiarise yourself with the [SnapRAID manual](https://www.snapraid.it/manual) before configuring it. The manual explains the available options in more detail.
 
-In it's most simple form, you must provide a configuration file to SnapRAID to tell it where to store parity, which disks are your data disks and what types of files to calculate parity for or not. Here's a very stripped down basic version of a config file:
+At minimum, SnapRAID needs a configuration file that tells it where to store parity, which disks contain data, and which files to include or exclude. Here is a stripped down example.
 
 ```
 # SnapRAID configuration file
 
 # Parity location(s)
 1-parity /mnt/parity1/snapraid.parity
-2-parity /mnt/parity2/snapraid.parity
 
 # Content file location(s)
 content /var/snapraid.content
@@ -314,8 +321,9 @@ content /mnt/disk2/.snapraid.content
 
 # Data disks
 data d1 /mnt/disk1
-data d2 /mnt/disk3
-data d3 /mnt/disk4
+data d2 /mnt/disk2
+data d3 /mnt/disk3
+data d4 /mnt/disk4
 
 # Excludes hidden files and directories
 exclude *.unrecoverable
@@ -328,30 +336,30 @@ exclude *.!sync
 
 ### Automating Parity Calculation
 
-As SnapRAID is designed to work by taking snapshots we must configure these to be calculated at regular intervals. We could just create a very simple cronjob and execute `snapraid sync` as part of that process, but there are a few situations we want a little more smarts than that.
+SnapRAID works by taking snapshots, so we need to calculate parity at regular intervals. You could create a simple cron job that runs `snapraid sync`, but a little extra logic is useful.
 
-[snapraid-runner](https://github.com/Chronial/snapraid-runner) is a reliable way to add some logic gates to execution of SnapRAID.
+[snapraid-runner](https://github.com/Chronial/snapraid-runner) is a reliable way to add guardrails to SnapRAID runs.
 
-To install, begin by cloning the git repo:
+Start by cloning the Git repository.
 
 ```
 git clone https://github.com/Chronial/snapraid-runner.git /opt/snapraid-runner
 ```
 
-Next, you will need to ensure you have set up your configuration file for SnapRAID as detailed above.
+Next, make sure you have created the SnapRAID configuration file described above.
 
-Edit the configuration file for snapraid-runner, a default is provided at `/opt/snapraid-runner/snapraid-runner.conf.example`. The following parameters are of the most interest when configuring this file:
+Edit the snapraid-runner configuration file. A default example is provided at `/opt/snapraid-runner/snapraid-runner.conf.example`. These settings are the most important ones to review.
 
-* `config = /etc/snapraid.conf` - Ensure this points to where your `snapraid.conf` file is stored
-* `deletethreshold = 250` - abort operation if there are more deletes than this, set to -1 to disable
-* `touch = True` - This improves the SnapRAID capability to recognize moved and copied files as it makes the timestamp almost unique, removing possible duplicates.
-* `[email]` - If you are using gmail you will need to generate an [app specific password](https://support.google.com/accounts/answer/185833?hl=en).
-* `[scrub]` - Configure periodic data verification features
+* `config = /etc/snapraid.conf` - Make sure this points to your `snapraid.conf` file
+* `deletethreshold = 250` - Abort the run if more files than this have been deleted. Set it to `-1` to disable the check
+* `touch = True` - Helps SnapRAID recognize moved and copied files by making timestamps almost unique
+* `[email]` - If you use Gmail, generate an [app specific password](https://support.google.com/accounts/answer/185833?hl=en)
+* `[scrub]` - Configure periodic data verification
     * `enabled = True`
-    * `percentage = 22` - The % of the array to scrub
-    * `older-than = 8` - Only scrub data if older than this number of days
+    * `percentage = 22` - The percentage of the array to scrub
+    * `older-than = 8` - Only scrub data older than this number of days
 
-Finally, create a cronjob to automatically run `snapraid-runner`. You will want to ensure the file SnapRAID is checking parity for are not changing during this time. Ideally at something like 4 or 5am, it would be a good idea to also temporarily disable any services that write to your storage during this time - that is optional though.
+Finally, create a cron job to run `snapraid-runner` automatically. Try to run it when files on the array are unlikely to change. Early morning is usually a good choice. You can also temporarily stop services that write to storage during this window, although that step is optional.
 
 ```
 root@cartman: crontab -e
@@ -360,25 +368,25 @@ root@cartman: crontab -e
 ```
 
 !!! info
-    During a sync SnapRAID will write a `.content` file to `/var/` and will therefore require write access to the this directory. Running via `sudo` or as `root` is a simple, reliable solution here.
+    During a sync, SnapRAID writes a `.content` file to `/var/` and needs write access to that directory. Running via `sudo` or as `root` is a simple and reliable solution.
 
-With cron, it is a good idea to be as explicit as possible when it comes to file paths. Never rely on relative paths or the `PATH` variable. Perhaps you also noticed that there is a healthcheck configured at `hc-ping.com`.
+With cron, be explicit about file paths. Never rely on relative paths or the `PATH` variable. The example above also includes a healthcheck at `hc-ping.com`.
 
 #### Healthchecks.io
 
 [https://healthchecks.io/](https://healthchecks.io/) notifies you when your nightly backups, weekly reports, cron jobs and scheduled tasks don't run on time.
 
-It is self-hostable in a [container](https://hub.docker.com/r/linuxserver/healthchecks) but that depends on that local system being up - a cheap VPS might be a good idea for this purpose.
+It is self-hostable in a [container](https://hub.docker.com/r/linuxserver/healthchecks), but that depends on the local system being online. A cheap VPS can be a good fit for this purpose.
 
 ![healthchecks](../images/screenshots/healthchecks.png)
 
 ## Containers
 
-To run apps on top of the base OS, we'll be using [docker](../02-tech-stack/docker.md).
+To run apps on top of the base OS, use [docker](../02-tech-stack/docker.md).
 
 ### docker
 
-We are using Debian which means docker installation is straightforward via docker's [documentation](https://docs.docker.com/engine/install/ubuntu/). Or if you just want a simple one liner:
+Proxmox is based on Debian, which makes Docker installation straightforward. Follow Docker's [installation documentation](https://docs.docker.com/engine/install/debian/) or use this simple one-liner.
 
 ```
 curl -fsSL https://get.docker.com | sh
@@ -386,9 +394,9 @@ curl -fsSL https://get.docker.com | sh
 
 ### docker compose
 
-`docker compose` is a tool for defining and running multiple containers at once using docker. Defining, starting, stopped and upgrading dozens of containers all at once is reduced to a single command. It ships with docker itself and requires no extra configuration.
+`docker compose` defines and runs multiple containers at once. It reduces starting, stopping, and upgrading many containers to a single command. It ships with Docker and requires no extra configuration.
 
-Here's an example `compose.yaml` file for a simple nginx webserver deployment (yep, that's the code used to deploy the site you're viewing right now!).
+Here is an example `compose.yaml` file for a simple nginx webserver deployment. This is the same basic pattern used to deploy the site you are reading now.
 
 ```
 ---
@@ -403,16 +411,16 @@ services:
 
 ### Container file permissions
 
-We need to find the user and group IDs for the user we plan to run our containers with. This is important because otherwise we will end up with file permissions errors.
+Find the user and group IDs for the account that will run your containers. This matters because mismatched ownership often causes file permission errors.
 
-The [LinuxServer.io](https://www.linuxserver.io/) team are one of the most popular containerisation projects on the web. They provide a whole [fleet](https://fleet.linuxserver.io/) of containers that cater to pretty much every need the average Media Server enthusiast has. They pioneered a system of defining `PUID` and `PGID` in container environment variables to ensure permissions issues became a thing of the past.
+The [LinuxServer.io](https://www.linuxserver.io/) team runs one of the most popular container projects on the web. Their [fleet](https://fleet.linuxserver.io/) of containers covers most apps a media server user is likely to need. They helped popularise `PUID` and `PGID` environment variables, which make container file permissions much easier to manage.
 
 !!! success
-    Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
+    Make sure host volume directories are owned by the same user you specify in the container.
 
-With containers, when using volumes (`-v` flags) permissions issues can arise between the host OS and the container. Avoid this issue by running containers which support the user `PUID` and group `PGID` flags. Not all containers support this but all containers from LSIO do.
+When using container volumes, permission issues can appear between the host OS and the container. Avoid this by using containers that support the `PUID` and `PGID` variables. Not all containers support them, but all LinuxServer.io containers do.
 
-In this instance `PUID=1000` and `PGID=1000`, to find yours use `id username` as below:
+In this example, `PUID=1000` and `PGID=1000`. Find yours with `id username`.
 
 ```
   $ id alex
@@ -423,32 +431,32 @@ You can check the owner of a specific file or directory with `ls -la`.
 
 ## Network File Sharing
 
-A NAS or file server is no good without being able to access the data remotely. We're not talking about remotely like over the internet remotely here though, instead we're talking about other computers on your LAN. Raspberry Pis, Media Players ([Kodi](https://kodi.tv), for example), etc. You can find more information on remote file access over the internet in the [remote access](../04-day-two/remote-access/index.md) and [Top 10 Self-Hosted apps list](../04-day-two/top10apps.md#nextcloud).
+A NAS or file server is not very useful unless other machines can access the data. In this section, remote access means other computers on your LAN, such as Raspberry Pis, media players, and Kodi clients. For access over the internet, see the [remote access](../04-day-two/remote-access/index.md) section and the [Top 10 Self-Hosted apps list](../04-day-two/top10apps.md#nextcloud).
 
-There are two primary methods for sharing files over the network. Samba for Windows / Mac / Linux and NFS for Linux.
+There are two main ways to share files over the network. Samba works well across Windows, macOS, and Linux. NFS is a good fit for Linux clients.
 
 ### Samba
 
-There are two parts to samba. The [client](#samba-client) and the [server](#samba-server).
+Samba has two parts. The [server](#samba-server) shares files, and the [client](#samba-client) connects to those shares.
 
 !!! info
-    This [guide](https://tldp.org/HOWTO/SMB-HOWTO-8.html) is an excellent, and more detailed, one on setting up samba.
+    This [guide](https://tldp.org/HOWTO/SMB-HOWTO-8.html) has more detail on setting up Samba.
 
-Let's begin by configuring the server side of things.
+Start by configuring the server.
 
 #### Samba server
 
-As is often the case the [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Server) has a fantastically detailed entry on setting up and configuring a samba server. Despite the fact that PMS recommends Ubuntu, much of the configuration information provided by the Arch Wiki is valid for use by us.
+As usual, the [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Server) has a detailed entry on setting up and configuring a Samba server. Although PMS does not use Arch, much of the configuration guidance still applies.
 
-If you just want the most brain dead simple way to get going with samba, here it is.
+If you want the simplest way to get started with Samba, follow these steps.
 
-* First, install samba:
+* First, install Samba.
 
 ```
 apt install samba
 ```
 
-* Next, create a file at `/etc/samba/smb.conf` with the following contents (adapt this for your needs, change home directory to your own):
+* Next, create `/etc/samba/smb.conf` with the following contents. Adjust the paths and home directory for your system.
 
 ```
 [global]
@@ -478,40 +486,40 @@ apt install samba
     guest ok = yes
 ```
 
-* Samba requires setting a password separately from that used for login. You may use an existing user or create a new one for this purpose.
+* Samba uses a password separate from the normal login password. You can use an existing user or create a new one.
 
 ```
 smbpasswd -a user
 ```
 
-* Existing samba users can be listed with:
+* List existing Samba users with this command.
 
 ```
 pdbedit -L -v
 ```
 
-* Once you're happy, ensure the samba service is restarted with:
+* Once you are happy with the configuration, restart the Samba service.
 
 ```
 systemctl restart smbd
 ```
 
-* Verify using a client:
+* Verify access from a client.
     * Linux - `sudo smbstatus`
-    * Mac - Open finder, press Command+K and enter `smb://serverip/storage`
-    * Windows - Open file explorer and enter into the address bar `\\serverip\share`
+    * macOS - Open Finder, press Command+K, and enter `smb://serverip/storage`
+    * Windows - Open File Explorer and enter `\\serverip\share` in the address bar
 
 #### Samba client
 
-Here's the relevant [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Client) entry for configuring clients. This section assumes mounting is occuring on a Linux CLI based system (a Pi or something like that).
+The [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Client) also has useful client configuration notes. This section assumes you are mounting the share on a Linux CLI based system, such as a Raspberry Pi.
 
-* First you'll need to install the samba client for your OS:
+* First, install the Samba client for your OS.
 
 ```
 apt install smbclient
 ```
 
-* Now we can verify the available shares thus:
+* Now verify the available shares.
 
 ```
 alex@cartman:~$ smbclient -L cartman -U%
@@ -528,39 +536,39 @@ SMB1 disabled -- no workgroup available
 
 #### Mounting Samba via fstab
 
-On a remote system you might wish to mount your samba shares permanently using `/etc/fstab`. Ensure that client has its equivalent of `smbclient` installed (see above) and then put the following into the `/etc/fstab` file:
+On a remote system, you may want to mount Samba shares permanently using `/etc/fstab`. Make sure the client has its equivalent of `smbclient` installed, then add an entry like this to `/etc/fstab`.
 
 ```
 //SERVER/sharename /mnt/mountpoint cifs _netdev,username=myuser,password=mypass 0 0
 ```
 
-Ensure the mountpoint exists. If it doesn't, create it with `mkdir /mnt/mountpoint`. Also make sure to set `smbpasswd` as described above.
+Make sure the mountpoint exists. If it does not, create it with `mkdir /mnt/mountpoint`. Also make sure `smbpasswd` is configured as described above.
 
 ### NFS
 
-Once again, the [Arch Wiki](https://wiki.archlinux.org/index.php/NFS#Installation) is the best place to dive _deep_ on NFS, and there really is a lot of great information in that article.
+Once again, the [Arch Wiki](https://wiki.archlinux.org/index.php/NFS#Installation) is the best place to go deeper on NFS. There is a lot of useful information in that article.
 
-There isn't much call for NFS these days for home use and we've found most users can get by with only samba quite happily. If you need NFS, you'll know it.
+NFS is less common for home media server use these days. Most users can get by happily with Samba alone. If you need NFS, you will probably know why.
 
-* Install the required server package with:
+* Install the required server package.
 
 ```
 apt install nfs-kernel-server
 ```
 
-* Create a list of exports in `/etc/exports` that looks something like this:
+* Create a list of exports in `/etc/exports` that looks something like this.
 
 ```
 /mnt/storage        192.168.1.0/24(rw,sync,crossmnt,fsid=0)
 ```
 
-* If the NFS server is running you will need to re-export for changes to take effect. Do that with:
+* If the NFS server is running, re-export shares for changes to take effect.
 
 ```
 exportfs -arv
 ```
 
-* View the current exports with:
+* View the current exports.
 
 ```
 exportfs -v
