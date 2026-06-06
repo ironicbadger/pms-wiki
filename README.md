@@ -19,10 +19,10 @@ If you're looking to build a media server, then you've come to the right place. 
 
 ## Usage
 
-If writing and wanting to run a local copy of the wiki, run:
+If writing and wanting to run a local copy of the wiki with live reload, run:
 
 ```bash
-$ docker-compose up --build
+just serve
 ```
 
 or
@@ -33,7 +33,13 @@ pip3 -U -r requirements.txt
 mkdocs serve
 ```
 
-In both cases the site will be available at `localhost:8000`. In the docker version though some niceities like auto refresh on save go away.
+In both cases the site will be available at `localhost:8000`.
+
+To run the production-style nginx image locally:
+
+```bash
+docker compose up --build
+```
 
 ## Deployment
 

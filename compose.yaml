@@ -3,7 +3,5 @@ services:
     build: .
     platform: linux/x86_64
     image: ghcr.io/ironicbadger/pms-wiki:latest
-    volumes:
-      - .:/docs
     ports:
-      - 8000:8000
+      - 8000:80
