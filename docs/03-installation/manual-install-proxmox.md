@@ -1,10 +1,13 @@
 # Manual PMS install on Proxmox
 
-The section walks you through a manual setup of a Perfect Media Server atop of Proxmox. It was written at the start of 2025 and tested against Proxmox v8.3.2.
+This section walks you through a manual setup of a Perfect Media Server on Proxmox. It was written at the start of 2025 and tested against Proxmox v8.3.2, and updated in June 2026 against Proxmox v9.2.3.
 
-By the time you've worked through this section, you should have a functioning system. Proxmox will be the base OS, we'll cover the basics of partitioning drives and configuring them to use mergerfs, as well as some other useful stuff like how to setup shares with samba etc.
+By the end of this section, you will have a functioning system. Proxmox will be the base OS, we'll cover the basics of partitioning drives and configuring them to use mergerfs, as well as some other useful stuff like how to setup shares with samba etc.
 
-For a full rationale of why Proxmox is recommended as the Base OS, please refer to ["Which distro should I pick?"](index.md#which-distro-should-i-pick).
+By the end of this section, you should have a functioning PMS system with Proxmox as the base OS. This guide details drive partitioning, configuring disks with mergerfs, running your first container, and common supporting tasks such as setting up Samba shares.
+
+!!! info
+    For a full rationale of why Proxmox is recommended as the base OS, refer to ["Which distro should I pick?"](index.md#which-distro-should-i-pick).
 
 ## Base OS installation
 
@@ -12,32 +15,35 @@ For a full rationale of why Proxmox is recommended as the Base OS, please refer 
 
 There are two ways to install Proxmox.
 
-1. Download the Proxmox ISO from their site and install that (recommended)
-2. Install Debian first, then put Proxmox on top of that
+1. Download the Proxmox ISO from the Proxmox website and install it directly (recommended)
+2. Install Debian first, then install Proxmox on top of it
 
 !!! danger
-    To prevent accidentally installing Ubuntu on the wrong drive and overwriting data it is recommended to disconnect data drives during installation.
+    To avoid accidentally installing Proxmox on the wrong drive and overwriting important data, disconnect your data drives during installation.
 
-Proxmox make a [full installation guide](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html) available on their site. There is a [guide](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html#_prepare_a_usb_flash_drive_as_installation_medium) on the Proxmox website for the official method of creating a USB install key.
+Proxmox provides a [full installation guide](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html) on its website, including the official method for [creating a USB install key](https://pve.proxmox.com/pve-docs/chapter-pve-installation.html#_prepare_a_usb_flash_drive_as_installation_medium).
 
-When installing Proxmox you are offered a "graphical" or "terminal" installation. Pick your preference, it doesn't make a difference long term.
+When installing Proxmox, you can choose either the graphical installer or the terminal installer. Pick whichever you prefer; the end result is the same.
 
-You will want a dedicated SSD to install the OS onto. It can be tempting to overengineer this step and think about mirrored disks, but for a home media server there's no need. Have a spare in a drawer perhaps, but don't worry too much about mirrored boot drives. They require extra complexity and cost that only provides more uptime - useful if you are a business but as a home user it's total overkill.
+Use a dedicated SSD for the OS. It can be tempting to overengineer this step with mirrored boot disks, but for a home media server that usually is not necessary. If you like, keep a spare SSD available in case your boot drive fails.
 
-During the installation process you'll be prompted to create users, set timezones and such. This guide resumes once you have rebooted into a working Proxmox system.
+During installation, you will be prompted to create users, set your timezone, and configure basic system settings. This guide resumes once you have rebooted into a working Proxmox system.
 
 ## First steps
 
-It is time to configure repositories. By default Proxmox ships with enterprise repos enabled and a subscription nag screen to push users towards a paid tier. We can use the excellent [Proxmox helper scripts](https://community-scripts.github.io/ProxmoxVE/scripts) to make this much easier for us.
+Assuming a successful first boot to the Proxmox login TTY, log in as with your root username / password. Now we need to configure Proxmox repositories.
+
+By default, Proxmox ships with the enterprise repositories enabled and displays a subscription notice for unpaid installations. The excellent [Proxmox helper scripts](https://community-scripts.github.io/ProxmoxVE/scripts) make the initial configuration for our self-hosting purposes much easier.
 
 !!! info
-    These scripts are the legacy of [tteck](https://github.com/tteck/Proxmox). He sadly passed away in 2024 but left the community with this excellent resource. Thanks tteck - RIP.
+    These scripts began as the work of [tteck](https://github.com/tteck/Proxmox), who sadly passed away in 2024. He left the community an excellent resource. Thanks, tteck. RIP.
 
-    They are now under new stewardship at [community-scripts/proxmox-ve](https://github.com/community-scripts/ProxmoxVE).
+    They are now maintained at [community-scripts/proxmox-ve](https://github.com/community-scripts/ProxmoxVE) and are now location at [https://community-scripts.org/](https://community-scripts.org/).
 
-Load up the community scripts website and look for `Proxmox VE tools -> Proxmox VE Post Install`. This script provides options for managing Proxmox VE repositories, including disabling the Enterprise Repo, adding or correcting PVE sources, enabling the No-Subscription Repo, adding the test Repo, disabling the subscription nag, updating Proxmox VE, and rebooting the system.
+Open the community scripts website and search for `Proxmox VE tools -> Proxmox VE Post Install`. This script helps manage the Proxmox VE repositories, including disabling the enterprise repository, enabling the no-subscription repository, removing the subscription notice, updating Proxmox VE, and rebooting the system.
 
 ![px-helper](../images/proxmox/px-helper-scripts.png)
+<figcaption>Proxmox VE is a serious project maintained by real people. If it becomes useful to you and you are able, consider supporting the project with a subscription.</figcaption>
 
 From the Proxmox command line, execute:
 
@@ -45,18 +51,20 @@ From the Proxmox command line, execute:
 bash -c "$(wget -qLO - https://github.com/community-scripts/ProxmoxVE/raw/main/tools/pve/post-pve-install.sh)"
 ```
 
-Follow the prompts (defaults are good), reboot and continue here once complete. Feel free to run any other community helper scripts too - there's a lot of _great_ stuff over there.
+Follow the prompts, reboot, and continue here once the script has completed. The defaults are sensible. There are many other useful community helper scripts there too, so feel free to explore.
 
 !!! info
-    Whenever updating packages in Proxmox you must use a special command. `apt update` followed by `pveupgrade`.
+    When updating packages in Proxmox, use `apt update` followed by `pveupgrade`.
 
 ## mergerfs
 
-It's time to start thinking about our disks. [mergerfs](https://github.com/trapexit/mergerfs) is what we'll use to make multiple mismatched sized drives appear as one single volume. Here's a more detailed [explanation](../02-tech-stack/mergerfs.md).
+It is time to start thinking about disks. If you disconnected your data drives during the Proxmox installation, power down the system and reconnect them now.
 
-At the time of writing the version of mergerfs in the Debian upstream repos is `2.33.5-1` but the most recent release available on Github upstream is `2.40-2`. Therefore it is not recommended to use the version in the repos.
+[mergerfs](https://github.com/trapexit/mergerfs) lets multiple drives of different sizes appear as a single volume. This is the pooling layer we will use for the media storage array. For more detail, see the [mergerfs explanation](../02-tech-stack/mergerfs.md).
 
-This one liner will query the Github API for the latest release, query your local OS for which release you are running and then download the correct `.deb` package before installing it with `dpkg`. You can perform these steps manually if you prefer, this one liner is provided for convenience. (You will need `sudo` installed - `apt install sudo` will do this).
+At the time of writing, the version of mergerfs in the Debian upstream repositories is `2.40.2-5`, while the latest upstream release on GitHub is `2.42.0-1`. For that reason, this guide does not use the version directly from the Debian repositories.
+
+The following one-liner queries the GitHub API for the latest release, checks your local OS release and architecture, downloads the matching `.deb` package, and installs it with `dpkg`. You can perform these steps manually if you prefer; the command is provided for convenience. You will need `sudo` installed, which you can add with `apt install sudo`.
 
 ```
 ## Downloads latest version from github for your os_release
@@ -65,10 +73,10 @@ curl -s https://api.github.com/repos/trapexit/mergerfs/releases/latest | grep "b
 ## Verify installation
 root@pxtest:~# apt list mergerfs
 Listing... Done
-mergerfs/now 2.40.2~debian-bookworm amd64 [installed,local]
+mergerfs/now 2.42.0~debian-trixie amd64 [installed,local]
 ```
 
-Remember to do this every few months to get a fresh version of mergerfs. We aren't using the repo version here so updates are not automatic.
+Remember to repeat this process every so often (every month or two will more than suffice) to pick up newer mergerfs releases. Because this guide installs mergerfs manually instead of using the Debian repository package, updates are not automatic.
 
 ## Hard Drive setup
 

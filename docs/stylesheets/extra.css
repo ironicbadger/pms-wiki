@@ -28,3 +28,26 @@ th, td {
 [data-md-color-scheme="slate"] .md-typeset__table tr:nth-child(2n) {
     background-color: hsla(var(--md-hue),25%,25%,1)
 }
+
+/* Image captions */
+.md-typeset figcaption {
+    color: var(--md-default-fg-color--light);
+    font-size: 0.68rem;
+    line-height: 1.45;
+    margin: 0.15rem auto 1rem;
+    max-width: none;
+    text-align: center;
+    width: 100%;
+}
+
+.md-typeset p:has(> img) {
+    margin-bottom: 0.1rem;
+}
+
+.md-typeset p:has(> img) > img {
+    display: block;
+}
+
+.md-typeset p:has(> img) + figcaption {
+    margin-top: 0;
+}
