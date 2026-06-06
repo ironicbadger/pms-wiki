@@ -1,8 +1,14 @@
-FROM ghcr.io/ironicbadger/mkdocs-material-insiders:latest AS builder
+ARG MKDOCS_BASE_IMAGE=squidfunk/mkdocs-material:latest
+FROM ${MKDOCS_BASE_IMAGE} AS dev
 
 WORKDIR /build
 COPY requirements.txt .
 RUN pip install --no-cache-dir -U -r requirements.txt
+
+EXPOSE 8000
+CMD ["serve", "--dev-addr=0.0.0.0:8000"]
+
+FROM dev AS builder
 
 COPY . .
 RUN mkdocs build
