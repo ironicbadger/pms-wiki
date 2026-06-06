@@ -34,6 +34,31 @@ echo
 echo "This script downloads and installs the latest SnapRAID and snapraid-daemon releases from GitHub."
 echo
 
+if [ -t 1 ] && [ -z "${NO_COLOR:-}" ]; then
+    green="$(printf '\033[32m')"
+    red="$(printf '\033[31m')"
+    reset="$(printf '\033[0m')"
+else
+    green=""
+    red=""
+    reset=""
+fi
+
+version_status() {
+    current_version="$1"
+    latest_version="$2"
+
+    if [ -z "$current_version" ]; then
+        printf "%snot installed%s" "$red" "$reset"
+    elif dpkg --compare-versions "$current_version" eq "$latest_version"; then
+        printf "%sup to date%s" "$green" "$reset"
+    elif dpkg --compare-versions "$current_version" lt "$latest_version"; then
+        printf "%sbehind%s" "$red" "$reset"
+    else
+        printf "%snewer installed%s" "$green" "$reset"
+    fi
+}
+
 for command in curl dpkg dpkg-deb apt; do
     if ! command -v "$command" >/dev/null 2>&1; then
         echo "Required command not found: $command"
@@ -86,16 +111,18 @@ snapraid_latest="$(dpkg-deb -f "$snapraid_deb" Version)"
 daemon_latest="$(dpkg-deb -f "$daemon_deb" Version)"
 snapraid_installed="$(dpkg-query -W -f='${Version}' snapraid 2>/dev/null || true)"
 daemon_installed="$(dpkg-query -W -f='${Version}' snapraid-daemon 2>/dev/null || true)"
+snapraid_status="$(version_status "$snapraid_installed" "$snapraid_latest")"
+daemon_status="$(version_status "$daemon_installed" "$daemon_latest")"
 
 echo
-echo "Current SnapRAID version:          ${snapraid_installed:-not installed}"
-echo "GitHub SnapRAID version:           $snapraid_latest"
-echo "Current snapraid-daemon version:   ${daemon_installed:-not installed}"
-echo "GitHub snapraid-daemon version:    $daemon_latest"
+printf "%-18s %-29s %-25s %s\n" "Package" "Currently installed version" "Latest release (GitHub)" "Status"
+printf "%-18s %-29s %-25s %s\n" "-------" "---------------------------" "-----------------------" "------"
+printf "%-18s %-29s %-25s %s\n" "snapraid" "${snapraid_installed:-not installed}" "$snapraid_latest" "$snapraid_status"
+printf "%-18s %-29s %-25s %s\n" "snapraid-daemon" "${daemon_installed:-not installed}" "$daemon_latest" "$daemon_status"
 echo
 
 if [ "$snapraid_installed" = "$snapraid_latest" ] && [ "$daemon_installed" = "$daemon_latest" ]; then
-    echo "SnapRAID ${snapraid_installed} and snapraid-daemon ${daemon_installed} are already installed."
+    echo "SnapRAID and snapraid-daemon are already up to date."
     exit 0
 fi
 
@@ -105,7 +132,7 @@ if [ "$force" -ne 1 ]; then
         exit 1
     fi
 
-    printf "Install SnapRAID %s and snapraid-daemon %s? [y/N] " "$snapraid_latest" "$daemon_latest" > /dev/tty
+    printf "Install or upgrade SnapRAID to %s and snapraid-daemon to %s? [y/N] " "$snapraid_latest" "$daemon_latest" > /dev/tty
     read -r answer < /dev/tty
 
     case "$answer" in

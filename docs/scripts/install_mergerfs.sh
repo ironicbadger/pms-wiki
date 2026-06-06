@@ -34,6 +34,31 @@ echo
 echo "This script downloads and installs the latest mergerfs release from GitHub."
 echo
 
+if [ -t 1 ] && [ -z "${NO_COLOR:-}" ]; then
+    green="$(printf '\033[32m')"
+    red="$(printf '\033[31m')"
+    reset="$(printf '\033[0m')"
+else
+    green=""
+    red=""
+    reset=""
+fi
+
+version_status() {
+    current_version="$1"
+    latest_version="$2"
+
+    if [ -z "$current_version" ]; then
+        printf "%snot installed%s" "$red" "$reset"
+    elif dpkg --compare-versions "$current_version" eq "$latest_version"; then
+        printf "%sup to date%s" "$green" "$reset"
+    elif dpkg --compare-versions "$current_version" lt "$latest_version"; then
+        printf "%sbehind%s" "$red" "$reset"
+    else
+        printf "%snewer installed%s" "$green" "$reset"
+    fi
+}
+
 for command in curl dpkg dpkg-deb apt; do
     if ! command -v "$command" >/dev/null 2>&1; then
         echo "Required command not found: $command"
@@ -78,14 +103,16 @@ curl -fsSL "$deb_url" -o "$deb_file"
 
 latest_version="$(dpkg-deb -f "$deb_file" Version)"
 installed_version="$(dpkg-query -W -f='${Version}' mergerfs 2>/dev/null || true)"
+status="$(version_status "$installed_version" "$latest_version")"
 
 echo
-echo "Current mergerfs version: ${installed_version:-not installed}"
-echo "GitHub mergerfs version:  $latest_version"
+printf "%-14s %-29s %-25s %s\n" "Package" "Currently installed version" "Latest release (GitHub)" "Status"
+printf "%-14s %-29s %-25s %s\n" "-------" "---------------------------" "-----------------------" "------"
+printf "%-14s %-29s %-25s %s\n" "mergerfs" "${installed_version:-not installed}" "$latest_version" "$status"
 echo
 
 if [ "$installed_version" = "$latest_version" ]; then
-    echo "mergerfs ${installed_version} is already installed."
+    echo "mergerfs is already up to date."
     exit 0
 fi
 
@@ -95,7 +122,7 @@ if [ "$force" -ne 1 ]; then
         exit 1
     fi
 
-    printf "Install mergerfs %s? [y/N] " "$latest_version" > /dev/tty
+    printf "Install or upgrade mergerfs to %s? [y/N] " "$latest_version" > /dev/tty
     read -r answer < /dev/tty
 
     case "$answer" in
