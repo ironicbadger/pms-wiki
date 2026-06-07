@@ -86,7 +86,7 @@ Listing... Done
 mergerfs/now 2.42.0~debian-trixie amd64 [installed,local]
 ```
 
-Remember to repeat this process every so often to pick up newer mergerfs releases. Because this guide installs mergerfs manually instead of using the Debian repository package, updates are not automatic.
+Remember to repeat this process every so often to pick up newer mergerfs releases. Because this guide installs mergerfs manually instead of using the Debian package manager `apt`, updates are not automatic.
 
 ## Hard Drive setup
 
