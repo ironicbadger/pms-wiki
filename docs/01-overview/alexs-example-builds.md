@@ -116,7 +116,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | [Traefik](https://traefik.io/)                   | Reverse proxy                              | [Traefik 101 Guide](../04-day-two/remote-access/traefik101.md)              |
     | [Authelia](https://www.authelia.com/)            | Basic auth frontend                        |                                                                  |
     | [Flame](https://github.com/pawelmalak/flame)     | Dashboard                                  |                                                                  |
-    | [Plex](https://www.plex.tv/)                     | Media server                               | [Top 10 Apps - Plex](../04-day-two/top10apps.md)             |
+    | [Plex](https://watch.plex.tv/)                     | Media server                               | [Top 10 Apps - Plex](../04-day-two/top10apps.md)             |
     | [Tautulli](https://github.com/Tautulli/Tautulli) | Plex analytics                             |                                                                  |
     | [Nextcloud](https://nextcloud.com/)              | An awesome self-hosted dropbox alternative | [Top 10 Apps - Nextcloud](../04-day-two/top10apps.md#2-nextcloud)        |
     | [Smokeping](https://oss.oetiker.ch/smokeping/)   | Latency measurement and graphing tool      | [Top 10 Apps - Smokeping](../04-day-two/top10apps.md#6-smokeping)   |

@@ -26,11 +26,11 @@ It really is worth a look if you haven't tried it in a while. Client updates are
 <iframe src="https://player.fireside.fm/v2/dUlrHQih+B62wpyjN?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 </p>
 
-[Plex](https://plex.tv) is the reason you're even reading this page. It's what got me interested in Linux in the first place and is somewhat of a gateway drug for self-hosting and can be run as a [container](https://hub.docker.com/r/plexinc/pms-docker/). However, it is not open source and the general posture of Plex as a company gives me pause. They continue to add features and streaming services that [no-one asked for](https://www.reddit.com/r/PleX/comments/e62nbt/how_do_you_disable_the_new_plex_movies_feature/) - [or wants](https://old.reddit.com/r/selfhosted/comments/zw4k2h/what_has_plex_done_lately_that_you_didnt_like/).
+[Plex](https://watch.plex.tv) is the reason you're even reading this page. It's what got me interested in Linux in the first place and is somewhat of a gateway drug for self-hosting and can be run as a [container](https://hub.docker.com/r/plexinc/pms-docker/). However, it is not open source and the general posture of Plex as a company gives me pause. They continue to add features and streaming services that [no-one asked for](https://www.reddit.com/r/PleX/comments/e62nbt/how_do_you_disable_the_new_plex_movies_feature/) - [or wants](https://old.reddit.com/r/selfhosted/comments/zw4k2h/what_has_plex_done_lately_that_you_didnt_like/).
 
 **Similar or related projects:**
 
-* [Plex](https://plex.tv)
+* [Plex](https://watch.plex.tv)
 * [Emby](https://emby.media/)
 * [Kodi](https://kodi.tv/)
 
@@ -68,11 +68,11 @@ Surely this pick needs no introduction. Think of Nextcloud somewhat like your ow
 
 It can be a bit unreliable and unwieldy to administer at times - especially around update cycles. But once you get a working configuration it's a really handy tool.
 
-[Nextcloud Hub](https://nextcloud.com/hub) brings together several key areas of functionality:
+[Nextcloud Hub](https://nextcloud.com/hub/) brings together several key areas of functionality:
 
-* [Nextcloud Files](https://nextcloud.com/files) - offers universal file access on desktop, mobile and web. Find files with powerful search, share your thoughts in comments or lock files until you are done with them.
-* [Nextcloud Talk](https://nextcloud.com/talk) - delivers on-premises, private audio/video conferencing and text chat through browser and mobile interfaces with integrated screen sharing and SIP integration.
-* [Nextcloud Groupware](https://nextcloud.com/groupware) - integrates Calendar, Contacts, Mail and other productivity features to help teams get their work done faster, easier and on your terms.
+* [Nextcloud Files](https://nextcloud.com/files/) - offers universal file access on desktop, mobile and web. Find files with powerful search, share your thoughts in comments or lock files until you are done with them.
+* [Nextcloud Talk](https://nextcloud.com/talk/) - delivers on-premises, private audio/video conferencing and text chat through browser and mobile interfaces with integrated screen sharing and SIP integration.
+* [Nextcloud Groupware](https://nextcloud.com/groupware/) - integrates Calendar, Contacts, Mail and other productivity features to help teams get their work done faster, easier and on your terms.
 
 **Similar or related projects:**
 
@@ -83,7 +83,7 @@ It can be a bit unreliable and unwieldy to administer at times - especially arou
 
 ![traefik-logo](../images/top10/traefik-logo.webp){: align=right width=200 }
 
-Yes, I know. A reverse proxy isn't the most terribly exciting inclusion in this list but it is one of the most important. [Traefik](https://traefik.io/traefik/) (pronounced "traffic") is my go-to reverse proxy. It can be configured alongside the containers it is proxying in the same [docker-compose](../02-tech-stack/docker-compose.md) yaml file.
+Yes, I know. A reverse proxy isn't the most terribly exciting inclusion in this list but it is one of the most important. [Traefik](https://traefik.io/traefik) (pronounced "traffic") is my go-to reverse proxy. It can be configured alongside the containers it is proxying in the same [docker-compose](../02-tech-stack/docker-compose.md) yaml file.
 
 Traefik does what any good reverse proxy should in 2025, it integrates with certbot and Let's Encrypt for automated TLS certificate generation for your service. Setup can be a bit complex at first but there's a complete [Traefik 101 guide](../04-day-two/remote-access/traefik101.md) over in the "remote access" section.
 
@@ -99,13 +99,13 @@ The elegance of configuring the ingress rules for a service in the same place as
 
 ![gitea-logo](../images/top10/gitea-logo.png){: align=left width=240 }
 
-A self-hosted, lightweight, yet highly feature rich git server, [Gitea](https://gitea.io) is much more powerful than it might seem at first. Sure, it has all the obivous trappings you'd expect from a code hosting solution such as multi-user support, organisations and a similar merge/fork model to a certain well-known online hub for Git activity.
+A self-hosted, lightweight, yet highly feature rich git server, [Gitea](https://about.gitea.com) is much more powerful than it might seem at first. Sure, it has all the obivous trappings you'd expect from a code hosting solution such as multi-user support, organisations and a similar merge/fork model to a certain well-known online hub for Git activity.
 
 As of [v1.19](https://blog.gitea.com/release-of-1.19.0/#-gitea-actions-21937) in March 2023 Gitea added Actions, a built-in CI system like GitHub Actions. With Gitea Actions, you can reuse your familiar workflows and Github Actions in your self-hosted Gitea instance.
 
 ![gitea](../images/top10/gitea-ui.png)
 
-One of my favourite features of Gitea is that it will automatically mirror remote git repositories locally when a commit is pushed. This makes it really easy to back up your code, and other people's code to your server - just in case. Because it's git the entire repo history is maintained and if for some reason a popular project became the target of a BS [DMCA claim](https://github.blog/2020-11-16-standing-up-for-developers-youtube-dl-is-back/), you're not up the creek without a paddle - so to speak.
+One of my favourite features of Gitea is that it will automatically mirror remote git repositories locally when a commit is pushed. This makes it really easy to back up your code, and other people's code to your server - just in case. Because it's git the entire repo history is maintained and if for some reason a popular project became the target of a BS [DMCA claim](https://github.blog/news-insights/policy-news-and-insights/standing-up-for-developers-youtube-dl-is-back/), you're not up the creek without a paddle - so to speak.
 
 Gitea doesn't have the kind of built-in CI features like the largest self-hosted and open source player in this space, Gitlab. But what it lacks in features it makes up for in small footprint and simplicity. These can instead be handled by external applications such as [drone](https://www.drone.io/). I wrote about deploying a site based on mkdocs (like this one) with drone CI [on my blog](https://blog.ktz.me/deploying-mkdocs-using-droneci/).
 
@@ -113,7 +113,7 @@ Gitea doesn't have the kind of built-in CI features like the largest self-hosted
 
 * [Forgejo](https://forgejo.org/faq/) - a recent fork of Gitea
 * [Gitlab](https://about.gitlab.com/)
-* [Gogs](https://gogs.io/)
+* [Gogs](https://gogs.io/getting-started/introduction)
 
 ## 7. Smokeping
 
@@ -167,11 +167,11 @@ There are a _lot_ of options in this space - just take a look at [awesome-selfho
 
 ## 10. Grafana
 
-[Grafana](https://grafana.com/) itself is graphing tool to display data stored elsewhere. It excels at displaying time-series data like the kind gathered by monitoring tools like [Telegraf](https://blog.linuxserver.io/2017/11/25/how-to-monitor-your-server-using-grafana-influxdb-and-telegraf/) and [Prometheus](https://prometheus.io/). It takes a bit of work to get a dashboard configured just the way you like it but is well worth the effort - after all, who doesn't like a pretty graph?
+[Grafana](https://grafana.com/) itself is graphing tool to display data stored elsewhere. It excels at displaying time-series data like the kind gathered by monitoring tools like [Telegraf](https://www.linuxserver.io/blog/2017-11-25-how-to-monitor-your-server-using-grafana-influxdb-and-telegraf) and [Prometheus](https://prometheus.io/). It takes a bit of work to get a dashboard configured just the way you like it but is well worth the effort - after all, who doesn't like a pretty graph?
 
 ![grafana](../images/top10/grafana.png)
 
-I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server setup.
+I've written previously about [monitoring your UPS](https://www.linuxserver.io/blog/2018-11-15-monitoring-a-ups-with-grafana-on-linux) with Grafana to better keep track of the energy costs of your server setup.
 
 ## 11. Surprise me...
 

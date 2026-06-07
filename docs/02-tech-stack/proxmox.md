@@ -48,4 +48,4 @@ ESXI by VMware is a juggernaut in the enterprise space but it comes with a steep
 
 However, ESXI is not open source. And for that simple fact, Proxmox is my goto recommendation for home users looking to virtualise all the things.
 
-[^1]: [How to Install OpenShift 4.6 using Terraform on VMware with UPI](https://www.openshift.com/blog/how-to-install-openshift-4.6-on-vmware-with-upi)
+[^1]: [How to Install OpenShift 4.6 using Terraform on VMware with UPI](https://www.redhat.com/en/blog/how-to-install-openshift-4.6-on-vmware-with-upi)

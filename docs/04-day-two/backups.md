@@ -17,7 +17,7 @@ The first copy is stored on a ZFS mirror, similar in concept to RAID 1. This kee
 !!! warning
     RAID of any form is NOT a backup! Only multiple physical copies following the 3-2-1 rule are a true backup. RAID is often incorrectly conflated with being a backup however it is designed to increase uptime not prevent data loss in and of itself.
 
-To mitigate these risks, it is considered good practice to store your most critical data offsite. Many options exist in this space such as [zfs.rent](https://zfs.rent), [backblaze](https://backblaze.com), [AWS Glacier](https://aws.amazon.com/s3/storage-classes/glacier/), and so on - do your research and pick which has a good privacy policy, encrypts your data and is affordable (watch out for those retrieval fees!).
+To mitigate these risks, it is considered good practice to store your most critical data offsite. Many options exist in this space such as [zfs.rent](https://zfs.rent), [backblaze](https://www.backblaze.com), [AWS Glacier](https://aws.amazon.com/s3/storage-classes/glacier/), and so on - do your research and pick which has a good privacy policy, encrypts your data and is affordable (watch out for those retrieval fees!).
 
 While many people use subscription-based services such as Google Drive or DropBox, the author has chosen to use backblaze.com due to its low cost. The author currently has approximately 250GB of data stored in Backblaze's B2 buckets at a cost of $0.005 GB/month, or approximately $1.25 per month. In the event that the worst were to happen and the author's disks were destroyed, it would cost approximately $2.50 to recover all of their most crucial files.
 

@@ -5,7 +5,7 @@ JellyfinJune is a month-long KTZ Systems series about moving media serving back 
 The material here is intentionally practical: watch the episode, copy the useful bits, then adapt paths, domains, users, and hardware devices to your own Perfect Media Server.
 
 <p align="center">
-<iframe width="740" height="415" src="https://www.youtube.com/embed/videoseries?list=PLmaj94hXs3GFbjVg5UkdnpmO_HxCIMOXM&index=1" title="Jellyfin June playlist on YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="740" height="415" src="https://www.youtube.com/embed/videoseries?list=PLmaj94hXs3GFbjVg5UkdnpmO_HxCIMOXM" title="Jellyfin June playlist on YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </p>
 
 <div class="grid cards" markdown>

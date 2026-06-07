@@ -68,7 +68,7 @@ Perhaps one day PMS will switch out to BTRFS but that day is a ways off yet - ZF
 ## Creating a storage pool
 
 !!! info
-    I originally wrote a [LinuxServer.io blog article on getting started with ZFS on Linux](https://blog.linuxserver.io/2019/05/14/getting-started-with-zfs-on-linux/).
+    I originally wrote a [LinuxServer.io blog article on getting started with ZFS on Linux](https://www.linuxserver.io/blog/2019-05-14-getting-started-with-zfs-on-linux).
 
 This article assumes you are using Ubuntu. We'll be creating a mirrored pair of drives for use with ZFS here. For reasons why you should use mirrors see [Jim's](https://jrs-s.net/2015/02/06/zfs-you-should-use-mirror-vdevs-not-raidz/) blog.
 
@@ -157,7 +157,7 @@ You must make sure you set `ashift` correctly. Disks often lie about their secto
 
 Scrubs are an important safety check to prevent bitrot. Ubuntu automatically schedules these for you.
 
-<blockquote class="twitter-tweet" align="center"><p lang="en" dir="ltr">New blog post about my new adventures with ZFS.<a href="https://t.co/gmGESknfL1">https://t.co/gmGESknfL1</a><br><br>Thanks <a href="https://twitter.com/allanjude?ref_src=twsrc%5Etfw">@allanjude</a> and <a href="https://twitter.com/jrssnet?ref_src=twsrc%5Etfw">@jrssnet</a> for the drive to actually, finally do this.</p>&mdash; Alex Kretzschmar (@IronicBadger) <a href="https://twitter.com/IronicBadger/status/1128326518046887938?ref_src=twsrc%5Etfw">May 14, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" align="center"><p lang="en" dir="ltr">New blog post about my new adventures with ZFS.<a href="https://www.linuxserver.io/blog/2019-05-14-getting-started-with-zfs-on-linux">https://www.linuxserver.io/blog/2019-05-14-getting-started-with-zfs-on-linux</a><br><br>Thanks <a href="https://twitter.com/allanjude?ref_src=twsrc%5Etfw">@allanjude</a> and <a href="https://twitter.com/jrssnet?ref_src=twsrc%5Etfw">@jrssnet</a> for the drive to actually, finally do this.</p>&mdash; Alex Kretzschmar (@IronicBadger) <a href="https://twitter.com/IronicBadger/status/1128326518046887938?ref_src=twsrc%5Etfw">May 14, 2019</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 View the status of a pools scrubs with `zpool status`.
 
@@ -189,7 +189,7 @@ One of the most compelling reasons to use ZFS is replication. We get more into t
 [^1]: [The Hidden Cost of ZFS for a Home NAS](https://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html)
 [^2]: [Bonwick, Jeff (December 8, 2005) - "ZFS End-to-End Data Integrity"](https://en.wikipedia.org/wiki/ZFS#cite_note-endtoend-30)
 [^3]: [Checkums and Their Use in ZFS](https://openzfs.github.io/openzfs-docs/Basic%20Concepts/Checksums.html)
-[^4]: [DKMS - Arch Wiki](https://wiki.archlinux.org/index.php/Dynamic_Kernel_Module_Support)
+[^4]: [DKMS - Arch Wiki](https://wiki.archlinux.org/title/Dynamic_Kernel_Module_Support)
 [^5]: [Linus Torvalds ZFS Mailing List Rant](https://www.realworldtech.com/forum/?threadid=189711&curpostid=189841)
 [^6]: [Changes/BtrfsByDefault](https://fedoraproject.org/wiki/Changes/BtrfsByDefault)
 [^7]: [Jim Salter's Blog - ZFS category](https://jrs-s.net/category/open-source/zfs/)

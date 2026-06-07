@@ -48,9 +48,9 @@ If you're looking to build a media server, then you've come to the right place. 
 !!! info "Perfect Media Server - A History"
     Perfect Media Server began life as a series of blog posts over at [blog.linuxserver.io](https://www.linuxserver.io/blog/tag:perfectmediaserver#blog_list):
 
-    - [Perfect Media Server (2016 Edition) - The Original Article](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/)
-    - [Perfect Media Server (2017 Edition) - Extensive video guides](https://blog.linuxserver.io/2017/06/24/the-perfect-media-server-2017/)
-    - [Perfect Media Server (2019 Edition) - Boring is reliable + adding ZFS](https://blog.linuxserver.io/2019/07/16/perfect-media-server-2019/)
+    - [Perfect Media Server (2016 Edition) - The Original Article](https://www.linuxserver.io/blog/2016-02-02-the-perfect-media-server-2016)
+    - [Perfect Media Server (2017 Edition) - Extensive video guides](https://www.linuxserver.io/blog/2017-06-24-the-perfect-media-server-2017)
+    - [Perfect Media Server (2019 Edition) - Boring is reliable + adding ZFS](https://www.linuxserver.io/blog/2019-07-16-perfect-media-server-2019)
     - [Perfect Media Server (2020 Edition) - Launching perfectmediaserver.com](https://blog.ktz.me/the-perfect-media-server-2020-edition/)
 
 ## What is PMS? And what is this site for?
@@ -75,7 +75,7 @@ If you see a mistake, or think there's a hole in the content (why didn't you do 
 
 ## Self-Hosted podcast
 
-Lastly, if you like this kind of thing, check out the [Self-Hosted](https://selfhosted.show) podcast over at [Jupiter Broadcasting](https://jupiterbroadcasting.com) hosted by Alex and [Chris Fisher](https://twitter.com/ChrisLAS).
+Lastly, if you like this kind of thing, check out the [Self-Hosted](https://selfhosted.show) podcast over at [Jupiter Broadcasting](https://www.jupiterbroadcasting.com) hosted by Alex and [Chris Fisher](https://twitter.com/ChrisLAS).
 
 <iframe src="https://player.fireside.fm/v2/dUlrHQih+aGtGAbih?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
 

@@ -1,6 +1,6 @@
 # Docker
 
-Back in 2016 when I wrote the [original](https://blog.linuxserver.io/2016/02/02/the-perfect-media-server-2016/) PMS article docker was fairly new. Fast forward 8(!) years and containerisation has cemented itself as a major force in the industry.
+Back in 2016 when I wrote the [original](https://www.linuxserver.io/blog/2016-02-02-the-perfect-media-server-2016) PMS article docker was fairly new. Fast forward 8(!) years and containerisation has cemented itself as a major force in the industry.
 
 For those looking to build a media server, containers offer a uniquely brilliant way to run applications. They divorce the running application from its data whilst making managing their persistent data and configuration simple.
 
@@ -71,9 +71,9 @@ Docker were first to market and hijacked the root namespace when you execute a `
 Some other notable registries include, but are not limited to:
 
 * [Quay.io](https://quay.io/)
-* [GitHub Container Registry](https://github.com/features/packages)
+* [GitHub Container Registry](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
 
-I might be biased due to my prior involvement with the project but [LinuxServer.io](https://linuxserver.io) make the largest collection of media server type containers on the internet. At the time of writing their containers have seen over 14 billion pulls and you can find a [full list of available LinuxServer.io apps](https://fleet.linuxserver.io/).
+I might be biased due to my prior involvement with the project but [LinuxServer.io](https://www.linuxserver.io) make the largest collection of media server type containers on the internet. At the time of writing their containers have seen over 14 billion pulls and you can find a [full list of available LinuxServer.io apps](https://www.linuxserver.io/our-images).
 
 ## How do I pick one container over another?
 
@@ -81,7 +81,7 @@ It's a common question I see, and a valid one.
 
 <div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-parent="false" data-embed-live="false" data-embed-uuid="ab15371c-d825-4747-ab1b-1451c2d8b65e" data-embed-created="2020-12-28T01:30:18.316Z"><a href="https://www.reddit.com/r/selfhosted/comments/kece3p/intels_quick_sync_is_a_total_game_changer_im_a/gg4oerh/">Comment</a> from discussion <a href="https://www.reddit.com/r/selfhosted/comments/kece3p/intels_quick_sync_is_a_total_game_changer_im_a/">Intel&#x27;s Quick Sync is a total game changer - I&#x27;m a little late to the party but here&#x27;s a post on how I set it up with Proxmox, Plex and Blue Iris using Intel GVT-g (virtual GPUs)</a>.</div><script async src="https://www.redditstatic.com/comment-embed.js"></script>
 
-The first place I always check is LinuxServer's [Fleet](https://fleet.linuxserver.io/) list of images - if an LSIO image exists, job done. I'll always pick LSIO images first because of:
+The first place I always check is LinuxServer's [Fleet](https://www.linuxserver.io/our-images) list of images - if an LSIO image exists, job done. I'll always pick LSIO images first because of:
 
 * Easy user mappings via `PGID` and `PUID`
 * Regular security and application updates
@@ -104,5 +104,5 @@ For an incredible list of inspiration, check out [awesome-selfhosted](https://gi
 
 See [podman](podman.md).
 
-[^1]: [Docker Volumes explained - docs.docker.com/storage/volumes](https://docs.docker.com/storage/volumes/)
+[^1]: [Docker Volumes explained - docs.docker.com/engine/storage/volumes](https://docs.docker.com/engine/storage/volumes/)
 [^2]: [docker-compose - docs.docker.com/compose](https://docs.docker.com/compose/)

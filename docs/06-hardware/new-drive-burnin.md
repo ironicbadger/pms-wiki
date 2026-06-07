@@ -1,7 +1,7 @@
 That new hard drive. Should you trust it? Maybe.
 
 !!! info
-    The text of this article was originally published on [https://blog.linuxserver.io/2018/10/29/new-hard-drive-rituals/](https://blog.linuxserver.io/2018/10/29/new-hard-drive-rituals/).
+    The text of this article was originally published on [https://www.linuxserver.io/blog/2018-10-29-new-hard-drive-rituals](https://www.linuxserver.io/blog/2018-10-29-new-hard-drive-rituals).
 
 <p align="center">
 <figure markdown>

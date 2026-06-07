@@ -12,7 +12,7 @@ WireGuard was first merged to the Linux kernel v5.6 in March 2020 [^1]. A relati
 
 ![tailscale-logo](../../images/logos/tailscale.png){: align=right width=20% }
 
-[Tailscale](https://tailscale.com/selfhosted/) is a mesh VPN that uses Wireguard under the hood. It works like an [overlay network](https://tailscale.com/blog/how-tailscale-works/) between the computers of your networks - using [NAT traversal](https://tailscale.com/blog/how-nat-traversal-works/).
+[Tailscale](https://tailscale.com/?utm_source=Self%20Hosted&utm_medium=paid-referral&utm_campaign=ad-read&utm_content=podcast) is a mesh VPN that uses Wireguard under the hood. It works like an [overlay network](https://tailscale.com/blog/how-tailscale-works) between the computers of your networks - using [NAT traversal](https://tailscale.com/blog/how-nat-traversal-works).
 
 Tailscale's control server works as an exchange point of Wireguard public keys for the nodes in the Tailscale network. It assigns the IP addresses of the clients, creates the boundaries between each user, enables sharing machines between users, and exposes the advertised routes of your nodes.
 

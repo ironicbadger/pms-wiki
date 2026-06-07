@@ -71,7 +71,7 @@ Here are the key features of mergerfs that make it perfect for PMS:
     * Drives may contain data when mounted via Mergerfs
 * Simple configuration with one line in `/etc/fstab`
 
-For the home user the incremental addition of hard drives is a very important consideration. ZFS still lacks easy expandability and for most people, adding 4 or more drives at once is prohibitively expensive - see ["The hidden cost of ZFS"](http://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html).
+For the home user the incremental addition of hard drives is a very important consideration. ZFS still lacks easy expandability and for most people, adding 4 or more drives at once is prohibitively expensive - see ["The hidden cost of ZFS"](https://louwrentius.com/the-hidden-cost-of-using-zfs-for-your-home-nas.html).
 
 Drives of a useful capacity cost upwards of $150 (x4 = $600). $600 is a chunk of change to plop down in one go just because you filled up your last drive - why not have a system that grows as your needs do?
 

@@ -33,7 +33,7 @@ During installation, you will be prompted to create users, set your timezone, an
 
 Assuming a successful first boot to the Proxmox login TTY, log in as with your root username / password. Now we need to configure Proxmox repositories.
 
-By default, Proxmox ships with the enterprise repositories enabled and displays a subscription notice for unpaid installations. The excellent [Proxmox helper scripts](https://community-scripts.github.io/ProxmoxVE/scripts) make the initial configuration for our self-hosting purposes much easier.
+By default, Proxmox ships with the enterprise repositories enabled and displays a subscription notice for unpaid installations. The excellent [Proxmox helper scripts](https://community-scripts.org/scripts) make the initial configuration for our self-hosting purposes much easier.
 
 !!! info
     These scripts began as the work of [tteck](https://github.com/tteck/Proxmox), who sadly passed away in 2024. He left the community an excellent resource. Thanks, tteck. RIP.
@@ -320,7 +320,7 @@ These commands create the individual data disk mountpoints, the parity mountpoin
 
 Next, create entries in `/etc/fstab` so the disks mount automatically at boot.
 
-This file tells the OS which disks to mount, where to mount them, and which options to use. It can look complex, but each `fstab` entry breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>`. See the [fstab documentation](https://wiki.archlinux.org/index.php/fstab) for more detail.
+This file tells the OS which disks to mount, where to mount them, and which options to use. It can look complex, but each `fstab` entry breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>`. See the [fstab documentation](https://wiki.archlinux.org/title/Fstab) for more detail.
 
 !!! note
     mergerfs does _not_ mount the parity drive; it only mounts `/mnt/disk*`. mergerfs has _nothing to do_ with parity. SnapRAID handles that later.
@@ -538,7 +538,7 @@ services:
 
 You might have already created a user during Proxmox installation, if not, create one local, non-root user to own the files your containers and network shares write. This guide uses `ironicbadger` for that shared identity.
 
-The [LinuxServer.io](https://www.linuxserver.io/) team runs one of the most popular container projects on the web. Their [fleet](https://fleet.linuxserver.io/) of containers covers most apps a media server user is likely to need. They helped popularise `PUID` and `PGID` environment variables, which make container file permissions much easier to manage.
+The [LinuxServer.io](https://www.linuxserver.io/) team runs one of the most popular container projects on the web. Their [fleet](https://www.linuxserver.io/our-images) of containers covers most apps a media server user is likely to need. They helped popularise `PUID` and `PGID` environment variables, which make container file permissions much easier to manage.
 
 !!! success
     Make sure host volume directories are owned by the same user you specify in the container.
@@ -587,7 +587,7 @@ Start by configuring the server.
 
     If you want named users, auditability, or private folders, set `guest ok = no`, create Samba users with `smbpasswd`, remove the `force user` and `force group` lines if you want per-user file ownership, and restrict access with normal Linux ownership, groups, and permissions.
 
-As usual, the [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Server) has a detailed entry on setting up and configuring a Samba server. Although PMS does not use Arch, much of the configuration guidance still applies.
+As usual, the [Arch Wiki](https://wiki.archlinux.org/title/Samba#Server) has a detailed entry on setting up and configuring a Samba server. Although PMS does not use Arch, much of the configuration guidance still applies.
 
 If you want the simplest way to get started with Samba, follow these steps.
 
@@ -691,7 +691,7 @@ After a client connects, you can view active Samba sessions on the server with `
 
 #### Samba client
 
-The [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Client) also has useful client configuration notes. This section assumes you are mounting the share on a Linux CLI based system, such as a Raspberry Pi.
+The [Arch Wiki](https://wiki.archlinux.org/title/Samba#Client) also has useful client configuration notes. This section assumes you are mounting the share on a Linux CLI based system, such as a Raspberry Pi.
 
 * First, install the command-line SMB tools. `smbclient` lists and tests shares. `cifs-utils` is needed for mounting SMB shares through `/etc/fstab`.
 
@@ -726,7 +726,7 @@ Make sure the mountpoint exists. If it does not, create it with `mkdir /mnt/moun
 
 ### NFS
 
-Once again, the [Arch Wiki](https://wiki.archlinux.org/index.php/NFS#Installation) is the best place to go deeper on NFS. There is a lot of useful information in that article.
+Once again, the [Arch Wiki](https://wiki.archlinux.org/title/NFS#Installation) is the best place to go deeper on NFS. There is a lot of useful information in that article.
 
 NFS is less common for home media server use these days. Most users can get by happily with Samba alone. If you need NFS, you will probably know why.
 

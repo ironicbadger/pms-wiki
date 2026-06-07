@@ -1,7 +1,7 @@
 # Hard Disk Drive Purchasing Methodology
 
 !!! info
-    This is a snippet from the [2019 edition](https://blog.linuxserver.io/2019/07/16/perfect-media-server-2019/) of Perfect Media Server.
+    This is a snippet from the [2019 edition](https://www.linuxserver.io/blog/2019-07-16-perfect-media-server-2019) of Perfect Media Server.
 
 It is a fact of life that some mechanical hard drives are created more equal than others. The manufacturing tolerances involved are microscopic and transportation is a high risk time for any drive. For these reasons I try to follow some rules when purchasing drive(s).
 
@@ -42,7 +42,7 @@ I never even bothered trying to power that one up. It was returned immediately. 
 
 These rules happen to tie in nicely (surprise!) with some of my other overall thoughts on putting together the perfect media server and a topic I covered in the 2016 article. Namely, home users (the primary target for this series) probably don't want to have to buy 3+ drives at a time - it's just too much money to spend in one go! The ability to organically grow a system as your content collection, drone footage or linux ISO stash does is an absolutely core tenet and a key reason why I don't think any solution which requires adding more than one drive at once (going full ZFS, for example) is a suitable solution for most people, most of the time. By growing the system organically you not only put less pressure on your budget up front but you also potentially increase the overall reliability of the system thanks to Rule #1 and Rule #2.
 
-If you needed another reason; the longer you wait, the more TBs you'll get for the same cash. 2 years ago I tried to 'standardise' on 6TB drives. The time came 6 months ago when I wanted to add another drive to my system and for the same money per drive I could now furnish my system with an 8TB model. Backblaze, purveyors of the excellent ["Annual failure rate"](https://www.backblaze.com/b2/hard-drive-test-data.html) series, have [this interesting take](https://www.backblaze.com/blog/hard-drive-cost-per-gigabyte/) on cost per gigabyte.
+If you needed another reason; the longer you wait, the more TBs you'll get for the same cash. 2 years ago I tried to 'standardise' on 6TB drives. The time came 6 months ago when I wanted to add another drive to my system and for the same money per drive I could now furnish my system with an 8TB model. Backblaze, purveyors of the excellent ["Annual failure rate"](https://www.backblaze.com/cloud-storage/resources/hard-drive-test-data) series, have [this interesting take](https://www.backblaze.com/blog/hard-drive-cost-per-gigabyte/) on cost per gigabyte.
 
 The general takeaway from this is that you should never buy a hard drive because in 6 months you'll be able to get significantly more for your money. Of course, this is a reality of any tech. At some point you've just got to bite the bullet and press the purchase button - but you get my point, I hope.
 

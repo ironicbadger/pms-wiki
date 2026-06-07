@@ -17,7 +17,7 @@ What if you want to run Plex in a VM and take advantage of hardware accelerated 
 
 Passing through an entire GPU is very useful for specific tasks but isn't a very efficient use of resources. Wouldn't it be nice if we could slice up 1 GPU and use it with multiple VMs at once?
 
-That is precisely what [GVT-g](https://wiki.archlinux.org/index.php/Intel_GVT-g) permits us to do!
+That is precisely what [GVT-g](https://wiki.archlinux.org/title/Intel_GVT-g) permits us to do!
 
 Take the iGPU and give a VM, or multiple VMs, a slice of that graphics chip to do with whatever it wants. In our case, we'll use the Quick Sync portion of the iGPU to transcode Plex H264 streams in one VM and Blue Iris streams in another.
 

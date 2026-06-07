@@ -212,7 +212,7 @@ We also just created `/mnt/storage` in addition to our data disk mountpoints of 
 
 Next we need to create an entry in `/etc/fstab`.
 
-This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/index.php/fstab).
+This file tells your OS how, where and which disks to mount. It looks a bit complex but an fstab entry is actually quite simple and breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>` - [fstab documentation](https://wiki.archlinux.org/title/Fstab).
 
 !!! note
     Note that mergerfs does _not_ mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has _nothing to do_ with parity, that is what we use SnapRAID for.
@@ -394,7 +394,7 @@ services:
 
 We need to find the user and group IDs for the user we plan to run our containers with. This is important because otherwise we will end up with file permissions errors.
 
-The [LinuxServer.io](https://www.linuxserver.io/) team are one of the most popular containerisation projects on the web. They provide a whole [fleet](https://fleet.linuxserver.io/) of containers that cater to pretty much every need the average Media Server enthusiast has. They pioneered a system of defining `PUID` and `PGID` in container environment variables to ensure permissions issues became a thing of the past.
+The [LinuxServer.io](https://www.linuxserver.io/) team are one of the most popular containerisation projects on the web. They provide a whole [fleet](https://www.linuxserver.io/our-images) of containers that cater to pretty much every need the average Media Server enthusiast has. They pioneered a system of defining `PUID` and `PGID` in container environment variables to ensure permissions issues became a thing of the past.
 
 !!! success
     Ensure any volume directories on the host are owned by the same user you specify and any permissions issues will vanish like magic.
@@ -427,7 +427,7 @@ Let's begin by configuring the server side of things.
 
 #### Samba server
 
-As is often the case the [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Server) has a fantastically detailed entry on setting up and configuring a samba server. Despite the fact that PMS recommends Ubuntu, much of the configuration information provided by the Arch Wiki is valid for use by us.
+As is often the case the [Arch Wiki](https://wiki.archlinux.org/title/Samba#Server) has a fantastically detailed entry on setting up and configuring a samba server. Despite the fact that PMS recommends Ubuntu, much of the configuration information provided by the Arch Wiki is valid for use by us.
 
 If you just want the most brain dead simple way to get going with samba, here it is.
 
@@ -492,7 +492,7 @@ systemctl restart smbd
 
 #### Samba client
 
-Here's the relevant [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Client) entry for configuring clients. This section assumes mounting is occuring on a Linux CLI based system (a Pi or something like that).
+Here's the relevant [Arch Wiki](https://wiki.archlinux.org/title/Samba#Client) entry for configuring clients. This section assumes mounting is occuring on a Linux CLI based system (a Pi or something like that).
 
 * First you'll need to install the samba client for your OS:
 
@@ -527,7 +527,7 @@ Ensure the mountpoint exists. If it doesn't, create it with `mkdir /mnt/mountpoi
 
 ### NFS
 
-Once again, the [Arch Wiki](https://wiki.archlinux.org/index.php/NFS#Installation) is the best place to dive _deep_ on NFS, and there really is a lot of great information in that article.
+Once again, the [Arch Wiki](https://wiki.archlinux.org/title/NFS#Installation) is the best place to dive _deep_ on NFS, and there really is a lot of great information in that article.
 
 There isn't much call for NFS these days for home use and we've found most users can get by with only samba quite happily. If you need NFS, you'll know it.
 

@@ -68,7 +68,7 @@ The Fractal Define R5 is a classic example of "if it ain't broke, don't fix it".
 * PSU Form Factor - ATX
 * Number of 3.5" drive bays - 8
 * Dimensions - 23"D x 21.5"W x 13"H
-* Pricing - [$125-150](https://amzn.to/47FW8vd)
+* Pricing - [$125-150](https://www.amazon.com/Fractal-Design-Define-Gaming-FDCADEFR5BK/dp/B00Q2Z11QE)
 
 The case supports motherboards ranging from ITX to ATX in size. There's ample room for cable management with the high quality fit and finish that is a Fractal trademark at this point. The most remarkable thing about this case is how unremarkable it is, and I mean that in a good way. There's almost nothing not to like. It's a thoughtfully laid out and extremely well-built thing.
 
@@ -107,7 +107,7 @@ While this chassis is larger than other offerings, I chose it for its generous n
 
 ## Silverstone CS380
 
-> Review contributed by [glennbrown](http://github.com/glennbrown)
+> Review contributed by [glennbrown](https://github.com/glennbrown)
 
 The Silverstone CS380 was released in 2016 and is a great option for a Perfect Media Server. The case offers eight 3.5" hot swap bays plus two additional 5.25" bays.
 
@@ -167,7 +167,7 @@ When I was shopping for a case, I chose the Phantom 240 for the maximum amount o
 - **PSU Form Factor:** ATX
 - **Number of 3.5" Drive Bays:** 12
 - **Dimensions:** 18.5" x 16.92" x 8.07"
-- **Pricing:** Approximately $60 USD on [Newegg](https://www.newegg.com/p/2AM-02CE-000H9) / [eBay](https://www.ebay.com/sch/i.html?_&_nkw=Classico+Storage+Case)
+- **Pricing:** Approximately $60 USD on Newegg / [eBay](https://www.ebay.com/sch/i.html?_&_nkw=Classico+Storage+Case)
 
 This case, originally designed for Chia mining, proves to be an excellent option for storage and home server enthusiasts. Notably, it offers remarkable support for a substantial number of 3.5" HDDs, all at an affordable price point.
 
@@ -199,7 +199,7 @@ The Silverstone DS380B is available from the usual suspects and pops up on the s
 - Dimensions - 14 x 8.24 x 11.25" / 356 x 210 x 286 mm
 - Pricing:
     - Average used sale price on [eBay](https://www.ebay.com/sch/i.html?_from=R40&_trksid=p4432023.m570.l1313&_nkw=silverstone+DS380&_sacat=0) $180
-    - Typical new price on [Amazon](https://www.amazon.com/SilverStone-Technology-Mini-ITX-Computer-DS380B/dp/B00IAELTAI) or [Newegg](https://www.newegg.com/p/N82E16811163255) $215
+    - Typical new price on [Amazon](https://www.amazon.com/SilverStone-Technology-Mini-ITX-Computer-DS380B/dp/B00IAELTAI) or Newegg $215
 
 The DS380 offers a large number of easily interchangeable drives and a hot-swap backplane. This makes it compatible with a cold backup strategy or easy site-to-site transfer. Just ensure that you include a hot-swap-capable HBA in your build.
 

@@ -1,6 +1,6 @@
 # Combine ZFS with other filesystems using mergerfs
 
-The purpose of this post is to expand upon a concept I first introduced during the [Perfect Media Server - 2019 Edition](https://blog.linuxserver.io/2019/07/16/perfect-media-server-2019/). We'll cover why you might want to consider this approach in first place, how to layout your disks and discuss how this will provide you the ultimate flexibility if you don't want to fully commit to ZFS.
+The purpose of this post is to expand upon a concept I first introduced during the [Perfect Media Server - 2019 Edition](https://www.linuxserver.io/blog/2019-07-16-perfect-media-server-2019). We'll cover why you might want to consider this approach in first place, how to layout your disks and discuss how this will provide you the ultimate flexibility if you don't want to fully commit to ZFS.
 
 !!! info
     This post was originally published at [blog.ktz.me](https://blog.ktz.me/combining-zfs-with-other-filesystems-using-mergerfs/).
