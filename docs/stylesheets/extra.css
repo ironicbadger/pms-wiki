@@ -29,6 +29,11 @@ th, td {
     background-color: hsla(var(--md-hue),25%,25%,1)
 }
 
+/* Main content width */
+.md-main__inner.md-grid {
+    max-width: 54.9rem;
+}
+
 /* Image captions */
 .md-typeset figcaption {
     color: var(--md-default-fg-color--light);

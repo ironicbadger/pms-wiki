@@ -84,7 +84,7 @@ Remember to repeat this process every so often to pick up newer mergerfs release
 
 This section covers how to identify, partition, format, and mount the hard drives in your system.
 
-### Mounting drives manually
+### Before you begin
 
 Before the OS can use a data disk, it needs to be mounted.
 
@@ -145,11 +145,16 @@ root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc1 -name 'ata-*-part*'
 
 **Do not** use `/dev/sdX` names for long-term drive identification, especially in `/etc/fstab`, because they can change after hardware changes, kernel upgrades, or controller changes. Prefer the human-readable `ata-*` identifier when available because it includes the drive model and serial number. If no `ata-*` identifier is available, use another stable `/dev/disk/by-id` path such as `wwn-*`.
 
-### Brand new drives
+!!! question "Which path should I follow?"
+    If the drive is blank or newly purchased, continue with [Drive partitioning](#drive-partitioning).
 
-> If you have pre-existing drives, you can skip this section.
+    If the drive already has data on it, skip partitioning and formatting and go to [Existing drives](#existing-drives).
 
-Before creating a partition on a brand new disk, make sure you have burned it in as covered under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
+### Drive partitioning
+
+This section is only for blank drives you are ready to erase. If your drive already contains data, skip to [Existing drives](#existing-drives).
+
+Before creating a partition on a blank disk, make sure you have burned it in as covered under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
 
 !!! warning
     **BE CAREFUL HERE** - The next steps modify the drive's partition table. If there is _any_ existing data on this drive, **IT WILL BE WIPED**. Proceed carefully.
@@ -230,12 +235,12 @@ If you are new to this, use the `sgdisk` option because it does the same thing e
     partprobe /dev/sdc
     ```
 
-Next, create a filesystem on the new partition.
+### Filesystem creation
+
+This section is only for new blank drives that you just partitioned. If your drive already contains data, **do not format it**. Skip to [Existing drives](#existing-drives).
 
 !!! info
     Repeat this step for each new drive as required.
-
-#### Filesystem creation
 
 Create an `xfs` filesystem on the new partition, replacing `X` with your drive letter:
 
@@ -245,9 +250,13 @@ mkfs.xfs /dev/sdX1
 
 Your new drive is now formatted and ready to store data.
 
-Continue to the next section to learn how to mount it and make it available to the OS.
+Continue to [Mountpoints](#mountpoints) to make it available to the OS.
 
 ### Existing drives
+
+This section is for drives that already have a filesystem and data on them.
+
+If you just partitioned and formatted a new drive, skip ahead to [Mountpoints](#mountpoints).
 
 [Identify](#identifying-drives) the existing drive and note the partition you want to mount. When using `/dev/disk/by-id`, the first partition is usually shown with a `-part1` suffix (but not always!).
 
@@ -275,9 +284,9 @@ To unmount the disk use `umount /mnt/test`.
 
 ### Mountpoints
 
-Mountpoints map the physical drive partitions to directories on your system. This is how you interface with the data stored on the disk.
+Mountpoints map physical drive partitions to directories on your system. This is how you interface with the data stored on the disk.
 
-Assuming the manual mount test went well, choose a mountpoint naming scheme. This guide recommends `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support. For example:
+Once you know which partitions you want to mount, choose a mountpoint naming scheme. This guide recommends `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support. For example:
 
 ```
 mkdir /mnt/disk{1,2,3,4}
@@ -286,7 +295,7 @@ mkdir /mnt/storage # this will be the main mergerfs mountpoint
 mkdir /mnt/appdata # this will be where your self-hosted app configs + data live
 ```
 
-The commands above also create `/mnt/storage`, and `/mnt/appdata`. Additionally also the individual data disk mountpoints such as `/mnt/disk1` and `/mnt/disk2` and so on.
+These commands create the individual data disk mountpoints, the parity mountpoint, the merged storage mountpoint, and an appdata directory.
 
 `/mnt/storage` will be used by [mergerfs](../02-tech-stack/mergerfs.md) to pool the data disks into one merged view. This is the path you'd point Jellyfin at, for example as this merges all your individual disks into one place.
 
@@ -314,20 +323,24 @@ Here is what `/etc/fstab` might look like with four data disks and one SnapRAID 
 
 This follows the current [mergerfs QuickStart](https://trapexit.github.io/mergerfs/latest/quickstart/) for Linux 6.6 and newer.
 
-| Option | What it does |
-| --- | --- |
-| `cache.files=off` | Disables mergerfs page caching. This is the current upstream default for Linux 6.6 and newer |
-| `category.create=pfrd` | Places new files with percentage free random distribution. Drives with more free space are more likely to receive new files |
-| `func.getattr=newest` | Uses the newest file or directory attributes when the same path exists on more than one drive |
-| `dropcacheonclose=false` | Leaves cache dropping disabled. This matches the current upstream QuickStart for Linux 6.6 and newer |
-| `minfreespace=200G` | Stops mergerfs from creating new files on a drive once free space drops below this value |
-| `branches-mount-timeout=30` | Waits up to 30 seconds for the data disk mountpoints to appear before building the pool |
-| `branches-mount-timeout-fail=true` | Fails the mergerfs mount if the data disks are not mounted in time |
-| `x-systemd.mount-timeout=45s` | Gives systemd longer than the mergerfs branch timeout before it gives up on the mount |
-| `fsname=mergerfs` | Shows the pool as `mergerfs` in tools like `df` and `mount` |
+??? info "What the mergerfs options mean"
+
+    | Option | What it does |
+    | --- | --- |
+    | `cache.files=off` | Disables mergerfs page caching. This is the current upstream default for Linux 6.6 and newer |
+    | `category.create=pfrd` | Places new files with percentage free random distribution. Drives with more free space are more likely to receive new files |
+    | `func.getattr=newest` | Uses the newest file or directory attributes when the same path exists on more than one drive |
+    | `dropcacheonclose=false` | Leaves cache dropping disabled. This matches the current upstream QuickStart for Linux 6.6 and newer |
+    | `minfreespace=200G` | Stops mergerfs from creating new files on a drive once free space drops below this value |
+    | `branches-mount-timeout=30` | Waits up to 30 seconds for the data disk mountpoints to appear before building the pool |
+    | `branches-mount-timeout-fail=true` | Fails the mergerfs mount if the data disks are not mounted in time |
+    | `x-systemd.mount-timeout=45s` | Gives systemd longer than the mergerfs branch timeout before it gives up on the mount |
+    | `fsname=mergerfs` | Shows the pool as `mergerfs` in tools like `df` and `mount` |
 
 !!! tip
     mergerfs also supports [`passthrough.io`](https://trapexit.github.io/mergerfs/latest/config/passthrough/) on Linux 6.9 and newer for faster reads and writes. This guide does not enable it by default because it changes how writes are handled and prevents `moveonenospc` from working. Benchmark it for your own workload before using it.
+
+### Verify mounts
 
 After editing `/etc/fstab`, test the new entries before rebooting with `mount -a`. If that completes without errors, verify the mountpoints with `df -h`.
 
