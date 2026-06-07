@@ -98,7 +98,7 @@ Before the OS can use a data disk, it needs to be mounted. _Mounting_ connects a
 
 In otherwords, we are going to tell the OS where we want it to make the data, stored in partitions, on our disks, available to us for applications to use. For example `/dev/disk/by-id/my-disk1-part1` should make the data stored in it available at the mount point `/mnt/disk1`.
 
-The most common PMS layout is one large partition per data drive, formatted with a single filesystem such as `ext4` or `xfs`, and then mounted to a predictable path.
+The most common PMS layout is one large partition per data drive, formatted with a single filesystem such as `ext4` or `xfs`, and then mounted to a path like `/mnt/diskN` (N being a number).
 
 !!! success
     If you have not already done so, connect your data disks before continuing.
