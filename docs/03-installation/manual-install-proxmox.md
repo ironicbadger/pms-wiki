@@ -56,7 +56,7 @@ Follow the prompts, reboot, and continue here once the script has completed. The
 !!! info
     When updating packages in Proxmox, use `apt update` followed by `pveupgrade`.
 
-## mergerfs
+## mergerfs installation
 
 It is time to start thinking about disks. If you disconnected your data drives during the Proxmox installation, power down the system and reconnect them now.
 
@@ -96,7 +96,7 @@ This section covers how to identify, partition, format, and mount the hard drive
 
 Before the OS can use a data disk, it needs to be mounted. _Mounting_ connects a filesystem on a disk or partition to a directory path, which gives the OS a place to read and write data.
 
-In otherwords, we are going to tell the OS where we want it to make the data, stored in partitions, on our disks, available to us for applications to use.For example `/dev/disk/by-id/my-disk1-part1` should make the data stored in it available at the mount point `/mnt/disk1`.
+In otherwords, we are going to tell the OS where we want it to make the data, stored in partitions, on our disks, available to us for applications to use. For example `/dev/disk/by-id/my-disk1-part1` should make the data stored in it available at the mount point `/mnt/disk1`.
 
 The most common PMS layout is one large partition per data drive, formatted with a single filesystem such as `ext4` or `xfs`, and then mounted to a predictable path.
 
