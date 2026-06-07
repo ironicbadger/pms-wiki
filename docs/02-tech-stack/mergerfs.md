@@ -12,6 +12,54 @@ This amazing project is developed and maintained by Antonio SJ Musumeci (aka [@_
 
 mergerfs takes JBOD and turns them into what appears like a single drive. It's sort of like RAID in that sense but is actually nothing _at all_ like RAID - there are some major differences - see ["is this RAID?"](#is-this-raid)
 
+## Installing mergerfs
+
+For Debian and Proxmox installs, PMS provides a small helper script that downloads the latest mergerfs release from GitHub and installs the matching `.deb` package. It is safe to run again later.
+
+```
+curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh
+```
+
+For non-interactive use, such as a systemd timer, pass `--force`.
+
+```
+curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh -s -- --force
+```
+
+### Automating mergerfs updates with a systemd timer
+
+Create `/etc/systemd/system/pms-mergerfs-update.service`.
+
+```
+[Unit]
+Description=Update mergerfs from GitHub
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh -s -- --force'
+```
+
+Create `/etc/systemd/system/pms-mergerfs-update.timer`.
+
+```
+[Unit]
+Description=Run PMS mergerfs update monthly
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+Enable the timer.
+
+```
+systemctl daemon-reload
+systemctl enable --now pms-mergerfs-update.timer
+```
+
 ## Why mergerfs?
 
 Here are the key features of mergerfs that make it perfect for PMS:
@@ -37,14 +85,21 @@ In the following diagram there are five separate disks. Each disk is a different
 
 ![mergerfs-blue](../images/tech-stack/mergerfs-blue.png)
 
-Configuration is performed via a single line of configuration in `/etc/fstab`[^1]. mergerfs has a lot knobs and dials to turn should you wish, they are all detailed in the [mergerfs-docs](https://trapexit.github.io/mergerfs/latest/).
+Configuration is performed via a single line of configuration in `/etc/fstab`[^1]. mergerfs has a lot of knobs and dials to turn should you wish, and they are detailed in the [mergerfs docs](https://trapexit.github.io/mergerfs/latest/).
 
 !!! example "An example `/etc/fstab` entry for mergerfs"
     ```
-    /mnt/disk* /mnt/storage fuse.mergerfs defaults,nonempty,allow_other,use_ino,cache.files=off,moveonenospc=true,category.create=mfs,dropcacheonclose=true,minfreespace=250G,fsname=mergerfs 0 0
+    /mnt/disk* /mnt/storage mergerfs cache.files=off,category.create=pfrd,func.getattr=newest,dropcacheonclose=false,minfreespace=200G,branches-mount-timeout=30,branches-mount-timeout-fail=true,x-systemd.mount-timeout=45s,fsname=mergerfs 0 0
     ```
 
 The example above is the required configuration to take every drive which matches `/mnt/disk*` such as `/mnt/disk1` or `/mnt/disk95` and merge it together presenting it to the user at `/mnt/storage`.
+
+This follows the current [mergerfs QuickStart](https://trapexit.github.io/mergerfs/latest/quickstart/) for Linux 6.6 and newer. Recent mergerfs versions no longer need older options like `nonempty`, `allow_other`, or `use_ino`.
+
+The `branches-mount-timeout` options help mergerfs wait for the data disks to mount before it builds the pool. This avoids accidentally pooling the empty mountpoint directories on the boot drive.
+
+!!! tip
+    mergerfs also supports [`passthrough.io`](https://trapexit.github.io/mergerfs/latest/config/passthrough/) on Linux 6.9 and newer for faster reads and writes. This example does not enable it by default because it changes how writes are handled and prevents `moveonenospc` from working. Benchmark it for your own workload before using it.
 
 !!! note
     The directories and names used (`disk1` or `/mnt/storage`) are completely arbitrary and can take any form you wish.
@@ -56,16 +111,16 @@ It's possible to string multiple drives together manually as well. The syntax fo
 A fundamentally important part of having a successful experience with mergerfs is setting the correct [policies](https://trapexit.github.io/mergerfs/latest/config/functions_categories_policies/) for your use case.
 
 !!! info
-    For most people, most of the time, the default behaviours will be just fine[^3].
+    For most people, most of the time, the current upstream defaults will be fine.
 
-The default create policy is `epmfs`. That is a path preserving algorithm. With such a policy for `mkdir` and `create` with a set of empty drives it will select only 1 drive when the first directory is created. Anything, files or directories, created in that first directory will be placed on the same branch because it is preserving paths.
+The current upstream QuickStart recommends `category.create=pfrd`. This means percentage free random distribution. It chooses a destination branch randomly, but weights the choice by how much free space each branch has. Drives with more free space are more likely to receive new files.
 
-This catches a lot of new users off guard but changing the default would break the setup for many existing users. If you do not care about path preservation and wish your files to be spread across all your drives change to `mfs`.
+Older mergerfs examples often used `mfs` or `epmfs`. `mfs` always picks the branch with the most free space. `epmfs` is path preserving, which means it only picks branches where the destination path already exists. That can surprise new users because a set of empty drives can end up using one drive for a whole directory tree.
 
 !!! info
-    Take a moment to read [this](https://github.com/trapexit/mergerfs/issues/634) issue on the mergerfs GitHub if you're a looking for more context on create policies - they can be a bit confusing to begin with.
+    Take a moment to read [this](https://github.com/trapexit/mergerfs/issues/634) issue on the mergerfs GitHub if you want more context on create policies. They can be a bit confusing to begin with.
 
-    You might find the best all round option to use in your `/etc/fstab` entry for mergerfs is `category.create=mfs`. This will fill all disks at roughly the same rate but not colocate entire "blobs". In otherwords, episodes from the same TV show might end up all over all your disks - in practice this doesn't matter but it might matter to you if you're a neat freak.
+    A good general option for PMS is `category.create=pfrd`. It spreads new files across the pool without requiring the same directory layout to exist on every drive.
 
 If you do want path preservation you'll need to perform the manual act of creating paths on the drives you want the data to land on before transferring your data[^3].
 
@@ -110,7 +165,7 @@ alex@cartman:/mnt$ tree -L 2
 
 As you can see we now have data spread across multiple filesystems or physical disks that is merged transparently into `/mnt/storage` by mergerfs from drives with different filesystem.
 
-As discussed in [create policies](#create-policies), use of the correct create policy (the default of `epmfs` should suffice) in mergerfs is important to maintain this set up. The important part being `existing path` as without this option mergerfs will spread files out across multiple drives based on which has most free space.
+As discussed in [create policies](#create-policies), the current upstream recommendation is `category.create=pfrd`. If you want strict path preservation, use a path preserving policy and create those paths on the drives where you want new data to land.
 
 [^1]: More information about `/etc/fstab` is detailed in the [manual installation](../03-installation/manual-install-ubuntu.md) section.
 [^2]: [What is Parity?](https://en.wikipedia.org/wiki/Standard_RAID_levels#Simplified_parity_example)

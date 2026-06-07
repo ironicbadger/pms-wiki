@@ -6,7 +6,7 @@ description: For most PMS deployments, your media will be spread across a handfu
 
 [SnapRAID](https://www.snapraid.it/) provides us some basic protection against drive failures and pairs well with [mergerfs](mergerfs.md). Perhaps confusingly, you don't need one for the other to fuction.
 
-You can use mergerfs without SnapRAID. And you can use SnapRAID without mergerfs. mergerfs _merges_ multiple drives together for access under a single mountpoint. SnapRAID calculates parity to recover data if a drive fails. They work well together to replicate a similar type of "JBOD parity" system as unraid uses. The difference here being that unraid does the parity calculations in real-time (and therefore seriously hurts write performance) vs SnapRAID which does the calcuations on a timed basis every _X_ time period.
+You can use mergerfs without SnapRAID. And you can use SnapRAID without mergerfs. mergerfs _merges_ multiple drives together for access under a single mountpoint. SnapRAID calculates parity to recover data if a drive fails. They work well together to replicate a similar type of "JBOD parity" system as unraid uses. The difference here being that unraid does the parity calculations in real-time (and therefore seriously hurts write performance) vs SnapRAID which does the calculations on a timed basis every _X_ time period.
 
 For most PMS deployments, your media will be spread across a handful of JBOD drives merged together with [mergerfs](mergerfs.md). Without SnapRAID if a drive were to fail, you'd instantly lose all data on the failed drive forever. With SnapRAID you're able to rebuild that failed drive using parity data from your last snapshot. This approach is uniquely well suited to large, static datasets like media libraries. It is not well suited to fast moving data like your Plex metadata for example.
 
@@ -48,7 +48,57 @@ As we've said, SnapRAID was designed with large, mostly static datasets in mind 
 
 Here’s an example, you acquire a file and save it to disk called ‘BestMovieEver.mkv’. This file sits on disk and is immediately available as usual but until you run the parity sync the file is unprotected. This means if in between your download and a parity sync and you were to experience a drive failure, that file would be unrecoverable. It is simple to run a manual parity sync if required using `snapraid sync`.
 
+For automated installs, the current recommendation is to use SnapRAID v14 or newer with the official [SnapRAID Daemon](https://www.snapraid.it/ui). The daemon does not make SnapRAID real-time, but it does replace the old pattern of running a third-party wrapper from cron. It schedules `sync` and `scrub`, checks the array with guardrails before syncing, monitors disk health, sends notifications, and provides a Web UI and REST API for managing the array.[^3]
+
 Please review your use case before using SnapRAID. It is incredibly badly suited to high turnover applications such as databases or other similar applications. If this is your use case, look at a real-time parity based solution. If you can cope with this ‘risk window’ and have a largely static file collection, SnapRAID is for you.
+
+## Installing SnapRAID
+
+For Debian and Proxmox installs, PMS provides a small helper script that installs the latest SnapRAID and SnapRAID Daemon `.deb` packages from GitHub in the same `apt` transaction. It is safe to run again later.
+
+```
+curl -fsSL https://perfectmediaserver.com/scripts/install_snapraid.sh | sh
+```
+
+For non-interactive use, such as a systemd timer, pass `--force`.
+
+```
+curl -fsSL https://perfectmediaserver.com/scripts/install_snapraid.sh | sh -s -- --force
+```
+
+### Automating SnapRAID updates with a systemd timer
+
+Create `/etc/systemd/system/pms-snapraid-update.service`.
+
+```
+[Unit]
+Description=Update SnapRAID and SnapRAID Daemon from GitHub
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'curl -fsSL https://perfectmediaserver.com/scripts/install_snapraid.sh | sh -s -- --force'
+```
+
+Create `/etc/systemd/system/pms-snapraid-update.timer`.
+
+```
+[Unit]
+Description=Run PMS SnapRAID update monthly
+
+[Timer]
+OnCalendar=monthly
+Persistent=true
+
+[Install]
+WantedBy=timers.target
+```
+
+Enable the timer.
+
+```
+systemctl daemon-reload
+systemctl enable --now pms-snapraid-update.timer
+```
 
 ## What about SnapRAIDs drive pooling?
 
@@ -60,3 +110,4 @@ If, like me, you have a large collection of media files _and_ some more high chu
 
 [^1]: [snapraid.it](https://www.snapraid.it/)
 [^2]: [SnapRAID compared](https://www.snapraid.it/compare)
+[^3]: Older PMS-era guides often used [snapraid-runner](https://github.com/Chronial/snapraid-runner) for cron-based automation. It still exists, but the native daemon is now the cleaner default for new v14+ installs.

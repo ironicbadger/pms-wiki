@@ -64,11 +64,10 @@ It is time to start thinking about disks. If you disconnected your data drives d
 
 At the time of writing, the version of mergerfs in the Debian upstream repositories is `2.40.2-5`, while the latest upstream release on GitHub is `2.42.0-1`. For that reason, this guide does not use the version directly from the Debian repositories.
 
-The following one-liner queries the GitHub API for the latest release, checks your local OS release and architecture, downloads the matching `.deb` package, and installs it with `dpkg`. You can perform these steps manually if you prefer; the command is provided for convenience. You will need `sudo` installed, which you can add with `apt install sudo`.
+The following PMS helper script downloads the latest mergerfs release from GitHub, installs the matching `.deb` package, and skips the install if that version is already present. You can review the script at [perfectmediaserver.com/scripts/install_mergerfs.sh](https://perfectmediaserver.com/scripts/install_mergerfs.sh).
 
 ```
-## Downloads latest version from github for your os_release
-curl -s https://api.github.com/repos/trapexit/mergerfs/releases/latest | grep "browser_download_url.*$(grep VERSION_CODENAME /etc/os-release | cut -d= -f2)_$(dpkg --print-architecture).deb\"" | cut -d '"' -f 4 | wget -qi - && sudo dpkg -i mergerfs_*$(grep VERSION_CODENAME /etc/os-release | cut -d= -f2)_$(dpkg --print-architecture).deb && rm mergerfs_*.deb
+curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh
 
 ## Verify installation
 root@pxtest:~# apt list mergerfs
@@ -76,7 +75,13 @@ Listing... Done
 mergerfs/now 2.42.0~debian-trixie amd64 [installed,local]
 ```
 
-Remember to repeat this process every so often (every month or two will more than suffice) to pick up newer mergerfs releases. Because this guide installs mergerfs manually instead of using the Debian repository package, updates are not automatic.
+For a non-interactive run, pass `--force`. You can also automate this with a [simple systemd timer](../02-tech-stack/mergerfs.md#automating-mergerfs-updates-with-a-systemd-timer).
+
+```
+curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh -s -- --force
+```
+
+Remember to repeat this process every so often to pick up newer mergerfs releases. Because this guide installs mergerfs manually instead of using the Debian repository package, updates are not automatic.
 
 ## Hard Drive setup
 
@@ -154,41 +159,36 @@ Before creating a partition on a brand new disk, make sure you have burned it in
 
 The following steps require root access. On Proxmox you may already be logged in as root. If not, use `sudo su` to switch to root.
 
-Using the example drive from the previous section, use `gdisk` to create a new partition. Run `gdisk /dev/sdX`, replacing `sdX` with the drive you have intentionally selected. For example:
+Using the example drive from the previous section, use `sgdisk` to create a new partition table and one large partition. The package name is `gdisk`, but the command we want here is `sgdisk`.
 
-```
-root@proxtest:~# gdisk /dev/sdc
-GPT fdisk (gdisk) version 1.0.5
-
-Partition table scan:
-    MBR: protective
-    BSD: not present
-    APM: not present
-    GPT: not present
-```
-
-Once `gdisk` has loaded, you will see the interactive prompt `Command (? for help):`. Type `?` to see all available options.In the initial output from `gdisk`, we can see that no partition table is present on this drive. This is a useful sanity check before erasing partition and filesystem metadata.
+Replace `/dev/sdc` with the drive you have intentionally selected.
 
 !!! danger
-    The following sequence will erase everything on this disk. **USE CAUTION**
-
-Use the following sequence to create one large partition spanning the entire drive. The keys you need to press are at the start of each top-level line, and the nested lines show the prompts and suggested answers.
+    The command below creates a new partition table and removes any existing partition entries. **USE CAUTION**
 
 ```
-* o - creates a new **EMPTY** GPT partition table (GPT is good for large drives over 3TB)
-    * Proceed? (Y/N) - **`Y`**
-* n - creates a new partition
-    * Partition number (1-128, default 1): **`1`**
-    * First sector (34-15628053134, default = 2048) or {+-}size{KMGTP}: **`leave blank`**
-    * Last sector (2048-15628053134, default = 15628053134) or {+-}size{KMGTP}: **`leave blank`**
-    * Hex code or GUID (L to show codes, Enter = 8300): **`8300`**
-* p - (optional) validate 1 large partition to be created
-    * Model: HGST HDN728080AL
-    * Number  Start (sector)    End (sector)  Size       Code  Name
-    * 1       2048              15628053134   7.3 TiB    8300  Linux filesystem
-* w - writes the changes made thus far
-    * Until this point, gdisk has been non-destructive
-    * Confirm that making these changes is OK and the changes queued so far will be executed
+sgdisk --clear --new=1:0:0 --typecode=1:8300 --change-name=1:data /dev/sdc
+```
+
+The options above mean:
+
+| Option | What it does |
+| --- | --- |
+| `--clear` | Creates a fresh GPT partition table |
+| `--new=1:0:0` | Creates partition 1 from the first aligned sector to the end of the disk |
+| `--typecode=1:8300` | Sets partition 1 to the Linux filesystem type |
+| `--change-name=1:data` | Names partition 1 `data` |
+
+Ask the kernel to re-read the partition table.
+
+```
+partprobe /dev/sdc
+```
+
+You can verify the result with `sgdisk --print`.
+
+```
+sgdisk --print /dev/sdc
 ```
 
 Next, create a filesystem on the new partition.
@@ -232,6 +232,8 @@ Filesystem                        Size  Used Avail Use% Mounted on
 /dev/sdc1                         7.3T  2.8T  4.6T  38% /mnt/test
 ```
 
+To unmount the disk use `umount /mnt/test`.
+
 ### Mountpoints
 
 Mountpoints map the physical drive partitions to directories on your system. This is how you interface with the data stored on the disk.
@@ -268,8 +270,25 @@ Here is what `/etc/fstab` might look like with four data disks and one SnapRAID 
 /dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_2YJ15VJD-part1 /mnt/disk3   ext4 defaults 0 0
 /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1  /mnt/disk4   ext4 defaults 0 0
 
-/mnt/disk* /mnt/storage fuse.mergerfs defaults,nonempty,allow_other,use_ino,cache.files=off,moveonenospc=true,dropcacheonclose=true,minfreespace=200G,fsname=mergerfs 0 0
+/mnt/disk* /mnt/storage mergerfs cache.files=off,category.create=pfrd,func.getattr=newest,dropcacheonclose=false,minfreespace=200G,branches-mount-timeout=30,branches-mount-timeout-fail=true,x-systemd.mount-timeout=45s,fsname=mergerfs 0 0
 ```
+
+This follows the current [mergerfs QuickStart](https://trapexit.github.io/mergerfs/latest/quickstart/) for Linux 6.6 and newer.
+
+| Option | What it does |
+| --- | --- |
+| `cache.files=off` | Disables mergerfs page caching. This is the current upstream default for Linux 6.6 and newer |
+| `category.create=pfrd` | Places new files with percentage free random distribution. Drives with more free space are more likely to receive new files |
+| `func.getattr=newest` | Uses the newest file or directory attributes when the same path exists on more than one drive |
+| `dropcacheonclose=false` | Leaves cache dropping disabled. This matches the current upstream QuickStart for Linux 6.6 and newer |
+| `minfreespace=200G` | Stops mergerfs from creating new files on a drive once free space drops below this value |
+| `branches-mount-timeout=30` | Waits up to 30 seconds for the data disk mountpoints to appear before building the pool |
+| `branches-mount-timeout-fail=true` | Fails the mergerfs mount if the data disks are not mounted in time |
+| `x-systemd.mount-timeout=45s` | Gives systemd longer than the mergerfs branch timeout before it gives up on the mount |
+| `fsname=mergerfs` | Shows the pool as `mergerfs` in tools like `df` and `mount` |
+
+!!! tip
+    mergerfs also supports [`passthrough.io`](https://trapexit.github.io/mergerfs/latest/config/passthrough/) on Linux 6.9 and newer for faster reads and writes. This guide does not enable it by default because it changes how writes are handled and prevents `moveonenospc` from working. Benchmark it for your own workload before using it.
 
 After editing `/etc/fstab`, test the new entries before rebooting with `mount -a`. If that completes without errors, verify the mountpoints with `df -h`.
 
@@ -293,14 +312,15 @@ If you had any existing files on your data disks, these files will be visible un
 [SnapRAID](https://www.snapraid.it/) provides parity protection for disk arrays. It stores parity information for your data and can recover from up to six disk failures. It is mainly aimed at home media systems with large files that rarely change.
 
 !!! info
-    The Debian repositories may lag behind the latest SnapRAID release. At the time of writing the repos contain v12.4-1 and GitHub shows v14.6 as the latest.
+    The Debian repositories may lag behind the latest SnapRAID release. At the time of writing the repositories contain v12.4-1 and GitHub shows v14.6 as the latest.
 
-Like we did with mergerfs we therefore will install the latest SnapRAID release directly from GitHub with this command. Again, be sure to create some habit around regularly checking for updates here as this package will not be upgraded when you do `apt update` etc in future.
+Like we did with mergerfs, we will install the latest SnapRAID release directly from GitHub. The PMS helper script also installs the official SnapRAID Daemon in the same `apt` transaction so the daemon dependency is satisfied.
 
 ```
-## Downloads latest version from GitHub for your CPU architecture
-curl -s https://api.github.com/repos/amadvance/snapraid/releases/latest | grep "browser_download_url.*_$(dpkg --print-architecture).deb\"" | cut -d '"' -f 4 | wget -qi - && sudo apt install -y ./snapraid_*_$(dpkg --print-architecture).deb && rm snapraid_*.deb
+curl -fsSL https://perfectmediaserver.com/scripts/install_snapraid.sh | sh
 ```
+
+Updates with this installation method are not handled via `apt` so you may wish to configure a reminder to run this script every few weeks to get the latest releases. You can also automate this with a [simple systemd timer](../02-tech-stack/snapraid.md#automating-snapraid-updates-with-a-systemd-timer) by using the `--force` flag.
 
 ### Configure SnapRAID
 
@@ -312,12 +332,11 @@ At minimum, SnapRAID needs a configuration file that tells it where to store par
 # SnapRAID configuration file
 
 # Parity location(s)
-1-parity /mnt/parity1/snapraid.parity
+parity /mnt/parity1/snapraid.parity
 
 # Content file location(s)
 content /var/snapraid.content
 content /mnt/disk1/.snapraid.content
-content /mnt/disk2/.snapraid.content
 
 # Data disks
 data d1 /mnt/disk1
@@ -325,7 +344,7 @@ data d2 /mnt/disk2
 data d3 /mnt/disk3
 data d4 /mnt/disk4
 
-# Excludes hidden files and directories
+# Commonly excluded files
 exclude *.unrecoverable
 exclude /tmp/
 exclude /lost+found/
@@ -336,45 +355,71 @@ exclude *.!sync
 
 ### Automating Parity Calculation
 
-SnapRAID works by taking snapshots, so we need to calculate parity at regular intervals. You could create a simple cron job that runs `snapraid sync`, but a little extra logic is useful.
+SnapRAID works by taking snapshots, so we need to configure this parity calculation to occur at regular intervals. The old PMS guidance used `snapraid-runner` from cron, but SnapRAID v14 now has an official [SnapRAID Daemon](https://www.snapraid.it/ui) for this job.
 
-[snapraid-runner](https://github.com/Chronial/snapraid-runner) is a reliable way to add guardrails to SnapRAID runs.
+The daemon still uses the normal SnapRAID CLI underneath, but it adds scheduling, delete/update thresholds, SMART monitoring, notifications, a Web UI, and a REST API. It is the preferred option for new installs.
 
-Start by cloning the Git repository.
+The SnapRAID Daemon expects SnapRAID CLI v14 or newer to already be installed and configured with the `/etc/snapraid.conf` file created above. The PMS install script used earlier installs both SnapRAID and the daemon together.
+
+Next, create or edit `/etc/snapraidd.conf`. This is where the SnapRAID Daemon reads its settings.
+
+The package may already place a commented example there. The upstream [`snapraidd.conf.example`](https://github.com/amadvance/snapraid-daemon/blob/master/snapraidd.conf.example) explains every value below and covers the rest of the daemon options too.
+
+| Setting | What it does |
+| --- | --- |
+| `maintenance_schedule = 02:00` | Runs maintenance at 2 AM every day. You can also use values like `Mon 03:00, Thu 03:00` |
+| `sync_threshold_deletes = 50` | Stops the maintenance run if deleted or missing files reach this number. Set to `0` to disable |
+| `sync_threshold_updates = 100` | Stops the maintenance run if updated files reach this number. Set to `0` to disable |
+| `touch_zero_subseconds = 1` | Helps SnapRAID recognize moved and copied files when timestamps have zero sub-second precision |
+| `scrub_percentage = 0.7` | Scrubs this percentage of the array after a successful sync. Increase this if you want more aggressive checking |
+| `scrub_older_than = 10` | Only scrubs blocks older than this number of days |
+| `probe_interval_minutes = 3` | Checks disk state and SMART data when disks are already awake. Set to `0` to disable |
+| `spindown_idle_minutes = 15` | Spins down data and parity disks after this many idle minutes. Set to `0` to disable |
+| `notify_heartbeat` | Sends a heartbeat to Healthchecks.io or a similar dead man switch service |
+| `notify_result` and `notify_result_level` | Sends email, ntfy.sh, or custom notification script results |
+
+Put a minimal starting config like this in `/etc/snapraidd.conf`. If the file already exists, update these lines and leave the rest of the comments in place.
 
 ```
-git clone https://github.com/Chronial/snapraid-runner.git /opt/snapraid-runner
+maintenance_schedule = 02:00
+sync_threshold_deletes = 50
+sync_threshold_updates = 100
+touch_zero_subseconds = 1
+scrub_percentage = 0.7
+scrub_older_than = 10
+probe_interval_minutes = 3
+spindown_idle_minutes = 15
+
+# Optional Healthchecks.io heartbeat after a successful maintenance run
+#notify_heartbeat = curl -f --max-time 30 --retry 3 https://hc-ping.com/123-1103-xyz-abc-123
 ```
 
-Next, make sure you have created the SnapRAID configuration file described above.
-
-Edit the snapraid-runner configuration file. A default example is provided at `/opt/snapraid-runner/snapraid-runner.conf.example`. These settings are the most important ones to review.
-
-* `config = /etc/snapraid.conf` - Make sure this points to your `snapraid.conf` file
-* `deletethreshold = 250` - Abort the run if more files than this have been deleted. Set it to `-1` to disable the check
-* `touch = True` - Helps SnapRAID recognize moved and copied files by making timestamps almost unique
-* `[email]` - If you use Gmail, generate an [app specific password](https://support.google.com/accounts/answer/185833?hl=en)
-* `[scrub]` - Configure periodic data verification
-    * `enabled = True`
-    * `percentage = 22` - The percentage of the array to scrub
-    * `older-than = 8` - Only scrub data older than this number of days
-
-Finally, create a cron job to run `snapraid-runner` automatically. Try to run it when files on the array are unlikely to change. Early morning is usually a good choice. You can also temporarily stop services that write to storage during this window, although that step is optional.
+Enable and start the daemon.
 
 ```
-root@cartman: crontab -e
+sudo systemctl enable --now snapraidd
+sudo systemctl status snapraidd
+```
 
-00 01 * * * python3 /opt/snapraid-runner/snapraid-runner.py -c /opt/snapraid-runner/snapraid-runner.conf && curl -fsS --retry 3 https://hc-ping.com/123-1103-xyz-abc-123 > /dev/null
+By default, keep the Web UI bound to localhost and reach it through SSH port forwarding or a trusted VPN. If you expose it through Tailscale or your LAN, review the `net_port` and `net_acl` settings first.
+
+```
+net_enabled = 1
+net_port = 127.0.0.1:7627
+net_acl = +127.0.0.1,+::1
 ```
 
 !!! info
-    During a sync, SnapRAID writes a `.content` file to `/var/` and needs write access to that directory. Running via `sudo` or as `root` is a simple and reliable solution.
+    Older guides used [snapraid-runner](https://github.com/Chronial/snapraid-runner) for cron-based automation. It still works, but do not run it on the same schedule as the SnapRAID Daemon. Pick one automation layer.
 
-With cron, be explicit about file paths. Never rely on relative paths or the `PATH` variable. The example above also includes a healthcheck at `hc-ping.com`.
+!!! info
+    During a sync, SnapRAID writes a `.content` file to `/var/` and needs write access to that directory. Running the daemon as root via its system service is the simple and reliable solution.
 
 #### Healthchecks.io
 
 [https://healthchecks.io/](https://healthchecks.io/) notifies you when your nightly backups, weekly reports, cron jobs and scheduled tasks don't run on time.
+
+For SnapRAID Daemon, configure this with `notify_heartbeat` so Healthchecks.io is pinged after a successful maintenance run.
 
 It is self-hostable in a [container](https://hub.docker.com/r/linuxserver/healthchecks), but that depends on the local system being online. A cheap VPS can be a good fit for this purpose.
 
