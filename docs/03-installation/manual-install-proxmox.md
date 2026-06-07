@@ -301,7 +301,7 @@ Filesystem                        Size  Used Avail Use% Mounted on
 
 To unmount the disk use `umount /mnt/test`.
 
-### Mountpoints
+## Mountpoints
 
 Mountpoints map physical drive partitions to directories on your system. This is how you interface with the data stored on the disk.
 
