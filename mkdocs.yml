@@ -85,7 +85,7 @@ markdown_extensions:
   - pymdownx.tilde
 copyright: 2020 - 2026 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/extra.css?v=20260607
 extra:
   analytics:
     provider: plausible

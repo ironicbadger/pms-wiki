@@ -43,7 +43,7 @@ By default, Proxmox ships with the enterprise repositories enabled and displays 
 Open the community scripts website and search for `Proxmox VE tools -> Proxmox VE Post Install`. This script helps manage the Proxmox VE repositories, including disabling the enterprise repository, enabling the no-subscription repository, removing the subscription notice, updating Proxmox VE, and rebooting the system.
 
 ![px-helper](../images/proxmox/px-helper-scripts.png)
-<figcaption>Proxmox VE is a serious project maintained by real people. If it becomes useful to you and you are able, consider supporting the project with a subscription.</figcaption>
+<figcaption>Proxmox VE is a project maintained by real people, consider supporting the project with a subscription.</figcaption>
 
 From the Proxmox command line, execute:
 
@@ -433,6 +433,8 @@ exclude *.!sync
 ### Automating Parity Calculation
 
 SnapRAID works by taking snapshots, so we need to configure this parity calculation to occur at regular intervals. The old PMS guidance used `snapraid-runner` from cron, but SnapRAID v14 now has an official [SnapRAID Daemon](https://www.snapraid.it/ui) for this job.
+
+![snapraid-ui](../images/screenshots/snapraid-ui.png)
 
 The daemon still uses the normal SnapRAID CLI underneath, but it adds scheduling, delete/update thresholds, SMART monitoring, notifications, a Web UI, and a REST API. It is the preferred option for new installs.
 
