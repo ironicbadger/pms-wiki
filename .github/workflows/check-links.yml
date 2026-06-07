@@ -21,6 +21,8 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           # Check all markdown files
+          # YouTube playlist iframes render in browsers, but lychee follows
+          # the iframe HTML and can fail on YouTube's internal assets.
           args: >
             --verbose
             --no-progress
@@ -40,6 +42,7 @@ jobs:
             --exclude "example.org"
             --exclude "plausible.ktz.cloud"
             --exclude "techhub.social"
+            --exclude "youtube\\.com/embed/videoseries"
             --exclude "linkedin.com"
             --exclude "reddit.com"
             --exclude "www.reddit.com"
@@ -79,20 +82,35 @@ jobs:
             const fs = require('fs');
             const report = fs.readFileSync('./lychee-report.md', 'utf8');
             
-            // Parse the lychee report to extract broken links
+            // Parse only the lychee error sections. Redirects are accepted by
+            // the checker config and should not become actionable issue items.
             const lines = report.split('\n');
             const brokenLinks = [];
             let currentFile = '';
+            let inErrorSection = false;
             
             for (const line of lines) {
+              if (line.startsWith('## ')) {
+                currentFile = '';
+                inErrorSection = false;
+                continue;
+              }
+
               const sectionMatch = line.match(/^### Errors in (.+\.md)$/);
               if (sectionMatch) {
                 currentFile = sectionMatch[1];
+                inErrorSection = true;
+                continue;
+              }
+
+              if (line.startsWith('### ')) {
+                currentFile = '';
+                inErrorSection = false;
                 continue;
               }
 
               const errorMatch = line.match(/^\* \[([^\]]+)\] <([^>]+)> \| (.+)$/);
-              if (errorMatch) {
+              if (inErrorSection && errorMatch) {
                 brokenLinks.push({
                   file: currentFile,
                   status: errorMatch[1],
