@@ -305,7 +305,9 @@ To unmount the disk use `umount /mnt/test`.
 
 Mountpoints map physical drive partitions to directories on your system. This is how you interface with the data stored on the disk.
 
-Once you know which partitions you want to mount, choose a mountpoint naming scheme. This guide recommends `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support. For example:
+Once you know which partitions you want to mount, choose a mountpoint naming scheme. This guide recommends `/mnt/diskN` because it makes the `fstab` entry for mergerfs simpler thanks to wildcard support.
+
+An example series of commands to create a minimal set of mountpoints might look like this (adjust for your setup):
 
 ```
 mkdir /mnt/disk{1,2,3,4}
@@ -324,25 +326,78 @@ Next, create entries in `/etc/fstab` so the disks mount automatically at boot.
 
 This file tells the OS which disks to mount, where to mount them, and which options to use. It can look complex, but each `fstab` entry breaks down to `<device> <mountpoint> <filesystem> <options> <dump> <fsck>`. See the [fstab documentation](https://wiki.archlinux.org/index.php/fstab) for more detail.
 
-!!! note
-    mergerfs does _not_ mount the parity drive; it only mounts `/mnt/disk*`. mergerfs has _nothing to do_ with parity. SnapRAID handles that later.
+Think of `/etc/fstab` in this order:
 
-Here is what `/etc/fstab` might look like with four data disks and one SnapRAID parity drive:
+1. Mount each physical data disk to `/mnt/diskN`.
+2. Mount any parity disk to `/mnt/parityN`.
+3. Mount the mergerfs pool at `/mnt/storage`, using the mounted data disks as branches.
+
+!!! note
+    mergerfs does _not_ mount the parity drive, it only mounts `/mnt/disk*`. mergerfs has _nothing to do_ with parity. SnapRAID handles that later.
+
+#### Mount individual disks
+
+Start with one `fstab` line per physical disk partition. These entries take the stable paths like `/dev/disk/by-id/...-part1` you identified earlier, and mounts them into the directories you created under `/mnt`.
+
+For a data disk, the line looks like this:
 
 ```
-##/etc/fstab example
+/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_16G10VZZ-part1 /mnt/disk1 xfs defaults 0 0
+```
+
+For a SnapRAID parity disk, use the parity mountpoint instead:
+
+```
 /dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_16G0Z7RZ-part1 /mnt/parity1 ext4 defaults 0 0
+```
+
+Repeat that pattern for every data disk and every parity disk. If you formatted a disk as `xfs`, use `xfs` instead of `ext4` in the filesystem column.
+
+After these entries are mounted, each physical disk will have its own direct path:
+
+```
+/mnt/disk1
+/mnt/disk2
+/mnt/disk3
+/mnt/disk4
+/mnt/parity1
+```
+
+You can access files directly on these drives at anytime, though it's often best to access via the mergerfs glob mountpoint of `/mnt/storage`.
+
+#### Mount mergerfs
+
+Once the individual data disks have `fstab` entries, add one more entry for mergerfs. This line does not point at the raw disks, it points at the mounted data disk directories and presents them as one merged view (glob) at `/mnt/storage`.
+
+```
+/mnt/disk* /mnt/storage mergerfs cache.files=off,category.create=pfrd,func.getattr=newest,dropcacheonclose=false,minfreespace=200G,branches-mount-timeout=30,branches-mount-timeout-fail=true,x-systemd.mount-timeout=45s,fsname=mergerfs 0 0
+```
+
+The `/mnt/disk*` wildcard is why this guide recommends naming data disk mountpoints as `/mnt/disk1`, `/mnt/disk2`, and so on. It includes the data disks while leaving `/mnt/parity1` out of the mergerfs pool.
+
+This follows the current [mergerfs QuickStart](https://trapexit.github.io/mergerfs/latest/quickstart/) for Linux 6.6 and newer.
+
+#### Complete example
+
+Putting it together, here is what `/etc/fstab` might look like with four data disks and one SnapRAID parity drive:
+
+```
+# /etc/fstab example
+
+# Data disks
 /dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_16G10VZZ-part1 /mnt/disk1   ext4 defaults 0 0
 /dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_2YHV69AD-part1 /mnt/disk2   ext4 defaults 0 0
 /dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_2YJ15VJD-part1 /mnt/disk3   ext4 defaults 0 0
 /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1  /mnt/disk4   ext4 defaults 0 0
 
+# SnapRAID parity disk
+/dev/disk/by-id/ata-WDC_WD100EMAZ-00WJTA0_16G0Z7RZ-part1 /mnt/parity1 ext4 defaults 0 0
+
+# mergerfs pool
 /mnt/disk* /mnt/storage mergerfs cache.files=off,category.create=pfrd,func.getattr=newest,dropcacheonclose=false,minfreespace=200G,branches-mount-timeout=30,branches-mount-timeout-fail=true,x-systemd.mount-timeout=45s,fsname=mergerfs 0 0
 ```
 
-This follows the current [mergerfs QuickStart](https://trapexit.github.io/mergerfs/latest/quickstart/) for Linux 6.6 and newer.
-
-??? info "What the mergerfs options mean"
+??? info "What the mergerfs options mean (click to expand)"
 
     | Option | What it does |
     | --- | --- |
@@ -362,6 +417,17 @@ This follows the current [mergerfs QuickStart](https://trapexit.github.io/merger
 ### Verify mounts
 
 After editing `/etc/fstab`, test the new entries before rebooting with `mount -a`. If that completes without errors, verify the mountpoints with `df -h`.
+
+!!! info "Optional: install duf for a prettier view"
+    If you find `df` hard to read, [`duf`](https://github.com/muesli/duf) shows disk usage in a friendlier table.
+
+    On Proxmox or Debian, install it with:
+
+    ```
+    apt install duf
+    ```
+
+    Then run `duf` to check that your `/mnt/diskN`, `/mnt/parityN`, and `/mnt/storage` mounts are present.
 
 ```
 root@proxtest:~# df -h
