@@ -418,17 +418,6 @@ Putting it together, here is what `/etc/fstab` might look like with four data di
 
 After editing `/etc/fstab`, test the new entries before rebooting with `mount -a`. If that completes without errors, verify the mountpoints with `df -h`.
 
-!!! info "Optional: install duf for a prettier view"
-    If you find `df` hard to read, [`duf`](https://github.com/muesli/duf) shows disk usage in a friendlier table.
-
-    On Proxmox or Debian, install it with:
-
-    ```
-    apt install duf
-    ```
-
-    Then run `duf` to check that your `/mnt/diskN`, `/mnt/parityN`, and `/mnt/storage` mounts are present.
-
 ```
 root@proxtest:~# df -h
 Filesystem                        Size  Used Avail Use% Mounted on
@@ -443,6 +432,17 @@ mergerfs                           34T   24T   10T  69% /mnt/storage
 ```
 
 If you had any existing files on your data disks, these files will be visible under `/mnt/storage`.
+
+!!! info "Optional: install duf for a prettier view"
+    If you find `df` hard to read, [`duf`](https://github.com/muesli/duf) shows disk usage in a friendlier table.
+
+    On Proxmox or Debian, install it with:
+
+    ```
+    apt install duf
+    ```
+
+    Then run `duf` to check that your `/mnt/diskN`, `/mnt/parityN`, and `/mnt/storage` mounts are present.
 
 ## SnapRAID
 
