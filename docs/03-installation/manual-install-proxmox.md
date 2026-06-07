@@ -66,9 +66,17 @@ At the time of writing, the version of mergerfs in the Debian upstream repositor
 
 The following PMS helper script downloads the latest mergerfs release from GitHub, installs the matching `.deb` package, and skips the install if that version is already present. You can review the script at [perfectmediaserver.com/scripts/install_mergerfs.sh](https://perfectmediaserver.com/scripts/install_mergerfs.sh).
 
-```
-curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh
-```
+=== "Interactive"
+
+    ```
+    curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh
+    ```
+
+=== "Systemd / --force"
+
+    ```
+    curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh -s -- --force
+    ```
 
 Verify installation with:
 
@@ -129,19 +137,21 @@ ata-WDC_WD100EMAZ-00WJTA0_2YJ2S3AD
 ata-WDC_WD100EMAZ-00WJTA0_2YJ2S3AD-part1
 ```
 
-Next, map temporary kernel device names, such as `/dev/sdc`, to stable hardware identifiers, such as `ata-HGST_HDN728080ALE604_R6GPPDTY`. The simplest way to do this is to ask which `ata-*` identifier points to the same device:
+Next, map temporary kernel device names, such as `/dev/sdc`, to stable hardware identifiers, such as `ata-HGST_HDN728080ALE604_R6GPPDTY`. The simplest way to do this is to ask which `ata-*` identifier points to the same device.
 
-```
-root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc -name 'ata-*'
-/dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY
-```
+=== "Whole disk"
 
-For a partition, query the partition device instead:
+    ```
+    root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc -name 'ata-*'
+    /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY
+    ```
 
-```
-root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc1 -name 'ata-*-part*'
-/dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1
-```
+=== "Partition"
+
+    ```
+    root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc1 -name 'ata-*-part*'
+    /dev/disk/by-id/ata-HGST_HDN728080ALE604_R6GPPDTY-part1
+    ```
 
 **Do not** use `/dev/sdX` names for long-term drive identification, especially in `/etc/fstab`, because they can change after hardware changes, kernel upgrades, or controller changes. Prefer the human-readable `ata-*` identifier when available because it includes the drive model and serial number. If no `ata-*` identifier is available, use another stable `/dev/disk/by-id` path such as `wwn-*`.
 
@@ -152,18 +162,17 @@ root@proxtest:~# find -L /dev/disk/by-id -samefile /dev/sdc1 -name 'ata-*-part*'
 
 ### Drive partitioning
 
-This section is only for blank drives you are ready to erase. If your drive already contains data, skip to [Existing drives](#existing-drives).
-
-Before creating a partition on a blank disk, make sure you have burned it in as covered under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
+This section is only for blank drives you are ready to erase. If your drive already contains data, skip to [Existing drives](#existing-drives). Before creating a partition on a blank disk, make sure you have burned it in as covered under _Hardware_ -> [New Drive Burn-In Rituals](../06-hardware/new-drive-burnin.md).
 
 !!! warning
-    **BE CAREFUL HERE** - The next steps modify the drive's partition table. If there is _any_ existing data on this drive, **IT WILL BE WIPED**. Proceed carefully.
+    **BE CAREFUL HERE!!!** <br> The next steps modify the drive's partition table. If there is _any_ existing data on this drive, **IT WILL BE WIPED**.
 
 The following steps require root access. On Proxmox you may already be logged in as root. If not, use `sudo su` to switch to root.
 
-If you are new to this, use the `sgdisk` option because it does the same thing every time and is easier to check.
+!!!info
+    If you are new to this, use the `sgdisk` option as it does the same thing every time and is less prone to human error
 
-??? example "Recommended: create the partition with sgdisk"
+=== "sgdisk recommended"
 
     Using the example drive from the previous section, use `sgdisk` to create a new partition table and one large partition. The package name is `gdisk`, but the command we want here is `sgdisk`.
 
@@ -197,7 +206,7 @@ If you are new to this, use the `sgdisk` option because it does the same thing e
     sgdisk --print /dev/sdc
     ```
 
-??? example "Alternative: create the partition interactively with gdisk"
+=== "gdisk interactive"
 
     If you prefer an interactive tool, you can use `gdisk` instead of `sgdisk`.
 
@@ -242,11 +251,19 @@ This section is only for new blank drives that you just partitioned. If your dri
 !!! info
     Repeat this step for each new drive as required.
 
-Create an `xfs` filesystem on the new partition, replacing `X` with your drive letter:
+If you are not sure, choose `xfs` for media storage. Replace `X` with your drive letter.
 
-```
-mkfs.xfs /dev/sdX1
-```
+=== "xfs"
+
+    ```
+    mkfs.xfs /dev/sdX1
+    ```
+
+=== "ext4"
+
+    ```
+    mkfs.ext4 /dev/sdX1
+    ```
 
 Your new drive is now formatted and ready to store data.
 
@@ -368,9 +385,17 @@ If you had any existing files on your data disks, these files will be visible un
 
 Like we did with mergerfs, we will install the latest SnapRAID release directly from GitHub. The PMS helper script also installs the official SnapRAID Daemon in the same `apt` transaction so the daemon dependency is satisfied.
 
-```
-curl -fsSL https://perfectmediaserver.com/scripts/install_snapraid.sh | sh
-```
+=== "Interactive"
+
+    ```
+    curl -fsSL https://perfectmediaserver.com/scripts/install_snapraid.sh | sh
+    ```
+
+=== "Systemd / --force"
+
+    ```
+    curl -fsSL https://perfectmediaserver.com/scripts/install_snapraid.sh | sh -s -- --force
+    ```
 
 Updates with this installation method are not handled via `apt` so you may wish to configure a reminder to run this script every few weeks to get the latest releases. You can also automate this with a [simple systemd timer](../02-tech-stack/snapraid.md#automating-snapraid-updates-with-a-systemd-timer) by using the `--force` flag.
 
@@ -508,7 +533,7 @@ services:
 
 ### Container file permissions
 
-Find the user and group IDs for the account that will run your containers. This matters because mismatched ownership often causes file permission errors.
+Create one local, non-root user to own the files your containers and network shares write. This guide uses `ironicbadger` for that shared identity.
 
 The [LinuxServer.io](https://www.linuxserver.io/) team runs one of the most popular container projects on the web. Their [fleet](https://fleet.linuxserver.io/) of containers covers most apps a media server user is likely to need. They helped popularise `PUID` and `PGID` environment variables, which make container file permissions much easier to manage.
 
@@ -517,12 +542,21 @@ The [LinuxServer.io](https://www.linuxserver.io/) team runs one of the most popu
 
 When using container volumes, permission issues can appear between the host OS and the container. Avoid this by using containers that support the `PUID` and `PGID` variables. Not all containers support them, but all LinuxServer.io containers do.
 
-In this example, `PUID=1000` and `PGID=1000`. Find yours with `id username`.
+Create the local user, then use `id` to find its UID and GID. If `ironicbadger` already exists, skip the `adduser` command.
 
 ```
-  $ id alex
-    uid=1000(dockeruser) gid=1000(dockergroup) groups=1000(dockergroup)
+adduser ironicbadger
+id ironicbadger
 ```
+
+On a fresh system this will usually return `uid=1000` and `gid=1000`.
+
+```
+root@proxtest:~# id ironicbadger
+uid=1000(ironicbadger) gid=1000(ironicbadger) groups=1000(ironicbadger)
+```
+
+In this example, use `PUID=1000` and `PGID=1000` for containers that write into host volumes.
 
 You can check the owner of a specific file or directory with `ls -la`.
 
@@ -543,6 +577,13 @@ Start by configuring the server.
 
 #### Samba server
 
+!!! note "Convenience vs security"
+    This Samba example is intentionally convenience-first. PMS is usually used on a trusted home LAN by family members, media players, laptops, and phones, where easy access to a shared media pool matters more than absolute security.
+
+    The `[storage]` share below allows guest read/write access. Anyone on your LAN who can reach the Samba server can modify files in that share. **Do not** expose Samba directly to the internet (this is just good practice anyway). For access away from home use one of the remote access approaches covered later in the guide.
+
+    If you want named users, auditability, or private folders, set `guest ok = no`, create Samba users with `smbpasswd`, remove the `force user` and `force group` lines if you want per-user file ownership, and restrict access with normal Linux ownership, groups, and permissions.
+
 As usual, the [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Server) has a detailed entry on setting up and configuring a Samba server. Although PMS does not use Arch, much of the configuration guidance still applies.
 
 If you want the simplest way to get started with Samba, follow these steps.
@@ -553,6 +594,19 @@ If you want the simplest way to get started with Samba, follow these steps.
 apt install samba
 ```
 
+##### Local share user
+
+Use the same `ironicbadger` user for Samba that you use for containers. If you skipped the container permissions section, create it now with `adduser ironicbadger`. This keeps the media pool from becoming root-owned and gives Samba and your containers a common identity to use.
+
+```
+chown -R ironicbadger:ironicbadger /mnt/storage
+chmod -R u+rwX,g+rwX,o+rX /mnt/storage
+find /mnt/storage -type d -exec chmod g+s {} \;
+id ironicbadger
+```
+
+If you use a different share path, replace `/mnt/storage` above. On an existing media library, the `chown` command can take a while.
+
 * Next, create `/etc/samba/smb.conf` with the following contents. Adjust the paths and home directory for your system.
 
 ```
@@ -561,7 +615,7 @@ apt install samba
     server string = cartman
     security = user
     guest ok = yes
-    map to guest = Bad Password
+    map to guest = Bad User
     log file = /var/log/samba/%m.log
     max log size = 50
     printcap name = /dev/null
@@ -581,12 +635,16 @@ apt install samba
     browseable = yes
     read only = no
     guest ok = yes
+    force user = ironicbadger
+    force group = ironicbadger
+    create mask = 0664
+    directory mask = 0775
 ```
 
-* Samba uses a password separate from the normal login password. You can use an existing user or create a new one.
+* Guest access to `[storage]` does not require a Samba password. If you want to connect as `ironicbadger` too, Samba uses a password separate from the normal login password.
 
 ```
-smbpasswd -a user
+smbpasswd -a ironicbadger
 ```
 
 * List existing Samba users with this command.
@@ -595,31 +653,53 @@ smbpasswd -a user
 pdbedit -L -v
 ```
 
+* Check the configuration before restarting Samba.
+
+```
+testparm -s
+```
+
 * Once you are happy with the configuration, restart the Samba service.
 
 ```
 systemctl restart smbd
 ```
 
-* Verify access from a client.
-    * Linux - `sudo smbstatus`
-    * macOS - Open Finder, press Command+K, and enter `smb://serverip/storage`
-    * Windows - Open File Explorer and enter `\\serverip\share` in the address bar
+Verify access from a client.
+
+=== "Linux"
+
+    ```
+    smbclient -L serverip -N
+    smbclient //serverip/storage -N -c 'ls'
+    ```
+
+    Use `-U ironicbadger` instead of `-N` if you disabled guest access and created a named Samba user.
+
+=== "macOS"
+
+    Open Finder, press Command+K, and enter `smb://serverip/storage`.
+
+=== "Windows"
+
+    Open File Explorer and enter `\\serverip\share` in the address bar.
+
+After a client connects, you can view active Samba sessions on the server with `smbstatus`.
 
 #### Samba client
 
 The [Arch Wiki](https://wiki.archlinux.org/index.php/samba#Client) also has useful client configuration notes. This section assumes you are mounting the share on a Linux CLI based system, such as a Raspberry Pi.
 
-* First, install the Samba client for your OS.
+* First, install the command-line SMB tools. `smbclient` lists and tests shares. `cifs-utils` is needed for mounting SMB shares through `/etc/fstab`.
 
 ```
-apt install smbclient
+apt install smbclient cifs-utils
 ```
 
 * Now verify the available shares.
 
 ```
-alex@cartman:~$ smbclient -L cartman -U%
+alex@cartman:~$ smbclient -L cartman -N
 
     Sharename       Type      Comment
     ---------       ----      -------
@@ -633,13 +713,13 @@ SMB1 disabled -- no workgroup available
 
 #### Mounting Samba via fstab
 
-On a remote system, you may want to mount Samba shares permanently using `/etc/fstab`. Make sure the client has its equivalent of `smbclient` installed, then add an entry like this to `/etc/fstab`.
+On a remote system, you may want to mount Samba shares permanently using `/etc/fstab`. Make sure the client has its equivalent of `cifs-utils` installed, then add an entry like this to `/etc/fstab`.
 
 ```
-//SERVER/sharename /mnt/mountpoint cifs _netdev,username=myuser,password=mypass 0 0
+//SERVER/sharename /mnt/mountpoint cifs _netdev,username=ironicbadger,password=mypass 0 0
 ```
 
-Make sure the mountpoint exists. If it does not, create it with `mkdir /mnt/mountpoint`. Also make sure `smbpasswd` is configured as described above.
+Make sure the mountpoint exists. If it does not, create it with `mkdir /mnt/mountpoint`. For named mounts, make sure `smbpasswd` is configured as described above.
 
 ### NFS
 
