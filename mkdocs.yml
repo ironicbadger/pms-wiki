@@ -41,6 +41,7 @@ theme:
     #- navigation.tabs # section tabs along the top
     - toc.follow
     - toc.integrate # moves toc to the left
+    - content.code.copy
   # insiders only
     - navigation.path # breadcrumbs at the top of each page
     - search.suggest

@@ -68,17 +68,14 @@ The following PMS helper script downloads the latest mergerfs release from GitHu
 
 ```
 curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh
+```
 
-## Verify installation
+Verify installation with:
+
+```
 root@pxtest:~# apt list mergerfs
 Listing... Done
 mergerfs/now 2.42.0~debian-trixie amd64 [installed,local]
-```
-
-For a non-interactive run, pass `--force`. You can also automate this with a [simple systemd timer](../02-tech-stack/mergerfs.md#automating-mergerfs-updates-with-a-systemd-timer).
-
-```
-curl -fsSL https://perfectmediaserver.com/scripts/install_mergerfs.sh | sh -s -- --force
 ```
 
 Remember to repeat this process every so often to pick up newer mergerfs releases. Because this guide installs mergerfs manually instead of using the Debian repository package, updates are not automatic.
@@ -159,37 +156,79 @@ Before creating a partition on a brand new disk, make sure you have burned it in
 
 The following steps require root access. On Proxmox you may already be logged in as root. If not, use `sudo su` to switch to root.
 
-Using the example drive from the previous section, use `sgdisk` to create a new partition table and one large partition. The package name is `gdisk`, but the command we want here is `sgdisk`.
+If you are new to this, use the `sgdisk` option because it does the same thing every time and is easier to check.
 
-Replace `/dev/sdc` with the drive you have intentionally selected.
+??? example "Recommended: create the partition with sgdisk"
 
-!!! danger
-    The command below creates a new partition table and removes any existing partition entries. **USE CAUTION**
+    Using the example drive from the previous section, use `sgdisk` to create a new partition table and one large partition. The package name is `gdisk`, but the command we want here is `sgdisk`.
 
-```
-sgdisk --clear --new=1:0:0 --typecode=1:8300 --change-name=1:data /dev/sdc
-```
+    Replace `/dev/sdc` with the drive you have intentionally selected.
 
-The options above mean:
+    !!! danger
+        The command below creates a new partition table and removes any existing partition entries. **USE CAUTION**
 
-| Option | What it does |
-| --- | --- |
-| `--clear` | Creates a fresh GPT partition table |
-| `--new=1:0:0` | Creates partition 1 from the first aligned sector to the end of the disk |
-| `--typecode=1:8300` | Sets partition 1 to the Linux filesystem type |
-| `--change-name=1:data` | Names partition 1 `data` |
+    ```
+    sgdisk --clear --new=1:0:0 --typecode=1:8300 --change-name=1:data /dev/sdc
+    ```
 
-Ask the kernel to re-read the partition table.
+    The options above mean:
 
-```
-partprobe /dev/sdc
-```
+    | Option | What it does |
+    | --- | --- |
+    | `--clear` | Creates a fresh GPT partition table |
+    | `--new=1:0:0` | Creates partition 1 from the first aligned sector to the end of the disk |
+    | `--typecode=1:8300` | Sets partition 1 to the Linux filesystem type |
+    | `--change-name=1:data` | Names partition 1 `data` |
 
-You can verify the result with `sgdisk --print`.
+    Ask the kernel to re-read the partition table.
 
-```
-sgdisk --print /dev/sdc
-```
+    ```
+    partprobe /dev/sdc
+    ```
+
+    You can verify the result with `sgdisk --print`.
+
+    ```
+    sgdisk --print /dev/sdc
+    ```
+
+??? example "Alternative: create the partition interactively with gdisk"
+
+    If you prefer an interactive tool, you can use `gdisk` instead of `sgdisk`.
+
+    Replace `/dev/sdc` with the drive you have intentionally selected.
+
+    !!! danger
+        The steps below create a new partition table and remove any existing partition entries. **USE CAUTION**
+
+    Start `gdisk`.
+
+    ```
+    gdisk /dev/sdc
+    ```
+
+    Once `gdisk` has loaded, use the following sequence to create one large partition spanning the whole drive.
+
+    ```text
+    o      create a new empty GPT partition table
+    Y      confirm
+    n      create a new partition
+    1      use partition number 1
+    Enter  use the default first sector
+    Enter  use the default last sector
+    8300   use the Linux filesystem type
+    p      print the pending partition table
+    w      write the changes
+    Y      confirm the write
+    ```
+
+    Until you press `w`, `gdisk` has not written the partition table to disk.
+
+    Ask the kernel to re-read the partition table after writing the changes.
+
+    ```
+    partprobe /dev/sdc
+    ```
 
 Next, create a filesystem on the new partition.
 
