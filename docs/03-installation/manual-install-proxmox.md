@@ -437,6 +437,7 @@ SnapRAID works by taking snapshots, so we need to configure this parity calculat
 The daemon still uses the normal SnapRAID CLI underneath, but it adds scheduling, delete/update thresholds, SMART monitoring, notifications, a Web UI, and a REST API. It is the preferred option for new installs.
 
 ![snapraid-ui](../images/screenshots/snapraid-ui.png)
+<figcaption>SnapRAID has an official webUI, here it is.</figcaption>
 
 The SnapRAID Daemon expects SnapRAID CLI v14 or newer to already be installed and configured with the `/etc/snapraid.conf` file created above. The PMS install script used earlier installs both SnapRAID and the daemon together.
 
