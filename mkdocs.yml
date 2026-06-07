@@ -41,6 +41,7 @@ theme:
     #- navigation.tabs # section tabs along the top
     - toc.follow
     - toc.integrate # moves toc to the left
+    - content.code.copy
   # insiders only
     - navigation.path # breadcrumbs at the top of each page
     - search.suggest
@@ -82,7 +83,7 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.mark
   - pymdownx.tilde
-copyright: 2020 - 2025 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
+copyright: 2020 - 2026 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
 extra_css:
   - stylesheets/extra.css
 extra:
