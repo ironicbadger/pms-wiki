@@ -536,7 +536,7 @@ services:
 
 ### Container file permissions
 
-Create one local, non-root user to own the files your containers and network shares write. This guide uses `ironicbadger` for that shared identity.
+You might have already created a user during Proxmox installation, if not, create one local, non-root user to own the files your containers and network shares write. This guide uses `ironicbadger` for that shared identity.
 
 The [LinuxServer.io](https://www.linuxserver.io/) team runs one of the most popular container projects on the web. Their [fleet](https://fleet.linuxserver.io/) of containers covers most apps a media server user is likely to need. They helped popularise `PUID` and `PGID` environment variables, which make container file permissions much easier to manage.
 
