@@ -85,7 +85,7 @@ markdown_extensions:
   - pymdownx.tilde
 copyright: 2020 - 2026 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
 extra_css:
-  - stylesheets/extra.css?v=20260607
+  - stylesheets/extra.css?v=20260614
 extra:
   analytics:
     provider: plausible
@@ -113,6 +113,8 @@ nav:
     - Episode Notes:
       - Episode 1: 'jellyfinjune/e01.md'
       - Episode 2: 'jellyfinjune/e02.md'
+    - Livestreams:
+      - Apple TV clients: 'jellyfinjune/livestreams/apple-tv-clients.md'
   - 1. Overview:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
