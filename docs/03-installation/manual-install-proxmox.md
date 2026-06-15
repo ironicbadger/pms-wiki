@@ -4,6 +4,10 @@ This step-by-step guide walks you through a manual setup of a Perfect Media Serv
 
 By the end of this section, you will have a functioning system. Proxmox will be the base OS, we'll cover the basics of partitioning drives and configuring them to use mergerfs, as well as some other useful stuff like how to setup shares with samba etc.
 
+<div class="video-embed">
+  <iframe src="https://www.youtube.com/embed/5xLopzndVfU" title="Perfect Media Server Part 3 | How to build a self-hosted media server" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+
 !!! info
     For a full rationale of why Proxmox is recommended as the base OS, refer to ["Which distro should I pick?"](index.md#which-distro-should-i-pick).
 
