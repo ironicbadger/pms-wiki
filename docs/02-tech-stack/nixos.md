@@ -144,6 +144,6 @@ PMS has historically been based around the Debian / Ubuntu ecosystem for many ye
 
 [^1]: [GitHub - Nix, the purely functional package manager](https://github.com/NixOS/nix)
 [^2]: [Nixos.org - How Nix works](https://nixos.org/guides/how-nix-works.html)
-[^4]: [Nixos.org - Flakes](https://nixos.wiki/wiki/Flakes)
+[^4]: [Nixos.org - Flakes](https://wiki.nixos.org/wiki/Flakes)
 [^5]: [discourse.nixos.org - Why are Flakes still experimental?](https://discourse.nixos.org/t/why-are-flakes-still-experimental/29317/11)
 [^6]: [GitHub - nixos/rfcs #136](https://github.com/NixOS/rfcs/pull/136)
