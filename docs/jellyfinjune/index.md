@@ -16,6 +16,7 @@ The playlist embed above is the main place to watch the series. The tables below
 | --- | --- | --- |
 | 1 | [Goodbye Plex, Hello Jellyfin](e01.md) | Docker Compose, Traefik labels, and the login banner shown in the video. |
 | 2 | [Why Jellyfin Still Matters Even If It Isn't Perfect](e02.md) | A pragmatic conversation with Gardiner Bryant about Jellyfin's rough edges, Plex, and open source media servers. |
+| 3 | [Jellyfin 12 Is a Bigger Update Than It Looks. Should you upgrade?](e03.md) | Jellyfin 12.0 RC1 changes, upgrade prep, server and web interface updates, and why most main servers should wait. |
 
 ## Livestreams
 
