@@ -111,9 +111,9 @@ nav:
     - 'jellyfinjune/index.md'
     - Overview and Playlist: 'https://perfectmediaserver.com/jellyfinjune/'
     - Episode Notes:
-      - Episode 1: 'jellyfinjune/e01.md'
-      - Episode 2: 'jellyfinjune/e02.md'
-      - Episode 3: 'jellyfinjune/e03.md'
+      - E1. Plex to Jellyfin: 'jellyfinjune/e01.md'
+      - E2. Jellyfin Matters: 'jellyfinjune/e02.md'
+      - E3. Jellyfin 12 RC1: 'jellyfinjune/e03.md'
     - Livestreams:
       - Apple TV clients: 'jellyfinjune/livestreams/apple-tv-clients.md'
   - 1. Overview:
