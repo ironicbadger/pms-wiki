@@ -14,16 +14,17 @@ My YouTube channel - [KTZ Systems](https://www.youtube.com/@ktzsystems) - is sti
 
 [Jellyfin](https://jellyfin.org/) is the media solution that puts you in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
 
-<p align="center">
-<img alt="jellyfin-banner" src="../images/top10/jellyfin.png">
-</p>
+![jellyfin-banner](../images/top10/jellyfin.png)
+
+!!! info "JellyfinJune"
+    For a deeper look at Jellyfin in 2026, see the [JellyfinJune](../jellyfinjune/index.md) companion notes, episodes and client guides.
 
 Jellyfin serves no business model, and is not subject to the gradual enshitification that we've seen with Plex over the years. With no cloud connectivity required for authentication, no random streaming services and snappy performance - a fully featured, local first media server experience awaits. Did I mention that it's completely open source too?
 
-It really is worth a look if you haven't tried it in a while. Client updates are coming thick and fast and the server side of things has improved hugely as well. Jellyfin is the future of media servers, no doubt. Check out episode 87 of the Self-Hosted podcast where we discuss our Jellyfin January challenge and invite the audience to take the challenge with us!
+It really is worth a look if you haven't tried it in a while. Client updates are coming thick and fast and the server side of things has improved hugely as well. Jellyfin is the future of media servers, no doubt. The KTZ Systems JellyfinJune series digs into the switch from Plex, Jellyfin 12 and the growing client ecosystem.
 
 <p align="center">
-<iframe src="https://player.fireside.fm/v2/dUlrHQih+B62wpyjN?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
+<iframe width="740" height="415" src="https://www.youtube.com/embed/videoseries?list=PLmaj94hXs3GFbjVg5UkdnpmO_HxCIMOXM&index=1" title="JellyfinJune playlist on YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </p>
 
 [Plex](https://plex.tv) is the reason you're even reading this page. It's what got me interested in Linux in the first place and is somewhat of a gateway drug for self-hosting and can be run as a [container](https://hub.docker.com/r/plexinc/pms-docker/). However, it is not open source and the general posture of Plex as a company gives me pause. They continue to add features and streaming services that [no-one asked for](https://www.reddit.com/r/PleX/comments/e62nbt/how_do_you_disable_the_new_plex_movies_feature/) - [or wants](https://old.reddit.com/r/selfhosted/comments/zw4k2h/what_has_plex_done_lately_that_you_didnt_like/).
@@ -56,15 +57,26 @@ Immich does local machine learning on your images to do things like face detecti
 
 Immich recently [joined FUTO](https://immich.app/blog/2024/immich-core-team-goes-fulltime/). I hope to see that this gives the project the runway it needs to really become the defacto open-source solution for photo management. I wrote about the options in 2021 for [Ars Technica](https://arstechnica.com/gadgets/2021/06/the-big-alternatives-to-google-photos-showdown/) and since then Immich has come out of nowhere.
 
-## 4. Nextcloud
+## 4. Paperless-ngx
+
+![paperless-ngx-logo](../images/logos/paperless-ngx-logo.svg){: align=right width=160 }
+
+[Paperless-ngx](https://docs.paperless-ngx.com/) is a document management system that turns piles of PDFs, scans, receipts, manuals and letters into a searchable archive.
+
+This is one of those apps that feels boring until it quietly becomes essential. Feed it documents from a scanner, email, mobile app or watched folder and it will OCR, tag, classify and store them. The payoff is being able to find that one warranty, tax letter or medical bill in seconds instead of digging through a drawer.
+
+**Similar or related projects:**
+
+* [Mayan EDMS](https://www.mayan-edms.com/)
+* [Docspell](https://docspell.org/)
+
+## 5. Nextcloud
+
+![nextcloud-logo](../images/logos/nextcloud-logo.svg){: align=right width=170 }
 
 [Nextcloud](https://nextcloud.com/) - The self-hosted productivity platform that keeps you in control.
 
 Surely this pick needs no introduction. Think of Nextcloud somewhat like your own personal Dropbox replacement. Although, that is doing it a disservice because Nextcloud supports _many_ more features than Dropbox. Nextcloud provide a [demo](https://try.nextcloud.com) if you'd like to try before you "buy" (Nextcloud is free).
-
-<p align="center">
-<img alt="nextcloud-banner" src="../images/top10/nextcloud-banner.png">
-</p>
 
 It can be a bit unreliable and unwieldy to administer at times - especially around update cycles. But once you get a working configuration it's a really handy tool.
 
@@ -79,102 +91,88 @@ It can be a bit unreliable and unwieldy to administer at times - especially arou
 * [Seafile](https://www.seafile.com/en/home/)
 * [Filestash](https://github.com/mickael-kerjean/filestash)
 
-## 5. Traefik
+## 6. Vaultwarden
 
-![traefik-logo](../images/top10/traefik-logo.webp){: align=right width=200 }
+<img class="top10-logo-light" alt="vaultwarden-logo" src="/images/logos/vaultwarden-logo.svg" align="right" width="220">
+<img class="top10-logo-dark" alt="vaultwarden-logo" src="/images/logos/vaultwarden-logo-white.svg" align="right" width="220">
 
-Yes, I know. A reverse proxy isn't the most terribly exciting inclusion in this list but it is one of the most important. [Traefik](https://traefik.io/traefik/) (pronounced "traffic") is my go-to reverse proxy. It can be configured alongside the containers it is proxying in the same [docker-compose](../02-tech-stack/docker-compose.md) yaml file.
+[Vaultwarden](https://github.com/dani-garcia/vaultwarden) is an unofficial Bitwarden-compatible server written in Rust. It provides the Bitwarden client experience with a much lighter server footprint, which makes it a popular choice for small self-hosted installs.
 
-Traefik does what any good reverse proxy should in 2025, it integrates with certbot and Let's Encrypt for automated TLS certificate generation for your service. Setup can be a bit complex at first but there's a complete [Traefik 101 guide](../04-day-two/remote-access/traefik101.md) over in the "remote access" section.
-
-The elegance of configuring the ingress rules for a service in the same place as you define the configuration for the service itself makes up for any of the shortcomings due to initial setup complexity in my opinion.
+I would not put a password vault on the internet casually, but with HTTPS, backups, MFA and sensible access controls, Vaultwarden is one of the highest utility services you can run. Password management is exactly the kind of thing worth owning carefully.
 
 **Similar or related projects:**
 
-* [caddy](https://caddyserver.com/docs/quick-starts/reverse-proxy)
+* [Bitwarden](https://bitwarden.com/)
+* [KeePassXC](https://keepassxc.org/)
+
+## 7. Caddy
+
+<img class="top10-logo-light" alt="caddy-logo" src="/images/logos/caddy-logo.svg" align="right" width="220">
+<img class="top10-logo-dark" alt="caddy-logo" src="/images/logos/caddy-logo-dark.svg" align="right" width="220">
+
+Yes, I know. A reverse proxy isn't the most terribly exciting inclusion in this list but it is one of the most important. [Caddy](https://caddyserver.com/) is my current default recommendation for most self-hosters because it makes HTTPS boring in the best possible way.
+
+Caddy's automatic HTTPS and simple Caddyfile syntax mean a reverse proxy can be configured in a few readable lines rather than a pile of labels or nested config. For a single home server, VPS, or small self-hosted stack, that simplicity is hard to beat.
+
+Traefik is still powerful, especially when you want Docker provider integration and dynamic service discovery, but Caddy is the easier recommendation for people who want to expose a few services securely without turning the proxy into its own project.
+
+**Similar or related projects:**
+
+* [Traefik](https://traefik.io/traefik/)
 * [nginx](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/)
 * [PMS reverse proxy comparison](../04-day-two/remote-access/index.md)
 
-## 6. Gitea
+## 8. Forgejo
 
-![gitea-logo](../images/top10/gitea-logo.png){: align=left width=240 }
+![forgejo-logo](../images/logos/forgejo-logo.svg){: align=right width=150 }
 
-A self-hosted, lightweight, yet highly feature rich git server, [Gitea](https://gitea.io) is much more powerful than it might seem at first. Sure, it has all the obivous trappings you'd expect from a code hosting solution such as multi-user support, organisations and a similar merge/fork model to a certain well-known online hub for Git activity.
+A self-hosted, lightweight, and community-governed software forge, [Forgejo](https://forgejo.org/) is my current pick for hosting git repositories at home. It started as a soft fork of Gitea and keeps the same general shape: repos, users, organisations, issues, pull requests, packages and CI workflows without needing the resources of a full GitLab install.
 
-As of [v1.19](https://blog.gitea.com/release-of-1.19.0/#-gitea-actions-21937) in March 2023 Gitea added Actions, a built-in CI system like GitHub Actions. With Gitea Actions, you can reuse your familiar workflows and Github Actions in your self-hosted Gitea instance.
+One of my favourite features of this kind of forge is repository mirroring. You can automatically mirror remote git repositories locally when commits land upstream. This makes it easy to back up your own code, and other people's code, to your server. Because it's git the entire repo history is maintained and if for some reason a popular project became the target of a BS [DMCA claim](https://github.blog/2020-11-16-standing-up-for-developers-youtube-dl-is-back/), you're not up the creek without a paddle - so to speak.
 
-![gitea](../images/top10/gitea-ui.png)
-
-One of my favourite features of Gitea is that it will automatically mirror remote git repositories locally when a commit is pushed. This makes it really easy to back up your code, and other people's code to your server - just in case. Because it's git the entire repo history is maintained and if for some reason a popular project became the target of a BS [DMCA claim](https://github.blog/2020-11-16-standing-up-for-developers-youtube-dl-is-back/), you're not up the creek without a paddle - so to speak.
-
-Gitea doesn't have the kind of built-in CI features like the largest self-hosted and open source player in this space, Gitlab. But what it lacks in features it makes up for in small footprint and simplicity. These can instead be handled by external applications such as [drone](https://www.drone.io/). I wrote about deploying a site based on mkdocs (like this one) with drone CI [on my blog](https://blog.ktz.me/deploying-mkdocs-using-droneci/).
+Forgejo still occupies the sweet spot that made Gitea attractive in the first place: small footprint, familiar GitHub-style workflows, and enough features for home labs, small teams and community projects.
 
 **Similar or related projects:**
 
-* [Forgejo](https://forgejo.org/faq/) - a recent fork of Gitea
+* [Gitea](https://gitea.com/)
 * [Gitlab](https://about.gitlab.com/)
 * [Gogs](https://gogs.io/)
 
-## 7. Smokeping
+## 9. Beszel
 
-[Smokeping](https://oss.oetiker.ch/smokeping/) keeps track of your network latency. It pings things - both remote and local - and records how much latency there is between you and the target.
+![beszel-logo](../images/logos/beszel-logo.svg){: align=right width=120 }
 
-It isn't a terribly glamourous application to look at, but it enables you to see historical trends of network performance at a glance extremely easily for up to a year at a time.
+[Beszel](https://beszel.dev/) is a lightweight server monitoring platform with a clean web UI, small agents, container stats, alerts and historical metrics.
 
-<p align="center">
-<figure markdown>
-<iframe width="740" height="415" src="https://www.youtube.com/embed/IDl_oVe_WwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<figcaption>In this self-hosted app spotlight we look at SmokePing, a network latency monitoring tool.</figcaption>
-</figure>
-</p>
-
-## 8. Librespeed
-
-A speed test tool that can be run on your LAN or hosted in the cloud. This is available as a Self-Hosted [container](https://hub.docker.com/r/linuxserver/librespeed) as well as at [librespeed.org](https://librespeed.org/).
-
-<p align="center">
-<figure markdown>
-<iframe width="740" height="415" src="https://www.youtube.com/embed/zyBT_nOnsKA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<figcaption>In this self-hosted app spotlight we look at Librespeed, a self-hosted speed test tool.</figcaption>
-</figure>
-</p>
-
-This is really useful when you want to test the speed between your current system and wherever you are running this container. Want to test the speed between you and your cloud based VPS? Or check that your wifi is performing well?
-
-By running this container on your LAN you're able to remove the internet from the equation and get a better idea about what's going on your LAN.
-
-## 9. Lychee
-
-[Lychee](https://lychee.electerious.com/) proclaims to be "self-hosted photo-management done right". It does certainly do a very good job at presenting images with a clean interface and makes dividing them up into albums relatively straightforward.
-
-![lychee](../images/top10/lychee.png)
-
-I have a demo instance running at [gallery.ktz.cloud](https://gallery.ktz.cloud) if you'd like to take it for a quick test drive yourself. Lychee isn't really a management app, but it's a pretty good all-round option with no frills to share photos with friends and family.
-
-<figure>
-    <iframe src="https://player.fireside.fm/v2/dUlrHQih+OssEQUFF?theme=dark" width="740" height="200" frameborder="0" scrolling="no"></iframe>
-    <figcaption><i>Lychee discussion begins at 7 minutes</i></figcaption>
-</figure>
-
-There are a _lot_ of options in this space - just take a look at [awesome-selfhosted](https://github.com/awesome-selfhosted/awesome-selfhosted#photo-and-video-galleries).
+It is not trying to replace a full Prometheus and Grafana stack for complex environments. That's part of the appeal. For a home server or a handful of boxes, Beszel gives you the kind of at-a-glance health view people actually want: CPU, memory, disk, network, Docker containers and simple alerts without building a monitoring platform before you can monitor anything.
 
 **Similar or related projects:**
 
-* [Photoprism](https://github.com/photoprism/photoprism)
-* [Librephotos](https://github.com/LibrePhotos/librephotos)
-* [Piwigo](http://piwigo.org/)
-* [Immich](https://immich.app/)
+* [Grafana](https://grafana.com/)
+* [Uptime Kuma](https://uptime.kuma.pet/)
+* [Netdata](https://www.netdata.cloud/)
 
-## 10. Grafana
+## 10. Karakeep
 
-[Grafana](https://grafana.com/) itself is graphing tool to display data stored elsewhere. It excels at displaying time-series data like the kind gathered by monitoring tools like [Telegraf](https://blog.linuxserver.io/2017/11/25/how-to-monitor-your-server-using-grafana-influxdb-and-telegraf/) and [Prometheus](https://prometheus.io/). It takes a bit of work to get a dashboard configured just the way you like it but is well worth the effort - after all, who doesn't like a pretty graph?
+<img class="top10-logo-light" alt="karakeep-logo" src="/images/logos/karakeep-logo.png" align="right" width="220">
+<img class="top10-logo-dark" alt="karakeep-logo" src="/images/logos/karakeep-logo-white.png" align="right" width="220">
 
-![grafana](../images/top10/grafana.png)
+[Karakeep](https://karakeep.app/) is a self-hosted bookmark and read-it-later app for links, notes and images. It saves pages, indexes their contents and gives you a private place to keep the kind of web clippings that otherwise end up scattered across browser profiles, chat windows and half-forgotten notes.
 
-I've written previously about [monitoring your UPS](https://blog.linuxserver.io/2018/11/15/monitoring-a-ups-with-grafana-on-linux/) with Grafana to better keep track of the energy costs of your server setup.
+This category has been around forever, but Karakeep feels modern enough to make the list now. Full-text search, browser extensions, automatic tagging options and a clean UI make it a much better fit for the "save this for later" workflow than a folder of browser bookmarks.
 
-## 11. Surprise me...
+**Similar or related projects:**
 
-`<insert Spinal Tap reference>`
+* [Linkwarden](https://linkwarden.app/)
+* [Wallabag](https://wallabag.org/)
+
+## Honorable mentions
+
+* [Grafana](https://grafana.com/) remains the heavyweight pick for dashboards and time-series visualization, especially with Prometheus, Loki or InfluxDB behind it.
+* [Smokeping](https://oss.oetiker.ch/smokeping/) is still excellent for long-term latency graphs, but Beszel is a better general-purpose monitoring pick for this list in 2026.
+* [Librespeed](https://librespeed.org/) is still useful when you want a self-hosted speed test on your LAN or VPS.
+* [Lychee](https://lychee.electerious.com/) is still a solid simple gallery app, but Immich is the stronger default recommendation for self-hosted photo management.
+
+## Surprise me...
 
 What are your favourites? Let me know [@ironicbadger](https://techhub.social/@ironicbadger) on Mastodon.

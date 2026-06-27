@@ -635,7 +635,7 @@ You can check the owner of a specific file or directory with `ls -la`.
 
 ## Network File Sharing
 
-A NAS or file server is not very useful unless other machines can access the data. In this section, remote access means other computers on your LAN, such as Raspberry Pis, media players, and Kodi clients. For access over the internet, see the [remote access](../04-day-two/remote-access/index.md) section and the [Top 10 Self-Hosted apps list](../04-day-two/top10apps.md#nextcloud).
+A NAS or file server is not very useful unless other machines can access the data. In this section, remote access means other computers on your LAN, such as Raspberry Pis, media players, and Kodi clients. For access over the internet, see the [remote access](../04-day-two/remote-access/index.md) section and the [Top 10 Self-Hosted apps list](../04-day-two/top10apps.md#5-nextcloud).
 
 There are two main ways to share files over the network. Samba works well across Windows, macOS, and Linux. NFS is a good fit for Linux clients.
 

@@ -40,7 +40,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Critical data     | [ZFS](../02-tech-stack/zfs.md)   | Increasingly moving away from critical data on anything other than ZFS |
     | Drive pooling     | [mergerfs](../02-tech-stack/mergerfs.md)                      | Presents many disks under one mountpoint              |
     | Container runtime | [docker](../02-tech-stack/docker.md)                          | Is there another way to run software?               |
-    | VM(s)             | [Home Assistant](../04-day-two/top10apps.md#3-home-assistant) | Hard to express how much utility Home Assitant provides   |
+    | VM(s)             | [Home Assistant](../04-day-two/top10apps.md#2-home-assistant) | Hard to express how much utility Home Assitant provides   |
 
 === "August 2023"
 
@@ -69,7 +69,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Parity            | [SnapRAID](../02-tech-stack/snapraid.md)                      | Increases uptime and fights bit-rot style corruption |
     | Drive pooling     | [mergerfs](../02-tech-stack/mergerfs.md)                      | Present many disks under one mountpoint              |
     | Container runtime | [docker](../02-tech-stack/docker.md)                          | Is there another way to run software?               |
-    | VM(s)             | [Home Assistant](../04-day-two/top10apps.md#3-home-assistant) | Because turning lights on and off at the switch is so 200-late   |
+    | VM(s)             | [Home Assistant](../04-day-two/top10apps.md#2-home-assistant) | Because turning lights on and off at the switch is so 200-late   |
 
     ### Containers
 
@@ -77,7 +77,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | ------------------------------------------------ | ------------------------------------------ | ---------------------------------------------------------------- |
     | [Traefik](https://traefik.io/)                   | Reverse proxy                              | [Traefik 101 Guide](../04-day-two/remote-access/traefik101.md)              |
     | [Jellyfin](https://jellyfin.org/)                | Media server - replacing Plex              | [Top 10 Apps - Jellyfin](../04-day-two/top10apps.md#1-jellyfin)             |
-    | [Nextcloud](https://nextcloud.com/)              | An awesome self-hosted dropbox alternative | [Top 10 Apps - Nextcloud](../04-day-two/top10apps.md#2-nextcloud)        |
+    | [Nextcloud](https://nextcloud.com/)              | An awesome self-hosted dropbox alternative | [Top 10 Apps - Nextcloud](../04-day-two/top10apps.md#5-nextcloud)        |
     | [Immich](https://github.com/immich-app/immich)   | Self-hosted photo and video backup         | - tbd -   |
     | [FreshRSS](https://freshrss.org/index.html)      | Self-hosted RSS and Atom feed aggregator   | - tbd -   |
     | [Wallabag](https://wallabag.org/)                | Save and classify articles. Read them later.   | - tbd -   |
@@ -107,7 +107,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Parity            | [SnapRAID](../02-tech-stack/snapraid.md)                      | Increases uptime and fights bit-rot style corruption |
     | Drive pooling     | [mergerfs](../02-tech-stack/mergerfs.md)                      | Present many disks under one mountpoint              |
     | Container runtime | [docker](../02-tech-stack/docker.md)                          | Is there another way to run software?               |
-    | VM                | [Home Assistant](../04-day-two/top10apps.md#3-home-assistant) | Because turning lights on and off at the switch is so 200-late       |
+    | VM                | [Home Assistant](../04-day-two/top10apps.md#2-home-assistant) | Because turning lights on and off at the switch is so 200-late       |
 
     ### Containers
 
@@ -118,9 +118,9 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | [Flame](https://github.com/pawelmalak/flame)     | Dashboard                                  |                                                                  |
     | [Plex](https://www.plex.tv/)                     | Media server                               | [Top 10 Apps - Plex](../04-day-two/top10apps.md)             |
     | [Tautulli](https://github.com/Tautulli/Tautulli) | Plex analytics                             |                                                                  |
-    | [Nextcloud](https://nextcloud.com/)              | An awesome self-hosted dropbox alternative | [Top 10 Apps - Nextcloud](../04-day-two/top10apps.md#2-nextcloud)        |
-    | [Smokeping](https://oss.oetiker.ch/smokeping/)   | Latency measurement and graphing tool      | [Top 10 Apps - Smokeping](../04-day-two/top10apps.md#6-smokeping)   |
-    | [Librespeed](https://librespeed.org/)            | Self-hosted speedtest tool                 | [Top 10 Apps - Librespeed](../04-day-two/top10apps.md#8-librespeed) |
+    | [Nextcloud](https://nextcloud.com/)              | An awesome self-hosted dropbox alternative | [Top 10 Apps - Nextcloud](../04-day-two/top10apps.md#5-nextcloud)        |
+    | [Smokeping](https://oss.oetiker.ch/smokeping/)   | Latency measurement and graphing tool      | [Top 10 Apps - Honorable mentions](../04-day-two/top10apps.md#honorable-mentions)   |
+    | [Librespeed](https://librespeed.org/)            | Self-hosted speedtest tool                 | [Top 10 Apps - Honorable mentions](../04-day-two/top10apps.md#honorable-mentions) |
 
     See my infra repo for a [full container list](https://github.com/ironicbadger/infra/blob/master/group_vars/morpheus.yaml#L275).
 
@@ -149,7 +149,7 @@ Here's a high level overview snapshot of my PMS implementation as it stands righ
     | Parity            | [SnapRAID](../02-tech-stack/snapraid.md)                      | Increases uptime and fights bit-rot style corruption |
     | Drive pooling     | [mergerfs](../02-tech-stack/mergerfs.md)                      | Present many disks under one mountpoint              |
     | Container runtime | [docker](../02-tech-stack/docker.md)                          | Is there another way to run software?               |
-    | VM                | [Home Assistant](../04-day-two/top10apps.md#3-home-assistant) | Because turning lights on and off at the switch is so 200-late       |
+    | VM                | [Home Assistant](../04-day-two/top10apps.md#2-home-assistant) | Because turning lights on and off at the switch is so 200-late       |
 
 ## Network Diagram
 

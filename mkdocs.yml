@@ -49,7 +49,8 @@ plugins:
   - blog:
       categories: false
       archive: false
-  #- git-revision-date
+  - git-revision-date-localized:
+      fallback_to_build_date: true
   - material-plausible
   - search
   - minify:
@@ -85,7 +86,7 @@ markdown_extensions:
   - pymdownx.tilde
 copyright: 2020 - 2026 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
 extra_css:
-  - stylesheets/extra.css?v=20260627
+  - stylesheets/extra.css?v=20260627-2
 extra:
   analytics:
     provider: plausible

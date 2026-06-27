@@ -71,6 +71,19 @@ th, td {
     margin-top: 0;
 }
 
+/* Theme-aware app logos */
+.md-typeset .top10-logo-dark {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .top10-logo-light {
+    display: none;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .top10-logo-dark {
+    display: block;
+}
+
 /* JellyfinJune client buyer guides */
 .md-typeset .client-heading {
     align-items: center;
