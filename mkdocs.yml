@@ -85,7 +85,7 @@ markdown_extensions:
   - pymdownx.tilde
 copyright: 2020 - 2026 &copy; Alex Kretzschmar - This work is licensed under CC BY-NC-SA 4.0
 extra_css:
-  - stylesheets/extra.css?v=20260614
+  - stylesheets/extra.css?v=20260627
 extra:
   analytics:
     provider: plausible
@@ -110,6 +110,8 @@ nav:
   - JellyfinJune:
     - 'jellyfinjune/index.md'
     - Overview and Playlist: 'https://perfectmediaserver.com/jellyfinjune/'
+    - Clients:
+      - tvOS buyer's guide: 'jellyfinjune/clients/tvos.md'
     - Episode Notes:
       - E1. Plex to Jellyfin: 'jellyfinjune/e01.md'
       - E2. Jellyfin Matters: 'jellyfinjune/e02.md'

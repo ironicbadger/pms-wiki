@@ -70,3 +70,28 @@ th, td {
 .md-typeset p:has(> img) + figcaption {
     margin-top: 0;
 }
+
+/* JellyfinJune client buyer guides */
+.md-typeset .client-heading {
+    align-items: center;
+    display: flex;
+    gap: 0.65rem;
+    margin-top: 2.2rem;
+}
+
+.md-typeset .client-logo {
+    border-radius: 0.55rem;
+    flex: 0 0 auto;
+    height: 2.4rem;
+    width: 2.4rem;
+}
+
+.md-typeset .client-meta {
+    color: var(--md-default-fg-color--light);
+    font-size: 0.75rem;
+    margin-top: -0.35rem;
+}
+
+.md-typeset .client-source-list {
+    font-size: 0.78rem;
+}
