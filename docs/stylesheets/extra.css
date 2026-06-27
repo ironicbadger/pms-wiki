@@ -211,6 +211,33 @@ th, td {
     color: #00796b;
 }
 
+.md-typeset .support-mark {
+    align-items: center;
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 0.64rem;
+    font-weight: 800;
+    height: 1.12rem;
+    justify-content: center;
+    line-height: 1;
+    min-width: 1.12rem;
+    vertical-align: middle;
+}
+
+.md-typeset .support-yes {
+    background: rgba(0, 137, 123, 0.14);
+    color: #00897b;
+}
+
+.md-typeset .support-unclear {
+    background: rgba(245, 124, 0, 0.15);
+    color: #ef6c00;
+}
+
+.md-typeset .support-no {
+    color: var(--md-default-fg-color--light);
+}
+
 .md-typeset table.client-capability-grid th:first-child,
 .md-typeset table.client-capability-grid td:first-child,
 .md-typeset #capability-grid + .md-typeset__scrollwrap table th:first-child,
@@ -223,6 +250,27 @@ th, td {
 
 .md-typeset #capability-grid + .md-typeset__scrollwrap table {
     min-width: 58rem;
+}
+
+.md-typeset #video-and-hdr-signals + .md-typeset__scrollwrap table,
+.md-typeset #audio-and-subtitle-signals + .md-typeset__scrollwrap table {
+    min-width: 58rem;
+}
+
+.md-typeset #video-and-hdr-signals + .md-typeset__scrollwrap table th:not(:first-child),
+.md-typeset #video-and-hdr-signals + .md-typeset__scrollwrap table td:not(:first-child),
+.md-typeset #audio-and-subtitle-signals + .md-typeset__scrollwrap table th:not(:first-child),
+.md-typeset #audio-and-subtitle-signals + .md-typeset__scrollwrap table td:not(:first-child) {
+    text-align: center;
+    white-space: nowrap;
+}
+
+.md-typeset #video-and-hdr-signals + .md-typeset__scrollwrap table th:first-child,
+.md-typeset #video-and-hdr-signals + .md-typeset__scrollwrap table td:first-child,
+.md-typeset #audio-and-subtitle-signals + .md-typeset__scrollwrap table th:first-child,
+.md-typeset #audio-and-subtitle-signals + .md-typeset__scrollwrap table td:first-child {
+    min-width: 10rem;
+    white-space: nowrap;
 }
 
 .md-typeset table.client-capability-grid td:first-child,
@@ -302,4 +350,18 @@ th, td {
     background: rgba(0, 184, 148, 0.18);
     border-color: rgba(156, 255, 223, 0.34);
     color: #9cffdf;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .support-yes {
+    background: rgba(77, 208, 193, 0.18);
+    color: #80fff0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .support-unclear {
+    background: rgba(255, 152, 0, 0.2);
+    color: #ffc078;
+}
+
+[data-md-color-scheme="slate"] .md-typeset .support-no {
+    color: rgba(255, 255, 255, 0.5);
 }
