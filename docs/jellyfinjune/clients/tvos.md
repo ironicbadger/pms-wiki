@@ -43,6 +43,9 @@ These tables break out codec-adjacent features that matter for real Apple TV pla
 
 ### Video and HDR support
 
+!!! info
+    This website is open-source. If you spot a mistake below, open an issue or PR (via repo link in top right) and we'll fix it.
+
 | Client | HEVC | AV1 | VP9 | MKV | HDR10+ | HLG | Dolby Vision | DV profiles |
 | --- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | --- |
 | [Swiftfin](#swiftfin) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | Caveated |
