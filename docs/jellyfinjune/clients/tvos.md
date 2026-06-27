@@ -40,6 +40,7 @@ This guide covers the tvOS clients reviewed in [JellyfinJune Episode 4](https://
 ## Advanced playback matrix
 
 These tables break out codec-adjacent features that matter for real Apple TV playback. They are based on public app/project claims plus explicit developer confirmations where noted, not hands-on verification.
+
 + <span class="support-mark support-yes">✓</span> means support listed publicly
 + <span class="support-mark support-unclear">?</span> means a broad player claim or caveated support
 + <span class="support-mark support-no">–</span> means not listed publicly or is not verified
