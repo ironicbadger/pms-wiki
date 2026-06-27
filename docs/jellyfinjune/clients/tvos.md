@@ -22,7 +22,7 @@ This guide covers the tvOS clients reviewed in [JellyfinJune Episode 4](https://
 | --- | --- | --- | --- | --- | --- |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/swiftfin.jpg" alt=""> [Swiftfin](#swiftfin) | Official baseline | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Live TV, recordings | Free |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/infuse.jpg" alt=""> [Infuse](#infuse) | Maximum format compatibility | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Plex, Emby, Jellyfin, NAS, cloud, Trakt | Free + Pro |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/neptune.png" alt=""> [Neptune](#neptune) | Polished Jellyfin UI | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-broad">Broad claim</span> | Seerr, AI search, profiles | Free base, paid planned |
+| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/neptune.png" alt=""> [Neptune](#neptune) | Polished Jellyfin UI | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Seerr, AI search, profiles | Free base, paid planned |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/zuno.jpg" alt=""> [Zuno](#zuno) | Plex/Jellyfin beta | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-unknown">Unknown</span> | Seerr and Trakt seen in episode | TestFlight beta |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/jellysee.jpg" alt=""> [JellySee](#jellysee) | Seerr plus music | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Seerr, music, PiP, trickplay | Paid app |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/jellytv.jpg" alt=""> [JellyTV](#jellytv) | Request/admin extras | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-broad">Broad claim</span> | Seerr, Live TV, downloads | Free + Plus |
@@ -35,51 +35,51 @@ This guide covers the tvOS clients reviewed in [JellyfinJune Episode 4](https://
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/stingray.jpg" alt=""> [Stingray](#stingray) | Native track controls | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-unknown">Unknown</span> | Quality/audio/subtitle controls | Free |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/oopsplayer.jpg" alt=""> [OopsPlayer](#oopsplayer) | Many source types | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-partial">Partial codecs</span> | SMB, WebDAV, cloud, IPTV | Free + Pro |
 | <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/liquidfin.jpg" alt=""> [LiquidFin](#liquidfin) | Music, books, admin extras | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-unknown">Unknown</span> | Music, audiobooks, Live TV, Jellyseerr | Free + premium |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/nostalgex.jpg" alt=""> [Nostalgex](#nostalgex) | Channel-surfing your library | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-unknown">Unknown</span> | EPG-style channels | Free |
+| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/nostalgex.jpg" alt=""> [Nostalgex](#nostalgex) | Channel-surfing your library | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | EPG-style channels | Free |
 
 ## Advanced playback matrix
 
-These tables break out codec-adjacent features that matter for real Apple TV playback. They are based on public app/project claims, not hands-on verification. <span class="support-mark support-yes">✓</span> means listed, <span class="support-mark support-unclear">?</span> means a broad player claim or caveated support, and <span class="support-mark support-no">–</span> means not publicly listed in the reviewed source. Dolby Vision entries mean public Dolby Vision/profile claims, not proof of Dolby licensing.
+These tables break out codec-adjacent features that matter for real Apple TV playback. They are based on public app/project claims plus explicit developer confirmations where noted, not hands-on verification. <span class="support-mark support-yes">✓</span> means listed, <span class="support-mark support-unclear">?</span> means a broad player claim or caveated support, and <span class="support-mark support-no">–</span> means not listed in the reviewed source. Dolby Vision entries mean Dolby Vision/profile claims, not proof of Dolby licensing.
 
-### Video and HDR signals
+### Video and HDR support
 
 | Client | HEVC | AV1 | VP9 | MKV | HDR10+ | HLG | Dolby Vision | DV profiles |
 | --- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | --- |
 | [Swiftfin](#swiftfin) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | Caveated |
 | [Infuse](#infuse) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
-| [Neptune](#neptune) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [Neptune](#neptune) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | P5, P7, P8 |
 | [Zuno](#zuno) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 | [JellySee](#jellysee) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | P5, P7, P8.1, P8.4 |
-| [JellyTV](#jellytv) | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [JellyTV](#jellytv) | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
 | [Moonfin](#moonfin) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | P7 |
-| [SenPlayer](#senplayer) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [SenPlayer](#senplayer) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
 | [Plezy](#plezy) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 | [Reefy](#reefy) | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
-| [TechDad Player](#techdad-player) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [TechDad Player](#techdad-player) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 | [Streamyfin](#streamyfin) | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> |
 | [Stingray](#stingray) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
-| [OopsPlayer](#oopsplayer) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
+| [OopsPlayer](#oopsplayer) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | P5 |
 | [LiquidFin](#liquidfin) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
-| [Nostalgex](#nostalgex) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [Nostalgex](#nostalgex) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 
-### Audio and subtitle signals
+### Audio and subtitle support
 
 | Client | AC3 | EAC3 | Atmos | TrueHD | DTS | DTS-HD | Passthrough | ASS/SSA | PGS |
 | --- | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
 | [Swiftfin](#swiftfin) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
 | [Infuse](#infuse) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
-| [Neptune](#neptune) | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [Neptune](#neptune) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
 | [Zuno](#zuno) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 | [JellySee](#jellysee) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> |
-| [JellyTV](#jellytv) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [JellyTV](#jellytv) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 | [Moonfin](#moonfin) | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
-| [SenPlayer](#senplayer) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [SenPlayer](#senplayer) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
 | [Plezy](#plezy) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
 | [Reefy](#reefy) | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
-| [TechDad Player](#techdad-player) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [TechDad Player](#techdad-player) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> |
 | [Streamyfin](#streamyfin) | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-unclear">?</span> | <span class="support-mark support-unclear">?</span> |
 | [Stingray](#stingray) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
-| [OopsPlayer](#oopsplayer) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
+| [OopsPlayer](#oopsplayer) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-yes">✓</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 | [LiquidFin](#liquidfin) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 | [Nostalgex](#nostalgex) | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> | <span class="support-mark support-no">–</span> |
 
@@ -102,7 +102,7 @@ These tables break out codec-adjacent features that matter for real Apple TV pla
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     Swiftfin documents two players: Swiftfin/VLCKit and Native/AVPlayer. The VLCKit path lists containers such as AVI, FLV, M4V, MKV, MOV, MP4, MPEG-TS, TS, 3G2, 3GP, and WebM; video codecs including AV1 with hardware caveats, H.264, H.265/HEVC, MPEG-1/2/4, VC-1, VP8, VP9, ProRes, and WMV variants; audio including AAC, AC3, ALAC, DTS, EAC3, FLAC, MP3, Opus, PCM, Vorbis, WMA, and others; subtitles including ASS, DVBSub, DVDSub, PGS, SSA, SRT, TTML, VTT, and others; HDR support including HDR10, HLG, and several Dolby Vision/HDR10+ caveated paths.
 
 Sources: [App Store](https://apps.apple.com/us/app/swiftfin/id1604098728), [Swiftfin playback docs](https://github.com/jellyfin/Swiftfin/blob/main/Documentation/players.md)
@@ -125,7 +125,7 @@ Sources: [App Store](https://apps.apple.com/us/app/swiftfin/id1604098728), [Swif
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     App Store lists video/container support for 33GP, AVI, AV1, ASF, BDMV, DIVX, DVDMEDIA, DVR-MS, FLV, H.264/AVC, H.265/HEVC, ISO/IMG, M4V, MKV, MOV, MP4, MPEG, MTS/M2TS, MXF, OGM, OGV, RMVB, TS, VC1, VIDEO_TS, VOB, VP9, WEBM, WMV, and WTV. Audio includes AAC, AC3/E-AC3, Dolby TrueHD, DTS, DTS-HD MA, FLAC, MP3, OGG, PCM, and WMA. Subtitles include DVB, DVDSUB, MicroDVD, MPL2, PGS, SMI, SSA/ASS, SRT, SUB, SUP, Timed Text, TXT, VobSub, VTT, and XSUB. HDR claims include HDR, HDR10+, and Dolby Vision.
 
 Sources: [App Store](https://apps.apple.com/us/app/infuse/id1136220934)
@@ -144,14 +144,14 @@ Sources: [App Store](https://apps.apple.com/us/app/infuse/id1136220934)
 **Good fit:** You want a polished Jellyfin UI with AI search, Seerr, and profiles.
 </div>
 <div markdown>
-**Watch outs:** Public codec detail is broad, not exact; the tested beta still had rough edges.
+**Watch outs:** The exact codec list came via developer confirmation rather than a public compatibility table; the tested beta still had rough edges.
 </div>
 </div>
 
-!!! info "Published codec details"
-    Neptune's project page describes its Trident Player as a custom playback engine with advanced HDR and lossless audio support. We did not find an exact public codec/container table.
+??? info "Published codec details"
+    Developer confirmation received 2026-06-27 lists containers MKV, WebM, MP4/M4V, MOV, MPEG-TS, AVI, and FLV. Video codecs listed are H.264/AVC, H.265/HEVC, VP9, AV1, MPEG-4, MPEG-2, VP8, and ProRes. HDR formats listed are HDR10, HDR10+, HLG, and Dolby Vision profiles 5, 7, and 8. Audio codecs listed are AAC, AC3, E-AC3/DD+, DTS, DTS-HD MA, TrueHD, FLAC, Opus, MP3, and PCM. Subtitle formats listed are text subtitles including SRT, VTT, ASS, SSA, TTML, SUB, and SMI, plus image subtitles including PGS, DVD Sub, and DVB Sub.
 
-Sources: [Project page](https://neptuneplayer.com/), [Newsroom](https://news.neptuneplayer.com/), [TestFlight](https://testflight.apple.com/join/HcdyHvES)
+Sources: [Project page](https://neptuneplayer.com/), [Newsroom](https://news.neptuneplayer.com/), [TestFlight](https://testflight.apple.com/join/HcdyHvES), developer confirmation 2026-06-27
 {: .client-source-list }
 
 <h2 id="zuno" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/zuno.jpg" alt=""> Zuno</h2>
@@ -171,7 +171,7 @@ Sources: [Project page](https://neptuneplayer.com/), [Newsroom](https://news.nep
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     No public codec list found. The public TestFlight page only confirms iOS/tvOS beta availability.
 
 Sources: [TestFlight](https://testflight.apple.com/join/D9QKAMMF)
@@ -194,7 +194,7 @@ Sources: [TestFlight](https://testflight.apple.com/join/D9QKAMMF)
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     Containers: MP4, M4V, and MOV direct play; MKV direct stream/remux; AVI limited. Video: MPEG4 limited, H.264, H.265, VP9. Dynamic range: SDR, HLG, HDR10+, Dolby Vision profiles 5, 7, 8.1, and 8.4. Audio up to 7.1: AAC, AC3, EAC3 + Atmos, ALAC, FLAC, Opus, Vorbis. Subtitles: PGS, WebVTT, SRT, ASS; DVD/VobSub via transcode.
 
 Sources: [App Store](https://apps.apple.com/us/app/jellysee/id6748783768)
@@ -217,8 +217,8 @@ Sources: [App Store](https://apps.apple.com/us/app/jellysee/id6748783768)
 </div>
 </div>
 
-!!! info "Published codec details"
-    App Store claims high-quality video support, live streaming, and transcoding. I did not find a public codec/container table.
+??? info "Published codec details"
+    App Store claims high-quality video support, live streaming, and transcoding. Current release notes list JellyTV Remux, an optional experimental engine for compatible MKV files using a local Apple-friendly HLS/fMP4 stream. Older release notes mention HDR/Dolby Vision playback routing fixes and TrueHD/DTS audio routing to the JellyTV Engine. I did not find a full public codec/container table.
 
 Sources: [App Store](https://apps.apple.com/us/app/jellytv/id6752357290)
 {: .client-source-list }
@@ -240,7 +240,7 @@ Sources: [App Store](https://apps.apple.com/us/app/jellytv/id6752357290)
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     Moonfin-Core lists video support for H.264, HEVC/H.265, VP8, VP9, AV1, MPEG-2, MPEG-4, and VC-1; audio support for AAC, MP3, FLAC, Opus, Vorbis, AC3, EAC3, DTS, TrueHD, PCM, and ALAC; containers MP4, MKV, WebM, AVI, MOV, TS/M2TS, and WMV/ASF; subtitles SRT, ASS/SSA, VTT/WebVTT, TTML, and SUB, with bitmap subtitle support on desktop. The project docs say Apple TV uses MPVKit and supports Dolby Vision Profile 7 direct play.
 
 Sources: [App Store](https://apps.apple.com/us/app/moonfin/id6761283970), [Moonfin-Core](https://github.com/Moonfin-Client/Moonfin-Core)
@@ -263,8 +263,8 @@ Sources: [App Store](https://apps.apple.com/us/app/moonfin/id6761283970), [Moonf
 </div>
 </div>
 
-!!! info "Published codec details"
-    Video/container support includes MP4, MKV, VOB, BIK, DAT, TS, MTS, M2T, M2TS, MPG, MPEG, AVI, RMVB, FLV, SWF, WEBM, 3GP, MOV, ISO, and more. Audio includes MP3, FLAC, AAC, WMA, APE, M4A, WAV, DFF, and DSF. Image support includes JPEG, PNG, GIF, WEBP, BMP, and HEIC. The listing also claims 4K/8K, 120fps, HDR10, HDR10+, and HLG.
+??? info "Published codec details"
+    Video/container support includes MP4, MKV, VOB, BIK, DAT, TS, MTS, M2T, M2TS, MPG, MPEG, AVI, RMVB, FLV, SWF, WEBM, 3GP, MOV, ISO, and more. Audio includes MP3, FLAC, AAC, WMA, APE, M4A, WAV, DFF, and DSF. Image support includes JPEG, PNG, GIF, WEBP, BMP, and HEIC. The listing also claims 4K/8K, 120fps, HDR10, HDR10+, HLG, native Dolby Vision, and ASS subtitle handling.
 
 Sources: [App Store](https://apps.apple.com/us/app/senplayer-media-player/id6443975850)
 {: .client-source-list }
@@ -286,7 +286,7 @@ Sources: [App Store](https://apps.apple.com/us/app/senplayer-media-player/id6443
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     App Store claims wide codec support including HEVC, AV1, VP9, HDR playback, and advanced ASS/SSA subtitle rendering. It does not publish full container/audio/HDR tables.
 
 Sources: [App Store](https://apps.apple.com/us/app/plezy-for-plex-jellyfin/id6754315964)
@@ -309,7 +309,7 @@ Sources: [App Store](https://apps.apple.com/us/app/plezy-for-plex-jellyfin/id675
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     App Store says Reefy uses a VLC-based player with broad codec support and surround passthrough. The GitHub README says it is a Swiftfin fork using VLC for direct playback. I did not find a full codec table.
 
 Sources: [App Store](https://apps.apple.com/us/app/reefy-media-player/id6757623550), [GitHub](https://github.com/jmhunter83/reefy)
@@ -332,8 +332,8 @@ Sources: [App Store](https://apps.apple.com/us/app/reefy-media-player/id67576235
 </div>
 </div>
 
-!!! info "Published codec details"
-    App Store claims H.264, HEVC, AV1, MKV/MP4 containers, HDR, embedded tracks, embedded/external subtitles, and local MP4/MOV playback.
+??? info "Published codec details"
+    App Store claims H.264, HEVC, AV1, MKV/MP4 containers, HDR, embedded tracks, embedded/external subtitles, and local MP4/MOV playback. Current App Store release notes also mention VP9 and ASS/SRT handling.
 
 Sources: [App Store](https://apps.apple.com/us/app/techdad-player/id6756520836)
 {: .client-source-list }
@@ -355,7 +355,7 @@ Sources: [App Store](https://apps.apple.com/us/app/techdad-player/id6756520836)
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     The project README says Streamyfin uses MPV via MPVKit and describes MPV as having wide format support. I did not find a tvOS-specific codec table.
 
 Sources: [App Store](https://apps.apple.com/us/app/streamyfin/id6593660679), [GitHub](https://github.com/streamyfin/streamyfin)
@@ -378,10 +378,10 @@ Sources: [App Store](https://apps.apple.com/us/app/streamyfin/id6593660679), [Gi
 </div>
 </div>
 
-!!! info "Published codec details"
-    App Store says the app can adjust quality, video tracks, audio tracks, and subtitles. I did not find codec/container support.
+??? info "Published codec details"
+    App Store says the app can adjust quality, video tracks, audio tracks, and subtitles. The public GitHub release notes mention codec/player-stat display and player/HDR fixes, but I did not find named codec/container support.
 
-Sources: [App Store](https://apps.apple.com/us/app/stingray-streaming/id6756280505)
+Sources: [App Store](https://apps.apple.com/us/app/stingray-streaming/id6756280505), [GitHub releases](https://github.com/benjaminRoberts01375/Stingray/releases)
 {: .client-source-list }
 
 <h2 id="oopsplayer" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/oopsplayer.jpg" alt=""> OopsPlayer</h2>
@@ -401,8 +401,8 @@ Sources: [App Store](https://apps.apple.com/us/app/stingray-streaming/id67562805
 </div>
 </div>
 
-!!! info "Published codec details"
-    App Store claims 4K, HDR, Dolby Vision, Blu-ray ISO/BDMV, MKV, MP4, MOV, AVI, FLV, WMV, and PiP.
+??? info "Published codec details"
+    App Store claims 4K, HDR, Dolby Vision, Blu-ray ISO/BDMV, MKV, MP4, MOV, AVI, FLV, WMV, and PiP. Current App Store release notes also mention FFmpeg 8.0, Dolby Vision Profile 5 color accuracy, TrueHD support, and smoother subtitle switching.
 
 Sources: [App Store](https://apps.apple.com/us/app/oopsplayer-media-player/id6758075545)
 {: .client-source-list }
@@ -424,7 +424,7 @@ Sources: [App Store](https://apps.apple.com/us/app/oopsplayer-media-player/id675
 </div>
 </div>
 
-!!! info "Published codec details"
+??? info "Published codec details"
     App Store describes native playback but does not publish codec/container support.
 
 Sources: [App Store](https://apps.apple.com/us/app/liquidfin/id6755673532)
@@ -447,8 +447,8 @@ Sources: [App Store](https://apps.apple.com/us/app/liquidfin/id6755673532)
 </div>
 </div>
 
-!!! info "Published codec details"
-    App Store does not publish codec support. Nostalgex focuses on EPG-style channel packages, mini guide overlay, collection channels, family-safe channels, and retro mode.
+??? info "Published codec details"
+    App Store release notes mention fixed video playback for HEVC and MKV libraries on Plex and Jellyfin. Nostalgex focuses on EPG-style channel packages, mini guide overlay, collection channels, family-safe channels, and retro mode rather than publishing a full codec table.
 
 Sources: [App Store](https://apps.apple.com/us/app/nostalgex/id6762563534)
 {: .client-source-list }
