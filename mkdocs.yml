@@ -118,8 +118,8 @@ nav:
       - E2. Jellyfin Matters: 'jellyfinjune/e02.md'
       - E3. Jellyfin 12 RC1: 'jellyfinjune/e03.md'
       - E4. tvOS Clients: 'jellyfinjune/e04.md'
-    - Livestreams:
-      - Apple TV clients: 'jellyfinjune/livestreams/apple-tv-clients.md'
+      - Livestreams:
+        - Apple TV clients: 'jellyfinjune/livestreams/apple-tv-clients.md'
   - 1. Overview:
     - 'index.md'
     - Getting Started: '01-overview/index.md'
