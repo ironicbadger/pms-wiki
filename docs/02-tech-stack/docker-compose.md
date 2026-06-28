@@ -40,4 +40,4 @@ In short, make sure everything lines up vertically and you'll be OK. Use an edit
 To create the container defined above copy and paste the above into a file placed at `~/compose.yaml`, run `docker compose up -d` and watch. When the output has finished updating, your Librespeed container will be accessible at `serverip:8008`. Try it out!
 
 [^1]: [Docker - docker-compose](https://docs.docker.com/compose/)
-[^2]: [YAML.org - Spec](https://yaml.org/spec/)
+[^2]: [YAML.org - Spec](https://spec.yaml.io/main/spec/1.2.2/)

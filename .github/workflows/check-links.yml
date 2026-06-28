@@ -36,6 +36,8 @@ jobs:
             --exclude "^(?i:javascript)"
             --exclude "github.com/.*/edit/"
             --exclude "github.com/.*/blob/"
+            --exclude "^https://docs\\.paperless-ngx\\.com/?$"
+            --exclude "^https://notes\\.jellyfin\\.org/v12\\.0_release_notes$"
             --exclude "localhost"
             --exclude "127.0.0.1"
             --exclude "example.com"

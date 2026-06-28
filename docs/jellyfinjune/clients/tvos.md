@@ -20,22 +20,22 @@ This guide covers the tvOS clients reviewed in [JellyfinJune Episode 4](https://
 
 | Client | Best for | Type | Codec source | Notable features | Price |
 | --- | --- | --- | --- | --- | --- |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/swiftfin.jpg" alt=""> [Swiftfin](#swiftfin) | Official baseline | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Live TV, recordings | Free |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/infuse.jpg" alt=""> [Infuse](#infuse) | Maximum format compatibility | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Plex, Emby, Jellyfin, NAS, cloud, Trakt | Free + Pro |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/neptune.png" alt=""> [Neptune](#neptune) | Polished Jellyfin UI | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Seerr, AI search, profiles | Free base, paid planned |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/zuno.jpg" alt=""> [Zuno](#zuno) | Plex/Jellyfin beta | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Seerr and Trakt seen in episode | TestFlight beta |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/jellysee.jpg" alt=""> [JellySee](#jellysee) | Seerr plus music | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Seerr, music, PiP, trickplay | Paid app |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/jellytv.jpg" alt=""> [JellyTV](#jellytv) | Request/admin extras | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-broad">Broad claim</span> | Seerr, Live TV, downloads | Free + Plus |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/moonfin.jpg" alt=""> [Moonfin](#moonfin) | Full-featured Jellyfin/Emby | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Music, books, Live TV/DVR, Seerr | Free |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/senplayer.jpg" alt=""> [SenPlayer](#senplayer) | Local files and IPTV | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-exact">Exact codecs</span> | NAS, cloud, IPTV, Trakt | Free + Pro |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/plezy.jpg" alt=""> [Plezy](#plezy) | Paid no-subscription playback | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Downloads, profiles, discovery | Paid app |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/reefy.jpg" alt=""> [Reefy](#reefy) | tvOS-only Swiftfin fork | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-broad">Broad claim</span> | VLC player, Live TV planned | Paid app |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/techdad.jpg" alt=""> [TechDad Player](#techdad-player) | Lightweight playback | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Emby, Jellyfin, local files | Free, subscription observed |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/streamyfin.jpg" alt=""> [Streamyfin](#streamyfin) | Open-source Jellyfin video | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-broad">Broad claim</span> | Downloads, plugin settings, Seerr | Free |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/stingray.jpg" alt=""> [Stingray](#stingray) | Native track controls | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Quality/audio/subtitle controls | Free |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/oopsplayer.jpg" alt=""> [OopsPlayer](#oopsplayer) | Many source types | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-partial">Partial codecs</span> | SMB, WebDAV, cloud, IPTV | Free + Pro |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/liquidfin.jpg" alt=""> [LiquidFin](#liquidfin) | Music, books, admin extras | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Music, audiobooks, Live TV, Jellyseerr | Free + premium |
-| <img class="mini-client-logo" src="../../../images/jellyfinjune/clients/tvos/nostalgex.jpg" alt=""> [Nostalgex](#nostalgex) | Channel-surfing your library | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | EPG-style channels | Free |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/swiftfin.jpg" alt=""> [Swiftfin](#swiftfin) | Official baseline | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Live TV, recordings | Free |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/infuse.jpg" alt=""> [Infuse](#infuse) | Maximum format compatibility | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Plex, Emby, Jellyfin, NAS, cloud, Trakt | Free + Pro |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/neptune.png" alt=""> [Neptune](#neptune) | Polished Jellyfin UI | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Seerr, AI search, profiles | Free base, paid planned |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/zuno.jpg" alt=""> [Zuno](#zuno) | Plex/Jellyfin beta | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Seerr and Trakt seen in episode | TestFlight beta |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/jellysee.jpg" alt=""> [JellySee](#jellysee) | Seerr plus music | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Seerr, music, PiP, trickplay | Paid app |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/jellytv.jpg" alt=""> [JellyTV](#jellytv) | Request/admin extras | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-broad">Broad claim</span> | Seerr, Live TV, downloads | Free + Plus |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/moonfin.jpg" alt=""> [Moonfin](#moonfin) | Full-featured Jellyfin/Emby | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-exact">Exact codecs</span> | Music, books, Live TV/DVR, Seerr | Free |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/senplayer.jpg" alt=""> [SenPlayer](#senplayer) | Local files and IPTV | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-exact">Exact codecs</span> | NAS, cloud, IPTV, Trakt | Free + Pro |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/plezy.jpg" alt=""> [Plezy](#plezy) | Paid no-subscription playback | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Downloads, profiles, discovery | Paid app |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/reefy.jpg" alt=""> [Reefy](#reefy) | tvOS-only Swiftfin fork | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-broad">Broad claim</span> | VLC player, Live TV planned | Paid app |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/techdad.jpg" alt=""> [TechDad Player](#techdad-player) | Lightweight playback | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Emby, Jellyfin, local files | Free, subscription observed |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/streamyfin.jpg" alt=""> [Streamyfin](#streamyfin) | Open-source Jellyfin video | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-broad">Broad claim</span> | Downloads, plugin settings, Seerr | Free |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/stingray.jpg" alt=""> [Stingray](#stingray) | Native track controls | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Quality/audio/subtitle controls | Free |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/oopsplayer.jpg" alt=""> [OopsPlayer](#oopsplayer) | Many source types | <span class="guide-pill type-aggregator">Aggregator</span> | <span class="guide-pill codec-partial">Partial codecs</span> | SMB, WebDAV, cloud, IPTV | Free + Pro |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/liquidfin.jpg" alt=""> [LiquidFin](#liquidfin) | Music, books, admin extras | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | Music, audiobooks, Live TV, Jellyseerr | Free + premium |
+| <img class="mini-client-logo" src="/images/jellyfinjune/clients/tvos/nostalgex.jpg" alt=""> [Nostalgex](#nostalgex) | Channel-surfing your library | <span class="guide-pill type-native">Native</span> | <span class="guide-pill codec-partial">Partial codecs</span> | EPG-style channels | Free |
 
 ## Advanced playback matrix
 
@@ -93,7 +93,7 @@ These tables break out codec-adjacent features that matter for real Apple TV pla
 
 ## Client notes
 
-<h2 id="swiftfin" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/swiftfin.jpg" alt=""> Swiftfin</h2>
+<h2 id="swiftfin" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/swiftfin.jpg" alt=""> Swiftfin</h2>
 <p class="client-summary">Official Jellyfin companion app and the baseline native tvOS client. Best treated as the reference Jellyfin-first player, with Live TV and recording support but fewer library surfaces than some newer competitors.</p>
 
 <div class="client-facts" markdown>
@@ -116,7 +116,7 @@ These tables break out codec-adjacent features that matter for real Apple TV pla
 Sources: [App Store](https://apps.apple.com/us/app/swiftfin/id1604098728), [Swiftfin playback docs](https://github.com/jellyfin/Swiftfin/blob/main/Documentation/players.md)
 {: .client-source-list }
 
-<h2 id="infuse" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/infuse.jpg" alt=""> Infuse</h2>
+<h2 id="infuse" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/infuse.jpg" alt=""> Infuse</h2>
 <p class="client-summary">Polished multi-source player focused on broad direct-play compatibility across NAS, cloud, Plex, Emby, Jellyfin, and local libraries. It is an aggregator rather than a Jellyfin-native workflow, so Jellyfin-specific extras are secondary.</p>
 
 <div class="client-facts" markdown>
@@ -139,7 +139,7 @@ Sources: [App Store](https://apps.apple.com/us/app/swiftfin/id1604098728), [Swif
 Sources: [App Store](https://apps.apple.com/us/app/infuse/id1136220934)
 {: .client-source-list }
 
-<h2 id="neptune" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/neptune.png" alt=""> Neptune</h2>
+<h2 id="neptune" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/neptune.png" alt=""> Neptune</h2>
 <p class="client-summary">Jellyfin-first beta client with a premium-feeling interface, Seerr, profiles, AI search, and the Trident playback engine. Current public status is still beta, with a freemium model announced for licensed premium features.</p>
 
 <div class="client-facts" markdown>
@@ -162,7 +162,7 @@ Sources: [App Store](https://apps.apple.com/us/app/infuse/id1136220934)
 Sources: [Project page](https://neptuneplayer.com/), [Newsroom](https://news.neptuneplayer.com/), [TestFlight](https://testflight.apple.com/join/HcdyHvES), developer confirmation 2026-06-27
 {: .client-source-list }
 
-<h2 id="zuno" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/zuno.jpg" alt=""> Zuno</h2>
+<h2 id="zuno" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/zuno.jpg" alt=""> Zuno</h2>
 <p class="client-summary">Early Plex/Jellyfin TestFlight client with a custom player engine, Seerr, Trakt, and strong direct-play claims. Treat it as an in-flight beta because the available codec data is still broad marketing/TestFlight copy rather than a full compatibility table.</p>
 
 <div class="client-facts" markdown>
@@ -185,7 +185,7 @@ Sources: [Project page](https://neptuneplayer.com/), [Newsroom](https://news.nep
 Sources: [TestFlight](https://testflight.apple.com/join/D9QKAMMF), [developer Reddit post](https://www.reddit.com/r/appletv/comments/1t7bgh8/introducing_zuno_a_premium_native_client_for_plex/)
 {: .client-source-list }
 
-<h2 id="jellysee" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/jellysee.jpg" alt=""> JellySee</h2>
+<h2 id="jellysee" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/jellysee.jpg" alt=""> JellySee</h2>
 <p class="client-summary">Paid Jellyfin plus Seerr app with unusually explicit codec documentation plus music, PiP, trickplay, and request features. The feature list is strong on paper; episode notes still need a retest because playback struggled.</p>
 
 <div class="client-facts" markdown>
@@ -208,7 +208,7 @@ Sources: [TestFlight](https://testflight.apple.com/join/D9QKAMMF), [developer Re
 Sources: [App Store](https://apps.apple.com/us/app/jellysee/id6748783768)
 {: .client-source-list }
 
-<h2 id="jellytv" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/jellytv.jpg" alt=""> JellyTV</h2>
+<h2 id="jellytv" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/jellytv.jpg" alt=""> JellyTV</h2>
 <p class="client-summary">Free native Jellyfin app with a modern Apple-style UI, Seerr request management, downloads, and optional JellyTV+ extras. Core playback is free; admin, customization, and integration features sit behind JellyTV+ or separate unlocks.</p>
 
 <div class="client-facts" markdown>
@@ -231,7 +231,7 @@ Sources: [App Store](https://apps.apple.com/us/app/jellysee/id6748783768)
 Sources: [App Store](https://apps.apple.com/us/app/jellytv/id6752357290)
 {: .client-source-list }
 
-<h2 id="moonfin" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/moonfin.jpg" alt=""> Moonfin</h2>
+<h2 id="moonfin" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/moonfin.jpg" alt=""> Moonfin</h2>
 <p class="client-summary">Fast-moving cross-platform Jellyfin/Emby client with broad library coverage: video, music, books, Live TV/DVR, Seerr, and admin-style tooling. It currently reads like one of the most feature-complete Jellyfin-native candidates, with some UI roughness in the episode.</p>
 
 <div class="client-facts" markdown>
@@ -254,7 +254,7 @@ Sources: [App Store](https://apps.apple.com/us/app/jellytv/id6752357290)
 Sources: [App Store](https://apps.apple.com/us/app/moonfin/id6761283970), [Moonfin-Core](https://github.com/Moonfin-Client/Moonfin-Core)
 {: .client-source-list }
 
-<h2 id="senplayer" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/senplayer.jpg" alt=""> SenPlayer</h2>
+<h2 id="senplayer" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/senplayer.jpg" alt=""> SenPlayer</h2>
 <p class="client-summary">All-in-one media player for local files, NAS/cloud sources, IPTV, Plex/Emby/Jellyfin, and high-end playback formats. Jellyfin is one source among many, and some advanced playback/server features are Pro-gated.</p>
 
 <div class="client-facts" markdown>
@@ -277,7 +277,7 @@ Sources: [App Store](https://apps.apple.com/us/app/moonfin/id6761283970), [Moonf
 Sources: [App Store](https://apps.apple.com/us/app/senplayer-media-player/id6443975850)
 {: .client-source-list }
 
-<h2 id="plezy" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/plezy.jpg" alt=""> Plezy</h2>
+<h2 id="plezy" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/plezy.jpg" alt=""> Plezy</h2>
 <p class="client-summary">Paid Plex/Jellyfin client positioned around a one-time purchase rather than subscriptions. Feature set centers on playback, downloads, profiles, and discovery with a less complete public codec table.</p>
 
 <div class="client-facts" markdown>
@@ -300,7 +300,7 @@ Sources: [App Store](https://apps.apple.com/us/app/senplayer-media-player/id6443
 Sources: [App Store](https://apps.apple.com/us/app/plezy-for-plex-jellyfin/id6754315964)
 {: .client-source-list }
 
-<h2 id="reefy" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/reefy.jpg" alt=""> Reefy</h2>
+<h2 id="reefy" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/reefy.jpg" alt=""> Reefy</h2>
 <p class="client-summary">tvOS-only Swiftfin fork with VLC-based direct playback and a paid App Store model. It is narrowly focused on Apple TV Jellyfin use, with Live TV still listed as a future goal.</p>
 
 <div class="client-facts" markdown>
@@ -323,7 +323,7 @@ Sources: [App Store](https://apps.apple.com/us/app/plezy-for-plex-jellyfin/id675
 Sources: [App Store](https://apps.apple.com/us/app/reefy-media-player/id6757623550), [GitHub](https://github.com/jmhunter83/reefy)
 {: .client-source-list }
 
-<h2 id="techdad-player" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/techdad.jpg" alt=""> TechDad Player</h2>
+<h2 id="techdad-player" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/techdad.jpg" alt=""> TechDad Player</h2>
 <p class="client-summary">Lightweight Jellyfin/Emby/local-file player with a small feature surface and App Store-listed paid unlock tiers. The episode found weak playback and scaling issues, so it needs a careful retest before recommending.</p>
 
 <div class="client-facts" markdown>
@@ -346,7 +346,7 @@ Sources: [App Store](https://apps.apple.com/us/app/reefy-media-player/id67576235
 Sources: [App Store](https://apps.apple.com/us/app/techdad-player/id6756520836)
 {: .client-source-list }
 
-<h2 id="streamyfin" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/streamyfin.jpg" alt=""> Streamyfin</h2>
+<h2 id="streamyfin" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/streamyfin.jpg" alt=""> Streamyfin</h2>
 <p class="client-summary">Open-source Jellyfin video client built around the Streamyfin ecosystem and companion plugin settings. It is attractive if you value open development, but public docs still say music is not supported.</p>
 
 <div class="client-facts" markdown>
@@ -369,7 +369,7 @@ Sources: [App Store](https://apps.apple.com/us/app/techdad-player/id6756520836)
 Sources: [App Store](https://apps.apple.com/us/app/streamyfin/id6593660679), [GitHub](https://github.com/streamyfin/streamyfin)
 {: .client-source-list }
 
-<h2 id="stingray" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/stingray.jpg" alt=""> Stingray</h2>
+<h2 id="stingray" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/stingray.jpg" alt=""> Stingray</h2>
 <p class="client-summary">Native Jellyfin client that advertises quality, audio, subtitle, and track controls. Public source code gives a partial Jellyfin streaming profile, so its codec picture is clearer than the App Store copy alone.</p>
 
 <div class="client-facts" markdown>
@@ -392,7 +392,7 @@ Sources: [App Store](https://apps.apple.com/us/app/streamyfin/id6593660679), [Gi
 Sources: [App Store](https://apps.apple.com/us/app/stingray-streaming/id6756280505), [GitHub source](https://github.com/benjaminRoberts01375/Stingray/blob/main/Stingray/APIs/APINetwork.swift), [GitHub releases](https://github.com/benjaminRoberts01375/Stingray/releases)
 {: .client-source-list }
 
-<h2 id="oopsplayer" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/oopsplayer.jpg" alt=""> OopsPlayer</h2>
+<h2 id="oopsplayer" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/oopsplayer.jpg" alt=""> OopsPlayer</h2>
 <p class="client-summary">Multi-source player covering local files, SMB/WebDAV, cloud, IPTV, Plex, Emby, and Jellyfin. It publishes useful format claims, but Jellyfin felt secondary in the episode and Pro gates several source/playback limits.</p>
 
 <div class="client-facts" markdown>
@@ -415,7 +415,7 @@ Sources: [App Store](https://apps.apple.com/us/app/stingray-streaming/id67562805
 Sources: [App Store](https://apps.apple.com/us/app/oopsplayer-media-player/id6758075545)
 {: .client-source-list }
 
-<h2 id="liquidfin" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/liquidfin.jpg" alt=""> LiquidFin</h2>
+<h2 id="liquidfin" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/liquidfin.jpg" alt=""> LiquidFin</h2>
 <p class="client-summary">Native Jellyfin app with broad library coverage across video, music, audiobooks, books, Live TV, Jellyseerr, and admin tools. The developer describes an AVPlayer-first path with FFmpeg remuxing for MKV and optional VLCKit, but no full codec table is published.</p>
 
 <div class="client-facts" markdown>
@@ -438,7 +438,7 @@ Sources: [App Store](https://apps.apple.com/us/app/oopsplayer-media-player/id675
 Sources: [App Store](https://apps.apple.com/us/app/liquidfin/id6755673532), [developer Reddit thread](https://www.reddit.com/r/selfhosted/comments/1s3bpu4/built_a_native_jellyfin_client_for_apple/)
 {: .client-source-list }
 
-<h2 id="nostalgex" class="client-heading"><img class="client-logo" src="../../../images/jellyfinjune/clients/tvos/nostalgex.jpg" alt=""> Nostalgex</h2>
+<h2 id="nostalgex" class="client-heading"><img class="client-logo" src="/images/jellyfinjune/clients/tvos/nostalgex.jpg" alt=""> Nostalgex</h2>
 <p class="client-summary">Bonus Plex/Jellyfin channel-surfing app rather than a standard client replacement. It turns library items into EPG-style channels, so pricing/version matter but codec support is not the core purchase question.</p>
 
 <div class="client-facts" markdown>
