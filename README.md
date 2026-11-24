@@ -28,7 +28,7 @@ just serve
 or
 
 ```bash
-pip3 -U -r requirements.txt
+pip3 install -U -r requirements.txt
 
 mkdocs serve
 ```
